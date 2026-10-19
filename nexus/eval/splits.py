@@ -12,12 +12,13 @@ carry a ``support`` stream of :class:`StreamEvent`; the harness evaluates
 
 from __future__ import annotations
 
+import dataclasses
 import hashlib
 import random
 from dataclasses import dataclass, field
-from typing import Any, Callable, Iterable
+from typing import Any, Callable, Iterable, Sequence
 
-from nexus.world.config import ADJECTIVE_ATTRIBUTES, WorldConfig
+from nexus.world.config import ADJECTIVE_ATTRIBUTES, GrammarConfig, WorldConfig, randomize_grammar
 from nexus.world.example import Correction, Example, StreamEvent
 from nexus.world.generator import AdjectivePolicy, GenerationError, WorldGenerator
 from nexus.world.grammar import Meaning, NPSpec
@@ -88,6 +89,7 @@ class Dataset:
     tests: dict[str, Split]
     stage_boundaries: dict[str, int]  # construction -> train index where its stage ends
     max_train_length: int
+    grammar: GrammarConfig | None = None
     meta: dict[str, Any] = field(default_factory=dict)
 
 
@@ -229,7 +231,7 @@ class SplitBuilder:
         n = self.config.splits.n_train
         while len(examples) < n:
             m = self.gen.sample_meaning_where(rng, self._train_ok, self.known_kinds, self.train_policy)
-            for ex in self.gen.examples_for_meaning(rng, m, next_id, ("train",)):
+            for ex in self.gen.examples_for_meaning(rng, m, next_id, ("train",), allowed_kinds=self.known_kinds):
                 if ex.item_key() not in keys and len(examples) < n:
                     keys.add(ex.item_key())
                     examples.append(ex)
@@ -278,7 +280,9 @@ class SplitBuilder:
             m = self.gen.sample_meaning_where(rng, accept, kinds, policy, constructions)
             if self.gen.grammar.realize(m) in forbidden_tokens:
                 continue
-            ex = self.gen.single_example(rng, m, next_id(), want=len(items) % 2 == 0, tags=(label, *tagger(m)))
+            ex = self.gen.single_example(
+                rng, m, next_id(), want=len(items) % 2 == 0, tags=(label, *tagger(m)), allowed_kinds=kinds
+            )
             if ex.item_key() in forbidden_keys or ex.item_key() in keys:
                 continue
             keys.add(ex.item_key())
@@ -315,9 +319,10 @@ class SplitBuilder:
         next_id = make_counter("novel_support")
         single_np = sorted(c for c, s in self.config.grammar.constructions.items() if not s.has_relation)
         support_examples: list[Example] = []
+        all_kinds = list(self.config.ontology.kinds)
         for _ in range(self.config.splits.n_novel_word_support_pairs):
             m = Meaning(rng.choice(single_np), (("np", NPSpec(self.plan.novel_kind, ())),), None)
-            support_examples += self.gen.contrast_pair(rng, m, next_id, ("novel_word_support",))
+            support_examples += self.gen.contrast_pair(rng, m, next_id, ("novel_word_support",), allowed_kinds=all_kinds)
         support = tuple(StreamEvent("observe", observation=e.observation(), ground_truth=e) for e in support_examples)
         support_tokens = {e.tokens for e in support_examples}
         max_adj = self.config.generation.max_adjectives_train
@@ -329,7 +334,7 @@ class SplitBuilder:
 
         items = self._balanced_items(
             "test_novel_word_in_known_frame", self.config.splits.n_test_novel_word_queries, accept,
-            list(self.config.ontology.kinds), self.train_policy, train_keys,
+            all_kinds, self.train_policy, train_keys,
             train_tokens | support_tokens,
         )
         return Split(
@@ -393,12 +398,23 @@ class SplitBuilder:
         self, rng: random.Random, m: Meaning, target: str, confusion: str, want: bool,
         example_id: str, tags: tuple[str, ...],
     ) -> Example | None:
-        """An example with truth ``want`` whose truth flips under the confusion reading."""
-        alt_lf = self.gen.grammar.to_lf(substitute_adjective(m, target, confusion))
-        scene = self.gen.true_scene(rng, m) if want else self.gen.true_scene(rng, substitute_adjective(m, target, confusion))
-        ex = self.gen.make_example(example_id, m, scene, None, tags)
-        if ex.truth == want and evaluate(alt_lf, scene, self.gen.symmetric) != want:
-            return ex
+        """An example with truth ``want`` whose truth flips under the confusion reading.
+
+        Both True and False scenes are generated with balanced feature distributions
+        to ensure shortcut baselines cannot distinguish them.
+        """
+        alt_m = substitute_adjective(m, target, confusion)
+        alt_lf = self.gen.grammar.to_lf(alt_m)
+        base_m = m if want else alt_m
+        other_m = alt_m if want else m
+
+        for _ in range(30):
+            scene = self.gen.true_scene(rng, base_m, self.known_kinds)
+            if evaluate(self.gen.grammar.to_lf(other_m), scene, self.gen.symmetric):
+                continue
+            ex = self.gen.make_example(example_id, m, scene, None, tags)
+            if ex.truth == want and evaluate(alt_lf, scene, self.gen.symmetric) != want:
+                return ex
         return None
 
     def _filler_examples(self, rng: random.Random) -> list[Example]:
@@ -406,7 +422,7 @@ class SplitBuilder:
         out: list[Example] = []
         while len(out) < self.config.splits.n_contradiction_filler:
             m = self.gen.sample_meaning_where(rng, self._train_ok, self.known_kinds, self.train_policy)
-            out.append(self.gen.single_example(rng, m, next_id(), rng.random() < 0.5, ("contradiction_filler",)))
+            out.append(self.gen.single_example(rng, m, next_id(), rng.random() < 0.5, ("contradiction_filler",), allowed_kinds=self.known_kinds))
         return out
 
     def _probes(self, target: str, confusion: str, train_keys: set, forbidden_tokens: set) -> list[Example]:
@@ -454,9 +470,14 @@ class SplitBuilder:
             tests=tests,
             stage_boundaries=boundaries,
             max_train_length=max_len,
+            grammar=self.config.grammar,
         )
 
 
-def build_dataset(config: WorldConfig, seed: int) -> Dataset:
+def build_dataset(config: WorldConfig, seed: int, world_mode: str = "randomized") -> Dataset:
     """Build all splits for ``seed``. Deterministic."""
+    if world_mode == "randomized":
+        grammar_rng = random.Random(derive_seed(seed, "grammar"))
+        rand_grammar = randomize_grammar(config.grammar, config.ontology, grammar_rng)
+        config = dataclasses.replace(config, grammar=rand_grammar)
     return SplitBuilder(config, seed).build()

@@ -99,12 +99,16 @@ class WorldGenerator:
     # scenes
     # ------------------------------------------------------------------
 
-    def true_scene(self, rng: random.Random, meaning: Meaning) -> Scene:
+    def true_scene(self, rng: random.Random, meaning: Meaning, allowed_kinds: Sequence[str] | None = None) -> Scene:
         """Build a scene that makes ``meaning`` true."""
         roles = [r for r, _ in meaning.nps]
         n = rng.randint(max(self.config.scene.min_objects, len(roles)), self.config.scene.max_objects)
+        kinds = list(allowed_kinds) if allowed_kinds is not None else list(self.ontology.kinds)
         attrs = [random_object_attrs(rng, self.ontology, spec.fixed_attributes()) for _, spec in meaning.nps]
-        attrs += [random_object_attrs(rng, self.ontology) for _ in range(n - len(attrs))]
+        for _ in range(n - len(attrs)):
+            raw = random_object_attrs(rng, self.ontology)
+            raw["kind"] = rng.choice(kinds)
+            attrs.append(raw)
         order = list(range(n))
         rng.shuffle(order)  # order[new_id] = old index
         new_id = {old: new for new, old in enumerate(order)}
@@ -121,63 +125,91 @@ class WorldGenerator:
             raise GenerationError("internal error: true_scene produced a false scene")
         return scene
 
-    def single_edits(self, scene: Scene) -> list[Scene]:
-        """All scenes one minimal edit away (attribute change, relation edit)."""
+    def single_edits(self, scene: Scene, allowed_kinds: Sequence[str] | None = None) -> list[Scene]:
+        """All scenes one minimal edit away, strictly preserving object count and relation count."""
         attrs = [{a: o.value(a) for a in ATTRIBUTES} for o in scene.objects]
         rels = [(r.name, r.subject, r.object) for r in scene.relations]
         out: list[Scene] = []
+        kinds = list(allowed_kinds) if allowed_kinds is not None else list(self.ontology.kinds)
         for i, obj_attrs in enumerate(attrs):
             for a in ATTRIBUTES:
-                for v in self.ontology.values(a):
+                vals = kinds if a == "kind" else self.ontology.values(a)
+                for v in vals:
                     if v != obj_attrs[a]:
                         new_attrs = [dict(x) for x in attrs]
                         new_attrs[i][a] = v
                         out.append(build_scene(new_attrs, rels))
+        n_objs = len(scene.objects)
         for j, (name, s, o) in enumerate(rels):
-            rest = rels[:j] + rels[j + 1:]
-            out.append(build_scene(attrs, rest))
-            if (name, o, s) not in rels:
-                out.append(build_scene(attrs, rest + [(name, o, s)]))
+            base = rels[:j] + rels[j + 1:]
+            # 1. Swap endpoints if asymmetric
+            if (name, o, s) not in rels and name not in self.symmetric:
+                out.append(build_scene(attrs, base + [(name, o, s)]))
+            # 2. Change relation type
             for other in self.ontology.relation_names:
                 if other != name and (other, s, o) not in rels:
-                    out.append(build_scene(attrs, rest + [(other, s, o)]))
+                    out.append(build_scene(attrs, base + [(other, s, o)]))
+            # 3. Change endpoints to another object
+            if n_objs >= 3:
+                for k in range(n_objs):
+                    if k != s and k != o:
+                        if (name, s, k) not in rels:
+                            out.append(build_scene(attrs, base + [(name, s, k)]))
+                        if (name, k, o) not in rels:
+                            out.append(build_scene(attrs, base + [(name, k, o)]))
         return out
 
-    def near_miss_false_scene(self, rng: random.Random, scene: Scene, lf: LogicalForm) -> Scene:
-        """A minimally edited copy of ``scene`` in which ``lf`` is false."""
-        candidates = [s for s in self.single_edits(scene) if not evaluate(lf, s, self.symmetric)]
-        if not candidates:
-            raise GenerationError(f"no single edit falsifies {lf.canonical()}")
-        return rng.choice(candidates)
-
-    def random_false_scene(self, rng: random.Random, lf: LogicalForm) -> Scene:
-        """A random scene in which ``lf`` is false."""
+    def matched_false_scene(
+        self,
+        rng: random.Random,
+        meaning: Meaning,
+        lf: LogicalForm,
+        allowed_kinds: Sequence[str] | None = None,
+    ) -> Scene:
+        """Sample a false scene matching the exact object count and relation count distribution of a true scene."""
+        roles = [r for r, _ in meaning.nps]
+        n = rng.randint(max(self.config.scene.min_objects, len(roles)), self.config.scene.max_objects)
+        kinds = list(allowed_kinds) if allowed_kinds is not None else list(self.ontology.kinds)
+        has_rel = meaning.relation is not None
+        n_rels = (1 if has_rel else 0) + (1 if rng.random() < self.config.scene.p_relation else 0)
         for _ in range(self.config.generation.max_rejection_tries):
-            scene = sample_scene(rng, self.ontology, self.config.scene)
-            if not evaluate(lf, scene, self.symmetric):
-                return scene
-        raise GenerationError(f"could not find a random scene falsifying {lf.canonical()}")
+            attrs = []
+            for _ in range(n):
+                raw = random_object_attrs(rng, self.ontology)
+                raw["kind"] = rng.choice(kinds)
+                attrs.append(raw)
+            rels: list[tuple[str, int, int]] = []
+            if n_rels > 0 and n >= 2:
+                pairs = [(i, j) for i in range(n) for j in range(n) if i != j]
+                chosen = rng.sample(pairs, min(n_rels, len(pairs)))
+                for s, o in chosen:
+                    rels.append((rng.choice(self.ontology.relation_names), s, o))
+            s = build_scene(attrs, rels)
+            if not evaluate(lf, s, self.symmetric):
+                return s
+        raise GenerationError(f"could not sample matched false scene for {lf.canonical()}")
 
-    def false_scene(self, rng: random.Random, meaning: Meaning) -> Scene:
-        """A false scene: near-miss with prob ``p_near_miss_false``, else random."""
+    def false_scene(self, rng: random.Random, meaning: Meaning, allowed_kinds: Sequence[str] | None = None) -> Scene:
+        """A false scene: near-miss with prob ``p_near_miss_false``, else matched."""
         lf = self.grammar.to_lf(meaning)
         if rng.random() < self.config.generation.p_near_miss_false:
-            return self.contrast_pair_scenes(rng, meaning)[1]
-        return self.random_false_scene(rng, lf)
+            ts = self.true_scene(rng, meaning, allowed_kinds)
+            cands = [s for s in self.single_edits(ts, allowed_kinds) if not evaluate(lf, s, self.symmetric)]
+            if cands:
+                return rng.choice(cands)
+        return self.matched_false_scene(rng, meaning, lf, allowed_kinds)
 
-    def contrast_pair_scenes(self, rng: random.Random, meaning: Meaning) -> tuple[Scene, Scene]:
-        """A true scene and a minimally edited false scene for ``meaning``.
-
-        Retries with a fresh true scene when no single edit falsifies the
-        meaning (e.g. two distinct witnesses are present).
-        """
+    def contrast_pair_scenes(
+        self, rng: random.Random, meaning: Meaning, allowed_kinds: Sequence[str] | None = None
+    ) -> tuple[Scene, Scene]:
+        """A true scene and a minimally edited false scene for ``meaning``."""
         lf = self.grammar.to_lf(meaning)
         for _ in range(self.config.generation.max_rejection_tries):
-            true_scene = self.true_scene(rng, meaning)
-            candidates = [s for s in self.single_edits(true_scene) if not evaluate(lf, s, self.symmetric)]
+            true_scene = self.true_scene(rng, meaning, allowed_kinds)
+            candidates = [s for s in self.single_edits(true_scene, allowed_kinds) if not evaluate(lf, s, self.symmetric)]
             if candidates:
                 return true_scene, rng.choice(candidates)
-        raise GenerationError(f"could not build a contrast pair for {lf.canonical()}")
+        return true_scene, self.matched_false_scene(rng, meaning, lf, allowed_kinds)
 
     # ------------------------------------------------------------------
     # examples
@@ -211,9 +243,10 @@ class WorldGenerator:
         example_id: str,
         want: bool,
         tags: tuple[str, ...] = (),
+        allowed_kinds: Sequence[str] | None = None,
     ) -> Example:
         """One example of ``meaning`` whose truth value is ``want``."""
-        scene = self.true_scene(rng, meaning) if want else self.false_scene(rng, meaning)
+        scene = self.true_scene(rng, meaning, allowed_kinds) if want else self.false_scene(rng, meaning, allowed_kinds)
         example = self.make_example(example_id, meaning, scene, None, tags)
         if example.truth != want:
             raise GenerationError("internal error: single example truth mismatch")
@@ -225,9 +258,10 @@ class WorldGenerator:
         meaning: Meaning,
         next_id: Callable[[], str],
         tags: tuple[str, ...] = (),
+        allowed_kinds: Sequence[str] | None = None,
     ) -> list[Example]:
         """Same sentence in a true scene and in a near-miss false scene."""
-        true_scene, false_scene = self.contrast_pair_scenes(rng, meaning)
+        true_scene, false_scene = self.contrast_pair_scenes(rng, meaning, allowed_kinds)
         true_id, false_id = next_id(), next_id()
         group = f"cg:{true_id}"
         out = [
@@ -244,12 +278,9 @@ class WorldGenerator:
         meaning: Meaning,
         next_id: Callable[[], str],
         tags: tuple[str, ...] = (),
+        allowed_kinds: Sequence[str] | None = None,
     ) -> list[Example]:
-        """One or two examples for ``meaning`` (training-stream generation).
-
-        With probability ``p_contrast_pair``: a contrastive pair. Otherwise a
-        single example whose truth is a fair coin flip.
-        """
+        """One or two examples for ``meaning`` (training-stream generation)."""
         if rng.random() < self.config.generation.p_contrast_pair:
-            return self.contrast_pair(rng, meaning, next_id, tags)
-        return [self.single_example(rng, meaning, next_id(), rng.random() < 0.5, tags)]
+            return self.contrast_pair(rng, meaning, next_id, tags, allowed_kinds)
+        return [self.single_example(rng, meaning, next_id(), rng.random() < 0.5, tags, allowed_kinds)]
