@@ -1,0 +1,29 @@
+{
+  "name": "grammar_default",
+  "description": "Hidden grammar for the Phase 0 toy world. Nouns precede their adjectives (size then color), clauses are subject-object-verb, and yes/no questions take a sentence-final particle. None of this is visible to the learner.",
+  "lexicon": {
+    "kind:cube": "dax",
+    "kind:ball": "wug",
+    "kind:cone": "blick",
+    "kind:ring": "toma",
+    "kind:star": "fep",
+    "kind:cup": "zib",
+    "color:red": "mip",
+    "color:green": "tal",
+    "color:blue": "sorn",
+    "color:yellow": "vek",
+    "size:small": "pim",
+    "size:medium": "glorp",
+    "size:large": "nud",
+    "rel:chases": "zorp",
+    "rel:next_to": "lum"
+  },
+  "question_particle": "ko",
+  "np_order": ["noun", "size", "color"],
+  "constructions": {
+    "np_assert": {"act": "assert", "template": ["NP"], "weight": 1.0},
+    "np_ask": {"act": "ask", "template": ["NP", "Q"], "weight": 1.0},
+    "trans_assert": {"act": "assert", "template": ["NP_subj", "NP_obj", "VERB"], "weight": 1.0},
+    "trans_ask": {"act": "ask", "template": ["NP_subj", "NP_obj", "VERB", "Q"], "weight": 1.0}
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "world_default",
+  "grammar_file": "grammar_default.json",
+  "ontology": {
+    "kinds": ["cube", "ball", "cone", "ring", "star", "cup"],
+    "colors": ["red", "green", "blue", "yellow"],
+    "sizes": ["small", "medium", "large"],
+    "relations": [
+      {"name": "chases", "symmetric": false},
+      {"name": "next_to", "symmetric": true}
+    ]
+  },
+  "scene": {
+    "min_objects": 2,
+    "max_objects": 4,
+    "p_relation": 0.6,
+    "max_relations": 2
+  },
+  "generation": {
+    "max_adjectives_train": 1,
+    "p_adjective": 0.5,
+    "max_adjectives_longer": 2,
+    "p_adjective_longer": 0.85,
+    "p_contrast_pair": 0.5,
+    "p_near_miss_false": 0.5,
+    "max_rejection_tries": 20000
+  },
+  "splits": {
+    "n_train": 1600,
+    "n_dev_per_construction": 100,
+    "n_test_novel_combination": 400,
+    "n_test_novel_word_queries": 200,
+    "n_novel_word_support_pairs": 1,
+    "n_test_longer": 300,
+    "n_contradiction_misleading": 8,
+    "n_contradiction_filler": 24,
+    "n_contradiction_probes": 200,
+    "n_heldout_adj_noun_pairs": 4,
+    "n_heldout_noun_roles": 2,
+    "curriculum": [["np_assert", "np_ask"], ["trans_assert", "trans_ask"]],
+    "shuffle_within_stage": true
+  },
+  "evaluation": {
+    "checkpoint_every": 100,
+    "criterion": 0.9,
+    "calibration_bins": 10
+  }
+}
