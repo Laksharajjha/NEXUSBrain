@@ -394,3 +394,78 @@ def load_world_config(path: str | Path = DEFAULT_WORLD_CONFIG) -> WorldConfig:
     with grammar_path.open("r", encoding="utf-8") as fh:
         grammar_obj = json.load(fh)
     return parse_world(world_obj, grammar_obj)
+
+
+def randomize_grammar(base_grammar: GrammarConfig, ontology: Ontology, rng: Any) -> GrammarConfig:
+    """Derive a randomized grammar for a seed.
+
+    1. Permutes word-to-meaning assignment within each category
+       (kinds, colors, sizes, relations).
+    2. Randomizes within-NP word order among permutations of noun + adjectives.
+    3. Randomizes clause order among typological variants (SOV, SVO, VSO).
+    4. Randomizes question particle position between initial and final.
+    """
+    new_lexicon: dict[str, str] = {}
+    for attr, vals in [
+        ("kind", ontology.kinds),
+        ("color", ontology.colors),
+        ("size", ontology.sizes),
+    ]:
+        words = [base_grammar.lexicon[f"{attr}:{v}"] for v in vals]
+        rng.shuffle(words)
+        for v, w in zip(vals, words):
+            new_lexicon[f"{attr}:{v}"] = w
+
+    rel_names = ontology.relation_names
+    rel_words = [base_grammar.lexicon[f"rel:{r}"] for r in rel_names]
+    rng.shuffle(rel_words)
+    for r, w in zip(rel_names, rel_words):
+        new_lexicon[f"rel:{r}"] = w
+
+    # NP order: permutation of ("noun", "color", "size")
+    np_order_candidates = [
+        ("noun", "size", "color"),
+        ("noun", "color", "size"),
+        ("color", "noun", "size"),
+        ("size", "color", "noun"),
+        ("color", "size", "noun"),
+        ("size", "noun", "color"),
+    ]
+    np_order = tuple(rng.choice(np_order_candidates))
+
+    # Clause order: typological variants for transitive sentences
+    clause_variants = [
+        ("NP_subj", "NP_obj", "VERB"),  # SOV
+        ("NP_subj", "VERB", "NP_obj"),  # SVO
+        ("VERB", "NP_subj", "NP_obj"),  # VSO
+    ]
+    trans_clause = rng.choice(clause_variants)
+
+    # Question particle position: initial or final
+    q_pos = rng.choice(["initial", "final"])
+    if q_pos == "initial":
+        np_ask_template = ("Q", "NP")
+        trans_ask_template = ("Q", *trans_clause)
+    else:
+        np_ask_template = ("NP", "Q")
+        trans_ask_template = (*trans_clause, "Q")
+
+    constructions = {
+        "np_assert": ConstructionSpec("np_assert", "assert", ("NP",), base_grammar.constructions["np_assert"].weight),
+        "np_ask": ConstructionSpec("np_ask", "ask", np_ask_template, base_grammar.constructions["np_ask"].weight),
+        "trans_assert": ConstructionSpec(
+            "trans_assert", "assert", trans_clause, base_grammar.constructions["trans_assert"].weight
+        ),
+        "trans_ask": ConstructionSpec(
+            "trans_ask", "ask", trans_ask_template, base_grammar.constructions["trans_ask"].weight
+        ),
+    }
+
+    return GrammarConfig(
+        name=f"{base_grammar.name}_rand_{rng.randint(0, 999999)}",
+        lexicon=new_lexicon,
+        question_particle=base_grammar.question_particle,
+        np_order=np_order,
+        constructions=constructions,
+    )
+

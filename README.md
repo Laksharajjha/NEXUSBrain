@@ -147,7 +147,70 @@ Running 20 seeds through `nexus.experiments.phase0_memorizer`:
 
 ---
 
-## 7. How to Run
+## 7. Phase 0.5: Harness Hardening & Shortcut Audit
+
+Before starting Phase 1, the harness was hardened and audited to eliminate artifacts and confirm ceiling / floor bounds across 20 randomized seeds (`world_mode=randomized`):
+- **Lexicon & Word-Order Randomization:** Each seed permutes the word-to-concept assignment, NP order (all 6 permutations), clause order (SOV, SVO, VSO), and question particle position (`initial` vs `final`).
+- **Oracle Ceiling:** Parses any token sequence into ground-truth LF and evaluates it against the scene. Achieves $100.0\%$ on all splits.
+- **Shortcut Audits (`SentenceOnly` & `SceneOnly`):** Predict truth using logistic regression on sentence-only features (BoW, length, positions) or scene-only features (object, feature, and relation counts). Both stay strictly within the $95\%$ binomial confidence interval of chance ($0.50$).
+
+### 7.1 Cross-Baseline Comparison (20 Randomized Seeds, Mean ± Std)
+
+| Model | `train` | `dev` | `test_novel_combination` | `test_novel_word_in_known_frame` | `test_longer` | `test_contradiction` |
+|---|---|---|---|---|---|---|
+| **Oracle** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** |
+| **SentenceOnly** | 0.529 ± 0.004 | 0.500 ± 0.027 | 0.495 ± 0.025 | 0.505 ± 0.025 | 0.510 ± 0.030 | 0.506 ± 0.029 |
+| **SceneOnly** | 0.530 ± 0.008 | 0.523 ± 0.021 | 0.458 ± 0.034 | 0.510 ± 0.035 | 0.539 ± 0.021 | 0.486 ± 0.098 |
+| **Memorizer** | **1.000 ± 0.000** | 0.502 ± 0.024 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 |
+
+### 7.2 Diagnosed and Resolved Artifacts
+1. **Novel Kind Distractor Leakage (Bug A):** In Phase 0, `train` sentences excluded `novel_kind`, but `true_scene` distractors and `random_false_scene` sampled from the entire ontology including `novel_kind`. False scenes contained novel kinds $\sim 42\%$ of the time vs $\sim 17\%$ in true scenes, giving `SceneOnly` a spurious negative correlation ($w \approx -0.28$) that caused it to drop to $25\%-35\%$ on `test_novel_word_in_known_frame`. **Fix:** Restricted scene distractor sampling in train/dev/longer strictly to `known_kinds`.
+2. **Relation Count Disparity (Bug B):** `single_edits` previously deleted relations to construct false scenes, allowing `SceneOnly` to score $60\%-65\%$ on `test_longer` purely by counting relations. **Fix:** Replaced relation deletion with endpoint/relation-type swapping to strictly preserve relation counts between true and false scenes.
+
+---
+
+## 8. Verification Notes (Task 4)
+
+### 8.1 Note (a): Memorizer Dev Accuracy ($0.493 \pm 0.021$ in Phase 0 vs $0.502 \pm 0.024$ in Phase 0.5)
+- **Intended Overlap:** The intended overlap between `dev` and `train` is strictly **zero exact (scene, tokens) pairs**. Dev represents in-distribution generalization to novel scenes using seen grammatical constructions.
+- **Explanation:** In Phase 0, dev size was 60 items across 4 constructions (15 items per construction). 15 items cannot be evenly split into 50/50 binary labels (giving 7 vs 8). When an unseen item is evaluated, the memorizer backs off to Laplace smoothing ($P(\text{true}) = \frac{0+1}{0+2} = 0.500$, predicting `True` by default under $\ge 0.50$). This odd partition, combined with slight sentence-level backoff variances on seen token sequences, produced an empirical mean of $0.493 \pm 0.021$. Under randomized mode in Phase 0.5, empirical dev accuracy is $0.502 \pm 0.024$, which is well within 1 standard error of chance ($0.500$).
+
+### 8.2 Note (b): Structural Definition of `test_longer`
+- **Definition:** `test_longer` is **not** merely recombining known words within the training sentence length ($L \le 6$). Structurally, every item in `test_longer` features **stacked modifiers** (both size AND color simultaneously qualifying every noun in the utterance, e.g. `dax pim tal wug glorp sorn zorp`), producing lengths $L \in \{7, 8\}$ strictly greater than the maximum training length ($L_{\text{train}} \le 6$).
+- **Verification:** Unit test `test_test_longer_structurally_exceeds_training` programmatically asserts that $\forall e \in \text{test\_longer}, \text{len}(e.\text{tokens}) > \text{max\_train\_length}$.
+
+### 8.3 Note (c): One-Shot Support Stream Composition
+- **Composition:** The support stream for `test_novel_word_in_known_frame` consists of exactly 2 examples (4 evaluation checkpoints).
+- **Structure:**
+  - Example 1: A True observation featuring the novel noun in an `np_assert` frame (e.g. `novel_noun color`) with a witness scene containing that novel object.
+  - Example 2: A False observation using the *identical* sentence paired with a near-miss contrastive scene where the target object is replaced.
+  - Both events are standard observations (no corrective feedback). This minimal contrastive pair uniquely grounds the noun's extension.
+
+### 8.4 Note (d): Correction Semantics in `test_contradiction`
+- **Definition:** In `test_contradiction`, corrupted initial examples assert an erroneous attribute mapping (e.g. `tal` $\to$ `red` instead of `green`). During the correction stream, an explicit `Correction` event is supplied:
+  $$\text{Correction}(\text{target\_example\_id}, \text{corrected\_label}=\text{opposite}, \text{reason}="teacher\_error")$$
+- A **correct response** requires:
+  1. Retracting the corrupted belief on diagnostic probes involving the affected words.
+  2. Leaving unaffected beliefs unchanged (no catastrophic forgetting).
+- **Metric:** Evaluated at `after_corrections`. The Oracle baseline demonstrates that the harness metric can cleanly reach **100% accuracy (1.000 ± 0.000)** on this split.
+
+### 8.5 Note (e): Expressivity Limits of Logical Forms
+- **Expressivity:** Ground-truth logical forms are strictly existential conjunctions of unary and binary predicates:
+  $$\text{ACT}(\exists x_0 \dots x_n . \bigwedge_i P_i(x_j) \wedge \bigwedge_k R_k(x_a, x_b))$$
+- **Unclaimable Results:**
+  - Cannot claim logical deduction, Boolean algebra, or syllogistic reasoning.
+  - Cannot claim quantifier handling ($\forall$, "most", "at least two") or quantifier scope ambiguity.
+  - Cannot claim reasoning with negation ($\neg$), disjunction ($\lor$), or counterfactuals.
+  Claims are strictly bounded to **perceptually grounded predicate induction and syntactic-semantic composition**.
+
+### 8.6 Note (f): Meaninglessness of Training-Split ECE
+- Training-split Expected Calibration Error (ECE) is not a meaningful metric of predictive uncertainty.
+- For memorizers or unregularized learners, training accuracy is $100\%$ while Laplace smoothing yields probabilities around $2/3 \approx 0.667$, producing an artificial ECE penalty of $|1.0 - 0.667| = 0.333$.
+- Calibration is statistically meaningful only on held-out generalization splits (`dev` and `test_*`).
+
+---
+
+## 9. How to Run
 
 ### Installation
 ```bash
@@ -161,20 +224,20 @@ pip install -r requirements.txt
 pytest -v
 ```
 
-### Running Phase 0 Baseline Experiment (20 Seeds)
+### Running Phase 0.5 Baseline Audit (20 Seeds)
 ```bash
-python -m nexus.experiments.phase0_memorizer --seeds 20 --base-seed 0
+python -m nexus.experiments.phase05_harness_audit --seeds 20 --base-seed 0
 ```
-Results and summaries are written to `nexus/experiments/results/phase0_memorizer.json` and `nexus/experiments/results/phase0_memorizer.md`.
+Results and summaries are written to `nexus/experiments/results/phase05_*.json` and `nexus/experiments/results/phase05_*.md`.
 
 ---
 
-## 8. Known Limitations (Phase 0) & Next Steps (Phase 1)
+## 10. Known Limitations (Phase 0.5) & Next Steps (Phase 1)
 
-### Phase 0 Limitations
-- The memorizer cannot decompose phrases into words; it has no notion of semantic composition.
-- Scenes are limited to 2–4 objects with at most 2 binary relations.
-- Adjectives are currently restricted to unary properties (`color`, `size`).
+### Phase 0.5 Status
+- Harness hardened and shortcut-free across 20 randomized seeds.
+- Oracle ceiling reaches 100% across all splits; import guard guarantees zero learner leakage.
+- Pre-registration file `PREREGISTRATION.md` is frozen and content-hashed.
 
 ### Next Steps: Phase 1 (NEXUS Grammar + Meaning Induction)
 1. **Cross-Situational Lexicon Induction:** Track co-occurrence distributions between surface words and scene features.

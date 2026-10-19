@@ -20,6 +20,7 @@ import copy
 import json
 import platform
 import time
+import inspect
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Sequence
@@ -38,7 +39,7 @@ from nexus.eval.splits import Dataset, Split, build_dataset, derive_seed
 from nexus.world.config import WorldConfig
 from nexus.world.example import Example
 
-LearnerFactory = Callable[[int], Learner]
+LearnerFactory = Callable[..., Any]
 RESULTS_DIR = Path(__file__).resolve().parent.parent / "experiments" / "results"
 
 
@@ -49,6 +50,7 @@ class ExperimentSpec:
     name: str
     learner_name: str
     seeds: tuple[int, ...]
+    world_mode: str = "randomized"
 
 
 def predict_all(learner: Learner, items: Sequence[Example]) -> list[Prediction]:
@@ -111,12 +113,28 @@ def evaluate_support_split(learner: Learner, split: Split, n_bins: int) -> dict[
     return out
 
 
-def run_seed(seed: int, config: WorldConfig, factory: LearnerFactory) -> dict[str, Any]:
+def _create_learner(factory: LearnerFactory, seed: int, ds: Dataset) -> Learner:
+    """Instantiate a learner, passing (seed, ds) if accepted, else (seed)."""
+    try:
+        sig = inspect.signature(factory)
+        params = list(sig.parameters.values())
+        has_varargs = any(p.kind == inspect.Parameter.VAR_POSITIONAL for p in params)
+        if has_varargs or len(params) >= 2:
+            return factory(seed, ds)
+        return factory(seed)
+    except Exception:
+        try:
+            return factory(seed, ds)
+        except TypeError:
+            return factory(seed)
+
+
+def run_seed(seed: int, config: WorldConfig, factory: LearnerFactory, world_mode: str = "randomized") -> dict[str, Any]:
     """Run one seed end to end."""
     t0 = time.perf_counter()
     world_seed, learner_seed = derive_seed(seed, "world"), derive_seed(seed, "learner")
-    ds = build_dataset(config, world_seed)
-    learner = factory(learner_seed)
+    ds = build_dataset(config, world_seed, world_mode=world_mode)
+    learner = _create_learner(factory, learner_seed, ds)
     curves = train_with_curves(learner, ds, config)
     n_bins = config.evaluation.calibration_bins
     splits: dict[str, Any] = {
@@ -178,12 +196,19 @@ def aggregate(per_seed: list[dict[str, Any]]) -> dict[str, Any]:
     return agg
 
 
-def run_experiment(spec: ExperimentSpec, config: WorldConfig, factory: LearnerFactory) -> dict[str, Any]:
+def run_experiment(
+    spec: ExperimentSpec,
+    config: WorldConfig,
+    factory: LearnerFactory,
+    world_mode: str | None = None,
+) -> dict[str, Any]:
     """Run all seeds and return a full result record."""
-    per_seed = [run_seed(s, config, factory) for s in spec.seeds]
+    mode = world_mode if world_mode is not None else spec.world_mode
+    per_seed = [run_seed(s, config, factory, world_mode=mode) for s in spec.seeds]
     return {
         "experiment": spec.name,
         "learner": spec.learner_name,
+        "world_mode": mode,
         "seeds": list(spec.seeds),
         "n_seeds": len(spec.seeds),
         "config": config.to_json(),
