@@ -25,6 +25,7 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--seeds", type=int, default=20, help="number of seeds (default 20)")
     p.add_argument("--base-seed", type=int, default=0, help="first seed; seeds are base..base+N-1")
     p.add_argument("--config", type=Path, default=DEFAULT_WORLD_CONFIG, help="world config JSON")
+    p.add_argument("--world-mode", choices=["fixed", "randomized"], default="randomized", help="world mode")
     p.add_argument("--out", type=Path, default=RESULTS_DIR / "phase0_memorizer.json")
     return p.parse_args()
 
@@ -33,8 +34,12 @@ def main() -> None:
     """Run the experiment, save JSON and a markdown report, print the report."""
     args = parse_args()
     config = load_world_config(args.config)
-    spec = ExperimentSpec("phase0_harness_check", "memorizer",
-                          tuple(range(args.base_seed, args.base_seed + args.seeds)))
+    spec = ExperimentSpec(
+        "phase0_harness_check",
+        "memorizer",
+        tuple(range(args.base_seed, args.base_seed + args.seeds)),
+        world_mode=args.world_mode,
+    )
     result = run_experiment(spec, config, lambda seed: Memorizer(seed=seed))
     path = save_results(result, args.out)
     report = full_report(result)
