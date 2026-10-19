@@ -1,0 +1,8 @@
+[project]
+name = "nexus0"
+version = "0.0.1"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26"]
+
+[tool.pytest.ini_options]
+testpaths = ["nexus/tests"]
