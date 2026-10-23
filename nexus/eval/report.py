@@ -26,23 +26,27 @@ def fmt(stat: dict[str, Any] | None, digits: int = 3) -> str:
 
 
 def split_table(results: Sequence[dict[str, Any]]) -> str:
-    """Accuracy per split, one column per learner."""
-    header = "| split | " + " | ".join(r["learner"] for r in results) + " |"
-    lines = [header, "|" + "---|" * (len(results) + 1)]
+    """Accuracy per split, one column per learner, with split size n."""
+    header = "| split | n | " + " | ".join(r["learner"] for r in results) + " |"
+    lines = [header, "|" + "---|" * (len(results) + 2)]
     for split in SPLIT_ORDER:
+        n_stat = results[0]["aggregate"].get(f"splits.{split}.n") if results else None
+        n_str = f"{int(round(n_stat['mean']))}" if n_stat and n_stat.get("mean") is not None else "n/a"
         cells = [fmt(r["aggregate"].get(f"splits.{split}.accuracy")) for r in results]
-        lines.append(f"| {split} | " + " | ".join(cells) + " |")
+        lines.append(f"| {split} | {n_str} | " + " | ".join(cells) + " |")
     return "\n".join(lines)
 
 
 def calibration_table(result: dict[str, Any]) -> str:
-    """ECE / Brier / mean confidence per split for one learner."""
+    """ECE / Brier / mean confidence per split for one learner, including n per split."""
     agg = result["aggregate"]
-    lines = ["| split | accuracy | ECE | Brier | mean confidence |", "|---|---|---|---|---|"]
+    lines = ["| split | n | accuracy | ECE | Brier | mean confidence |", "|---|---|---|---|---|---|"]
     for split in SPLIT_ORDER:
         p = f"splits.{split}."
+        n_stat = agg.get(p + "n")
+        n_str = f"{int(round(n_stat['mean']))}" if n_stat and n_stat.get("mean") is not None else "n/a"
         lines.append(
-            f"| {split} | {fmt(agg.get(p + 'accuracy'))} | {fmt(agg.get(p + 'ece'))} | "
+            f"| {split} | {n_str} | {fmt(agg.get(p + 'accuracy'))} | {fmt(agg.get(p + 'ece'))} | "
             f"{fmt(agg.get(p + 'brier'))} | {fmt(agg.get(p + 'mean_confidence'))} |"
         )
     return "\n".join(lines)

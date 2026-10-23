@@ -220,6 +220,12 @@ class SplitBuilder:
     def _train_ok(self, m: Meaning) -> bool:
         return train_allowed(m, self.plan, self.config.generation.max_adjectives_train)
 
+    def _allowed_pair(self, adj_pred: str, kind_pred: str) -> bool:
+        return (adj_pred, kind_pred) not in self.plan.adj_noun_pairs
+
+    def _allowed_role(self, kind_pred: str, role: str) -> bool:
+        return (kind_pred, role) not in self.plan.noun_roles
+
     # ---------------------------------------------------------------- train
 
     def build_train(self) -> tuple[list[Example], dict[str, int]]:
@@ -230,9 +236,67 @@ class SplitBuilder:
         keys: set[tuple[tuple[str, ...], str]] = set()
         n = self.config.splits.n_train
         while len(examples) < n:
-            m = self.gen.sample_meaning_where(rng, self._train_ok, self.known_kinds, self.train_policy)
-            for ex in self.gen.examples_for_meaning(rng, m, next_id, ("train",), allowed_kinds=self.known_kinds):
-                if ex.item_key() not in keys and len(examples) < n:
+            rem = n - len(examples)
+            m = self.gen.sample_meaning_where(
+                rng,
+                self._train_ok,
+                self.known_kinds,
+                self.train_policy,
+                allowed_pair=self._allowed_pair,
+                allowed_role=self._allowed_role,
+            )
+            is_bare_np = len(m.nps) == 1 and len(m.nps[0][1].adjectives) == 0 and m.relation is None
+            if is_bare_np and rem < 4:
+                continue
+
+            use_quad = is_bare_np or (rem >= 4 and rng.random() < 0.5)
+            if use_quad:
+                quad = self.gen.value_swap_quad_scenes(
+                    rng, m, allowed_kinds=self.known_kinds, accept_m2=self._train_ok
+                )
+                if quad is not None:
+                    m2, s1, s2 = quad
+                    use_cg = rng.random() < self.config.generation.p_contrast_pair
+                    id1, id2, id3, id4 = next_id(), next_id(), next_id(), next_id()
+                    cg1 = f"cg:{id1}" if use_cg else None
+                    cg2 = f"cg:{id3}" if use_cg else None
+                    batch = [
+                        self.gen.make_example(id1, m, s1, cg1, ("train",)),
+                        self.gen.make_example(id2, m, s2, cg1, ("train",)),
+                        self.gen.make_example(id3, m2, s2, cg2, ("train",)),
+                        self.gen.make_example(id4, m2, s1, cg2, ("train",)),
+                    ]
+                    b_keys = [ex.item_key() for ex in batch]
+                    if len(set(b_keys)) == 4 and all(k not in keys for k in b_keys):
+                        keys.update(b_keys)
+                        examples.extend(batch)
+                        continue
+                if is_bare_np:
+                    continue
+
+            if rem >= 2:
+                try:
+                    s1, s2 = self.gen.contrast_pair_scenes(
+                        rng, m, allowed_kinds=self.known_kinds, allow_value_edit=False
+                    )
+                except GenerationError:
+                    continue
+                use_cg = rng.random() < self.config.generation.p_contrast_pair
+                id1, id2 = next_id(), next_id()
+                cg = f"cg:{id1}" if use_cg else None
+                batch = [
+                    self.gen.make_example(id1, m, s1, cg, ("train",)),
+                    self.gen.make_example(id2, m, s2, cg, ("train",)),
+                ]
+                b_keys = [ex.item_key() for ex in batch]
+                if len(set(b_keys)) == 2 and all(k not in keys for k in b_keys):
+                    keys.update(b_keys)
+                    examples.extend(batch)
+            else:
+                ex = self.gen.single_example(
+                    rng, m, next_id(), True, ("train",), allowed_kinds=self.known_kinds, allow_value_edit=False
+                )
+                if ex.item_key() not in keys:
                     keys.add(ex.item_key())
                     examples.append(ex)
         return self._order_by_curriculum(rng, examples)
@@ -266,8 +330,10 @@ class SplitBuilder:
         forbidden_tokens: set[tuple[str, ...]] = frozenset(),  # type: ignore[assignment]
         constructions: list[str] | None = None,
         tagger: Callable[[Meaning], tuple[str, ...]] = lambda m: (),
+        allowed_pair: Callable[[str, str], bool] | None = None,
+        allowed_role: Callable[[str, str], bool] | None = None,
     ) -> list[Example]:
-        """``n`` items with exactly alternating truth values."""
+        """``n`` items with exact 50/50 truth, feature, and token balance."""
         rng = self._rng(label)
         next_id = make_counter(label)
         items: list[Example] = []
@@ -275,18 +341,47 @@ class SplitBuilder:
         tries = 0
         while len(items) < n:
             tries += 1
-            if tries > self.config.generation.max_rejection_tries:
+            if tries > self.config.generation.max_rejection_tries * 4:
                 raise GenerationError(f"{label}: could not build {n} items")
-            m = self.gen.sample_meaning_where(rng, accept, kinds, policy, constructions)
+            rem = n - len(items)
+            m = self.gen.sample_meaning_where(
+                rng, accept, kinds, policy, constructions, allowed_pair=allowed_pair, allowed_role=allowed_role
+            )
             if self.gen.grammar.realize(m) in forbidden_tokens:
                 continue
-            ex = self.gen.single_example(
-                rng, m, next_id(), want=len(items) % 2 == 0, tags=(label, *tagger(m)), allowed_kinds=kinds
-            )
-            if ex.item_key() in forbidden_keys or ex.item_key() in keys:
-                continue
-            keys.add(ex.item_key())
-            items.append(ex)
+            is_bare_np = len(m.nps) == 1 and len(m.nps[0][1].adjectives) == 0 and m.relation is None
+            if is_bare_np:
+                if rem < 4:
+                    continue
+                quad = self.gen.value_swap_quad_scenes(rng, m, allowed_kinds=kinds, accept_m2=accept)
+                if quad is None:
+                    continue
+                m2, s1, s2 = quad
+                if self.gen.grammar.realize(m2) in forbidden_tokens:
+                    continue
+                batch = [
+                    self.gen.make_example(next_id(), m, s1, None, (label, *tagger(m))),
+                    self.gen.make_example(next_id(), m, s2, None, (label, *tagger(m))),
+                    self.gen.make_example(next_id(), m2, s2, None, (label, *tagger(m2))),
+                    self.gen.make_example(next_id(), m2, s1, None, (label, *tagger(m2))),
+                ]
+                b_keys = [ex.item_key() for ex in batch]
+                if len(set(b_keys)) == 4 and all(k not in forbidden_keys and k not in keys for k in b_keys):
+                    keys.update(b_keys)
+                    items.extend(batch)
+            else:
+                try:
+                    s1, s2 = self.gen.contrast_pair_scenes(rng, m, allowed_kinds=kinds, allow_value_edit=False)
+                except GenerationError:
+                    continue
+                batch = [
+                    self.gen.make_example(next_id(), m, s1, None, (label, *tagger(m))),
+                    self.gen.make_example(next_id(), m, s2, None, (label, *tagger(m))),
+                ]
+                b_keys = [ex.item_key() for ex in batch]
+                if len(set(b_keys)) == 2 and all(k not in forbidden_keys and k not in keys for k in b_keys):
+                    keys.update(b_keys)
+                    items.extend(batch)
         return items
 
     def build_dev(self, train_keys: set) -> list[Example]:
@@ -294,8 +389,15 @@ class SplitBuilder:
         items: list[Example] = []
         for c in sorted(self.config.grammar.constructions):
             items += self._balanced_items(
-                f"dev_{c}", self.config.splits.n_dev_per_construction, self._train_ok,
-                self.known_kinds, self.train_policy, train_keys, constructions=[c],
+                f"dev_{c}",
+                self.config.splits.n_dev_per_construction,
+                self._train_ok,
+                self.known_kinds,
+                self.train_policy,
+                train_keys,
+                constructions=[c],
+                allowed_pair=self._allowed_pair,
+                allowed_role=self._allowed_role,
             )
         return items
 
@@ -329,7 +431,8 @@ class SplitBuilder:
         novel = self.plan.novel_kind_predicate
 
         def accept(m: Meaning) -> bool:
-            return (novel in meaning_kinds(m) and max_np_adjectives(m) <= max_adj
+            has_frame = len(m.nps) > 1 or max_np_adjectives(m) >= 1
+            return (novel in meaning_kinds(m) and has_frame and max_np_adjectives(m) <= max_adj
                     and not heldout_hits(m, self.plan))
 
         items = self._balanced_items(
@@ -350,8 +453,15 @@ class SplitBuilder:
                     and len(self.gen.grammar.realize(m)) > max_train_length)
 
         return self._balanced_items(
-            "test_longer", self.config.splits.n_test_longer, accept,
-            self.known_kinds, self.longer_policy, train_keys, train_tokens,
+            "test_longer",
+            self.config.splits.n_test_longer,
+            accept,
+            self.known_kinds,
+            self.longer_policy,
+            train_keys,
+            train_tokens,
+            allowed_pair=self._allowed_pair,
+            allowed_role=self._allowed_role,
         )
 
     # ---------------------------------------------------------------- contradiction
@@ -385,44 +495,104 @@ class SplitBuilder:
         next_id = make_counter("contradiction_misleading")
         out: list[Example] = []
         for _ in range(self.config.generation.max_rejection_tries):
-            if len(out) == self.config.splits.n_contradiction_misleading:
-                return out
-            m = self.gen.sample_meaning_where(rng, self._with_target(target), self.known_kinds, self.train_policy)
-            ex = self._diagnostic_example(rng, m, target, confusion, want=len(out) % 2 == 1, example_id=next_id(),
-                                          tags=("contradiction_misleading",))
-            if ex is not None:
-                out.append(ex)
+            if len(out) >= self.config.splits.n_contradiction_misleading:
+                return out[: self.config.splits.n_contradiction_misleading]
+            m = self.gen.sample_meaning_where(
+                rng,
+                self._with_target(target),
+                self.known_kinds,
+                self.train_policy,
+                allowed_pair=self._allowed_pair,
+                allowed_role=self._allowed_role,
+            )
+            pair = self._diagnostic_pair(rng, m, target, confusion, next_id, ("contradiction_misleading",))
+            if pair is not None:
+                # Emit False then True to match alternating parity
+                out.extend([pair[1], pair[0]])
         raise GenerationError("could not build misleading examples")
 
-    def _diagnostic_example(
-        self, rng: random.Random, m: Meaning, target: str, confusion: str, want: bool,
-        example_id: str, tags: tuple[str, ...],
-    ) -> Example | None:
-        """An example with truth ``want`` whose truth flips under the confusion reading.
+    def _diagnostic_pair(
+        self,
+        rng: random.Random,
+        m: Meaning,
+        target: str,
+        confusion: str,
+        next_id: Callable[[], str],
+        tags: tuple[str, ...],
+    ) -> tuple[Example, Example] | None:
+        """Build a (True, False) pair for ``m`` whose truth flips under the confusion reading.
 
-        Both True and False scenes are generated with balanced feature distributions
-        to ensure shortcut baselines cannot distinguish them.
+        Both scenes contain both ``target`` and ``confusion`` colors (swapped between the
+        witness object and a distractor object in the False scene), guaranteeing 100%
+        identical feature and token distributions between True and False examples.
         """
+        from nexus.world.config import ATTRIBUTES
+        from nexus.world.scene import build_scene
+
         alt_m = substitute_adjective(m, target, confusion)
+        lf = self.gen.grammar.to_lf(m)
         alt_lf = self.gen.grammar.to_lf(alt_m)
-        base_m = m if want else alt_m
-        other_m = alt_m if want else m
+        t_attr, t_val = target.split(":", 1)
+        _, c_val = confusion.split(":", 1)
+        other_vals = [v for v in self.config.ontology.values(t_attr) if v not in (t_val, c_val)]
+        target_kinds = {spec.kind for _, spec in m.nps if target in spec.adjective_predicates}
 
         for _ in range(30):
-            scene = self.gen.true_scene(rng, base_m, self.known_kinds)
-            if evaluate(self.gen.grammar.to_lf(other_m), scene, self.gen.symmetric):
+            ts = self.gen.true_scene(rng, m, self.known_kinds)
+            attrs = [{a: o.value(a) for a in ATTRIBUTES} for o in ts.objects]
+            rels = [(r.name, r.subject, r.object) for r in ts.relations]
+
+            witness_idxs = [i for i, d in enumerate(attrs) if d["kind"] in target_kinds and d[t_attr] == t_val]
+            distractor_idxs = [i for i, d in enumerate(attrs) if d["kind"] not in target_kinds]
+            if not witness_idxs or not distractor_idxs:
                 continue
-            ex = self.gen.make_example(example_id, m, scene, None, tags)
-            if ex.truth == want and evaluate(alt_lf, scene, self.gen.symmetric) != want:
-                return ex
+            w_idx = witness_idxs[0]
+            d_idx = rng.choice(distractor_idxs)
+
+            for i, d in enumerate(attrs):
+                if i == w_idx:
+                    d[t_attr] = t_val
+                elif i == d_idx:
+                    d[t_attr] = c_val
+                elif other_vals:
+                    d[t_attr] = rng.choice(other_vals)
+
+            attrs_true = [dict(x) for x in attrs]
+            attrs_false = [dict(x) for x in attrs]
+            attrs_false[w_idx][t_attr], attrs_false[d_idx][t_attr] = (
+                attrs_false[d_idx][t_attr],
+                attrs_false[w_idx][t_attr],
+            )
+
+            scene_true = build_scene(attrs_true, rels)
+            scene_false = build_scene(attrs_false, rels)
+            ok_true = evaluate(lf, scene_true, self.gen.symmetric) and not evaluate(alt_lf, scene_true, self.gen.symmetric)
+            ok_false = not evaluate(lf, scene_false, self.gen.symmetric) and evaluate(alt_lf, scene_false, self.gen.symmetric)
+            if ok_true and ok_false:
+                ex_true = self.gen.make_example(next_id(), m, scene_true, None, tags)
+                ex_false = self.gen.make_example(next_id(), m, scene_false, None, tags)
+                return ex_true, ex_false
         return None
 
     def _filler_examples(self, rng: random.Random) -> list[Example]:
         next_id = make_counter("contradiction_filler")
         out: list[Example] = []
         while len(out) < self.config.splits.n_contradiction_filler:
-            m = self.gen.sample_meaning_where(rng, self._train_ok, self.known_kinds, self.train_policy)
-            out.append(self.gen.single_example(rng, m, next_id(), rng.random() < 0.5, ("contradiction_filler",), allowed_kinds=self.known_kinds))
+            m = self.gen.sample_meaning_where(
+                rng,
+                lambda x: self._train_ok(x) and (len(x.nps) > 1 or max_np_adjectives(x) >= 1),
+                self.known_kinds,
+                self.train_policy,
+                allowed_pair=self._allowed_pair,
+                allowed_role=self._allowed_role,
+            )
+            try:
+                s1, s2 = self.gen.contrast_pair_scenes(rng, m, allowed_kinds=self.known_kinds, allow_value_edit=False)
+            except GenerationError:
+                continue
+            out.append(self.gen.make_example(next_id(), m, s1, None, ("contradiction_filler",)))
+            if len(out) < self.config.splits.n_contradiction_filler:
+                out.append(self.gen.make_example(next_id(), m, s2, None, ("contradiction_filler",)))
         return out
 
     def _probes(self, target: str, confusion: str, train_keys: set, forbidden_tokens: set) -> list[Example]:
@@ -431,17 +601,28 @@ class SplitBuilder:
         out: list[Example] = []
         keys: set = set()
         for _ in range(self.config.generation.max_rejection_tries * 4):
-            if len(out) == self.config.splits.n_contradiction_probes:
-                return out
-            m = self.gen.sample_meaning_where(rng, self._with_target(target), self.known_kinds, self.train_policy)
+            if len(out) >= self.config.splits.n_contradiction_probes:
+                return out[: self.config.splits.n_contradiction_probes]
+            m = self.gen.sample_meaning_where(
+                rng,
+                self._with_target(target),
+                self.known_kinds,
+                self.train_policy,
+                allowed_pair=self._allowed_pair,
+                allowed_role=self._allowed_role,
+            )
             if self.gen.grammar.realize(m) in forbidden_tokens:
                 continue
-            ex = self._diagnostic_example(rng, m, target, confusion, want=len(out) % 2 == 0,
-                                          example_id=next_id(), tags=("test_contradiction",))
-            if ex is not None and ex.item_key() not in train_keys and ex.item_key() not in keys:
-                keys.add(ex.item_key())
-                out.append(ex)
+            pair = self._diagnostic_pair(rng, m, target, confusion, next_id, ("test_contradiction",))
+            if pair is not None:
+                ex_true, ex_false = pair
+                k1, k2 = ex_true.item_key(), ex_false.item_key()
+                if k1 != k2 and k1 not in train_keys and k2 not in train_keys and k1 not in keys and k2 not in keys:
+                    keys.add(k1)
+                    keys.add(k2)
+                    out.extend([ex_true, ex_false])
         raise GenerationError("could not build contradiction probes")
+
 
     # ---------------------------------------------------------------- all
 

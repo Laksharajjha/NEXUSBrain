@@ -12,7 +12,7 @@ Logical forms are ground truth for evaluation only; learners never see them.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from itertools import product
+from itertools import permutations, product
 from typing import Any, Iterable, Mapping
 
 from nexus.world.config import ACTS, ATTRIBUTES
@@ -120,3 +120,61 @@ def evaluate(lf: LogicalForm, scene: Scene, symmetric: frozenset[str]) -> bool:
         if all(atom_holds(a, assignment, scene, symmetric) for a in lf.atoms):
             return True
     return False
+
+
+def naive_evaluate(lf: LogicalForm, scene: Scene, symmetric: frozenset[str]) -> bool:
+    """Second, independent naive model checker using ``itertools.permutations``.
+
+    Shares no helper functions (``atom_holds``, ``scene.holds``, ``obj.value``)
+    with :func:`evaluate`, inspecting raw ``SceneObject`` attributes and
+    ``Relation`` tuples directly.
+    """
+    n_objs = len(scene.objects)
+    n_vars = len(lf.variables)
+    has_rel = any(a.predicate.startswith("rel:") for a in lf.atoms)
+
+    candidate_tuples: list[tuple[int, ...]] = list(permutations(range(n_objs), n_vars))
+    if not has_rel and n_vars == 2:
+        candidate_tuples.extend((i, i) for (i,) in permutations(range(n_objs), 1))
+
+    for tup in candidate_tuples:
+        var_map = {lf.variables[idx]: tup[idx] for idx in range(n_vars)}
+        ok = True
+        for atom in lf.atoms:
+            prefix, _, val = atom.predicate.partition(":")
+            if prefix == "kind":
+                obj = scene.objects[var_map[atom.args[0]]]
+                if obj.kind != val:
+                    ok = False
+                    break
+            elif prefix == "color":
+                obj = scene.objects[var_map[atom.args[0]]]
+                if obj.color != val:
+                    ok = False
+                    break
+            elif prefix == "size":
+                obj = scene.objects[var_map[atom.args[0]]]
+                if obj.size != val:
+                    ok = False
+                    break
+            elif prefix == "rel":
+                u = var_map[atom.args[0]]
+                v = var_map[atom.args[1]]
+                found = False
+                for r in scene.relations:
+                    if r.name == val:
+                        if r.subject == u and r.object == v:
+                            found = True
+                            break
+                        if val in symmetric and r.subject == v and r.object == u:
+                            found = True
+                            break
+                if not found:
+                    ok = False
+                    break
+            else:
+                raise LogicError(f"unsupported prefix {prefix!r}")
+        if ok:
+            return True
+    return False
+
