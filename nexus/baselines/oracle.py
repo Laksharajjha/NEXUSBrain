@@ -179,3 +179,100 @@ class Oracle:
         lf = self.parse(tokens)
         truth = evaluate(lf, scene, self.symmetric)
         return Prediction(p_true=1.0 if truth else 0.0, lf=lf)
+
+
+class StubbornOracle(Oracle):
+    """Oracle with one corrupted lexical entry that ignores all corrections (Stage A4).
+
+    Maps the surface word for ``corrupted_target`` (e.g. ``color:red``) to
+    ``corrupted_confusion`` (e.g. ``color:blue``) and ignores both observations
+    and corrective feedback. On diagnostic contradiction probes, this must score
+    clearly below 0.50 (specifically 0.00).
+    """
+
+    name: str = "stubborn_oracle"
+
+    def __init__(
+        self,
+        grammar: GrammarConfig,
+        ontology: Ontology,
+        corrupted_target: str,
+        corrupted_confusion: str,
+        seed: int = 0,
+    ) -> None:
+        super().__init__(grammar, ontology, seed=seed)
+        self.corrupted_target = corrupted_target
+        self.corrupted_confusion = corrupted_confusion
+        self.target_word = self.grammar.word_for(corrupted_target)
+        # Corrupt the lexical entry: map target_word to corrupted_confusion
+        self.word_to_pred[self.target_word] = corrupted_confusion
+
+
+class CorrectedOracle(StubbornOracle):
+    """Oracle starting with the same corrupted lexical entry that applies corrections (Stage A4).
+
+    Records observations from the support stream. When ``correct()`` is called,
+    updates the stored label of the corrected observation and re-solves the lexical
+    entry for ``target_word`` over the candidate predicates in the ontology family,
+    scoring 1.00 on diagnostic probes after corrections.
+    """
+
+    name: str = "corrected_oracle"
+
+    def __init__(
+        self,
+        grammar: GrammarConfig,
+        ontology: Ontology,
+        corrupted_target: str,
+        corrupted_confusion: str,
+        seed: int = 0,
+    ) -> None:
+        super().__init__(grammar, ontology, corrupted_target, corrupted_confusion, seed=seed)
+        self._support_obs: dict[str, tuple[Scene, tuple[str, ...], bool]] = {}
+        self._corrected_ids: set[str] = set()
+
+    def observe(self, observation: Observation) -> None:
+        """Store support observation (and if mislabelled, keep the corrupted reading)."""
+        self._support_obs[observation.example_id] = (
+            observation.scene,
+            observation.tokens,
+            observation.label,
+        )
+
+    def correct(self, correction: Correction) -> None:
+        """Apply corrective feedback and re-fit the lexical entry for ``target_word``."""
+        if correction.target_example_id not in self._support_obs:
+            raise KeyError(f"unknown example id {correction.target_example_id!r}")
+        scene, tokens, _ = self._support_obs[correction.target_example_id]
+        self._support_obs[correction.target_example_id] = (
+            scene,
+            tokens,
+            correction.corrected_label,
+        )
+        self._corrected_ids.add(correction.target_example_id)
+        self._reconcile_corrupted_word()
+
+    def _reconcile_corrupted_word(self) -> None:
+        """Select the ontology predicate in the target attribute family matching corrected examples."""
+        family = self.corrupted_target.split(":", 1)[0]
+        candidates = [f"{family}:{v}" for v in self.ontology.values(family)]
+        relevant = [
+            self._support_obs[eid]
+            for eid in self._corrected_ids
+            if self.target_word in self._support_obs[eid][1]
+        ]
+        if not relevant:
+            return
+        best_pred = self.word_to_pred[self.target_word]
+        best_hits = -1
+        for cand in candidates:
+            self.word_to_pred[self.target_word] = cand
+            hits = sum(
+                evaluate(self.parse(toks), sc, self.symmetric) == lbl
+                for sc, toks, lbl in relevant
+            )
+            if hits > best_hits:
+                best_hits = hits
+                best_pred = cand
+        self.word_to_pred[self.target_word] = best_pred
+

@@ -362,6 +362,8 @@ def _parse_splits(obj: Mapping[str, Any], grammar: GrammarConfig) -> SplitConfig
     keys = {f for f in SplitConfig.__dataclass_fields__}
     _require_keys(obj, keys, "splits")
     ints = {k: _int(obj[k], f"splits.{k}", 0) for k in keys - {"curriculum", "shuffle_within_stage"}}
+    if ints["n_dev_per_construction"] % 2 != 0:
+        raise ConfigError("splits.n_dev_per_construction must be even for exact 50/50 per-construction balance")
     curriculum_raw = obj["curriculum"]
     if not isinstance(curriculum_raw, list) or not curriculum_raw:
         raise ConfigError("splits.curriculum must be a non-empty list of stages")
