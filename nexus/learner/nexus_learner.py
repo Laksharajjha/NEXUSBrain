@@ -87,6 +87,31 @@ def compute_mdl_prior(entries: Mapping[str, LexicalEntry], alpha: float) -> floa
     return -alpha * float(n_entries + sum_depths + sum_atoms)
 
 
+def compute_bit_cost_prior(
+    entries: Mapping[str, LexicalEntry],
+    num_categories: int = 8,
+    num_predicates: int = 23,
+    in_nats: bool = True,
+) -> float:
+    """Compute parameter-free information-theoretic MDL prior from inventory sizes.
+
+    Each lexical entry encodes:
+    - syntactic category from ``num_categories``: ``log2(|C|) + 2 * depth(e)`` bits
+    - semantic predicate atoms from ``num_predicates``: ``atom_count(e) * log2(|P|)`` bits
+    Converted to nats via ``ln(2)`` so it is on the same natural-log scale as the
+    Bernoulli log-likelihood ``sum log P(y_i | e_i, h)``.
+    """
+    if not entries:
+        return 0.0
+    cat_bits = math.log2(max(2, num_categories))
+    pred_bits = math.log2(max(2, num_predicates))
+    total_bits = 0.0
+    for e in entries.values():
+        total_bits += cat_bits + 2.0 * float(e.depth) + float(e.atom_count) * pred_bits
+    scale = math.log(2.0) if in_nats else 1.0
+    return -scale * total_bits
+
+
 class NEXUSLearner:
     """Inspectable categorial grammar and lexicon learner with MDL beam search."""
 
@@ -102,6 +127,7 @@ class NEXUSLearner:
         given_lexicon: Mapping[str, str] | None = None,
         given_syntax: Mapping[str, str] | None = None,
         max_candidates_per_word: int = 5,
+        prior_mode: str = "linear",
     ) -> None:
         self.seed = seed
         self.beam_width = int(beam_width)
@@ -111,6 +137,7 @@ class NEXUSLearner:
         self.given_lexicon = dict(given_lexicon) if given_lexicon is not None else None
         self.given_syntax = dict(given_syntax) if given_syntax is not None else None
         self.max_candidates_per_word = int(max_candidates_per_word)
+        self.prior_mode = str(prior_mode)
 
         self._observations: list[_ObsEntry] = []
         self._obs_by_id: dict[str, int] = {}
@@ -175,11 +202,7 @@ class NEXUSLearner:
         self._beam_dirty = True
 
     def correct(self, correction: Correction) -> None:
-        """Apply corrective feedback by updating the experience log and replaying."""
-        self._ensure_beam()
-        before_beam = list(self._beam)
-        before_weights = list(self._beam_weights)
-
+        """Apply corrective feedback by updating the experience log and marking beam for replay."""
         self.experience_log_jsonl.append(
             json.dumps(
                 {
@@ -198,18 +221,8 @@ class NEXUSLearner:
             idx = self._obs_by_id[correction.target_example_id]
             self._observations[idx].label = correction.corrected_label
             self._observations[idx].corrected = True
+            self._change_records.pop(correction.target_example_id, None)
             self._beam_dirty = True
-            self._ensure_beam()
-            after_beam = list(self._beam)
-            after_weights = list(self._beam_weights)
-            self._change_records[correction.target_example_id] = self._diff_beams(
-                correction.target_example_id,
-                "correct",
-                before_beam,
-                before_weights,
-                after_beam,
-                after_weights,
-            )
 
     def predict(self, scene: Scene, tokens: tuple[str, ...]) -> Prediction:
         """Predict truth probability via Bayesian model averaging over the beam."""
@@ -359,6 +372,33 @@ class NEXUSLearner:
             )
 
         idx = self._obs_by_id[example_id]
+        obs_entry = self._observations[idx]
+        if obs_entry.corrected:
+            self._ensure_beam()
+            beam_after = list(self._beam)
+            weights_after = list(self._beam_weights)
+            # Reconstruct pre-correction observation list
+            obs_pre = list(self._observations)
+            obs_pre[idx] = _ObsEntry(
+                example_id=obs_entry.example_id,
+                scene=obs_entry.scene,
+                tokens=obs_entry.tokens,
+                label=not obs_entry.label,
+                source=obs_entry.source,
+                corrected=False,
+            )
+            beam_before, weights_before = self._build_beam_for_observations(obs_pre)
+            rec = self._diff_beams(
+                example_id,
+                "correct",
+                beam_before,
+                weights_before,
+                beam_after,
+                weights_after,
+            )
+            self._change_records[example_id] = rec
+            return rec
+
         obs_before = self._observations[:idx]
         obs_after = self._observations[: idx + 1]
         beam_before, weights_before = self._build_beam_for_observations(obs_before)
@@ -936,6 +976,20 @@ class NEXUSLearner:
 
         ordered_words = sorted(candidates_by_word.keys(), key=lambda w: self._word_order[w])
 
+        # Compute dynamic predicate inventory size for information-theoretic bit-cost prior
+        num_cats = len(CATEGORY_DEPTHS)
+        obs_preds: set[str] = {"Q"}
+        for obs in observations:
+            for o in obs.scene.objects:
+                obs_preds.add(f"kind:{o.kind}")
+                obs_preds.add(f"color:{o.color}")
+                obs_preds.add(f"size:{o.size}")
+            for r in obs.scene.relations:
+                obs_preds.add(f"rel:{r.name}(x0,x1)")
+                obs_preds.add(f"rel:{r.name}(x1,x0)")
+                obs_preds.add(f"rel:{r.name}:sym(x0,x1)")
+        num_preds = max(2, len(obs_preds))
+
         # Incremental beam search over words to propose top K candidate lexicons
         partial_beam: list[tuple[dict[str, LexicalEntry], set[str], float]] = [({}, set(), 0.0)]
         for w in ordered_words:
@@ -945,7 +999,12 @@ class NEXUSLearner:
                     base_pred = entry.predicate.split("(", 1)[0].replace(":sym", "")
                     # Prefer mutual exclusivity (one-to-one lexicon) when local contrast scores tie
                     dup_penalty = -2.5 if (base_pred != "Q" and base_pred in used_base_preds) else 0.0
-                    mdl_step = -self.alpha * (1 + entry.depth + entry.atom_count)
+                    if self.prior_mode == "log2_bits":
+                        mdl_step = compute_bit_cost_prior({w: entry}, num_cats, num_preds, in_nats=True)
+                    elif self.prior_mode == "log2_raw_bits":
+                        mdl_step = compute_bit_cost_prior({w: entry}, num_cats, num_preds, in_nats=False)
+                    else:
+                        mdl_step = -self.alpha * (1 + entry.depth + entry.atom_count)
                     new_map = dict(entries_map)
                     new_map[w] = entry
                     new_used = set(used_base_preds)
@@ -982,7 +1041,12 @@ class NEXUSLearner:
         ref_ll = sum(log_hit if hit else log_miss for hit in ref_hits)
 
         for entries_map, _, _ in partial_beam:
-            prior = compute_mdl_prior(entries_map, self.alpha)
+            if self.prior_mode == "log2_bits":
+                prior = compute_bit_cost_prior(entries_map, num_cats, num_preds, in_nats=True)
+            elif self.prior_mode == "log2_raw_bits":
+                prior = compute_bit_cost_prior(entries_map, num_cats, num_preds, in_nats=False)
+            else:
+                prior = compute_mdl_prior(entries_map, self.alpha)
             diff_words = [w for w in ordered_words if entries_map[w] != ref_map[w]]
             if not diff_words:
                 ll = ref_ll
