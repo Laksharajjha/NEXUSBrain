@@ -72,7 +72,7 @@ Each dataset split is strictly isolated to test distinct facets of generalizatio
 
 ### Structural Disjointness Assertions
 The test suite explicitly enforces that:
-- $\text{item} = (\text{tokens}, \text{canonical\_scene})$ in any test split has **zero intersection** with `train`.
+- `item = (tokens, canonical_scene)` in any test split has **zero intersection** with `train`.
 - Test splits have exactly $50\%$ True and $50\%$ False ground-truth balance.
 - Canonical scene representations are invariant to object permutations and IDs.
 
@@ -96,7 +96,7 @@ To ensure scientific honesty, the inductive biases and hypothesis spaces are exp
 
 ## 5. Metrics
 
-1. **Accuracy:** Fraction of items where $\text{predicted\_truth} == \text{ground\_truth}$.
+1. **Accuracy:** Fraction of items where `predicted_truth == ground_truth`.
 2. **Expected Calibration Error (ECE):**
    $$\text{ECE} = \sum_{b=1}^B \frac{|B_b|}{N} \left| \text{acc}(B_b) - \text{conf}(B_b) \right|$$
    binned into equal-width intervals over confidence $[0.5, 1.0]$.
@@ -104,7 +104,7 @@ To ensure scientific honesty, the inductive biases and hypothesis spaces are exp
    $$\text{Brier} = \frac{1}{N} \sum_{i=1}^N (p_i - y_i)^2$$
 4. **Logical Form Accuracy:** Exact match of predicted logical form (when parser is active).
 5. **Examples-to-Criterion:** Total training examples seen before dev accuracy on a construction reaches the criterion threshold ($\ge 0.90$).
-6. **Retention:** Accuracy on early constructions at the end of their stage vs. at the end of training ($\Delta = \text{acc}_{\text{final}} - \text{acc}_{\text{stage\_end}}$).
+6. **Retention:** Accuracy on early constructions at the end of their stage vs. at the end of training ($\Delta = \text{acc}_{\text{final}} - \text{acc}_{\text{stage-end}}$).
 7. **Model Size:** Number of active hypothesis entries or parameters.
 
 ---
@@ -112,8 +112,8 @@ To ensure scientific honesty, the inductive biases and hypothesis spaces are exp
 ## 6. Phase 0 Results: Baseline A (Memorizer)
 
 Baseline A is a pure lookup table with Laplace-smoothed backoff:
-1. Exact match on $(\text{tokens}, \text{canonical\_scene})$
-2. Sentence match on $\text{tokens}$
+1. Exact match on `(tokens, canonical_scene)`
+2. Sentence match on `tokens`
 3. Global prior
 
 Running 20 seeds through `nexus.experiments.phase0_memorizer`:
@@ -182,7 +182,7 @@ Before starting Phase 1, the harness was hardened and audited (see [`AUDIT_0_6.m
 ### 8.2 Note (b): Structural Definition of `test_longer` & Unidentifiability of Relative Modifier Order
 - **Definition:** `test_longer` is **not** merely recombining known words within the training sentence length ($L \le 6$). Structurally, every item in `test_longer` features **multiple modifiers (both a size AND a color adjective)** qualifying NPs so that total utterance length $L > L_{\text{train}}$ (where training NPs have `max_adjectives_train = 1`, i.e., **zero training NPs contain both a size and a color modifier simultaneously**, `n_train_stacked_nps = 0`).
 - **Honest Scope of Learning:** Because no single training NP contains both a `size` and a `color` modifier at the same time, the relative surface order *between* `size` and `color` inside a 2-adjective NP is **not** identifiable from `train` and is never claimed to be learned. What *is* identifiable from `train` (with $293.0 \pm 18.7$ distinguishing examples per seed) is whether modifiers precede or follow their head noun (head directionality / modifier attachment), which suffices to attach stacked modifiers to the right head noun in `test_longer` since conjunction (`size(x) & color(x)`) is commutative.
-- **Verification:** Unit test `test_test_longer_structurally_exceeds_training` asserts that $\forall e \in \text{test\_longer}, \text{len}(e.\text{tokens}) > \text{max\_train\_length}$.
+- **Verification:** Unit test `test_test_longer_structurally_exceeds_training` asserts that for every item $e$ in `test_longer`, $\text{len}(e.\text{tokens}) > L_{\text{train-max}}$.
 
 ### 8.3 Note (c): One-Shot Support Stream Composition & Truth-Value Supervision
 - **Composition:** The support stream for `test_novel_word_in_known_frame` consists of 1 contrastive bare-NP pair (**2 examples**, evaluated at `before_support` and `after_support`).
@@ -193,7 +193,7 @@ Before starting Phase 1, the harness was hardened and audited (see [`AUDIT_0_6.m
 
 ### 8.4 Note (d): Correction Semantics in `test_contradiction`
 - **Definition:** In `test_contradiction`, corrupted initial examples assert an erroneous attribute mapping (e.g. `tal` $\to$ `red` instead of `green`). During the correction stream, an explicit `Correction` event is supplied:
-  $$\text{Correction}(\text{target\_example\_id}, \text{corrected\_label}=\text{opposite}, \text{reason}="teacher\_error")$$
+  `Correction(target_example_id, corrected_label=opposite, reason="teacher_error")`
 - A **correct response** requires:
   1. Retracting the corrupted belief on diagnostic probes involving the affected words.
   2. Leaving unaffected beliefs unchanged (no catastrophic forgetting).

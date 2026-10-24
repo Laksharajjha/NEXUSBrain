@@ -111,12 +111,12 @@ Across all 6 splits (`train`, `dev`, `test_novel_combination`, `test_novel_word_
 1. **Novel-Kind Scene Balance**:
    - Across all 20 seeds (`n = 200` test items per seed: 100 True, 100 False), every False scene is constructed via `binding_edits` of a True scene containing the novel kind (where a modifier or relational argument binding is swapped to falsify the sentence while keeping the novel-kind object in the scene).
    - Consequently:
-     $$P(\text{novel\_kind\_present} \mid \text{True}) = 1.000, \qquad P(\text{novel\_kind\_present} \mid \text{False}) = 1.000 \qquad (\Delta = 0.000)$$
+     $$P(\text{novel-kind present} \mid \text{True}) = 1.000, \qquad P(\text{novel-kind present} \mid \text{False}) = 1.000 \qquad (\Delta = 0.000)$$
 2. **Exact Enumeration of Support-Consistent Meanings in the Phase 1 Hypothesis Space**:
    - The Phase 1 lexical hypothesis space consists of 15 predicates: 6 kinds (`kind:*`), 4 colors (`color:*`), 3 sizes (`size:*`), and 2 relations (`rel:*`).
    - The support stream provides 1 contrastive bare-NP pair (2 examples: Example 1 with label `True` in scene $S_{\text{true}}$, and Example 2 with the identical token sequence and label `False` in near-miss scene $S_{\text{false}}$).
    - Because $S_{\text{false}}$ is constructed from $S_{\text{true}}$ by replacing only the witness object's `kind` attribute (`novel_kind -> k_alt`, where `k_alt` is already present on a distractor or distinct from `novel_kind`) while leaving all object `color`s, `size`s, and `relations` unchanged, **even without using mutual exclusivity from `train`**, the set of predicates in the 15-predicate hypothesis space that hold in $S_{\text{true}}$ and fail in $S_{\text{false}}$ has size:
-     $$|\mathcal{C}_{\text{support}}| = 1 \quad (\text{uniquely } \{\texttt{kind:}\langle\text{novel\_kind}\rangle\}) \text{ on } 20 / 20 \text{ seeds.}$$
+     $$|\mathcal{C}_{\text{support}}| = 1 \quad (\text{uniquely } \{\texttt{kind:}\langle\text{novel-kind}\rangle\}) \text{ on } 20 / 20 \text{ seeds.}$$
    - **Ideal-Observer Accuracy Ceiling**: **`1.000`** across all 20 seeds.
 
 ---
