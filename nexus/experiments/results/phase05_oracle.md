@@ -1,15 +1,15 @@
-# phase05_audit_oracle — oracle (20 seeds)
+# phase06_audit_oracle — oracle (20 seeds)
 
 ## Accuracy and calibration (mean ± std over seeds)
 
-| split | accuracy | ECE | Brier | mean confidence |
-|---|---|---|---|---|
-| train | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
-| dev | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
-| test_novel_combination | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
-| test_novel_word_in_known_frame | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
-| test_longer | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
-| test_contradiction | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
+| split | n | accuracy | ECE | Brier | mean confidence |
+|---|---|---|---|---|---|
+| train | 1600 | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
+| dev | 400 | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
+| test_novel_combination | 400 | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
+| test_novel_word_in_known_frame | 200 | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
+| test_longer | 300 | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
+| test_contradiction | 200 | 1.000 ± 0.000 | 0.000 ± 0.000 | 0.000 ± 0.000 | 1.000 ± 0.000 |
 
 ## Support-stream checkpoints: test_novel_word_in_known_frame
 

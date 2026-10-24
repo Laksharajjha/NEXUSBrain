@@ -1,7 +1,7 @@
 # NEXUS-0 Project Status
 
-**Last Updated**: 2026-10-20
-**Current Stage**: STAGE A (Audit Patch — Phase 0.6)
+**Last Updated**: 2026-10-24
+**Current Stage**: STAGE B (Phase 1 Learner — Grammar + Meaning Induction)
 **Current Branch**: `feature/phase-0-toy-world-eval`
 **PREREGISTRATION.md SHA-256**: `ef09666eb2bb96ca481ce05dc3dc5ca50fbe6d2143441ed38b062968313f695b`
 
@@ -9,31 +9,32 @@
 
 ## Completed Stages
 - **Phase 0**: Toy world, logic, splits, evaluation runner, Baseline A (Memorizer).
-- **Phase 0.5**: Initial Oracle ceiling, SentenceOnly & SceneOnly baselines, per-seed randomization, frozen `PREREGISTRATION.md`.
+- **Phase 0.5**: Initial Oracle ceiling, SentenceOnly & SceneOnly baselines, per-seed randomization, frozen `PREREGISTRATION.md` (`prereg-v1`).
+- **STAGE A (Phase 0.6 — Audit Patch, `gate-A`)**:
+  - [x] **A1**: Reported `n` per split in `AUDIT_0_6.md`, `README.md`, and `nexus/eval/report.py`; 50-seed pooled Student-$t$ interval test for `SentenceOnly` and `SceneOnly` (`0.500 ± 0.000`, 0 failures).
+  - [x] **A2**: Feature-level label-balance audit across all 6 splits and 63 features (`P(feature|true)` vs `P(feature|false)`) with permutation tests + Holm-Bonferroni & Benjamini-Hochberg corrections; fixed generator binding/value-swap symmetry; reran 20-seed benchmark table.
+  - [x] **A3**: Verified novel-kind presence is balanced (`1.000` vs `1.000`) on `test_novel_word_in_known_frame`; enumerated consistent candidates from the 2-example support stream in the 15-predicate Phase 1 hypothesis space (`candidate_count == 1`, `ideal_observer_ceiling == 1.000`).
+  - [x] **A4**: Implemented `StubbornOracle` (`0.000` on diagnostic probes) and `CorrectedOracle` (`0.000` before corrections -> `1.000` after corrections).
+  - [x] **A5**: Implemented independent second model checker `naive_evaluate` (`itertools.permutations`) in `nexus/world/logic.py`; verified on 20 hand-crafted golden cases + 1,000 random `(scene, LF)` pairs.
+  - [x] **A6**: Identifiability report across 20 seeds verifying $\ge 183$ role-swap `chases` contrasts, $\ge 253$ NP modifier-attachment contrasts, and $\ge 294$ examples per construction (`flagged_under_5 == []`).
+  - [x] **A7**: Enforced even `n_dev_per_construction`, verified `n_train_stacked_nps == 0`, updated `README.md`, locked `PREREGISTRATION.md` SHA-256 in CI (`test_a7_preregistration_hash_and_small_fixes`), tagged `prereg-v1`.
+  - [x] **A8**: Implemented `ExhaustiveIdealObserver` on reduced world ($6! = 720$ bijections), achieving `1.000` ceiling across all splits.
+  - [x] **GATE A**: All 50 tests pass, `AUDIT_0_6.md` written, ready for tag `gate-A`.
 
 ---
 
-## Active Stage: STAGE A (Audit Patch)
-Addressing the 6 independent review findings via tasks A1–A8 before Gate A:
-- [ ] **A1**: Report `n` per split; pooled 50-seed t-interval test for `SentenceOnly` and `SceneOnly` (95% CI must contain 0.50 on every test split).
-- [ ] **A2**: Feature-level label-balance audit on every split (`P(feature|true)` vs `P(feature|false)`) with permutation tests + Holm/BH correction; diagnose and fix generator artifacts (specifically relation swap/endpoint pattern in `test_novel_combination` and `test_longer`); rerun 20-seed table.
-- [ ] **A3**: `test_novel_word_in_known_frame` audit: verify novel-kind presence is balanced in true/false test scenes; enumerate consistent meanings from the 2-example support stream within Phase 1 hypothesis space; compute candidate count and ideal-observer accuracy ceiling; add tests.
-- [ ] **A4**: Implement `StubbornOracle` (1 corrupted lexical entry, ignores corrections -> must score < 0.5 on diagnostic probes) and `CorrectedOracle` (applies corrections -> must score 1.0).
-- [ ] **A5**: Second naive model checker (`itertools.permutations` / `itertools.product` over object assignments); differential property test on 1,000 random scenes/LFs + 20 hand-verified golden cases.
-- [ ] **A6**: Identifiability report across constructions and randomized NP/clause/particle orders: count training examples distinguishing correct analysis from main alternatives; flag any < 5.
-- [ ] **A7**: Small fixes: even per-construction dev count; check if any training NP has both size and color modifiers; README wording ("modifier stacking", feedback wording); git tag `prereg-v1` + test verifying `PREREGISTRATION.md` SHA-256; check if any preregistered threshold is infeasible given A3 ceiling.
-- [ ] **A8**: Exhaustive Bayesian ideal observer on reduced world (2 kinds, 2 colors, 1 relation, fixed order) small enough to enumerate; compute best achievable accuracy per split.
-- [ ] **GATE A**: All tests pass, A1–A8 documented in `AUDIT_0_6.md`, no unresolved artifact, tag `gate-A`.
+## Active Stage: STAGE B (Phase 1 Learner)
+- [ ] **B1**: Categorial grammar hypothesis space (`N, NP, S`, slash depth $\le 2$, forward/backward application only), lexical semantic hypothesis space, and MDL + likelihood scorer ($\varepsilon=0.02$).
+- [ ] **B2**: Online beam search ($K=200$) with true-vs-false contrastive proposal generation, Bayesian model averaging over beam, and JSONL experience log for `correct()` replay.
+- [ ] **B3**: `explain(sentence, scene)` and `what_changed(example_id)` with provenance + explanation faithfulness intervention test.
+- [ ] **B4**: Baseline B (Cross-Situational Only: IBM Model 1 / co-occurrence bag-of-meanings) and Baseline C (Greedy Top-1 No-Revision Learner).
+- [ ] **B5**: Lexicon-permutation invariance test over 20 seeds, source scan test (no invented words or oracle imports in `nexus/learner/`), scoring/pruning/explain/faithfulness unit tests.
+- [ ] **GATE B**: All Stage B tests pass, tuned on `dev` only, tag `gate-B`.
 
 ---
 
-## Open Issues / Review Findings Being Investigated
-1. `SceneOnly` scored `0.458 +/- 0.034` on `test_novel_combination` (~5 SE below 0.50) and `0.539 +/- 0.021` on `test_longer` (~8 SE above 0.50). Need to diagnose the exact generator artifact causing this in `generator.py` / `splits.py`.
-2. `n` per split not explicitly reported in summary tables.
-3. Correction metric validation requires `StubbornOracle` vs `CorrectedOracle`.
-4. Single model checker shared between generator and oracle needs independent naive checker validation.
-5. Word-order identifiability from training data needs quantitative verification.
-6. Novel-word 2-example support stream uniqueness and ideal-observer ceiling need exact enumeration.
+## Open Issues
+- None in Stage A (all 6 review findings resolved and verified).
 
 ---
 
@@ -42,7 +43,6 @@ Addressing the 6 independent review findings via tasks A1–A8 before Gate A:
 # Run full test suite
 .venv/bin/pytest -v
 
-# Check git status and tags
-git status
-git tag -l
+# Re-run Stage A audit
+.venv/bin/python -m nexus.experiments.stage_a_audit
 ```

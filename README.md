@@ -120,14 +120,14 @@ Running 20 seeds through `nexus.experiments.phase0_memorizer`:
 
 ### Accuracy and Calibration (20 seeds, mean ± std)
 
-| Split | Accuracy | ECE | Brier | Mean Confidence |
-|---|---|---|---|---|
-| `train` | **1.000 ± 0.000** | 0.333 ± 0.000 | 0.111 ± 0.000 | 0.667 ± 0.000 |
-| `dev` | **0.493 ± 0.021** | 0.049 ± 0.015 | 0.254 ± 0.003 | 0.536 ± 0.004 |
-| `test_novel_combination` | **0.500 ± 0.000** | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
-| `test_novel_word_in_known_frame` | **0.500 ± 0.000** | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
-| `test_longer` | **0.500 ± 0.000** | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
-| `test_contradiction` | **0.500 ± 0.000** | 0.005 ± 0.005 | 0.250 ± 0.000 | 0.505 ± 0.005 |
+| Split | `n` | Accuracy | ECE | Brier | Mean Confidence |
+|---|---:|---|---|---|---|
+| `train` | 1,600 | **1.000 ± 0.000** | 0.333 ± 0.000 | 0.111 ± 0.000 | 0.667 ± 0.000 |
+| `dev` | 400 | **0.500 ± 0.000** | 0.049 ± 0.015 | 0.250 ± 0.000 | 0.536 ± 0.004 |
+| `test_novel_combination` | 400 | **0.500 ± 0.000** | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
+| `test_novel_word_in_known_frame` | 200 | **0.500 ± 0.000** | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
+| `test_longer` | 300 | **0.500 ± 0.000** | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
+| `test_contradiction` | 200 | **0.500 ± 0.000** | 0.005 ± 0.005 | 0.250 ± 0.000 | 0.505 ± 0.005 |
 
 ### Support-Stream Checkpoints (Accuracy)
 
@@ -141,50 +141,55 @@ Running 20 seeds through `nexus.experiments.phase0_memorizer`:
 
 ### Verification of the Evaluation Harness
 - **Memorizer learns training data perfectly:** $100.0\%$ accuracy on `train`.
-- **Zero test leakage:** On all held-out splits (`test_novel_combination`, `test_novel_word_in_known_frame`, `test_longer`, `test_contradiction`), the memorizer performs at exactly chance ($50.0\%$).
+- **Zero test leakage:** On all held-out splits (`dev`, `test_novel_combination`, `test_novel_word_in_known_frame`, `test_longer`, `test_contradiction`), the memorizer performs at exactly chance ($50.0\%$).
 - **No one-shot generalization:** Seeing the novel noun in the support pair provides zero transfer to other constructions under exact matching.
 - This confirms that any above-chance performance in Phase 1 requires genuine grammatical and semantic generalization.
 
 ---
 
-## 7. Phase 0.5: Harness Hardening & Shortcut Audit
+## 7. Phase 0.5 & 0.6: Harness Hardening & Statistical Audit (`AUDIT_0_6.md`)
 
-Before starting Phase 1, the harness was hardened and audited to eliminate artifacts and confirm ceiling / floor bounds across 20 randomized seeds (`world_mode=randomized`):
+Before starting Phase 1, the harness was hardened and audited (see [`AUDIT_0_6.md`](./AUDIT_0_6.md)) to eliminate scene/sentence artifacts and confirm ceiling / floor bounds across 20 and 50 randomized seeds (`world_mode=randomized`):
 - **Lexicon & Word-Order Randomization:** Each seed permutes the word-to-concept assignment, NP order (all 6 permutations), clause order (SOV, SVO, VSO), and question particle position (`initial` vs `final`).
-- **Oracle Ceiling:** Parses any token sequence into ground-truth LF and evaluates it against the scene. Achieves $100.0\%$ on all splits.
-- **Shortcut Audits (`SentenceOnly` & `SceneOnly`):** Predict truth using logistic regression on sentence-only features (BoW, length, positions) or scene-only features (object, feature, and relation counts). Both stay strictly within the $95\%$ binomial confidence interval of chance ($0.50$).
+- **Oracle Ceiling (`Oracle`, `StubbornOracle`, `CorrectedOracle`):** `Oracle` achieves $100.0\%$ on all splits. `StubbornOracle` (1 corrupted lexical entry, ignores corrections) scores $0.000$ on `test_contradiction`, while `CorrectedOracle` (applies corrections) recovers to $1.000$.
+- **Second Naive Model Checker (`naive_evaluate`):** Validated via `itertools.permutations` against `evaluate` on 1,000 random `(scene, LF)` pairs and 20 hand-verified golden cases.
+- **Shortcut Audits (`SentenceOnly` & `SceneOnly`):** Evaluated across 50 seeds with pooled 95% Student-$t$ intervals and feature-level permutation tests (Holm-Bonferroni & Benjamini-Hochberg). Both score $0.500 \pm 0.000$ across all splits.
 
 ### 7.1 Cross-Baseline Comparison (20 Randomized Seeds, Mean ± Std)
 
-| Model | `train` | `dev` | `test_novel_combination` | `test_novel_word_in_known_frame` | `test_longer` | `test_contradiction` |
+| Model | `train` ($n=1600$) | `dev` ($n=400$) | `test_novel_combination` ($n=400$) | `test_novel_word_in_known_frame` ($n=200$) | `test_longer` ($n=300$) | `test_contradiction` ($n=200$) |
 |---|---|---|---|---|---|---|
 | **Oracle** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** | **1.000 ± 0.000** |
-| **SentenceOnly** | 0.529 ± 0.004 | 0.500 ± 0.027 | 0.495 ± 0.025 | 0.505 ± 0.025 | 0.510 ± 0.030 | 0.506 ± 0.029 |
-| **SceneOnly** | 0.530 ± 0.008 | 0.523 ± 0.021 | 0.458 ± 0.034 | 0.510 ± 0.035 | 0.539 ± 0.021 | 0.486 ± 0.098 |
-| **Memorizer** | **1.000 ± 0.000** | 0.502 ± 0.024 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 |
+| **StubbornOracle** | 0.925 ± 0.008 | 0.931 ± 0.010 | 0.907 ± 0.037 | 0.908 ± 0.024 | 0.790 ± 0.019 | **0.000 ± 0.000** |
+| **CorrectedOracle** | 0.925 ± 0.008 | 0.931 ± 0.010 | 0.907 ± 0.037 | 0.908 ± 0.024 | 0.790 ± 0.019 | **1.000 ± 0.000** |
+| **SentenceOnly** | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 |
+| **SceneOnly** | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 |
+| **Memorizer** | **1.000 ± 0.000** | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 | 0.500 ± 0.000 |
 
 ### 7.2 Diagnosed and Resolved Artifacts
-1. **Novel Kind Distractor Leakage (Bug A):** In Phase 0, `train` sentences excluded `novel_kind`, but `true_scene` distractors and `random_false_scene` sampled from the entire ontology including `novel_kind`. False scenes contained novel kinds $\sim 42\%$ of the time vs $\sim 17\%$ in true scenes, giving `SceneOnly` a spurious negative correlation ($w \approx -0.28$) that caused it to drop to $25\%-35\%$ on `test_novel_word_in_known_frame`. **Fix:** Restricted scene distractor sampling in train/dev/longer strictly to `known_kinds`.
-2. **Relation Count Disparity (Bug B):** `single_edits` previously deleted relations to construct false scenes, allowing `SceneOnly` to score $60\%-65\%$ on `test_longer` purely by counting relations. **Fix:** Replaced relation deletion with endpoint/relation-type swapping to strictly preserve relation counts between true and false scenes.
+1. **Novel Kind Distractor Leakage (Bug A):** In Phase 0, `train` sentences excluded `novel_kind`, but `true_scene` distractors and `random_false_scene` sampled from the entire ontology including `novel_kind`. **Fix:** Restricted scene distractor sampling in train/dev/longer strictly to `known_kinds`.
+2. **Relation Count & Graph Topology Disparity (Bug B):** Phase 0 deleted relations and Phase 0.5 swapped relation endpoints on single relations (introducing 2-cycles `topo:2_cycle` in False scenes) and sampled uniform replacement kinds (causing held-out selection bias on `test_novel_combination` and `test_longer`). **Fix:** Multi-predicate scenes are falsified via attribute/role `binding_edits` that strictly preserve object counts, all feature counts, relation counts, and directed relation graph topology (`topo:*`), while value-replacement edits use symmetric $2\times 2$ crossover quads (`value_swap_quad_scenes`).
 
 ---
 
-## 8. Verification Notes (Task 4)
+## 8. Verification Notes (Task 4 & Stage A7)
 
-### 8.1 Note (a): Memorizer Dev Accuracy ($0.493 \pm 0.021$ in Phase 0 vs $0.502 \pm 0.024$ in Phase 0.5)
+### 8.1 Note (a): Memorizer Dev Accuracy & Even Per-Construction Dev Count
 - **Intended Overlap:** The intended overlap between `dev` and `train` is strictly **zero exact (scene, tokens) pairs**. Dev represents in-distribution generalization to novel scenes using seen grammatical constructions.
-- **Explanation:** In Phase 0, dev size was 60 items across 4 constructions (15 items per construction). 15 items cannot be evenly split into 50/50 binary labels (giving 7 vs 8). When an unseen item is evaluated, the memorizer backs off to Laplace smoothing ($P(\text{true}) = \frac{0+1}{0+2} = 0.500$, predicting `True` by default under $\ge 0.50$). This odd partition, combined with slight sentence-level backoff variances on seen token sequences, produced an empirical mean of $0.493 \pm 0.021$. Under randomized mode in Phase 0.5, empirical dev accuracy is $0.502 \pm 0.024$, which is well within 1 standard error of chance ($0.500$).
+- **Even Per-Construction Dev Count:** `n_dev_per_construction` is enforced to be even by `ConfigError` validation (`100` per construction in `world_default.json`, `n=400` total; `30` per construction in `small_config`, `n=120` total).
+- **Explanation:** In Phase 0, when `True` and `False` items in `dev` were sampled with independent sentences, a sentence seen in `train` with a single `False` scene caused the memorizer's sentence-level backoff (`by_sentence[tokens]`) to predict `False` on an unseen `dev` item with that sentence, yielding $0.493 \pm 0.021$. With paired contrastive balancing in Phase 0.6 (`_balanced_items`), every `dev` sentence appears once with a `True` scene and once with a `False` scene, so sentence-level backoff yields **exact chance ($0.500 \pm 0.000$)**.
 
-### 8.2 Note (b): Structural Definition of `test_longer`
-- **Definition:** `test_longer` is **not** merely recombining known words within the training sentence length ($L \le 6$). Structurally, every item in `test_longer` features **stacked modifiers** (both size AND color simultaneously qualifying every noun in the utterance, e.g. `dax pim tal wug glorp sorn zorp`), producing lengths $L \in \{7, 8\}$ strictly greater than the maximum training length ($L_{\text{train}} \le 6$).
-- **Verification:** Unit test `test_test_longer_structurally_exceeds_training` programmatically asserts that $\forall e \in \text{test\_longer}, \text{len}(e.\text{tokens}) > \text{max\_train\_length}$.
+### 8.2 Note (b): Structural Definition of `test_longer` & Unidentifiability of Relative Modifier Order
+- **Definition:** `test_longer` is **not** merely recombining known words within the training sentence length ($L \le 6$). Structurally, every item in `test_longer` features **multiple modifiers (both a size AND a color adjective)** qualifying NPs so that total utterance length $L > L_{\text{train}}$ (where training NPs have `max_adjectives_train = 1`, i.e., **zero training NPs contain both a size and a color modifier simultaneously**, `n_train_stacked_nps = 0`).
+- **Honest Scope of Learning:** Because no single training NP contains both a `size` and a `color` modifier at the same time, the relative surface order *between* `size` and `color` inside a 2-adjective NP is **not** identifiable from `train` and is never claimed to be learned. What *is* identifiable from `train` (with $293.0 \pm 18.7$ distinguishing examples per seed) is whether modifiers precede or follow their head noun (head directionality / modifier attachment), which suffices to attach stacked modifiers to the right head noun in `test_longer` since conjunction (`size(x) & color(x)`) is commutative.
+- **Verification:** Unit test `test_test_longer_structurally_exceeds_training` asserts that $\forall e \in \text{test\_longer}, \text{len}(e.\text{tokens}) > \text{max\_train\_length}$.
 
-### 8.3 Note (c): One-Shot Support Stream Composition
-- **Composition:** The support stream for `test_novel_word_in_known_frame` consists of exactly 2 examples (4 evaluation checkpoints).
-- **Structure:**
-  - Example 1: A True observation featuring the novel noun in an `np_assert` frame (e.g. `novel_noun color`) with a witness scene containing that novel object.
-  - Example 2: A False observation using the *identical* sentence paired with a near-miss contrastive scene where the target object is replaced.
-  - Both events are standard observations (no corrective feedback). This minimal contrastive pair uniquely grounds the noun's extension.
+### 8.3 Note (c): One-Shot Support Stream Composition & Truth-Value Supervision
+- **Composition:** The support stream for `test_novel_word_in_known_frame` consists of 1 contrastive bare-NP pair (**2 examples**, evaluated at `before_support` and `after_support`).
+- **Structure & Feedback:**
+  - Example 1 (`label=True`): A bare-NP observation featuring the novel noun (e.g. `zib` or `ko zib`) paired with a witness scene $S_{\text{true}}$ containing 1 object of `novel_kind`.
+  - Example 2 (`label=False`): The *identical* sentence paired with a near-miss contrastive scene $S_{\text{false}}$ where the `novel_kind` object's `kind` attribute is replaced by another kind while all colors, sizes, and relations remain unchanged.
+  - Both events are standard `observe` events (no `Correction` retraction events), and **both labels (`True` and `False`) provide binary truth-value supervision**. As verified in `AUDIT_0_6.md` (Section A3), within the 15-predicate Phase 1 hypothesis space, this 2-example support stream leaves **exactly 1 consistent candidate (`novel_kind`)** across all 20 seeds, giving an ideal-observer accuracy ceiling of **1.000**.
 
 ### 8.4 Note (d): Correction Semantics in `test_contradiction`
 - **Definition:** In `test_contradiction`, corrupted initial examples assert an erroneous attribute mapping (e.g. `tal` $\to$ `red` instead of `green`). During the correction stream, an explicit `Correction` event is supplied:
