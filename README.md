@@ -215,38 +215,58 @@ Before starting Phase 1, the harness was hardened and audited (see [`AUDIT_0_6.m
 
 ---
 
-## 9. How to Run
+## 9. Phase 1 Learner Architecture & Evaluation Summary
 
-### Installation
-```bash
-python3.11 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
+### 9.1 Categorial Grammar & MDL Beam Learner (`nexus/learner/`)
+- **Syntactic Hypothesis Space (`nexus/learner/categorial.py`)**:
+  - Categorial grammar over base categories `{N, NP, S}` with directional slashes (`/` and `\`) of depth $\le 2$:
+    - Depth 0: `N`, `NP`, `S`
+    - Depth 1: `N/N` (pre-nominal modifier), `N\N` (post-nominal modifier), `S/S` (initial question marker), `S\S` (final question marker)
+    - Depth 2: `(S\NP)\NP` (SOV verb), `(S\NP)/NP` (SVO verb), `(S/NP)/NP` (VSO verb)
+  - Composition uses binary Forward Application (`>`) and Backward Application (`<`) only. No NP or clause word-order templates are encoded; word order emerges purely from induced slash directions.
+- **Semantic Hypothesis Space**:
+  - Unary predicates: `kind:<v>`, `color:<v>`, `size:<v>`
+  - Binary relations: `rel:<r>(x0,x1)`, `rel:<r>(x1,x0)`, `rel:<r>:sym(x0,x1)`
+  - Speech-act marker: `Q`
+- **MDL Scoring & Beam Search (`nexus/learner/nexus_learner.py`)**:
+  - Prior: $\log P(h) = -\alpha \cdot (|L_h| + \sum_{e \in L_h} \text{depth}(e) + \sum_{e \in L_h} \text{atoms}(e))$ ($\alpha = 0.05$).
+  - Likelihood: $\log P(y_i \mid s_i, w_i, h) = \log(1-\varepsilon)$ if $\text{eval}(\text{LF}_h(w_i), s_i) = y_i$ else $\log(\varepsilon)$ ($\varepsilon = 0.02$).
+  - Beam of $K = 200$ joint hypotheses updated from True-vs-False scene contrasts; predictions via Bayesian model averaging over the beam; full JSONL experience log for `correct()` replay.
+- **Explainability & Persistence (`nexus/learner/explain.py`, `nexus/storage/repository.py`)**:
+  - `explain(sentence, scene)` returns the derivation tree, lexical entries with supporting example IDs, derived LF, object binding witness (or falsifying atom reason), and posterior weight.
+  - `what_changed(example_id)` returns hypotheses promoted, demoted, or created.
+  - `SQLiteLearnerRepository` persists and reloads the full learner state, beam, and provenance in SQLite (`nexus/storage/schema.sql`).
 
-### Running Tests
-```bash
-pytest -v
-```
+### 9.2 Stage C Pre-Registered 20-Seed Benchmark (`world_mode=randomized`, 0 Reruns)
 
-### Running Phase 0.5 Baseline Audit (20 Seeds)
-```bash
-python -m nexus.experiments.phase05_harness_audit --seeds 20 --base-seed 0
-```
-Results and summaries are written to `nexus/experiments/results/phase05_*.json` and `nexus/experiments/results/phase05_*.md`.
+Full details in [PHASE1_REPORT.md](file:///Users/laksharajjha/Downloads/NEXUS/PHASE1_REPORT.md) and [RERUNS.md](file:///Users/laksharajjha/Downloads/NEXUS/RERUNS.md); exploratory studies and failure taxonomy in [LIMITATIONS.md](file:///Users/laksharajjha/Downloads/NEXUS/LIMITATIONS.md).
+
+| Split | `n` / seed | Baseline A (`Memorizer`) | Baseline B (`CrossSituational`) | Baseline C (`NoRevision`) | `SentenceOnly` | `SceneOnly` | **NEXUS Phase 1 (`NEXUSLearner`)** |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| `train` | `1600` | `1.000 ± 0.000` | `0.724 ± 0.012` | `0.505 ± 0.009` | `0.500 ± 0.000` | `0.500 ± 0.000` | **`1.000 ± 0.000`** |
+| `dev` | `400` | `0.500 ± 0.000` | `0.579 ± 0.019` | `0.507 ± 0.010` | `0.500 ± 0.000` | `0.500 ± 0.000` | **`1.000 ± 0.000`** |
+| `test_novel_combination` | `400` | `0.500 ± 0.000` | `0.500 ± 0.000` | `0.499 ± 0.004` | `0.500 ± 0.000` | `0.500 ± 0.000` | **`1.000 ± 0.000`** |
+| `test_novel_word_in_known_frame` | `200` | `0.500 ± 0.000` | `0.500 ± 0.000` | `0.500 ± 0.007` | `0.500 ± 0.000` | `0.500 ± 0.000` | **`1.000 ± 0.000`** |
+| `test_longer` | `300` | `0.500 ± 0.000` | `0.500 ± 0.000` | `0.500 ± 0.000` | `0.500 ± 0.000` | `0.500 ± 0.000` | **`1.000 ± 0.000`** |
+| `test_contradiction` | `200` | `0.500 ± 0.000` | `0.500 ± 0.000` | `0.499 ± 0.002` | `0.500 ± 0.000` | `0.500 ± 0.000` | **`1.000 ± 0.000`** |
 
 ---
 
-## 10. Known Limitations (Phase 0.5) & Next Steps (Phase 1)
+## 10. How to Run
 
-### Phase 0.5 Status
-- Harness hardened and shortcut-free across 20 randomized seeds.
-- Oracle ceiling reaches 100% across all splits; import guard guarantees zero learner leakage.
-- Pre-registration file `PREREGISTRATION.md` is frozen and content-hashed.
+### Installation & Tests
+```bash
+.venv/bin/pytest -v
+```
 
-### Next Steps: Phase 1 (NEXUS Grammar + Meaning Induction)
-1. **Cross-Situational Lexicon Induction:** Track co-occurrence distributions between surface words and scene features.
-2. **Grammar Induction:** Categorial grammar induction algorithm proposing lexical entries and semantic composition operators.
-3. **Hypothesis Scorer & Pruner:** Bayesian posterior / description length scoring over candidate grammars without premature pruning.
-4. **Explainability:** `explain(sentence)` providing the full derivation tree and experiential provenance for each rule used.
-5. **Baselines B & C:** Implement cross-situational-only learner (no grammar) and no-revision grammar learner.
+### Stage A Audit, Stage C Pre-Registered Evaluation, and Stage D Exploratory Suite
+```bash
+# Stage A: 50-seed shortcut audit + 20-seed feature-balance & identifiability audit
+.venv/bin/python -m nexus.experiments.stage_a_audit
+
+# Stage C: Pre-registered 20-seed Phase 1 evaluation
+.venv/bin/python -m nexus.experiments.phase1_eval
+
+# Stage D: Exploratory ablations (D1-D9) & SQLite persistence verification
+.venv/bin/python -m nexus.experiments.stage_d_exploratory
+```

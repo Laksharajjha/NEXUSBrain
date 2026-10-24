@@ -1,0 +1,742 @@
+{
+  "D1_beam_width": {
+    "analysis": "EXPLORATORY",
+    "beam_widths": {
+      "1": {
+        "beam_width": 1,
+        "novel_comb_acc_N120_mean": 0.8925000000000001,
+        "novel_comb_acc_N120_std": 0.10443299287102714,
+        "novel_comb_acc_N1600_mean": 1.0,
+        "novel_word_acc_N1600_mean": 1.0,
+        "novel_word_brier_N1600_mean": 0.00040000000000000034
+      },
+      "100": {
+        "beam_width": 100,
+        "novel_comb_acc_N120_mean": 0.8675,
+        "novel_comb_acc_N120_std": 0.12642932808490284,
+        "novel_comb_acc_N1600_mean": 1.0,
+        "novel_word_acc_N1600_mean": 1.0,
+        "novel_word_brier_N1600_mean": 0.004324311854752602
+      },
+      "200": {
+        "beam_width": 200,
+        "novel_comb_acc_N120_mean": 0.8625,
+        "novel_comb_acc_N120_std": 0.12839149115108836,
+        "novel_comb_acc_N1600_mean": 1.0,
+        "novel_word_acc_N1600_mean": 1.0,
+        "novel_word_brier_N1600_mean": 0.004324311854752602
+      },
+      "25": {
+        "beam_width": 25,
+        "novel_comb_acc_N120_mean": 0.905,
+        "novel_comb_acc_N120_std": 0.10178101492911143,
+        "novel_comb_acc_N1600_mean": 1.0,
+        "novel_word_acc_N1600_mean": 1.0,
+        "novel_word_brier_N1600_mean": 0.004324311854752602
+      },
+      "5": {
+        "beam_width": 5,
+        "novel_comb_acc_N120_mean": 0.8875,
+        "novel_comb_acc_N120_std": 0.10752906583803284,
+        "novel_comb_acc_N1600_mean": 1.0,
+        "novel_word_acc_N1600_mean": 1.0,
+        "novel_word_brier_N1600_mean": 0.004324311854752602
+      },
+      "500": {
+        "beam_width": 500,
+        "novel_comb_acc_N120_mean": 0.8675,
+        "novel_comb_acc_N120_std": 0.13246461791738956,
+        "novel_comb_acc_N1600_mean": 1.0,
+        "novel_word_acc_N1600_mean": 1.0,
+        "novel_word_brier_N1600_mean": 0.004324311854752602
+      }
+    }
+  },
+  "D2_noise_epsilon": {
+    "analysis": "EXPLORATORY",
+    "epsilons": {
+      "0.001": {
+        "clean_brier": 1.000000000000001e-06,
+        "clean_ece": 0.001000000000000112,
+        "clean_novel_comb_acc": 1.0,
+        "epsilon": 0.001,
+        "noisy_10pct_novel_comb_acc": 1.0
+      },
+      "0.01": {
+        "clean_brier": 0.00010000000000000009,
+        "clean_ece": 0.01000000000000012,
+        "clean_novel_comb_acc": 1.0,
+        "epsilon": 0.01,
+        "noisy_10pct_novel_comb_acc": 1.0
+      },
+      "0.02": {
+        "clean_brier": 0.00040000000000000034,
+        "clean_ece": 0.019999999999999574,
+        "clean_novel_comb_acc": 1.0,
+        "epsilon": 0.02,
+        "noisy_10pct_novel_comb_acc": 1.0
+      },
+      "0.05": {
+        "clean_brier": 0.0025000000000000027,
+        "clean_ece": 0.050000000000000044,
+        "clean_novel_comb_acc": 1.0,
+        "epsilon": 0.05,
+        "noisy_10pct_novel_comb_acc": 1.0
+      },
+      "0.1": {
+        "clean_brier": 0.01,
+        "clean_ece": 0.09999999999999953,
+        "clean_novel_comb_acc": 1.0,
+        "epsilon": 0.1,
+        "noisy_10pct_novel_comb_acc": 1.0
+      }
+    }
+  },
+  "D3_learning_curves": {
+    "analysis": "EXPLORATORY",
+    "full_world_learning_curves": {
+      "100": {
+        "cross_situational_acc_mean": 0.5,
+        "memorizer_acc_mean": 0.5,
+        "n_train": 100,
+        "nexus_acc_mean": 0.8959999999999999,
+        "nexus_acc_std": 0.13049904214207858,
+        "no_revision_acc_mean": 0.502
+      },
+      "1600": {
+        "cross_situational_acc_mean": 0.5,
+        "memorizer_acc_mean": 0.5,
+        "n_train": 1600,
+        "nexus_acc_mean": 1.0,
+        "nexus_acc_std": 0.0,
+        "no_revision_acc_mean": 0.496
+      },
+      "200": {
+        "cross_situational_acc_mean": 0.5,
+        "memorizer_acc_mean": 0.5,
+        "n_train": 200,
+        "nexus_acc_mean": 1.0,
+        "nexus_acc_std": 0.0,
+        "no_revision_acc_mean": 0.502
+      },
+      "400": {
+        "cross_situational_acc_mean": 0.5,
+        "memorizer_acc_mean": 0.5,
+        "n_train": 400,
+        "nexus_acc_mean": 1.0,
+        "nexus_acc_std": 0.0,
+        "no_revision_acc_mean": 0.502
+      },
+      "50": {
+        "cross_situational_acc_mean": 0.5,
+        "memorizer_acc_mean": 0.5,
+        "n_train": 50,
+        "nexus_acc_mean": 0.5319999999999999,
+        "nexus_acc_std": 0.032710854467592226,
+        "no_revision_acc_mean": 0.5
+      },
+      "800": {
+        "cross_situational_acc_mean": 0.5,
+        "memorizer_acc_mean": 0.5,
+        "n_train": 800,
+        "nexus_acc_mean": 1.0,
+        "nexus_acc_std": 0.0,
+        "no_revision_acc_mean": 0.502
+      }
+    },
+    "reduced_world_ideal_observer_comparison": {
+      "12": {
+        "gap_ideal_minus_nexus": 0.16666666666666663,
+        "ideal_observer_acc": 1.0,
+        "n_train_reduced": 12,
+        "nexus_acc": 0.8333333333333334
+      },
+      "16": {
+        "gap_ideal_minus_nexus": 0.0,
+        "ideal_observer_acc": 1.0,
+        "n_train_reduced": 16,
+        "nexus_acc": 1.0
+      },
+      "20": {
+        "gap_ideal_minus_nexus": 0.16666666666666663,
+        "ideal_observer_acc": 1.0,
+        "n_train_reduced": 20,
+        "nexus_acc": 0.8333333333333334
+      },
+      "4": {
+        "gap_ideal_minus_nexus": 0.0,
+        "ideal_observer_acc": 0.5,
+        "n_train_reduced": 4,
+        "nexus_acc": 0.5
+      },
+      "8": {
+        "gap_ideal_minus_nexus": 0.5,
+        "ideal_observer_acc": 1.0,
+        "n_train_reduced": 8,
+        "nexus_acc": 0.5
+      }
+    }
+  },
+  "D4_hypothesis_space_ablations": {
+    "ablations": {
+      "full_nexus": {
+        "dev_np_constructions_acc": 1.0,
+        "dev_transitive_constructions_acc": 1.0,
+        "novel_comb_acc_N100": 0.8959999999999999,
+        "novel_comb_acc_N1600": 1.0
+      },
+      "given_lexicon_induce_syntax": {
+        "dev_np_constructions_acc": 1.0,
+        "dev_transitive_constructions_acc": 1.0,
+        "novel_comb_acc_N100": 0.974,
+        "novel_comb_acc_N1600": 1.0
+      },
+      "given_syntax_induce_lexicon": {
+        "dev_np_constructions_acc": 1.0,
+        "dev_transitive_constructions_acc": 1.0,
+        "novel_comb_acc_N100": 0.994,
+        "novel_comb_acc_N1600": 1.0
+      },
+      "slash_depth_le_1": {
+        "dev_np_constructions_acc": 1.0,
+        "dev_transitive_constructions_acc": 0.5,
+        "novel_comb_acc_N100": 0.5740000000000001,
+        "novel_comb_acc_N1600": 0.5740000000000001
+      }
+    },
+    "analysis": "EXPLORATORY"
+  },
+  "D5_label_noise": {
+    "analysis": "EXPLORATORY",
+    "noise_rates": {
+      "0pct": {
+        "N120_after_correction_acc": 0.8625,
+        "N120_before_correction_acc": 0.8625,
+        "N400_after_correction_acc": 1.0,
+        "N400_before_correction_acc": 1.0,
+        "noise_rate": 0.0
+      },
+      "10pct": {
+        "N120_after_correction_acc": 0.8625,
+        "N120_before_correction_acc": 0.765,
+        "N400_after_correction_acc": 1.0,
+        "N400_before_correction_acc": 1.0,
+        "noise_rate": 0.1
+      },
+      "20pct": {
+        "N120_after_correction_acc": 0.8625,
+        "N120_before_correction_acc": 0.7975,
+        "N400_after_correction_acc": 1.0,
+        "N400_before_correction_acc": 0.99,
+        "noise_rate": 0.2
+      },
+      "2pct": {
+        "N120_after_correction_acc": 0.8625,
+        "N120_before_correction_acc": 0.8525,
+        "N400_after_correction_acc": 1.0,
+        "N400_before_correction_acc": 1.0,
+        "noise_rate": 0.02
+      },
+      "5pct": {
+        "N120_after_correction_acc": 0.8625,
+        "N120_before_correction_acc": 0.9199999999999999,
+        "N400_after_correction_acc": 1.0,
+        "N400_before_correction_acc": 1.0,
+        "noise_rate": 0.05
+      }
+    }
+  },
+  "D6_new_heldout_probes": {
+    "analysis": "EXPLORATORY",
+    "conflict_3adj_same_family_parse_rate": 0.0,
+    "role_reversal_asymmetric_chases_acc": 1.0,
+    "role_reversal_symmetric_next_to_acc": 1.0,
+    "stacked_2adj_single_np_acc": 1.0,
+    "stacked_4adj_transitive_acc": 1.0,
+    "unseen_adj_plus_novel_noun_acc": 1.0
+  },
+  "D7_calibration_brier_decomposition": {
+    "analysis": "EXPLORATORY",
+    "baseline_B_N1600_novel_combination": {
+      "brier_score": 0.26731,
+      "n_items": 2000,
+      "reconstructed_brier": 0.267102,
+      "reliability": 0.017102,
+      "reliability_diagram_bins": [
+        {
+          "abs_gap": null,
+          "bin": "[0.0, 0.1]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.1, 0.2]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.2, 0.3]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": 0.1228,
+          "bin": "[0.3, 0.4]",
+          "count": 312,
+          "empirical_true_rate": 0.5,
+          "mean_predicted_prob": 0.3772
+        },
+        {
+          "abs_gap": 0.0912,
+          "bin": "[0.4, 0.5]",
+          "count": 24,
+          "empirical_true_rate": 0.5,
+          "mean_predicted_prob": 0.4088
+        },
+        {
+          "abs_gap": 0.0936,
+          "bin": "[0.5, 0.6]",
+          "count": 54,
+          "empirical_true_rate": 0.5,
+          "mean_predicted_prob": 0.5936
+        },
+        {
+          "abs_gap": 0.1338,
+          "bin": "[0.6, 0.7]",
+          "count": 1610,
+          "empirical_true_rate": 0.5,
+          "mean_predicted_prob": 0.6338
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.7, 0.8]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.8, 0.9]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.9, 1.0]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        }
+      ],
+      "resolution": 0.0,
+      "uncertainty": 0.25
+    },
+    "nexus_N100_novel_combination": {
+      "brier_score": 0.057074,
+      "n_items": 2000,
+      "reconstructed_brier": 0.057004,
+      "reliability": 0.001506,
+      "reliability_diagram_bins": [
+        {
+          "abs_gap": 0.0212,
+          "bin": "[0.0, 0.1]",
+          "count": 774,
+          "empirical_true_rate": 0.0,
+          "mean_predicted_prob": 0.0212
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.1, 0.2]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": 0.2768,
+          "bin": "[0.2, 0.3]",
+          "count": 3,
+          "empirical_true_rate": 0.0,
+          "mean_predicted_prob": 0.2768
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.3, 0.4]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": 0.002,
+          "bin": "[0.4, 0.5]",
+          "count": 444,
+          "empirical_true_rate": 0.4977,
+          "mean_predicted_prob": 0.4998
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.5, 0.6]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": 0.308,
+          "bin": "[0.6, 0.7]",
+          "count": 1,
+          "empirical_true_rate": 1.0,
+          "mean_predicted_prob": 0.692
+        },
+        {
+          "abs_gap": 0.2798,
+          "bin": "[0.7, 0.8]",
+          "count": 24,
+          "empirical_true_rate": 1.0,
+          "mean_predicted_prob": 0.7202
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.8, 0.9]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": 0.0246,
+          "bin": "[0.9, 1.0]",
+          "count": 754,
+          "empirical_true_rate": 1.0,
+          "mean_predicted_prob": 0.9754
+        }
+      ],
+      "resolution": 0.194501,
+      "uncertainty": 0.25
+    },
+    "nexus_N1600_novel_combination": {
+      "brier_score": 0.0004,
+      "n_items": 2000,
+      "reconstructed_brier": 0.0004,
+      "reliability": 0.0004,
+      "reliability_diagram_bins": [
+        {
+          "abs_gap": 0.02,
+          "bin": "[0.0, 0.1]",
+          "count": 1000,
+          "empirical_true_rate": 0.0,
+          "mean_predicted_prob": 0.02
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.1, 0.2]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.2, 0.3]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.3, 0.4]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.4, 0.5]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.5, 0.6]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.6, 0.7]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.7, 0.8]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.8, 0.9]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": 0.02,
+          "bin": "[0.9, 1.0]",
+          "count": 1000,
+          "empirical_true_rate": 1.0,
+          "mean_predicted_prob": 0.98
+        }
+      ],
+      "resolution": 0.25,
+      "uncertainty": 0.25
+    },
+    "nexus_N1600_novel_word_after_support": {
+      "brier_score": 0.00436,
+      "n_items": 1000,
+      "reconstructed_brier": 0.004318,
+      "reliability": 0.004318,
+      "reliability_diagram_bins": [
+        {
+          "abs_gap": 0.0319,
+          "bin": "[0.0, 0.1]",
+          "count": 500,
+          "empirical_true_rate": 0.0,
+          "mean_predicted_prob": 0.0319
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.1, 0.2]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.2, 0.3]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.3, 0.4]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.4, 0.5]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.5, 0.6]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.6, 0.7]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.7, 0.8]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": null,
+          "bin": "[0.8, 0.9]",
+          "count": 0,
+          "empirical_true_rate": null,
+          "mean_predicted_prob": null
+        },
+        {
+          "abs_gap": 0.0873,
+          "bin": "[0.9, 1.0]",
+          "count": 500,
+          "empirical_true_rate": 1.0,
+          "mean_predicted_prob": 0.9127
+        }
+      ],
+      "resolution": 0.25,
+      "uncertainty": 0.25
+    }
+  },
+  "D8_failure_taxonomy": {
+    "analysis": "EXPLORATORY",
+    "failure_counts": {
+      "2_unparseable_slash_direction_at_low_N": 111,
+      "3_underdetermined_lexical_mapping_at_low_N": 19,
+      "4_depth2_functor_expressivity_boundary": 50
+    },
+    "sample_failures_by_category": {
+      "2_unparseable_slash_direction_at_low_N": [
+        {
+          "derived_lf": null,
+          "example_id": "test_novel_combination-00001",
+          "failure_reason": "No valid categorial derivation (> or <) spans the sentence.",
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:cone(x0) & size:large(x0))",
+          "seed": 0,
+          "tokens": [
+            "glorp",
+            "dax",
+            "ko"
+          ]
+        },
+        {
+          "derived_lf": null,
+          "example_id": "test_novel_combination-00005",
+          "failure_reason": "No valid categorial derivation (> or <) spans the sentence.",
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:green(x0) & color:green(x1) & kind:cone(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "tal",
+            "wug",
+            "tal",
+            "dax",
+            "ko"
+          ]
+        },
+        {
+          "derived_lf": null,
+          "example_id": "test_novel_combination-00011",
+          "failure_reason": "No valid categorial derivation (> or <) spans the sentence.",
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:yellow(x0) & kind:cone(x1) & kind:cube(x0) & rel:chases(x0,x1) & size:small(x1))",
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "vek",
+            "wug",
+            "pim",
+            "dax",
+            "ko"
+          ]
+        }
+      ],
+      "3_underdetermined_lexical_mapping_at_low_N": [
+        {
+          "derived_lf": "ASSERT(EXISTS x0 x1 . color:blue(x1) & kind:ball(x1) & kind:cube(x0) & rel:next_to(x0,x1) & size:large(x1))",
+          "example_id": "test_novel_combination-00002",
+          "failure_reason": "Closest assignment (x0->obj_2, x1->obj_3) failed on: size:large(obj_3) failed (obj_3.size=small)",
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & kind:ball(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "wug",
+            "mip",
+            "blick",
+            "ko"
+          ]
+        },
+        {
+          "derived_lf": "ASSERT(EXISTS x0 x1 . color:yellow(x0) & color:yellow(x1) & kind:ball(x1) & kind:cube(x0) & rel:chases(x0,x1) & size:large(x1))",
+          "example_id": "test_novel_combination-00008",
+          "failure_reason": "Closest assignment (x0->obj_0, x1->obj_2) failed on: color:yellow(obj_0) failed (obj_0.color=red); size:large(obj_2) failed (obj_2.size=small)",
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . kind:ball(x1) & kind:cube(x0) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "pim",
+            "wug",
+            "pim",
+            "blick",
+            "ko"
+          ]
+        },
+        {
+          "derived_lf": "ASSERT(EXISTS x0 . color:yellow(x0) & kind:ball(x0) & size:large(x0))",
+          "example_id": "test_novel_combination-00014",
+          "failure_reason": "Closest assignment (x0->obj_0) failed on: color:yellow(obj_0) failed (obj_0.color=blue); kind:ball(obj_0) failed (obj_0.kind=cup)",
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:ball(x0) & size:small(x0))",
+          "seed": 0,
+          "tokens": [
+            "pim",
+            "blick",
+            "ko"
+          ]
+        }
+      ],
+      "4_depth2_functor_expressivity_boundary": [
+        {
+          "derived_lf": null,
+          "example_id": "dev_trans_assert-00000",
+          "failure_reason": "Unknown words: ['zorp']",
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & kind:cone(x0) & kind:star(x1) & rel:chases(x0,x1) & size:medium(x0))",
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "nud",
+            "dax",
+            "tal",
+            "zib"
+          ]
+        },
+        {
+          "derived_lf": null,
+          "example_id": "dev_trans_assert-00001",
+          "failure_reason": "Unknown words: ['zorp']",
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & kind:cone(x0) & kind:star(x1) & rel:chases(x0,x1) & size:medium(x0))",
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "nud",
+            "dax",
+            "tal",
+            "zib"
+          ]
+        },
+        {
+          "derived_lf": null,
+          "example_id": "dev_trans_assert-00002",
+          "failure_reason": "Unknown words: ['lum']",
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . kind:cup(x1) & kind:star(x0) & rel:next_to(x0,x1) & size:large(x0) & size:large(x1))",
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "glorp",
+            "zib",
+            "glorp",
+            "fep"
+          ]
+        }
+      ]
+    }
+  },
+  "D9_sqlite_persistence_roundtrip": {
+    "analysis": "EXPLORATORY",
+    "explanation_provenance_identical": true,
+    "max_prediction_abs_diff": 0.0,
+    "stored_runs": [
+      "seed0_run"
+    ],
+    "subprocess_roundtrip_success": true,
+    "what_changed_identical": true
+  },
+  "elapsed_seconds": 274.6606733748922,
+  "label": "EXPLORATORY",
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "stage": "STAGE_D_EXPLORATORY"
+}
