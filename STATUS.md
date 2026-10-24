@@ -1,7 +1,7 @@
 # NEXUS-0 Project Status
 
 **Last Updated**: 2026-10-24
-**Current Stage**: STAGE B (Complete — tagging `gate-B`) -> Ready for STAGE C (Pre-registered Evaluation)
+**Current Stage**: STAGE C (Complete — tagging `gate-C`) -> Ready for STAGE D (Exploratory Analyses & Persistence)
 **Current Branch**: `feature/phase-0-toy-world-eval`
 **PREREGISTRATION.md SHA-256**: `ef09666eb2bb96ca481ce05dc3dc5ca50fbe6d2143441ed38b062968313f695b`
 
@@ -21,21 +21,27 @@
   - [x] **A8**: Implemented `ExhaustiveIdealObserver` on reduced world ($6! = 720$ bijections), achieving `1.000` ceiling across all splits.
   - [x] **GATE A**: All 50 Stage A tests pass, `AUDIT_0_6.md` written, tagged `gate-A`.
 - **STAGE B (Phase 1 Learner — `gate-B`)**:
-  - [x] **B1**: Categorial grammar hypothesis space (`nexus/learner/categorial.py`: `N, NP, S`, slash depth $\le 2$, forward `>` and backward `<` application only), lexical semantic hypothesis space, and MDL + likelihood scorer ($\varepsilon=0.02$).
-  - [x] **B2**: Online beam search ($K=200$, `nexus/learner/nexus_learner.py`) with true-vs-false contrastive proposal generation, Bayesian model averaging over beam, and JSONL experience log for `correct()` replay.
-  - [x] **B3**: `explain(sentence, scene)` and `what_changed(example_id)` (`nexus/learner/explain.py`) with provenance + explanation faithfulness intervention tests (`intervene_on_scene`, `intervene_on_lexicon`).
-  - [x] **B4**: Baseline B (`nexus/baselines/cross_situational.py` — IBM-1 / co-occurrence bag-of-meanings) and Baseline C (`nexus/baselines/no_revision.py` — Greedy Top-1 $K=1$ No-Revision Learner).
-  - [x] **B5**: Lexicon-permutation invariance test over 20 seeds, source scan test (no invented words or oracle imports in `nexus/learner/`), scoring/pruning/explain/faithfulness unit tests (`nexus/tests/test_stage_b_learner.py`).
-  - [x] **GATE B**: All 56 tests pass, ready for tag `gate-B`.
+  - [x] **B1–B5**: Implemented categorial grammar (`nexus/learner/categorial.py`), MDL beam search learner (`nexus/learner/nexus_learner.py`), explainability & faithfulness interventions (`nexus/learner/explain.py`), Baselines B (`CrossSituationalLearner`) & C (`NoRevisionLearner`), and 20-seed lexicon-permutation invariance + source scan tests (`nexus/tests/test_stage_b_learner.py`).
+  - [x] **GATE B**: All 56 tests pass, tagged `gate-B`.
+- **STAGE C (Pre-Registered Evaluation — `gate-C`)**:
+  - [x] **C1**: Re-read `STATUS.md` and `PREREGISTRATION.md`, tagged `pre-run` (`8f7102b`).
+  - [x] **C2**: Ran Baseline A (`Memorizer`), Baseline B (`CrossSituationalLearner`), Baseline C (`NoRevisionLearner`), `NEXUSLearner`, `SentenceOnly`, `SceneOnly` on 20 seeds (`seeds 0..19`, `world_mode=randomized`) in one shot (`0` reruns).
+  - [x] **C3**: Computed paired bootstrap 95% CIs (10,000 resamples) vs `max(A, B)` on `test_novel_combination` (`+0.500, CI [+0.500, +0.500]`) and `test_novel_word_in_known_frame` (`+0.500, CI [+0.500, +0.500]`).
+  - [x] **C4**: Extracted top-hypothesis lexicons for seeds 0, 1, 2 alongside ground-truth lexicons (`15/15` exact matches); categorized held-out items per split via `explain()`.
+  - [x] **C5**: Wrote `PHASE1_REPORT.md` and `RERUNS.md`, ready for tag `gate-C`.
 
 ---
 
-## Next Stage: STAGE C (Pre-registered Evaluation)
-- [ ] **C1**: Re-read `STATUS.md` and `PREREGISTRATION.md`, tag `pre-run`.
-- [ ] **C2**: Run Baseline A (`Memorizer`), Baseline B (`CrossSituationalLearner`), Baseline C (`NoRevisionLearner`), `NEXUSLearner`, `SentenceOnly`, `SceneOnly` on 20 seeds (`seeds 0..19`, `world_mode=randomized`) in one shot.
-- [ ] **C3**: Paired bootstrap 95% CIs (10,000 resamples) vs `max(A, B)` on `test_novel_combination` and `test_novel_word_in_known_frame`.
-- [ ] **C4**: Print top-hypothesis lexicon for 3 seeds alongside true lexicon; categorize worst held-out errors per split using `explain()`.
-- [ ] **C5**: Write `PHASE1_REPORT.md` and `RERUNS.md`, tag `gate-C`.
+## Active Stage: STAGE D (Exploratory Analyses & SQLite Persistence)
+- [ ] **D1**: Beam width $K \in \{1, 5, 25, 100, 200, 500\}$.
+- [ ] **D2**: Noise parameter $\varepsilon \in \{0.001, 0.01, 0.02, 0.05, 0.1\}$.
+- [ ] **D3**: Learning curves at $N \in \{50, 100, 200, 400, 800, 1600\}$ vs baselines + gap to A8 ideal observer on reduced world.
+- [ ] **D4**: Hypothesis-space ablations (`given_lexicon`, `given_syntax`, `max_slash_depth=1`).
+- [ ] **D5**: Label noise $\{0\%, 2\%, 5\%, 10\%, 20\%\}$ before/after corrections.
+- [ ] **D6**: New held-out probes (role reversal on symmetric vs asymmetric relations, 3-adjective NPs, unseen `adj + novel_noun`).
+- [ ] **D7**: Calibration reliability diagrams + Brier decomposition.
+- [ ] **D8**: Failure taxonomy (`LIMITATIONS.md`).
+- [ ] **D9**: SQLite persistence round-trip (`nexus/storage/repository.py` + `schema.sql`): train, save to SQLite, reload in fresh process, verify identical predictions and provenance.
 
 ---
 
@@ -49,6 +55,6 @@
 # Run full test suite
 .venv/bin/pytest -v
 
-# Run Stage C pre-registered evaluation
-.venv/bin/python -m nexus.experiments.phase1_eval
+# Run Stage D exploratory suite
+.venv/bin/python -m nexus.experiments.stage_d_exploratory
 ```

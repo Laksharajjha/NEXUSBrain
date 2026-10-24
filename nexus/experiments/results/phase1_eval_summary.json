@@ -1,0 +1,6566 @@
+{
+  "aggregates": {
+    "cross_situational": {
+      "examples_to_criterion.np_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.np_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "max_train_length": {
+        "mean": 6.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "model_size": {
+        "mean": 15.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.at_stage_end": {
+        "mean": 0.6224999999999999,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.04810897716861717
+      },
+      "retention.np_ask.delta": {
+        "mean": -0.006,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.017888543819998316
+      },
+      "retention.np_ask.final": {
+        "mean": 0.6165,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.048370826353343034
+      },
+      "retention.np_assert.at_stage_end": {
+        "mean": 0.6980000000000001,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.04979959839195493
+      },
+      "retention.np_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.final": {
+        "mean": 0.6980000000000001,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.04979959839195493
+      },
+      "retention.trans_ask.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy": {
+        "mean": 0.578625,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.019202436111899417
+      },
+      "splits.dev.accuracy_by_construction.np_ask": {
+        "mean": 0.6165,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.048370826353343034
+      },
+      "splits.dev.accuracy_by_construction.np_assert": {
+        "mean": 0.6980000000000001,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.04979959839195493
+      },
+      "splits.dev.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.brier": {
+        "mean": 0.2481847114579554,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.004200306786504885
+      },
+      "splits.dev.ece": {
+        "mean": 0.08493530789329906,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.016211176218300052
+      },
+      "splits.dev.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.mean_confidence": {
+        "mean": 0.6197624447913583,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.005754204318948957
+      },
+      "splits.dev.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.brier": {
+        "mean": 0.2666986741877577,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.002037241491886828
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.brier": {
+        "mean": 0.2666986741877577,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.002037241491886828
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.ece": {
+        "mean": 0.12849636518638466,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.007960904956566057
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.mean_confidence": {
+        "mean": 0.6284963651863845,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.007960904956566059
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.brier": {
+        "mean": 0.2666986741877577,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.002037241491886828
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.ece": {
+        "mean": 0.12849636518638466,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.007960904956566057
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.mean_confidence": {
+        "mean": 0.6284963651863845,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.007960904956566059
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.brier": {
+        "mean": 0.2675360366369387,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0021685747466827473
+      },
+      "splits.test_contradiction.checkpoints.before_stream.ece": {
+        "mean": 0.13168270260390955,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00818522367410555
+      },
+      "splits.test_contradiction.checkpoints.before_stream.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.mean_confidence": {
+        "mean": 0.6316827026039096,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.008185223674105544
+      },
+      "splits.test_contradiction.checkpoints.before_stream.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.ece": {
+        "mean": 0.12849636518638466,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.007960904956566057
+      },
+      "splits.test_contradiction.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.mean_confidence": {
+        "mean": 0.6284963651863845,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.007960904956566059
+      },
+      "splits.test_contradiction.model_size_after_support": {
+        "mean": 15.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.brier": {
+        "mean": 0.2667515459406216,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00151706479940571
+      },
+      "splits.test_longer.ece": {
+        "mean": 0.1289372996343218,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0058324012428575414
+      },
+      "splits.test_longer.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.mean_confidence": {
+        "mean": 0.6289372996343218,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.005832401242857518
+      },
+      "splits.test_longer.n": {
+        "mean": 300.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.brier": {
+        "mean": 0.2672610138126288,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0015121593552082499
+      },
+      "splits.test_novel_combination.ece": {
+        "mean": 0.13034796663763798,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.005721478119488608
+      },
+      "splits.test_novel_combination.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.mean_confidence": {
+        "mean": 0.6303479666376381,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.005721478119488611
+      },
+      "splits.test_novel_combination.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.brier": {
+        "mean": 0.2633522067392012,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00179577843039179
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.brier": {
+        "mean": 0.2633522067392012,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00179577843039179
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.ece": {
+        "mean": 0.11391175112680534,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.007718877983252576
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.mean_confidence": {
+        "mean": 0.6139117511268054,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0077188779832525305
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.ece": {
+        "mean": 0.11391175112680534,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.007718877983252576
+      },
+      "splits.test_novel_word_in_known_frame.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.mean_confidence": {
+        "mean": 0.6139117511268054,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0077188779832525305
+      },
+      "splits.test_novel_word_in_known_frame.model_size_after_support": {
+        "mean": 16.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy": {
+        "mean": 0.72425,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.012116824427651265
+      },
+      "splits.train.accuracy_by_construction.np_ask": {
+        "mean": 0.672736255992012,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.021729843737103252
+      },
+      "splits.train.accuracy_by_construction.np_assert": {
+        "mean": 0.8107428303887323,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.013245731792493935
+      },
+      "splits.train.accuracy_by_construction.trans_ask": {
+        "mean": 0.660243371116845,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.029187132016978954
+      },
+      "splits.train.accuracy_by_construction.trans_assert": {
+        "mean": 0.7526039866508728,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0195976329047239
+      },
+      "splits.train.brier": {
+        "mean": 0.21019985513521702,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0035896281730409007
+      },
+      "splits.train.ece": {
+        "mean": 0.10494049533322743,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.01123798824515112
+      },
+      "splits.train.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.mean_confidence": {
+        "mean": 0.6193098734033283,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.005741280472028618
+      },
+      "splits.train.n": {
+        "mean": 1600.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      }
+    },
+    "memorizer": {
+      "examples_to_criterion.np_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.np_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "max_train_length": {
+        "mean": 6.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "model_size": {
+        "mean": 2022.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 19.045306093904774
+      },
+      "retention.np_ask.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.model_size_after_support": {
+        "mean": 2061.65,
+        "n": 20,
+        "n_missing": 0,
+        "std": 18.996606345123304
+      },
+      "splits.test_contradiction.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.n": {
+        "mean": 300.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.model_size_after_support": {
+        "mean": 2025.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 19.045306093904774
+      },
+      "splits.test_novel_word_in_known_frame.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.np_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.brier": {
+        "mean": 0.11111111111111113,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.4238309865648918e-17
+      },
+      "splits.train.ece": {
+        "mean": 0.33333333333333315,
+        "n": 20,
+        "n_missing": 0,
+        "std": 8.823157918047844e-17
+      },
+      "splits.train.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.mean_confidence": {
+        "mean": 0.6666666666666666,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.6895061133507964e-16
+      },
+      "splits.train.n": {
+        "mean": 1600.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      }
+    },
+    "nexus_phase1": {
+      "examples_to_criterion.np_ask.n_seen": {
+        "mean": 120.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 41.03913408340616
+      },
+      "examples_to_criterion.np_ask.n_seen_construction": {
+        "mean": 60.9,
+        "n": 20,
+        "n_missing": 0,
+        "std": 22.566626499743982
+      },
+      "examples_to_criterion.np_assert.n_seen": {
+        "mean": 115.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 36.634754853252325
+      },
+      "examples_to_criterion.np_assert.n_seen_construction": {
+        "mean": 56.4,
+        "n": 20,
+        "n_missing": 0,
+        "std": 18.51997499145748
+      },
+      "examples_to_criterion.trans_ask.n_seen": {
+        "mean": 910.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 55.25062514530825
+      },
+      "examples_to_criterion.trans_ask.n_seen_construction": {
+        "mean": 38.95,
+        "n": 20,
+        "n_missing": 0,
+        "std": 19.124178688935004
+      },
+      "examples_to_criterion.trans_assert.n_seen": {
+        "mean": 905.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 60.480531882929945
+      },
+      "examples_to_criterion.trans_assert.n_seen_construction": {
+        "mean": 38.9,
+        "n": 20,
+        "n_missing": 0,
+        "std": 19.221424450199752
+      },
+      "max_train_length": {
+        "mean": 6.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "model_size": {
+        "mean": 15.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.at_stage_end": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.final": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.at_stage_end": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.final": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.at_stage_end": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.final": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.at_stage_end": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.final": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.np_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.brier": {
+        "mean": 0.00040000000000000045,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.561839791269109e-20
+      },
+      "splits.dev.ece": {
+        "mean": 0.019999999999999685,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.mean_confidence": {
+        "mean": 0.9800000000000002,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.1390647892519134e-16
+      },
+      "splits.dev.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.brier": {
+        "mean": 0.00040000000000000045,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.561839791269109e-20
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.brier": {
+        "mean": 0.00040000000000000045,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.561839791269109e-20
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.ece": {
+        "mean": 0.019999999999999685,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.mean_confidence": {
+        "mean": 0.9800000000000002,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.1390647892519134e-16
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.brier": {
+        "mean": 0.00040000000000000045,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.561839791269109e-20
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.ece": {
+        "mean": 0.019999999999999685,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.mean_confidence": {
+        "mean": 0.9800000000000002,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.1390647892519134e-16
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.brier": {
+        "mean": 0.00040000000000000045,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.561839791269109e-20
+      },
+      "splits.test_contradiction.checkpoints.before_stream.ece": {
+        "mean": 0.019999999999999685,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.mean_confidence": {
+        "mean": 0.9800000000000002,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.1390647892519134e-16
+      },
+      "splits.test_contradiction.checkpoints.before_stream.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.ece": {
+        "mean": 0.019999999999999685,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.mean_confidence": {
+        "mean": 0.9800000000000002,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.1390647892519134e-16
+      },
+      "splits.test_contradiction.model_size_after_support": {
+        "mean": 15.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.brier": {
+        "mean": 0.00040000000000000034,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.ece": {
+        "mean": 0.019999999999999574,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.mean_confidence": {
+        "mean": 0.9800000000000004,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.n": {
+        "mean": 300.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.brier": {
+        "mean": 0.00040000000000000045,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.561839791269109e-20
+      },
+      "splits.test_novel_combination.ece": {
+        "mean": 0.019999999999999685,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.mean_confidence": {
+        "mean": 0.9800000000000002,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.1390647892519134e-16
+      },
+      "splits.test_novel_combination.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.brier": {
+        "mean": 0.004377048629405503,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.74512188202321e-05
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.brier": {
+        "mean": 0.004377048629405503,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.74512188202321e-05
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.ece": {
+        "mean": 0.05969056603773587,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00044258519923129407
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.mean_confidence": {
+        "mean": 0.9403094339622641,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0004425851992313301
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.ece": {
+        "mean": 0.05969056603773587,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00044258519923129407
+      },
+      "splits.test_novel_word_in_known_frame.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.mean_confidence": {
+        "mean": 0.9403094339622641,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0004425851992313301
+      },
+      "splits.test_novel_word_in_known_frame.model_size_after_support": {
+        "mean": 16.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.np_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.np_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.trans_ask": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.trans_assert": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.brier": {
+        "mean": 0.00040000000000000045,
+        "n": 20,
+        "n_missing": 0,
+        "std": 6.341473048343558e-20
+      },
+      "splits.train.ece": {
+        "mean": 0.019999999999999685,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.lf_accuracy": {
+        "mean": 1.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.mean_confidence": {
+        "mean": 0.9800000000000002,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.1390647892519134e-16
+      },
+      "splits.train.n": {
+        "mean": 1600.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      }
+    },
+    "no_revision": {
+      "examples_to_criterion.np_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.np_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "max_train_length": {
+        "mean": 6.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "model_size": {
+        "mean": 15.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.at_stage_end": {
+        "mean": 0.5025,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.01069923755276639
+      },
+      "retention.np_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.final": {
+        "mean": 0.5025,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.01069923755276639
+      },
+      "retention.np_assert.at_stage_end": {
+        "mean": 0.5239999999999999,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.03952347736672336
+      },
+      "retention.np_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.final": {
+        "mean": 0.5239999999999999,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.03952347736672336
+      },
+      "retention.trans_ask.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.at_stage_end": {
+        "mean": 0.5005,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.002236067977499791
+      },
+      "retention.trans_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.final": {
+        "mean": 0.5005,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.002236067977499791
+      },
+      "splits.dev.accuracy": {
+        "mean": 0.50675,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.010484951622507168
+      },
+      "splits.dev.accuracy_by_construction.np_ask": {
+        "mean": 0.5025,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.01069923755276639
+      },
+      "splits.dev.accuracy_by_construction.np_assert": {
+        "mean": 0.5239999999999999,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.03952347736672336
+      },
+      "splits.dev.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_assert": {
+        "mean": 0.5005,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.002236067977499791
+      },
+      "splits.dev.brier": {
+        "mean": 0.2946688,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.02424653702370927
+      },
+      "splits.dev.ece": {
+        "mean": 0.09981000000000007,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.04820539279724672
+      },
+      "splits.dev.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.lf_accuracy": {
+        "mean": 0.0225,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.020098441940136866
+      },
+      "splits.dev.mean_confidence": {
+        "mean": 0.60656,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.04812237033143518
+      },
+      "splits.dev.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy": {
+        "mean": 0.4995,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0022360679774997916
+      },
+      "splits.test_contradiction.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_assert": {
+        "mean": 0.49909090909090914,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00406557814090871
+      },
+      "splits.test_contradiction.brier": {
+        "mean": 0.25543360000000004,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.014428482147985519
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy": {
+        "mean": 0.4995,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0022360679774997916
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.49909090909090914,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00406557814090871
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.brier": {
+        "mean": 0.25543360000000004,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.014428482147985519
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.ece": {
+        "mean": 0.01082,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.028961964167180596
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.lf_accuracy": {
+        "mean": 0.0,
+        "n": 5,
+        "n_missing": 15,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.mean_confidence": {
+        "mean": 0.51032,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.02800048119887268
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy": {
+        "mean": 0.4995,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0022360679774997916
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.49909090909090914,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00406557814090871
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.brier": {
+        "mean": 0.25543360000000004,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.014428482147985519
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.ece": {
+        "mean": 0.01082,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.028961964167180596
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.lf_accuracy": {
+        "mean": 0.0,
+        "n": 5,
+        "n_missing": 15,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.mean_confidence": {
+        "mean": 0.51032,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.02800048119887268
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy": {
+        "mean": 0.4995,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0022360679774997916
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_assert": {
+        "mean": 0.49909090909090914,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00406557814090871
+      },
+      "splits.test_contradiction.checkpoints.before_stream.brier": {
+        "mean": 0.25543360000000004,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.014428482147985519
+      },
+      "splits.test_contradiction.checkpoints.before_stream.ece": {
+        "mean": 0.01082,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.028961964167180596
+      },
+      "splits.test_contradiction.checkpoints.before_stream.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.lf_accuracy": {
+        "mean": 0.0,
+        "n": 5,
+        "n_missing": 15,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.mean_confidence": {
+        "mean": 0.51032,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.02800048119887268
+      },
+      "splits.test_contradiction.checkpoints.before_stream.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.ece": {
+        "mean": 0.01082,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.028961964167180596
+      },
+      "splits.test_contradiction.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.lf_accuracy": {
+        "mean": 0.0,
+        "n": 5,
+        "n_missing": 15,
+        "std": 0.0
+      },
+      "splits.test_contradiction.mean_confidence": {
+        "mean": 0.51032,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.02800048119887268
+      },
+      "splits.test_contradiction.model_size_after_support": {
+        "mean": 15.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.brier": {
+        "mean": 0.2502304,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0007516577048518619
+      },
+      "splits.test_longer.ece": {
+        "mean": 0.00048000000000000007,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0015659535517746975
+      },
+      "splits.test_longer.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.lf_accuracy": {
+        "mean": 0.0,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_longer.mean_confidence": {
+        "mean": 0.5004799999999999,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0015659535517747098
+      },
+      "splits.test_longer.n": {
+        "mean": 300.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy": {
+        "mean": 0.499375,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.003879348154685674
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_ask": {
+        "mean": 0.5027777777777778,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.012422599874998837
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_assert": {
+        "mean": 0.4946724134998129,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.03466373569761246
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.brier": {
+        "mean": 0.26643999999999995,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.016520278218633378
+      },
+      "splits.test_novel_combination.ece": {
+        "mean": 0.03362500000000001,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.032957370791276495
+      },
+      "splits.test_novel_combination.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.lf_accuracy": {
+        "mean": 0.0,
+        "n": 18,
+        "n_missing": 2,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.mean_confidence": {
+        "mean": 0.5329999999999999,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0319049905352224
+      },
+      "splits.test_novel_combination.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy": {
+        "mean": 0.5005,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0066688592885535075
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_ask": {
+        "mean": 0.5011423992673992,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.018568977869358228
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_assert": {
+        "mean": 0.5044487577639751,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.041024556884159756
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.brier": {
+        "mean": 0.27302079999999995,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.026196339337677243
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy": {
+        "mean": 0.5005,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0066688592885535075
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5011423992673992,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.018568977869358228
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5044487577639751,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.041024556884159756
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.brier": {
+        "mean": 0.27302079999999995,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.026196339337677243
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.ece": {
+        "mean": 0.04846,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.054082513955894064
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.lf_accuracy": {
+        "mean": 0.0029411764705882353,
+        "n": 17,
+        "n_missing": 3,
+        "std": 0.008488746876271654
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.mean_confidence": {
+        "mean": 0.5489600000000001,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.05440842040094821
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.brier": {
+        "mean": 0.25,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.ece": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.mean_confidence": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.ece": {
+        "mean": 0.04846,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.054082513955894064
+      },
+      "splits.test_novel_word_in_known_frame.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.lf_accuracy": {
+        "mean": 0.0029411764705882353,
+        "n": 17,
+        "n_missing": 3,
+        "std": 0.008488746876271654
+      },
+      "splits.test_novel_word_in_known_frame.mean_confidence": {
+        "mean": 0.5489600000000001,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.05440842040094821
+      },
+      "splits.test_novel_word_in_known_frame.model_size_after_support": {
+        "mean": 16.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy": {
+        "mean": 0.5053124999999999,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.008996755628675553
+      },
+      "splits.train.accuracy_by_construction.np_ask": {
+        "mean": 0.5033299629938826,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.009062331205529078
+      },
+      "splits.train.accuracy_by_construction.np_assert": {
+        "mean": 0.5179477906734364,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.03246123542460404
+      },
+      "splits.train.accuracy_by_construction.trans_ask": {
+        "mean": 0.4998842592592593,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0005176083281249537
+      },
+      "splits.train.accuracy_by_construction.trans_assert": {
+        "mean": 0.5006601798246135,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.001848013125382932
+      },
+      "splits.train.brier": {
+        "mean": 0.2984248,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.023454314422095692
+      },
+      "splits.train.ece": {
+        "mean": 0.10619750000000006,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.04792922612670964
+      },
+      "splits.train.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.lf_accuracy": {
+        "mean": 0.018687500000000003,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.01702588489855806
+      },
+      "splits.train.mean_confidence": {
+        "mean": 0.61151,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.04866925864282413
+      },
+      "splits.train.n": {
+        "mean": 1600.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      }
+    },
+    "scene_only": {
+      "examples_to_criterion.np_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.np_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "max_train_length": {
+        "mean": 6.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "model_size": {
+        "mean": 17.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.brier": {
+        "mean": 0.25000034380758107,
+        "n": 20,
+        "n_missing": 0,
+        "std": 3.346465467835725e-07
+      },
+      "splits.dev.ece": {
+        "mean": 0.000442125398981813,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0001912332374971632
+      },
+      "splits.dev.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.mean_confidence": {
+        "mean": 0.5004421253989818,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00019123323749716326
+      },
+      "splits.dev.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.brier": {
+        "mean": 0.25000027699670496,
+        "n": 20,
+        "n_missing": 0,
+        "std": 2.981648440907972e-07
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.brier": {
+        "mean": 0.25000027699670496,
+        "n": 20,
+        "n_missing": 0,
+        "std": 2.981648440907972e-07
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.ece": {
+        "mean": 0.0003909275256498257,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016652487945841859
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.mean_confidence": {
+        "mean": 0.5003909275256498,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016652487945841859
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.brier": {
+        "mean": 0.25000027699670496,
+        "n": 20,
+        "n_missing": 0,
+        "std": 2.981648440907972e-07
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.ece": {
+        "mean": 0.0003909275256498257,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016652487945841859
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.mean_confidence": {
+        "mean": 0.5003909275256498,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016652487945841859
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.brier": {
+        "mean": 0.2500002797074736,
+        "n": 20,
+        "n_missing": 0,
+        "std": 3.064339840550027e-07
+      },
+      "splits.test_contradiction.checkpoints.before_stream.ece": {
+        "mean": 0.00039225822331482864,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016908733676215053
+      },
+      "splits.test_contradiction.checkpoints.before_stream.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.mean_confidence": {
+        "mean": 0.5003922582233148,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016908733676215053
+      },
+      "splits.test_contradiction.checkpoints.before_stream.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.ece": {
+        "mean": 0.0003909275256498257,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016652487945841859
+      },
+      "splits.test_contradiction.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.mean_confidence": {
+        "mean": 0.5003909275256498,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016652487945841859
+      },
+      "splits.test_contradiction.model_size_after_support": {
+        "mean": 17.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.brier": {
+        "mean": 0.25000027119832774,
+        "n": 20,
+        "n_missing": 0,
+        "std": 2.3166709657722845e-07
+      },
+      "splits.test_longer.ece": {
+        "mean": 0.0003976570623696829,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016279857812896207
+      },
+      "splits.test_longer.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.mean_confidence": {
+        "mean": 0.5003976570623696,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016279857812896207
+      },
+      "splits.test_longer.n": {
+        "mean": 300.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.brier": {
+        "mean": 0.2500003328422322,
+        "n": 20,
+        "n_missing": 0,
+        "std": 2.9465593894183304e-07
+      },
+      "splits.test_novel_combination.ece": {
+        "mean": 0.00043729322868528707,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0001767398406581892
+      },
+      "splits.test_novel_combination.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.mean_confidence": {
+        "mean": 0.5004372932286854,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0001767398406581892
+      },
+      "splits.test_novel_combination.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.brier": {
+        "mean": 0.2500062724198974,
+        "n": 20,
+        "n_missing": 0,
+        "std": 7.0959300130943625e-06
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.brier": {
+        "mean": 0.2500062724198974,
+        "n": 20,
+        "n_missing": 0,
+        "std": 7.0959300130943625e-06
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.ece": {
+        "mean": 0.0020050664104423964,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0013868551342553206
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.mean_confidence": {
+        "mean": 0.5020050664104423,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0013868551342553206
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.brier": {
+        "mean": 0.2500050298711559,
+        "n": 20,
+        "n_missing": 0,
+        "std": 4.831912721211167e-06
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.ece": {
+        "mean": 0.0019357772394174467,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0009856474986680575
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.mean_confidence": {
+        "mean": 0.5019357772394174,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0009856474986680575
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.ece": {
+        "mean": 0.0020050664104423964,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0013868551342553206
+      },
+      "splits.test_novel_word_in_known_frame.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.mean_confidence": {
+        "mean": 0.5020050664104423,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0013868551342553206
+      },
+      "splits.test_novel_word_in_known_frame.model_size_after_support": {
+        "mean": 18.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.brier": {
+        "mean": 0.25000030599556833,
+        "n": 20,
+        "n_missing": 0,
+        "std": 2.552497501207213e-07
+      },
+      "splits.train.ece": {
+        "mean": 0.0004195178173091285,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016387111886126095
+      },
+      "splits.train.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.mean_confidence": {
+        "mean": 0.5004195178173092,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00016387111886126095
+      },
+      "splits.train.n": {
+        "mean": 1600.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      }
+    },
+    "sentence_only": {
+      "examples_to_criterion.np_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.np_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_ask": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "examples_to_criterion.trans_assert": {
+        "mean": null,
+        "n": 0,
+        "n_missing": 20,
+        "std": null
+      },
+      "max_train_length": {
+        "mean": 6.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "model_size": {
+        "mean": 197.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_ask.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.np_assert.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_ask.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.at_stage_end": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.delta": {
+        "mean": 0.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "retention.trans_assert.final": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.brier": {
+        "mean": 0.250005335820679,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.5608060712029851e-06
+      },
+      "splits.dev.ece": {
+        "mean": 0.001764531997886526,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00024405149246050842
+      },
+      "splits.dev.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.dev.mean_confidence": {
+        "mean": 0.5017645319978865,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0002440514924605084
+      },
+      "splits.dev.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.brier": {
+        "mean": 0.2500088612188197,
+        "n": 20,
+        "n_missing": 0,
+        "std": 3.8154355254275136e-06
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.brier": {
+        "mean": 0.2500088612188197,
+        "n": 20,
+        "n_missing": 0,
+        "std": 3.8154355254275136e-06
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.ece": {
+        "mean": 0.0023273188568137815,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0005076814788652726
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.mean_confidence": {
+        "mean": 0.5023273188568138,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0005076814788652726
+      },
+      "splits.test_contradiction.checkpoints.after_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.brier": {
+        "mean": 0.2500088612188197,
+        "n": 20,
+        "n_missing": 0,
+        "std": 3.8154355254275136e-06
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.ece": {
+        "mean": 0.0023273188568137815,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0005076814788652726
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.mean_confidence": {
+        "mean": 0.5023273188568138,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0005076814788652726
+      },
+      "splits.test_contradiction.checkpoints.before_corrections.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 2,
+        "n_missing": 18,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.brier": {
+        "mean": 0.2500089025060988,
+        "n": 20,
+        "n_missing": 0,
+        "std": 3.818223314769459e-06
+      },
+      "splits.test_contradiction.checkpoints.before_stream.ece": {
+        "mean": 0.0023343171623809557,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0005109099725647521
+      },
+      "splits.test_contradiction.checkpoints.before_stream.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.checkpoints.before_stream.mean_confidence": {
+        "mean": 0.5023343171623809,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.000510909972564752
+      },
+      "splits.test_contradiction.checkpoints.before_stream.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.ece": {
+        "mean": 0.0023273188568137815,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0005076814788652726
+      },
+      "splits.test_contradiction.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.mean_confidence": {
+        "mean": 0.5023273188568138,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0005076814788652726
+      },
+      "splits.test_contradiction.model_size_after_support": {
+        "mean": 197.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_contradiction.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.brier": {
+        "mean": 0.2500357096400193,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.8060859456972892e-05
+      },
+      "splits.test_longer.ece": {
+        "mean": 0.004722520401250407,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0011471288203492248
+      },
+      "splits.test_longer.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_longer.mean_confidence": {
+        "mean": 0.5047225204012504,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0011471288203492248
+      },
+      "splits.test_longer.n": {
+        "mean": 300.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.brier": {
+        "mean": 0.2500089512191164,
+        "n": 20,
+        "n_missing": 0,
+        "std": 2.566153181648114e-06
+      },
+      "splits.test_novel_combination.ece": {
+        "mean": 0.0023708073496472746,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0003271718887330753
+      },
+      "splits.test_novel_combination.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_combination.mean_confidence": {
+        "mean": 0.5023708073496473,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00032717188873307527
+      },
+      "splits.test_novel_combination.n": {
+        "mean": 400.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.brier": {
+        "mean": 0.25001381149559465,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.779096154458868e-06
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.brier": {
+        "mean": 0.25001381149559465,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.779096154458868e-06
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.ece": {
+        "mean": 0.0030505927981210323,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0007827754100240223
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.mean_confidence": {
+        "mean": 0.503050592798121,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0007827754100240223
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.after_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.brier": {
+        "mean": 0.2500139039042625,
+        "n": 20,
+        "n_missing": 0,
+        "std": 5.847962383561907e-06
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.ece": {
+        "mean": 0.003061953644810084,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.000790215307511327
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.mean_confidence": {
+        "mean": 0.5030619536448101,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.000790215307511327
+      },
+      "splits.test_novel_word_in_known_frame.checkpoints.before_support.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.ece": {
+        "mean": 0.0030505927981210323,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0007827754100240223
+      },
+      "splits.test_novel_word_in_known_frame.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.mean_confidence": {
+        "mean": 0.503050592798121,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0007827754100240223
+      },
+      "splits.test_novel_word_in_known_frame.model_size_after_support": {
+        "mean": 210.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.test_novel_word_in_known_frame.n": {
+        "mean": 200.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.np_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.np_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.trans_ask": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.accuracy_by_construction.trans_assert": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.brier": {
+        "mean": 0.2500048999152966,
+        "n": 20,
+        "n_missing": 0,
+        "std": 1.331845838624928e-06
+      },
+      "splits.train.ece": {
+        "mean": 0.0016916134677749939,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00021986483394540352
+      },
+      "splits.train.frac_true": {
+        "mean": 0.5,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      },
+      "splits.train.mean_confidence": {
+        "mean": 0.5016916134677748,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.00021986483394540355
+      },
+      "splits.train.n": {
+        "mean": 1600.0,
+        "n": 20,
+        "n_missing": 0,
+        "std": 0.0
+      }
+    }
+  },
+  "all_criteria_passed": true,
+  "bootstrap_comparisons": {
+    "dev": {
+      "nexus_minus_C": {
+        "ci_95_high": 0.49762500000000004,
+        "ci_95_low": 0.488875,
+        "excludes_zero": true,
+        "mean_diff": 0.49325,
+        "std_diff": 0.010484951622507161
+      },
+      "nexus_minus_max_A_B": {
+        "ci_95_high": 0.4295,
+        "ci_95_low": 0.41325,
+        "excludes_zero": true,
+        "mean_diff": 0.421375,
+        "std_diff": 0.019202436111899417
+      }
+    },
+    "test_contradiction": {
+      "nexus_minus_C": {
+        "ci_95_high": 0.5015,
+        "ci_95_low": 0.5,
+        "excludes_zero": true,
+        "mean_diff": 0.5005,
+        "std_diff": 0.0022360679774997916
+      },
+      "nexus_minus_max_A_B": {
+        "ci_95_high": 0.5,
+        "ci_95_low": 0.5,
+        "excludes_zero": true,
+        "mean_diff": 0.5,
+        "std_diff": 0.0
+      }
+    },
+    "test_longer": {
+      "nexus_minus_C": {
+        "ci_95_high": 0.5,
+        "ci_95_low": 0.5,
+        "excludes_zero": true,
+        "mean_diff": 0.5,
+        "std_diff": 0.0
+      },
+      "nexus_minus_max_A_B": {
+        "ci_95_high": 0.5,
+        "ci_95_low": 0.5,
+        "excludes_zero": true,
+        "mean_diff": 0.5,
+        "std_diff": 0.0
+      }
+    },
+    "test_novel_combination": {
+      "nexus_minus_C": {
+        "ci_95_high": 0.5025000000000001,
+        "ci_95_low": 0.49924999999999997,
+        "excludes_zero": true,
+        "mean_diff": 0.500625,
+        "std_diff": 0.0038793481546856726
+      },
+      "nexus_minus_max_A_B": {
+        "ci_95_high": 0.5,
+        "ci_95_low": 0.5,
+        "excludes_zero": true,
+        "mean_diff": 0.5,
+        "std_diff": 0.0
+      }
+    },
+    "test_novel_word_in_known_frame": {
+      "nexus_minus_C": {
+        "ci_95_high": 0.50225,
+        "ci_95_low": 0.4965,
+        "excludes_zero": true,
+        "mean_diff": 0.4995,
+        "std_diff": 0.006668859288553507
+      },
+      "nexus_minus_max_A_B": {
+        "ci_95_high": 0.5,
+        "ci_95_low": 0.5,
+        "excludes_zero": true,
+        "mean_diff": 0.5,
+        "std_diff": 0.0
+      }
+    }
+  },
+  "criteria_passed": {
+    "1_novel_combination_ge_0.80": true,
+    "2_novel_word_ge_0.70": true,
+    "3_beats_max_AB_by_0.15_and_CI_excludes_0": true,
+    "4_shortcut_immunity": true,
+    "5_retention_ge_0.90": true
+  },
+  "diagnostics": {
+    "lexicon_comparisons": {
+      "seed_0": {
+        "entries": [
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "color:yellow",
+            "supporting_examples": [
+              "train-01126",
+              "train-01375",
+              "train-01226"
+            ],
+            "true_concept": "color:yellow",
+            "word": "vek"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:star",
+            "supporting_examples": [
+              "train-01126",
+              "train-00175",
+              "train-00784"
+            ],
+            "true_concept": "kind:star",
+            "word": "zib"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "size:medium",
+            "supporting_examples": [
+              "train-00221",
+              "train-01538",
+              "train-00938"
+            ],
+            "true_concept": "size:medium",
+            "word": "nud"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:cone",
+            "supporting_examples": [
+              "train-01058",
+              "train-00536",
+              "train-01226"
+            ],
+            "true_concept": "kind:cone",
+            "word": "dax"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "size:large",
+            "supporting_examples": [
+              "train-00895",
+              "train-00847",
+              "train-01577"
+            ],
+            "true_concept": "size:large",
+            "word": "glorp"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:cup",
+            "supporting_examples": [
+              "train-01092",
+              "train-01047",
+              "train-00000"
+            ],
+            "true_concept": "kind:cup",
+            "word": "fep"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:cube",
+            "supporting_examples": [
+              "train-01318",
+              "train-00735",
+              "train-00584"
+            ],
+            "true_concept": "kind:cube",
+            "word": "wug"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "S\\S",
+            "induced_predicate": "Q",
+            "supporting_examples": [
+              "train-01318",
+              "train-01092",
+              "train-00847"
+            ],
+            "true_concept": "Q",
+            "word": "ko"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:ball",
+            "supporting_examples": [
+              "train-01153",
+              "train-01207",
+              "train-01290"
+            ],
+            "true_concept": "kind:ball",
+            "word": "blick"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "color:blue",
+            "supporting_examples": [
+              "train-01290",
+              "train-01441",
+              "train-00918"
+            ],
+            "true_concept": "color:blue",
+            "word": "mip"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "color:red",
+            "supporting_examples": [
+              "train-00584",
+              "train-01285",
+              "train-01353"
+            ],
+            "true_concept": "color:red",
+            "word": "sorn"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "color:green",
+            "supporting_examples": [
+              "train-00068",
+              "train-00129",
+              "train-00553"
+            ],
+            "true_concept": "color:green",
+            "word": "tal"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "size:small",
+            "supporting_examples": [
+              "train-00536",
+              "train-00996",
+              "train-00247"
+            ],
+            "true_concept": "size:small",
+            "word": "pim"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "(S/NP)/NP",
+            "induced_predicate": "rel:next_to:sym(x0,x1)",
+            "supporting_examples": [
+              "train-00762",
+              "train-00274",
+              "train-00183"
+            ],
+            "true_concept": "rel:next_to",
+            "word": "lum"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "(S/NP)/NP",
+            "induced_predicate": "rel:chases(x0,x1)",
+            "supporting_examples": [
+              "train-00649",
+              "train-00565",
+              "train-01484"
+            ],
+            "true_concept": "rel:chases",
+            "word": "zorp"
+          }
+        ],
+        "likelihood_score": -32.324331708031146,
+        "np_ask_template": [
+          "NP",
+          "Q"
+        ],
+        "np_order": [
+          "size",
+          "color",
+          "noun"
+        ],
+        "posterior_weight": 1.0,
+        "prior_score": -2.0500000000000003,
+        "seed": 0,
+        "trans_template": [
+          "VERB",
+          "NP_subj",
+          "NP_obj"
+        ]
+      },
+      "seed_1": {
+        "entries": [
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "size:small",
+            "supporting_examples": [
+              "train-00448",
+              "train-01185",
+              "train-00331"
+            ],
+            "true_concept": "size:small",
+            "word": "nud"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:cone",
+            "supporting_examples": [
+              "train-00448",
+              "train-01492",
+              "train-01504"
+            ],
+            "true_concept": "kind:cone",
+            "word": "dax"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:cube",
+            "supporting_examples": [
+              "train-00581",
+              "train-00368",
+              "train-00052"
+            ],
+            "true_concept": "kind:cube",
+            "word": "wug"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "S/S",
+            "induced_predicate": "Q",
+            "supporting_examples": [
+              "train-00815",
+              "train-00651",
+              "train-00575"
+            ],
+            "true_concept": "Q",
+            "word": "ko"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "color:yellow",
+            "supporting_examples": [
+              "train-00815",
+              "train-00472",
+              "train-01242"
+            ],
+            "true_concept": "color:yellow",
+            "word": "sorn"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:cup",
+            "supporting_examples": [
+              "train-00472",
+              "train-00048",
+              "train-00348"
+            ],
+            "true_concept": "kind:cup",
+            "word": "zib"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "color:blue",
+            "supporting_examples": [
+              "train-00651",
+              "train-01492",
+              "train-00162"
+            ],
+            "true_concept": "color:blue",
+            "word": "tal"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:ball",
+            "supporting_examples": [
+              "train-00575",
+              "train-00534",
+              "train-00806"
+            ],
+            "true_concept": "kind:ball",
+            "word": "toma"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "color:green",
+            "supporting_examples": [
+              "train-00368",
+              "train-00501",
+              "train-00176"
+            ],
+            "true_concept": "color:green",
+            "word": "mip"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "size:large",
+            "supporting_examples": [
+              "train-00052",
+              "train-01401",
+              "train-00454"
+            ],
+            "true_concept": "size:large",
+            "word": "glorp"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "size:medium",
+            "supporting_examples": [
+              "train-01513",
+              "train-00276",
+              "train-01489"
+            ],
+            "true_concept": "size:medium",
+            "word": "pim"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:star",
+            "supporting_examples": [
+              "train-01076",
+              "train-01066",
+              "train-01531"
+            ],
+            "true_concept": "kind:star",
+            "word": "blick"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N/N",
+            "induced_predicate": "color:red",
+            "supporting_examples": [
+              "train-00534",
+              "train-00992",
+              "train-01370"
+            ],
+            "true_concept": "color:red",
+            "word": "vek"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "(S/NP)/NP",
+            "induced_predicate": "rel:chases(x0,x1)",
+            "supporting_examples": [
+              "train-00524",
+              "train-00311",
+              "train-00830"
+            ],
+            "true_concept": "rel:chases",
+            "word": "zorp"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "(S/NP)/NP",
+            "induced_predicate": "rel:next_to:sym(x0,x1)",
+            "supporting_examples": [
+              "train-00679",
+              "train-01577",
+              "train-01252"
+            ],
+            "true_concept": "rel:next_to",
+            "word": "lum"
+          }
+        ],
+        "likelihood_score": -32.324331708031146,
+        "np_ask_template": [
+          "Q",
+          "NP"
+        ],
+        "np_order": [
+          "size",
+          "color",
+          "noun"
+        ],
+        "posterior_weight": 1.0,
+        "prior_score": -2.0500000000000003,
+        "seed": 1,
+        "trans_template": [
+          "VERB",
+          "NP_subj",
+          "NP_obj"
+        ]
+      },
+      "seed_2": {
+        "entries": [
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:cup",
+            "supporting_examples": [
+              "train-00662",
+              "train-00411",
+              "train-00154"
+            ],
+            "true_concept": "kind:cup",
+            "word": "blick"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:ball",
+            "supporting_examples": [
+              "train-00172",
+              "train-00413",
+              "train-00151"
+            ],
+            "true_concept": "kind:ball",
+            "word": "dax"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N\\N",
+            "induced_predicate": "size:small",
+            "supporting_examples": [
+              "train-00627",
+              "train-01481",
+              "train-00626"
+            ],
+            "true_concept": "size:small",
+            "word": "pim"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "S\\S",
+            "induced_predicate": "Q",
+            "supporting_examples": [
+              "train-00627",
+              "train-00589",
+              "train-01410"
+            ],
+            "true_concept": "Q",
+            "word": "ko"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:cube",
+            "supporting_examples": [
+              "train-00120",
+              "train-01063",
+              "train-00072"
+            ],
+            "true_concept": "kind:cube",
+            "word": "wug"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N\\N",
+            "induced_predicate": "size:large",
+            "supporting_examples": [
+              "train-01563",
+              "train-00859",
+              "train-00875"
+            ],
+            "true_concept": "size:large",
+            "word": "glorp"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N\\N",
+            "induced_predicate": "color:red",
+            "supporting_examples": [
+              "train-00589",
+              "train-00172",
+              "train-00171"
+            ],
+            "true_concept": "color:red",
+            "word": "tal"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:star",
+            "supporting_examples": [
+              "train-01410",
+              "train-00364",
+              "train-00254"
+            ],
+            "true_concept": "kind:star",
+            "word": "fep"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N\\N",
+            "induced_predicate": "color:yellow",
+            "supporting_examples": [
+              "train-01410",
+              "train-01449",
+              "train-01506"
+            ],
+            "true_concept": "color:yellow",
+            "word": "mip"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N\\N",
+            "induced_predicate": "size:medium",
+            "supporting_examples": [
+              "train-00925",
+              "train-00645",
+              "train-01250"
+            ],
+            "true_concept": "size:medium",
+            "word": "nud"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N",
+            "induced_predicate": "kind:ring",
+            "supporting_examples": [
+              "train-00499",
+              "train-00280",
+              "train-01402"
+            ],
+            "true_concept": "kind:ring",
+            "word": "toma"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N\\N",
+            "induced_predicate": "color:green",
+            "supporting_examples": [
+              "train-00364",
+              "train-01402",
+              "train-01008"
+            ],
+            "true_concept": "color:green",
+            "word": "sorn"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "N\\N",
+            "induced_predicate": "color:blue",
+            "supporting_examples": [
+              "train-00070",
+              "train-00558",
+              "train-00428"
+            ],
+            "true_concept": "color:blue",
+            "word": "vek"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "(S\\NP)\\NP",
+            "induced_predicate": "rel:chases(x0,x1)",
+            "supporting_examples": [
+              "train-00495",
+              "train-00896",
+              "train-01076"
+            ],
+            "true_concept": "rel:chases",
+            "word": "lum"
+          },
+          {
+            "concept_match": true,
+            "induced_category": "(S\\NP)\\NP",
+            "induced_predicate": "rel:next_to:sym(x0,x1)",
+            "supporting_examples": [
+              "train-01256",
+              "train-00391",
+              "train-01439"
+            ],
+            "true_concept": "rel:next_to",
+            "word": "zorp"
+          }
+        ],
+        "likelihood_score": -32.324331708031146,
+        "np_ask_template": [
+          "NP",
+          "Q"
+        ],
+        "np_order": [
+          "noun",
+          "color",
+          "size"
+        ],
+        "posterior_weight": 1.0,
+        "prior_score": -2.0500000000000003,
+        "seed": 2,
+        "trans_template": [
+          "NP_subj",
+          "NP_obj",
+          "VERB"
+        ]
+      }
+    },
+    "worst_heldout_items_by_split": {
+      "dev": [
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:ball(x0))",
+          "example_id": "dev_np_ask-00000",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:ball(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "blick",
+            "ko"
+          ],
+          "witness": {
+            "x0": 2
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:ball(x0))",
+          "example_id": "dev_np_ask-00001",
+          "failure_reason": "Closest assignment (x0->obj_0) failed on: kind:ball(obj_0) failed (obj_0.kind=cone)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:ball(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "blick",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:cup(x0))",
+          "example_id": "dev_np_ask-00002",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:cup(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "fep",
+            "ko"
+          ],
+          "witness": {
+            "x0": 2
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:cup(x0))",
+          "example_id": "dev_np_ask-00003",
+          "failure_reason": "Closest assignment (x0->obj_0) failed on: kind:cup(obj_0) failed (obj_0.kind=cone)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:cup(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "fep",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:cup(x0) & size:large(x0))",
+          "example_id": "dev_np_ask-00004",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:cup(x0) & size:large(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "glorp",
+            "fep",
+            "ko"
+          ],
+          "witness": {
+            "x0": 1
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:cup(x0) & size:large(x0))",
+          "example_id": "dev_np_ask-00005",
+          "failure_reason": "Closest assignment (x0->obj_0) failed on: kind:cup(obj_0) failed (obj_0.kind=cone)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:cup(x0) & size:large(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "glorp",
+            "fep",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . color:red(x0) & kind:cup(x0))",
+          "example_id": "dev_np_ask-00006",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . color:red(x0) & kind:cup(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "sorn",
+            "fep",
+            "ko"
+          ],
+          "witness": {
+            "x0": 1
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . color:red(x0) & kind:cup(x0))",
+          "example_id": "dev_np_ask-00007",
+          "failure_reason": "Closest assignment (x0->obj_1) failed on: kind:cup(obj_1) failed (obj_1.kind=cone)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 . color:red(x0) & kind:cup(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "sorn",
+            "fep",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:star(x0))",
+          "example_id": "dev_np_ask-00008",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:star(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zib",
+            "ko"
+          ],
+          "witness": {
+            "x0": 2
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:star(x0))",
+          "example_id": "dev_np_ask-00009",
+          "failure_reason": "Closest assignment (x0->obj_0) failed on: kind:star(obj_0) failed (obj_0.kind=cone)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:star(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zib",
+            "ko"
+          ],
+          "witness": null
+        }
+      ],
+      "test_contradiction": [
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_assert",
+          "derived_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & color:red(x0) & kind:cup(x1) & kind:star(x0) & rel:chases(x0,x1))",
+          "example_id": "test_contradiction-00000",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & color:red(x0) & kind:cup(x1) & kind:star(x0) & rel:chases(x0,x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "sorn",
+            "zib",
+            "tal",
+            "fep"
+          ],
+          "witness": {
+            "x0": 3,
+            "x1": 1
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_assert",
+          "derived_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & color:red(x0) & kind:cup(x1) & kind:star(x0) & rel:chases(x0,x1))",
+          "example_id": "test_contradiction-00001",
+          "failure_reason": "Closest assignment (x0->obj_3, x1->obj_1) failed on: color:red(obj_3) failed (obj_3.color=yellow)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & color:red(x0) & kind:cup(x1) & kind:star(x0) & rel:chases(x0,x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "sorn",
+            "zib",
+            "tal",
+            "fep"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:red(x1) & kind:cone(x1) & kind:star(x0) & rel:chases(x0,x1) & size:large(x0))",
+          "example_id": "test_contradiction-00002",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:red(x1) & kind:cone(x1) & kind:star(x0) & rel:chases(x0,x1) & size:large(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "glorp",
+            "zib",
+            "sorn",
+            "dax",
+            "ko"
+          ],
+          "witness": {
+            "x0": 0,
+            "x1": 2
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:red(x1) & kind:cone(x1) & kind:star(x0) & rel:chases(x0,x1) & size:large(x0))",
+          "example_id": "test_contradiction-00003",
+          "failure_reason": "Closest assignment (x0->obj_0, x1->obj_2) failed on: color:red(obj_2) failed (obj_2.color=yellow)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:red(x1) & kind:cone(x1) & kind:star(x0) & rel:chases(x0,x1) & size:large(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "glorp",
+            "zib",
+            "sorn",
+            "dax",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:red(x0) & kind:ball(x1) & kind:cone(x0) & rel:next_to(x0,x1) & size:large(x1))",
+          "example_id": "test_contradiction-00004",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:red(x0) & kind:ball(x1) & kind:cone(x0) & rel:next_to(x0,x1) & size:large(x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "sorn",
+            "dax",
+            "glorp",
+            "blick",
+            "ko"
+          ],
+          "witness": {
+            "x0": 1,
+            "x1": 2
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:red(x0) & kind:ball(x1) & kind:cone(x0) & rel:next_to(x0,x1) & size:large(x1))",
+          "example_id": "test_contradiction-00005",
+          "failure_reason": "Closest assignment (x0->obj_1, x1->obj_2) failed on: color:red(obj_1) failed (obj_1.color=yellow)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:red(x0) & kind:ball(x1) & kind:cone(x0) & rel:next_to(x0,x1) & size:large(x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "sorn",
+            "dax",
+            "glorp",
+            "blick",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:red(x0) & kind:ball(x0) & kind:star(x1) & rel:chases(x0,x1))",
+          "example_id": "test_contradiction-00006",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:red(x0) & kind:ball(x0) & kind:star(x1) & rel:chases(x0,x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "sorn",
+            "blick",
+            "zib",
+            "ko"
+          ],
+          "witness": {
+            "x0": 0,
+            "x1": 1
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:red(x0) & kind:ball(x0) & kind:star(x1) & rel:chases(x0,x1))",
+          "example_id": "test_contradiction-00007",
+          "failure_reason": "Closest assignment (x0->obj_0, x1->obj_1) failed on: color:red(obj_0) failed (obj_0.color=yellow)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:red(x0) & kind:ball(x0) & kind:star(x1) & rel:chases(x0,x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "sorn",
+            "blick",
+            "zib",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_assert",
+          "derived_lf": "ASSERT(EXISTS x0 x1 . color:red(x0) & kind:cone(x0) & kind:cube(x1) & rel:chases(x0,x1) & size:medium(x1))",
+          "example_id": "test_contradiction-00008",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . color:red(x0) & kind:cone(x0) & kind:cube(x1) & rel:chases(x0,x1) & size:medium(x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "sorn",
+            "dax",
+            "nud",
+            "wug"
+          ],
+          "witness": {
+            "x0": 2,
+            "x1": 1
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_assert",
+          "derived_lf": "ASSERT(EXISTS x0 x1 . color:red(x0) & kind:cone(x0) & kind:cube(x1) & rel:chases(x0,x1) & size:medium(x1))",
+          "example_id": "test_contradiction-00009",
+          "failure_reason": "Closest assignment (x0->obj_2, x1->obj_1) failed on: color:red(obj_2) failed (obj_2.color=yellow)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . color:red(x0) & kind:cone(x0) & kind:cube(x1) & rel:chases(x0,x1) & size:medium(x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "sorn",
+            "dax",
+            "nud",
+            "wug"
+          ],
+          "witness": null
+        }
+      ],
+      "test_longer": [
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:red(x0) & color:yellow(x1) & kind:ball(x0) & kind:star(x1) & rel:chases(x0,x1) & size:large(x0))",
+          "example_id": "test_longer-00000",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:red(x0) & color:yellow(x1) & kind:ball(x0) & kind:star(x1) & rel:chases(x0,x1) & size:large(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "glorp",
+            "sorn",
+            "blick",
+            "vek",
+            "zib",
+            "ko"
+          ],
+          "witness": {
+            "x0": 2,
+            "x1": 0
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:red(x0) & color:yellow(x1) & kind:ball(x0) & kind:star(x1) & rel:chases(x0,x1) & size:large(x0))",
+          "example_id": "test_longer-00001",
+          "failure_reason": "Closest assignment (x0->obj_2, x1->obj_0) failed on: size:large(obj_2) failed (obj_2.size=small)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:red(x0) & color:yellow(x1) & kind:ball(x0) & kind:star(x1) & rel:chases(x0,x1) & size:large(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "glorp",
+            "sorn",
+            "blick",
+            "vek",
+            "zib",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x0) & color:yellow(x1) & kind:cone(x0) & kind:cube(x1) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "example_id": "test_longer-00002",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x0) & color:yellow(x1) & kind:cone(x0) & kind:cube(x1) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "pim",
+            "mip",
+            "dax",
+            "pim",
+            "vek",
+            "wug",
+            "ko"
+          ],
+          "witness": {
+            "x0": 2,
+            "x1": 1
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x0) & color:yellow(x1) & kind:cone(x0) & kind:cube(x1) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "example_id": "test_longer-00003",
+          "failure_reason": "Closest assignment (x0->obj_2, x1->obj_1) failed on: color:yellow(obj_1) failed (obj_1.color=blue)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x0) & color:yellow(x1) & kind:cone(x0) & kind:cube(x1) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "pim",
+            "mip",
+            "dax",
+            "pim",
+            "vek",
+            "wug",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:ball(x0) & kind:star(x1) & rel:next_to(x0,x1) & size:large(x0) & size:large(x1))",
+          "example_id": "test_longer-00004",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:ball(x0) & kind:star(x1) & rel:next_to(x0,x1) & size:large(x0) & size:large(x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "glorp",
+            "sorn",
+            "blick",
+            "glorp",
+            "mip",
+            "zib",
+            "ko"
+          ],
+          "witness": {
+            "x0": 3,
+            "x1": 2
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:ball(x0) & kind:star(x1) & rel:next_to(x0,x1) & size:large(x0) & size:large(x1))",
+          "example_id": "test_longer-00005",
+          "failure_reason": "Closest assignment (x0->obj_3, x1->obj_2) failed on: color:red(obj_3) failed (obj_3.color=green)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:ball(x0) & kind:star(x1) & rel:next_to(x0,x1) & size:large(x0) & size:large(x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "glorp",
+            "sorn",
+            "blick",
+            "glorp",
+            "mip",
+            "zib",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:cone(x0) & kind:star(x1) & rel:next_to(x0,x1) & size:large(x1) & size:medium(x0))",
+          "example_id": "test_longer-00006",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:cone(x0) & kind:star(x1) & rel:next_to(x0,x1) & size:large(x1) & size:medium(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "nud",
+            "sorn",
+            "dax",
+            "glorp",
+            "mip",
+            "zib",
+            "ko"
+          ],
+          "witness": {
+            "x0": 2,
+            "x1": 0
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:cone(x0) & kind:star(x1) & rel:next_to(x0,x1) & size:large(x1) & size:medium(x0))",
+          "example_id": "test_longer-00007",
+          "failure_reason": "Closest assignment (x0->obj_2, x1->obj_0) failed on: color:blue(obj_0) failed (obj_0.color=red); color:red(obj_2) failed (obj_2.color=blue)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:cone(x0) & kind:star(x1) & rel:next_to(x0,x1) & size:large(x1) & size:medium(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "nud",
+            "sorn",
+            "dax",
+            "glorp",
+            "mip",
+            "zib",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:cone(x1) & kind:star(x0) & rel:chases(x0,x1) & size:large(x0) & size:medium(x1))",
+          "example_id": "test_longer-00008",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:cone(x1) & kind:star(x0) & rel:chases(x0,x1) & size:large(x0) & size:medium(x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "glorp",
+            "sorn",
+            "zib",
+            "nud",
+            "mip",
+            "dax",
+            "ko"
+          ],
+          "witness": {
+            "x0": 0,
+            "x1": 1
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:cone(x1) & kind:star(x0) & rel:chases(x0,x1) & size:large(x0) & size:medium(x1))",
+          "example_id": "test_longer-00009",
+          "failure_reason": "Closest assignment (x0->obj_0, x1->obj_1) failed on: color:blue(obj_1) failed (obj_1.color=red); color:red(obj_0) failed (obj_0.color=blue)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & color:red(x0) & kind:cone(x1) & kind:star(x0) & rel:chases(x0,x1) & size:large(x0) & size:medium(x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "glorp",
+            "sorn",
+            "zib",
+            "nud",
+            "mip",
+            "dax",
+            "ko"
+          ],
+          "witness": null
+        }
+      ],
+      "test_novel_combination": [
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:cone(x0) & size:large(x0))",
+          "example_id": "test_novel_combination-00000",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:cone(x0) & size:large(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "glorp",
+            "dax",
+            "ko"
+          ],
+          "witness": {
+            "x0": 1
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . kind:cone(x0) & size:large(x0))",
+          "example_id": "test_novel_combination-00001",
+          "failure_reason": "Closest assignment (x0->obj_0) failed on: size:large(obj_0) failed (obj_0.size=medium)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 . kind:cone(x0) & size:large(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "glorp",
+            "dax",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & kind:ball(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "example_id": "test_novel_combination-00002",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & kind:ball(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "wug",
+            "mip",
+            "blick",
+            "ko"
+          ],
+          "witness": {
+            "x0": 2,
+            "x1": 3
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & kind:ball(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "example_id": "test_novel_combination-00003",
+          "failure_reason": "Closest assignment (x0->obj_2, x1->obj_3) failed on: color:blue(obj_3) failed (obj_3.color=yellow)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:blue(x1) & kind:ball(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "wug",
+            "mip",
+            "blick",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:green(x0) & color:green(x1) & kind:cone(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "example_id": "test_novel_combination-00004",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:green(x0) & color:green(x1) & kind:cone(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "tal",
+            "wug",
+            "tal",
+            "dax",
+            "ko"
+          ],
+          "witness": {
+            "x0": 0,
+            "x1": 2
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . color:green(x0) & color:green(x1) & kind:cone(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "example_id": "test_novel_combination-00005",
+          "failure_reason": "Closest assignment (x0->obj_0, x1->obj_1) failed on: color:green(obj_1) failed (obj_1.color=red)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . color:green(x0) & color:green(x1) & kind:cone(x1) & kind:cube(x0) & rel:next_to(x0,x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "lum",
+            "tal",
+            "wug",
+            "tal",
+            "dax",
+            "ko"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_assert",
+          "derived_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & kind:cube(x0) & kind:star(x1) & rel:chases(x0,x1) & size:small(x0))",
+          "example_id": "test_novel_combination-00006",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & kind:cube(x0) & kind:star(x1) & rel:chases(x0,x1) & size:small(x0))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "pim",
+            "wug",
+            "tal",
+            "zib"
+          ],
+          "witness": {
+            "x0": 1,
+            "x1": 0
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_assert",
+          "derived_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & kind:cube(x0) & kind:star(x1) & rel:chases(x0,x1) & size:small(x0))",
+          "example_id": "test_novel_combination-00007",
+          "failure_reason": "Closest assignment (x0->obj_1, x1->obj_0) failed on: kind:cube(obj_1) failed (obj_1.kind=star); kind:star(obj_0) failed (obj_0.kind=cube)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASSERT(EXISTS x0 x1 . color:green(x1) & kind:cube(x0) & kind:star(x1) & rel:chases(x0,x1) & size:small(x0))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "pim",
+            "wug",
+            "tal",
+            "zib"
+          ],
+          "witness": null
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_positive_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . kind:ball(x1) & kind:cube(x0) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "example_id": "test_novel_combination-00008",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . kind:ball(x1) & kind:cube(x0) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "is_error": false,
+          "p_true": 0.98,
+          "posterior_weight": 1.0,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "pim",
+            "wug",
+            "pim",
+            "blick",
+            "ko"
+          ],
+          "witness": {
+            "x0": 0,
+            "x1": 2
+          }
+        },
+        {
+          "brier_loss": 0.0004,
+          "category": "true_negative_noise_floor",
+          "construction": "trans_ask",
+          "derived_lf": "ASK(EXISTS x0 x1 . kind:ball(x1) & kind:cube(x0) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "example_id": "test_novel_combination-00009",
+          "failure_reason": "Closest assignment (x0->obj_0, x1->obj_2) failed on: kind:cube(obj_0) failed (obj_0.kind=cone)",
+          "ground_truth": false,
+          "ground_truth_lf": "ASK(EXISTS x0 x1 . kind:ball(x1) & kind:cube(x0) & rel:chases(x0,x1) & size:small(x0) & size:small(x1))",
+          "is_error": false,
+          "p_true": 0.02,
+          "posterior_weight": 1.0,
+          "predicted_truth": false,
+          "seed": 0,
+          "tokens": [
+            "zorp",
+            "pim",
+            "wug",
+            "pim",
+            "blick",
+            "ko"
+          ],
+          "witness": null
+        }
+      ],
+      "test_novel_word_in_known_frame": [
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_assert",
+          "derived_lf": "ASSERT(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00006",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASSERT(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "sorn",
+            "toma"
+          ],
+          "witness": {
+            "x0": 1
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . color:blue(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00010",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . color:blue(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "mip",
+            "toma",
+            "ko"
+          ],
+          "witness": {
+            "x0": 3
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00012",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "sorn",
+            "toma",
+            "ko"
+          ],
+          "witness": {
+            "x0": 1
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00014",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "sorn",
+            "toma",
+            "ko"
+          ],
+          "witness": {
+            "x0": 1
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_assert",
+          "derived_lf": "ASSERT(EXISTS x0 . color:yellow(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00022",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASSERT(EXISTS x0 . color:yellow(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "vek",
+            "toma"
+          ],
+          "witness": {
+            "x0": 0
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_assert",
+          "derived_lf": "ASSERT(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00024",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASSERT(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "sorn",
+            "toma"
+          ],
+          "witness": {
+            "x0": 2
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_assert",
+          "derived_lf": "ASSERT(EXISTS x0 . kind:ring(x0) & size:small(x0))",
+          "example_id": "test_novel_word_in_known_frame-00028",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASSERT(EXISTS x0 . kind:ring(x0) & size:small(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "pim",
+            "toma"
+          ],
+          "witness": {
+            "x0": 2
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . color:yellow(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00034",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . color:yellow(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "vek",
+            "toma",
+            "ko"
+          ],
+          "witness": {
+            "x0": 2
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_ask",
+          "derived_lf": "ASK(EXISTS x0 . color:yellow(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00036",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASK(EXISTS x0 . color:yellow(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "vek",
+            "toma",
+            "ko"
+          ],
+          "witness": {
+            "x0": 1
+          }
+        },
+        {
+          "brier_loss": 0.008548,
+          "category": "true_positive_noise_floor",
+          "construction": "np_assert",
+          "derived_lf": "ASSERT(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "example_id": "test_novel_word_in_known_frame-00038",
+          "failure_reason": "All atoms satisfied.",
+          "ground_truth": true,
+          "ground_truth_lf": "ASSERT(EXISTS x0 . color:red(x0) & kind:ring(x0))",
+          "is_error": false,
+          "p_true": 0.9075,
+          "posterior_weight": 0.9245,
+          "predicted_truth": true,
+          "seed": 0,
+          "tokens": [
+            "sorn",
+            "toma"
+          ],
+          "witness": {
+            "x0": 1
+          }
+        }
+      ]
+    }
+  },
+  "elapsed_seconds": 357.0842849169858,
+  "n_seeds": 20,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "world_mode": "randomized"
+}
