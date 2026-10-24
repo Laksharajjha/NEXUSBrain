@@ -9,6 +9,7 @@ Expected behavior: ~100% accuracy on train, dev, and all test splits.
 
 from __future__ import annotations
 
+import inspect
 import sys
 from typing import Any, Mapping, Sequence
 
@@ -24,10 +25,17 @@ class OracleLeakageError(RuntimeError):
     """Raised if the Oracle is imported or accessed from within nexus.learner."""
 
 
-# Guard against importing oracle inside any nexus.learner module
-for mod_name in list(sys.modules.keys()):
-    if mod_name.startswith("nexus.learner"):
-        raise OracleLeakageError(f"Oracle must never be imported into learner modules! Detected: {mod_name}")
+def _check_oracle_import_guard() -> None:
+    """Raise OracleLeakageError if imported from inside nexus/learner."""
+    for frame_info in inspect.stack():
+        fname = frame_info.filename.replace("\\", "/")
+        if "/nexus/learner/" in fname:
+            raise OracleLeakageError(
+                f"Oracle must never be imported into learner modules! Detected caller: {fname}"
+            )
+
+
+_check_oracle_import_guard()
 
 
 class Oracle:

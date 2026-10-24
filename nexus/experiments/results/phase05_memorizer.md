@@ -1,15 +1,15 @@
-# phase05_audit_memorizer — memorizer (20 seeds)
+# phase06_audit_memorizer — memorizer (20 seeds)
 
 ## Accuracy and calibration (mean ± std over seeds)
 
-| split | accuracy | ECE | Brier | mean confidence |
-|---|---|---|---|---|
-| train | 1.000 ± 0.000 | 0.333 ± 0.000 | 0.111 ± 0.000 | 0.667 ± 0.000 |
-| dev | 0.502 ± 0.024 | 0.042 ± 0.019 | 0.254 ± 0.003 | 0.535 ± 0.004 |
-| test_novel_combination | 0.500 ± 0.000 | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
-| test_novel_word_in_known_frame | 0.500 ± 0.000 | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
-| test_longer | 0.500 ± 0.000 | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
-| test_contradiction | 0.500 ± 0.000 | 0.006 ± 0.004 | 0.250 ± 0.000 | 0.506 ± 0.004 |
+| split | n | accuracy | ECE | Brier | mean confidence |
+|---|---|---|---|---|---|
+| train | 1600 | 1.000 ± 0.000 | 0.333 ± 0.000 | 0.111 ± 0.000 | 0.667 ± 0.000 |
+| dev | 400 | 0.500 ± 0.000 | 0.000 ± 0.000 | 0.250 ± 0.000 | 0.500 ± 0.000 |
+| test_novel_combination | 400 | 0.500 ± 0.000 | 0.000 ± 0.000 | 0.250 ± 0.000 | 0.500 ± 0.000 |
+| test_novel_word_in_known_frame | 200 | 0.500 ± 0.000 | 0.000 ± 0.000 | 0.250 ± 0.000 | 0.500 ± 0.000 |
+| test_longer | 300 | 0.500 ± 0.000 | 0.000 ± 0.000 | 0.250 ± 0.000 | 0.500 ± 0.000 |
+| test_contradiction | 200 | 0.500 ± 0.000 | 0.000 ± 0.000 | 0.250 ± 0.000 | 0.500 ± 0.000 |
 
 ## Support-stream checkpoints: test_novel_word_in_known_frame
 
@@ -30,9 +30,9 @@
 
 | construction | examples-to-criterion (total seen) | retention: at stage end | retention: final |
 |---|---|---|---|
-| np_ask | n/a | 0.481 ± 0.056 | 0.481 ± 0.056 |
-| np_assert | n/a | 0.522 ± 0.046 | 0.522 ± 0.046 |
-| trans_ask | n/a | 0.505 ± 0.021 | 0.505 ± 0.021 |
-| trans_assert | n/a | 0.500 ± 0.030 | 0.500 ± 0.030 |
+| np_ask | n/a | 0.500 ± 0.000 | 0.500 ± 0.000 |
+| np_assert | n/a | 0.500 ± 0.000 | 0.500 ± 0.000 |
+| trans_ask | n/a | 0.500 ± 0.000 | 0.500 ± 0.000 |
+| trans_assert | n/a | 0.500 ± 0.000 | 0.500 ± 0.000 |
 
-Model size: 2024.0 ± 19.9
+Model size: 2022.2 ± 19.0
