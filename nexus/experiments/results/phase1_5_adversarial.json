@@ -1,0 +1,3638 @@
+{
+  "elapsed_sec": 1886.21,
+  "eval_counter": {
+    "by_experiment": {
+      "part1_shuffled_train_order": 80,
+      "part1_spy_audit": 80,
+      "part2a_shuffled_labels": 80,
+      "part2b_shuffled_scenes": 80,
+      "part2c_cross_seed_lexicon": 80,
+      "part3_1_prefix_N10": 80,
+      "part3_1_prefix_N100": 80,
+      "part3_1_prefix_N1600": 80,
+      "part3_1_prefix_N20": 80,
+      "part3_1_prefix_N200": 80,
+      "part3_1_prefix_N400": 80,
+      "part3_1_prefix_N50": 80,
+      "part3_1_stratified_N10": 80,
+      "part3_1_stratified_N100": 80,
+      "part3_1_stratified_N1600": 80,
+      "part3_1_stratified_N20": 80,
+      "part3_1_stratified_N200": 80,
+      "part3_1_stratified_N400": 80,
+      "part3_1_stratified_N50": 80,
+      "part3_2_random_negatives_N1600": 80,
+      "part3_2_random_negatives_N200": 80,
+      "part3_2_random_negatives_N400": 80,
+      "part3_3_positive_only": 80,
+      "part3_4_noise_0_N1600": 80,
+      "part3_4_noise_0_N200": 80,
+      "part3_4_noise_10_N1600": 80,
+      "part3_4_noise_10_N200": 80,
+      "part3_4_noise_20_N1600": 80,
+      "part3_4_noise_20_N200": 80,
+      "part3_4_noise_2_N1600": 80,
+      "part3_4_noise_2_N200": 80,
+      "part3_4_noise_30_N1600": 80,
+      "part3_4_noise_30_N200": 80,
+      "part3_5_kinds_12_N400": 80,
+      "part3_5_kinds_24_N400": 80,
+      "part3_5_kinds_48_N400": 80,
+      "part3_5_kinds_6_N400": 80,
+      "part3_6_homonym_1pair": 80,
+      "part3_6_homonym_3pairs": 80,
+      "part3_6_synonyms_all_N1600": 80,
+      "part3_6_synonyms_all_N200": 80,
+      "part3_6_synonyms_nouns": 80,
+      "part3_7_beyond_depth": 60,
+      "part3_8_beam_K10_N100": 80,
+      "part3_8_beam_K10_N1600": 80,
+      "part3_8_beam_K1_N100": 80,
+      "part3_8_beam_K1_N1600": 80,
+      "part3_8_beam_K200_N100": 80,
+      "part3_8_beam_K200_N1600": 80,
+      "part3_8_beam_K2_N100": 80,
+      "part3_8_beam_K2_N1600": 80,
+      "part3_8_beam_K50_N100": 80,
+      "part3_8_beam_K50_N1600": 80,
+      "part3_8_beam_K5_N100": 80,
+      "part3_8_beam_K5_N1600": 80,
+      "part4_F_full_N10": 80,
+      "part4_F_full_N100": 80,
+      "part4_F_full_N20": 80,
+      "part4_F_full_N50": 80,
+      "part4_F_given_lexicon_N10": 80,
+      "part4_F_given_lexicon_N100": 80,
+      "part4_F_given_lexicon_N20": 80,
+      "part4_F_given_lexicon_N50": 80,
+      "part4_F_given_syntax_N10": 80,
+      "part4_F_given_syntax_N100": 80,
+      "part4_F_given_syntax_N20": 80,
+      "part4_F_given_syntax_N50": 80,
+      "part4_baseline_A": 80,
+      "part4_baseline_B": 80,
+      "part4_baseline_C_fixed": 80,
+      "part4_baseline_C_legacy": 80,
+      "part4_baseline_D_position_aware_cs": 80,
+      "part4_baseline_E_neural": 80,
+      "part4_baseline_F_given_lexicon": 80,
+      "part4_baseline_F_given_syntax": 80,
+      "part5_prior_linear_N1600": 80,
+      "part5_prior_linear_N50": 80,
+      "part5_prior_log2_nats_N1600": 80,
+      "part5_prior_log2_nats_N50": 80,
+      "part5_prior_log2_raw_bits_N1600": 80
+    },
+    "total_test_split_evaluations": 6380
+  },
+  "label": "EXPLORATORY",
+  "n_seeds": 20,
+  "part1_leakage_and_protocol_audit": {
+    "accessed_fields": {
+      "correction": [
+        "corrected_label",
+        "reason",
+        "source",
+        "target_example_id"
+      ],
+      "object": [
+        "color",
+        "id",
+        "kind",
+        "size",
+        "value"
+      ],
+      "observation": [
+        "example_id",
+        "label",
+        "scene",
+        "source",
+        "tokens"
+      ],
+      "relation": [
+        "name",
+        "object",
+        "subject"
+      ],
+      "scene": [
+        "holds",
+        "objects",
+        "relations",
+        "to_json"
+      ]
+    },
+    "forbidden_generator_field_hits": [],
+    "shuffled_train_order_summary": {
+      "dev": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      }
+    },
+    "spy_leak_violations": 0,
+    "spy_mutation_violations": 0,
+    "spy_total_observe_calls": 32680,
+    "spy_total_predict_calls": 30000
+  },
+  "part2_negative_controls": {
+    "2a_shuffled_labels": {
+      "dev": {
+        "max": 0.925,
+        "mean": 0.770875,
+        "min": 0.65,
+        "std": 0.08084372107246243
+      },
+      "test_contradiction": {
+        "max": 0.95,
+        "mean": 0.705,
+        "min": 0.5,
+        "std": 0.18315222314267787
+      },
+      "test_contradiction_after_misleading": {
+        "max": 0.935,
+        "mean": 0.6205,
+        "min": 0.5,
+        "std": 0.16032778923193572
+      },
+      "test_longer": {
+        "max": 0.8366666666666667,
+        "mean": 0.6143333333333334,
+        "min": 0.49,
+        "std": 0.11656436617589575
+      },
+      "test_novel_combination": {
+        "max": 0.8275,
+        "mean": 0.6568750000000001,
+        "min": 0.53,
+        "std": 0.10911689470712733
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 0.89,
+        "mean": 0.74125,
+        "min": 0.585,
+        "std": 0.10519249272793088
+      },
+      "train": {
+        "max": 0.921875,
+        "mean": 0.75590625,
+        "min": 0.618125,
+        "std": 0.09682171178695025
+      }
+    },
+    "2b_shuffled_scenes": {
+      "dev": {
+        "max": 0.5675,
+        "mean": 0.49712499999999993,
+        "min": 0.44,
+        "std": 0.03215172705519221
+      },
+      "test_contradiction": {
+        "max": 0.535,
+        "mean": 0.50075,
+        "min": 0.49,
+        "std": 0.008472090402579156
+      },
+      "test_contradiction_after_misleading": {
+        "max": 0.5,
+        "mean": 0.499,
+        "min": 0.485,
+        "std": 0.0034792618696922995
+      },
+      "test_longer": {
+        "max": 0.5033333333333333,
+        "mean": 0.5003333333333334,
+        "min": 0.5,
+        "std": 0.0010259783520851435
+      },
+      "test_novel_combination": {
+        "max": 0.535,
+        "mean": 0.49949999999999994,
+        "min": 0.4775,
+        "std": 0.01182659803378096
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 0.585,
+        "mean": 0.4987500000000001,
+        "min": 0.45,
+        "std": 0.03557331199531174
+      },
+      "train": {
+        "max": 0.538125,
+        "mean": 0.4985312499999999,
+        "min": 0.4725,
+        "std": 0.017079384840009836
+      }
+    },
+    "2c_cross_seed_lexicon": {
+      "dev": {
+        "max": 0.56,
+        "mean": 0.501625,
+        "min": 0.4825,
+        "std": 0.02013564200484725
+      },
+      "test_contradiction": {
+        "max": 0.5,
+        "mean": 0.4995,
+        "min": 0.49,
+        "std": 0.002236067977499792
+      },
+      "test_contradiction_after_misleading": {
+        "max": 0.5,
+        "mean": 0.4995,
+        "min": 0.49,
+        "std": 0.002236067977499792
+      },
+      "test_longer": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 0.5125,
+        "mean": 0.5003750000000001,
+        "min": 0.49,
+        "std": 0.004157665716544108
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 0.515,
+        "mean": 0.50125,
+        "min": 0.49,
+        "std": 0.0058207885159459695
+      },
+      "train": {
+        "max": 0.5375,
+        "mean": 0.49809375000000006,
+        "min": 0.483125,
+        "std": 0.013323954177878667
+      }
+    }
+  },
+  "part3_difficulty_ladder": {
+    "3_1_sample_size_prefix": {
+      "N=10": {
+        "dev": {
+          "max": 0.5325,
+          "mean": 0.510375,
+          "min": 0.49,
+          "std": 0.012625032569004368
+        },
+        "test_contradiction": {
+          "max": 0.64,
+          "mean": 0.524,
+          "min": 0.5,
+          "std": 0.044739009235435924
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 0.505,
+          "mean": 0.5001249999999999,
+          "min": 0.495,
+          "std": 0.0017158318528831466
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.545,
+          "mean": 0.5065000000000001,
+          "min": 0.485,
+          "std": 0.01338695358607737
+        },
+        "train": {
+          "max": 0.5375,
+          "mean": 0.5104375,
+          "min": 0.494375,
+          "std": 0.011241041754963911
+        }
+      },
+      "N=100": {
+        "dev": {
+          "max": 0.75,
+          "mean": 0.72075,
+          "min": 0.605,
+          "std": 0.049024027406547245
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.8462500000000001,
+          "min": 0.5,
+          "std": 0.15448449930758681
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.515,
+          "mean": 0.50125,
+          "min": 0.5,
+          "std": 0.003931987578285249
+        },
+        "test_longer": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 0.6,
+          "mean": 0.564875,
+          "min": 0.52,
+          "std": 0.02487435532092397
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.715,
+          "mean": 0.6432500000000001,
+          "min": 0.5,
+          "std": 0.061049483811775274
+        },
+        "train": {
+          "max": 0.78125,
+          "mean": 0.7318749999999999,
+          "min": 0.62125,
+          "std": 0.04969561957821996
+        }
+      },
+      "N=1600": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "N=20": {
+        "dev": {
+          "max": 0.6575,
+          "mean": 0.54575,
+          "min": 0.495,
+          "std": 0.04438986963616574
+        },
+        "test_contradiction": {
+          "max": 0.75,
+          "mean": 0.5645,
+          "min": 0.5,
+          "std": 0.07350080558097735
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 0.5325,
+          "mean": 0.5045,
+          "min": 0.49,
+          "std": 0.010310954828418364
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.64,
+          "mean": 0.5405000000000001,
+          "min": 0.48,
+          "std": 0.04743139089363987
+        },
+        "train": {
+          "max": 0.659375,
+          "mean": 0.5434375,
+          "min": 0.494375,
+          "std": 0.04647239382857198
+        }
+      },
+      "N=200": {
+        "dev": {
+          "max": 0.75,
+          "mean": 0.75,
+          "min": 0.75,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.8785000000000001,
+          "min": 0.5,
+          "std": 0.14902401784523472
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.56,
+          "mean": 0.50375,
+          "min": 0.5,
+          "std": 0.0136569820200049
+        },
+        "test_longer": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 0.6,
+          "mean": 0.574,
+          "min": 0.5475,
+          "std": 0.015419570613176519
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.715,
+          "mean": 0.673,
+          "min": 0.63,
+          "std": 0.022734161635370613
+        },
+        "train": {
+          "max": 0.78125,
+          "mean": 0.75934375,
+          "min": 0.733125,
+          "std": 0.011789817403500978
+        }
+      },
+      "N=400": {
+        "dev": {
+          "max": 0.75,
+          "mean": 0.75,
+          "min": 0.75,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.8712500000000001,
+          "min": 0.5,
+          "std": 0.14630425219564303
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.56,
+          "mean": 0.50375,
+          "min": 0.5,
+          "std": 0.0136569820200049
+        },
+        "test_longer": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 0.6,
+          "mean": 0.574,
+          "min": 0.5475,
+          "std": 0.015419570613176519
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.715,
+          "mean": 0.673,
+          "min": 0.63,
+          "std": 0.022734161635370613
+        },
+        "train": {
+          "max": 0.78125,
+          "mean": 0.75934375,
+          "min": 0.733125,
+          "std": 0.011789817403500978
+        }
+      },
+      "N=50": {
+        "dev": {
+          "max": 0.7375,
+          "mean": 0.6636249999999999,
+          "min": 0.5375,
+          "std": 0.06515404317542592
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.7422500000000001,
+          "min": 0.5,
+          "std": 0.1532925908876637
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.515,
+          "mean": 0.50125,
+          "min": 0.5,
+          "std": 0.003931987578285249
+        },
+        "test_longer": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 0.585,
+          "mean": 0.53625,
+          "min": 0.4975,
+          "std": 0.027738202802936644
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.68,
+          "mean": 0.60725,
+          "min": 0.5,
+          "std": 0.05954818924287509
+        },
+        "train": {
+          "max": 0.763125,
+          "mean": 0.6723125,
+          "min": 0.54375,
+          "std": 0.06606045999688469
+        }
+      }
+    },
+    "3_1_sample_size_stratified": {
+      "N=10": {
+        "dev": {
+          "max": 0.52,
+          "mean": 0.5032500000000001,
+          "min": 0.4825,
+          "std": 0.009904145862372883
+        },
+        "test_contradiction": {
+          "max": 0.61,
+          "mean": 0.5197499999999999,
+          "min": 0.5,
+          "std": 0.03242298567374695
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 0.5,
+          "mean": 0.5,
+          "min": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 0.5,
+          "mean": 0.499875,
+          "min": 0.4975,
+          "std": 0.0005590169943749478
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.515,
+          "mean": 0.5,
+          "min": 0.475,
+          "std": 0.010760551736979417
+        },
+        "train": {
+          "max": 0.523125,
+          "mean": 0.5045624999999999,
+          "min": 0.494375,
+          "std": 0.007291791978873085
+        }
+      },
+      "N=100": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9172499999999999,
+          "min": 0.575,
+          "std": 0.12778708649031878
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9824999999999999,
+          "min": 0.745,
+          "std": 0.05979130371550699
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.92925,
+          "min": 0.52,
+          "std": 0.12966835226433382
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.8965,
+          "min": 0.5133333333333333,
+          "std": 0.16194893065516328
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9043749999999999,
+          "min": 0.5675,
+          "std": 0.13380532549782517
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9097500000000001,
+          "min": 0.5,
+          "std": 0.15109664909726175
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9279062499999998,
+          "min": 0.6,
+          "std": 0.11885353433261993
+        }
+      },
+      "N=1600": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "N=20": {
+        "dev": {
+          "max": 0.7025,
+          "mean": 0.540125,
+          "min": 0.495,
+          "std": 0.05418945202275361
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.5595,
+          "min": 0.485,
+          "std": 0.1332478892890991
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.55,
+          "mean": 0.503,
+          "min": 0.495,
+          "std": 0.011630269037934465
+        },
+        "test_longer": {
+          "max": 0.5166666666666667,
+          "mean": 0.5016666666666667,
+          "min": 0.5,
+          "std": 0.004392976851069807
+        },
+        "test_novel_combination": {
+          "max": 0.6725,
+          "mean": 0.51225,
+          "min": 0.495,
+          "std": 0.038293362074220745
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.71,
+          "mean": 0.5345000000000001,
+          "min": 0.48,
+          "std": 0.051577738976177845
+        },
+        "train": {
+          "max": 0.696875,
+          "mean": 0.53721875,
+          "min": 0.5,
+          "std": 0.05365715474132234
+        }
+      },
+      "N=200": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9636250000000001,
+          "min": 0.7475,
+          "std": 0.07961451120704593
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.96425,
+          "min": 0.745,
+          "std": 0.08757365321169436
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.96175,
+          "min": 0.695,
+          "std": 0.094594355567672
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.95,
+          "min": 0.6566666666666666,
+          "std": 0.11099760284013935
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.959125,
+          "min": 0.7275,
+          "std": 0.08574086954612901
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9484999999999999,
+          "min": 0.5,
+          "std": 0.12130973840371989
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9646250000000001,
+          "min": 0.751875,
+          "std": 0.08458159405350302
+        }
+      },
+      "N=400": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "N=50": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.78425,
+          "min": 0.565,
+          "std": 0.13901462437266693
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.766,
+          "min": 0.55,
+          "std": 0.17302722633340564
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.7217500000000001,
+          "min": 0.465,
+          "std": 0.19112048418127295
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.7126666666666667,
+          "min": 0.5,
+          "std": 0.17752555206906667
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.7236250000000001,
+          "min": 0.505,
+          "std": 0.1568616449547012
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.7772499999999999,
+          "min": 0.5,
+          "std": 0.14941530781859771
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.7899375000000001,
+          "min": 0.56125,
+          "std": 0.14056320279597773
+        }
+      }
+    },
+    "3_2_random_negatives_only": {
+      "N=1600": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.974625,
+          "min": 0.9475,
+          "std": 0.016766095958338383
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9701666666666666,
+          "min": 0.9266666666666666,
+          "std": 0.022412272118651162
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9566250000000001,
+          "min": 0.925,
+          "std": 0.027592845659318053
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9913125,
+          "min": 0.98375,
+          "std": 0.0058062891265465485
+        }
+      },
+      "N=200": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9785,
+          "min": 0.9475,
+          "std": 0.017759356318349646
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9728333333333333,
+          "min": 0.94,
+          "std": 0.02315154750868253
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.963875,
+          "min": 0.92,
+          "std": 0.02897906458480892
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9925625,
+          "min": 0.98375,
+          "std": 0.006133452813958276
+        }
+      },
+      "N=400": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.974375,
+          "min": 0.9575,
+          "std": 0.014619629018261002
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9665000000000001,
+          "min": 0.9266666666666666,
+          "std": 0.022070461326349648
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9549999999999998,
+          "min": 0.925,
+          "std": 0.025235730725761792
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.99046875,
+          "min": 0.98375,
+          "std": 0.00561173509029821
+        }
+      }
+    },
+    "3_3_positive_only": {
+      "dev": {
+        "max": 0.9825,
+        "mean": 0.967,
+        "min": 0.9475,
+        "std": 0.00805409343456057
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 0.9833333333333333,
+        "mean": 0.9595,
+        "min": 0.9266666666666666,
+        "std": 0.014878651451184962
+      },
+      "test_novel_combination": {
+        "max": 0.97,
+        "mean": 0.943,
+        "min": 0.92,
+        "std": 0.012737222699837781
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "train": {
+        "max": 0.994375,
+        "mean": 0.9883750000000001,
+        "min": 0.98375,
+        "std": 0.0030308175898852634
+      }
+    },
+    "3_4_label_noise_N1600": {
+      "noise_0pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "noise_10pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "noise_20pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "noise_2pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "noise_30pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9786249999999999,
+          "min": 0.87,
+          "std": 0.04619377806132496
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9722500000000001,
+          "min": 0.715,
+          "std": 0.0854473522117567
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.95175,
+          "min": 0.715,
+          "std": 0.10372376015673859
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9548333333333334,
+          "min": 0.7466666666666667,
+          "std": 0.09502523518327867
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.959,
+          "min": 0.7475,
+          "std": 0.0877848746113265
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9705,
+          "min": 0.8,
+          "std": 0.06369954143435703
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9808749999999999,
+          "min": 0.87,
+          "std": 0.044457808206504246
+        }
+      }
+    },
+    "3_4_label_noise_N200": {
+      "noise_0pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9869999999999999,
+          "min": 0.8,
+          "std": 0.04503361317715327
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.9890000000000001,
+          "min": 0.78,
+          "std": 0.04919349550499536
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9765,
+          "min": 0.5966666666666667,
+          "std": 0.09014916164351858
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9828749999999999,
+          "min": 0.7325,
+          "std": 0.06009463479861531
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9855,
+          "min": 0.71,
+          "std": 0.06484597134749391
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9870624999999998,
+          "min": 0.765,
+          "std": 0.05239851563536388
+        }
+      },
+      "noise_10pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.98475,
+          "min": 0.93,
+          "std": 0.0229257956298829
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.98375,
+          "min": 0.675,
+          "std": 0.07267220926874315
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.9887499999999999,
+          "min": 0.835,
+          "std": 0.03765756371916748
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9855,
+          "min": 0.9166666666666666,
+          "std": 0.02454915107928278
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9723750000000001,
+          "min": 0.8225,
+          "std": 0.04833051640309125
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9884999999999999,
+          "min": 0.93,
+          "std": 0.024338619949632136
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9916562499999999,
+          "min": 0.940625,
+          "std": 0.016386415014867456
+        }
+      },
+      "noise_20pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9235000000000001,
+          "min": 0.695,
+          "std": 0.10021161819396307
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9550000000000001,
+          "min": 0.705,
+          "std": 0.09695359714832659
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.8945000000000001,
+          "min": 0.5,
+          "std": 0.1436085688691019
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.8778333333333335,
+          "min": 0.5366666666666666,
+          "std": 0.1637866069969671
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9025000000000001,
+          "min": 0.645,
+          "std": 0.11860760160248895
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.8997499999999998,
+          "min": 0.5,
+          "std": 0.13441368782115984
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.93875,
+          "min": 0.728125,
+          "std": 0.09362140302977283
+        }
+      },
+      "noise_2pct": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9961249999999999,
+          "min": 0.9475,
+          "std": 0.012733994081322558
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9844999999999999,
+          "min": 0.69,
+          "std": 0.06931810730249349
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9973333333333333,
+          "min": 0.97,
+          "std": 0.008278768730669222
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.99475,
+          "min": 0.9475,
+          "std": 0.016159159045341178
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9990625,
+          "min": 0.989375,
+          "std": 0.0029139241492132997
+        }
+      },
+      "noise_30pct": {
+        "dev": {
+          "max": 0.97,
+          "mean": 0.872625,
+          "min": 0.7675,
+          "std": 0.05385454948284312
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9315,
+          "min": 0.7,
+          "std": 0.0931057689433169
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.96,
+          "mean": 0.7612500000000001,
+          "min": 0.285,
+          "std": 0.1999531195055481
+        },
+        "test_longer": {
+          "max": 0.9933333333333333,
+          "mean": 0.7773333333333332,
+          "min": 0.58,
+          "std": 0.12094462509421938
+        },
+        "test_novel_combination": {
+          "max": 0.93,
+          "mean": 0.8233750000000001,
+          "min": 0.6375,
+          "std": 0.06870644553384157
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.94,
+          "mean": 0.83725,
+          "min": 0.5,
+          "std": 0.0987350921458659
+        },
+        "train": {
+          "max": 0.979375,
+          "mean": 0.884,
+          "min": 0.77125,
+          "std": 0.06483512743875808
+        }
+      }
+    },
+    "3_5_lexicon_scaling_N400": {
+      "kinds_12": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "kinds_24": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.991875,
+          "min": 0.9375,
+          "std": 0.01780514044639327
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9925,
+          "min": 0.95,
+          "std": 0.01642366713329467
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.99,
+          "min": 0.95,
+          "std": 0.01701392618446803
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.97875,
+          "min": 0.8625,
+          "std": 0.03954926973841747
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.978125,
+          "min": 0.7,
+          "std": 0.06674714166953243
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.99375,
+          "min": 0.925,
+          "std": 0.01790875998528447
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9946249999999999,
+          "min": 0.9675,
+          "std": 0.010521750654815252
+        }
+      },
+      "kinds_48": {
+        "dev": {
+          "max": 0.9125,
+          "mean": 0.825,
+          "min": 0.6625,
+          "std": 0.06601933528580053
+        },
+        "test_contradiction": {
+          "max": 0.95,
+          "mean": 0.8650000000000002,
+          "min": 0.75,
+          "std": 0.055842824540235966
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.9,
+          "mean": 0.7887500000000001,
+          "min": 0.5,
+          "std": 0.1314081127832797
+        },
+        "test_longer": {
+          "max": 0.7875,
+          "mean": 0.696875,
+          "min": 0.5625,
+          "std": 0.06175543338550528
+        },
+        "test_novel_combination": {
+          "max": 0.975,
+          "mean": 0.7337499999999999,
+          "min": 0.5625,
+          "std": 0.10552967903814896
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.95,
+          "mean": 0.8425,
+          "min": 0.725,
+          "std": 0.06544382886752657
+        },
+        "train": {
+          "max": 0.9675,
+          "mean": 0.916,
+          "min": 0.85,
+          "std": 0.029271865421649473
+        }
+      },
+      "kinds_6": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "3_6_ambiguity_and_synonyms": {
+      "homonym_1_pair": {
+        "dev": {
+          "max": 0.96,
+          "mean": 0.9429999999999998,
+          "min": 0.91,
+          "std": 0.013707470110932396
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.86975,
+          "min": 0.5,
+          "std": 0.19138329548179922
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.87225,
+          "min": 0.5,
+          "std": 0.1924665042628402
+        },
+        "test_longer": {
+          "max": 0.89,
+          "mean": 0.7896666666666666,
+          "min": 0.74,
+          "std": 0.033801968868916565
+        },
+        "test_novel_combination": {
+          "max": 0.9625,
+          "mean": 0.92025,
+          "min": 0.8575,
+          "std": 0.029445534019341715
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.97,
+          "mean": 0.9339999999999998,
+          "min": 0.88,
+          "std": 0.026536965280826445
+        },
+        "train": {
+          "max": 0.951875,
+          "mean": 0.9412500000000001,
+          "min": 0.92375,
+          "std": 0.00826424209280085
+        }
+      },
+      "homonym_3_pairs": {
+        "dev": {
+          "max": 0.87,
+          "mean": 0.8317500000000001,
+          "min": 0.7825,
+          "std": 0.022347435976792555
+        },
+        "test_contradiction": {
+          "max": 0.95,
+          "mean": 0.65975,
+          "min": 0.5,
+          "std": 0.2028706808730496
+        },
+        "test_contradiction_after_misleading": {
+          "max": 0.95,
+          "mean": 0.65975,
+          "min": 0.5,
+          "std": 0.2028706808730496
+        },
+        "test_longer": {
+          "max": 0.5833333333333334,
+          "mean": 0.5509999999999999,
+          "min": 0.52,
+          "std": 0.016261747890200625
+        },
+        "test_novel_combination": {
+          "max": 0.8425,
+          "mean": 0.787125,
+          "min": 0.715,
+          "std": 0.03347500049133289
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.85,
+          "mean": 0.796,
+          "min": 0.745,
+          "std": 0.02998245100756528
+        },
+        "train": {
+          "max": 0.866875,
+          "mean": 0.83534375,
+          "min": 0.794375,
+          "std": 0.01940889967291183
+        }
+      },
+      "synonyms_all_2x_N1600": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.755,
+          "mean": 0.5780000000000001,
+          "min": 0.48,
+          "std": 0.10769596581409899
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "synonyms_all_2x_N200": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9728750000000002,
+          "min": 0.915,
+          "std": 0.030308447233142945
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.98425,
+          "min": 0.85,
+          "std": 0.040499350222207915
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.9557500000000001,
+          "min": 0.71,
+          "std": 0.07515378969328931
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9531666666666668,
+          "min": 0.8466666666666667,
+          "std": 0.05085784568615011
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9615000000000002,
+          "min": 0.8775,
+          "std": 0.04070432538764349
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.755,
+          "mean": 0.6005,
+          "min": 0.48,
+          "std": 0.10812882180650613
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9804375000000001,
+          "min": 0.89875,
+          "std": 0.03109772108336794
+        }
+      },
+      "synonyms_nouns_2x": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 0.79,
+          "mean": 0.58225,
+          "min": 0.46,
+          "std": 0.11635330723818363
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "3_7_beyond_training_depth": {
+      "depth_2adj_diff_family_acc": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "depth_2adj_diff_family_parse_rate": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "depth_2clause_chain_acc": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "depth_2clause_chain_parse_rate": {
+        "max": 0.0,
+        "mean": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      },
+      "depth_3adj_same_family_acc": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "depth_3adj_same_family_parse_rate": {
+        "max": 0.0,
+        "mean": 0.0,
+        "min": 0.0,
+        "std": 0.0
+      }
+    },
+    "3_8_beam_width_N100": {
+      "K=1": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.8656250000000002,
+          "min": 0.6325,
+          "std": 0.13863022331291788
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.8852500000000001,
+          "min": 0.605,
+          "std": 0.14981984795782322
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.8395000000000001,
+          "min": 0.555,
+          "std": 0.16264184092985615
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.8183333333333331,
+          "min": 0.55,
+          "std": 0.18530045145638885
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.8348749999999999,
+          "min": 0.5725,
+          "std": 0.16821327901459535
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.8975,
+          "min": 0.69,
+          "std": 0.12273741762075055
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.87309375,
+          "min": 0.6625,
+          "std": 0.13373470076664745
+        }
+      },
+      "K=10": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.89,
+          "min": 0.6725,
+          "std": 0.12096378318366725
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.942,
+          "min": 0.65,
+          "std": 0.10918839344526457
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.89,
+          "min": 0.6,
+          "std": 0.13814561348923024
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.8546666666666667,
+          "min": 0.5733333333333334,
+          "std": 0.17053887759666364
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.8628750000000002,
+          "min": 0.585,
+          "std": 0.1382890636730864
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9015000000000001,
+          "min": 0.5,
+          "std": 0.14132921625913394
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.8954062500000001,
+          "min": 0.6775,
+          "std": 0.12491679385300106
+        }
+      },
+      "K=2": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9272500000000001,
+          "min": 0.6375,
+          "std": 0.1270616820785542
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.92875,
+          "min": 0.51,
+          "std": 0.14335156452802172
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.92175,
+          "min": 0.555,
+          "std": 0.14910500538740792
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9018333333333333,
+          "min": 0.53,
+          "std": 0.16877430515890549
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9175000000000001,
+          "min": 0.6125,
+          "std": 0.13610174212891732
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9057499999999999,
+          "min": 0.5,
+          "std": 0.18202280799828066
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9344374999999999,
+          "min": 0.649375,
+          "std": 0.1199838770692919
+        }
+      },
+      "K=200": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.939125,
+          "min": 0.765,
+          "std": 0.09234971789202628
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9400000000000001,
+          "min": 0.71,
+          "std": 0.10765441785737605
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.9254999999999999,
+          "min": 0.695,
+          "std": 0.12197821203201137
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9128333333333334,
+          "min": 0.6,
+          "std": 0.1416001908017349
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.9355,
+          "min": 0.7425,
+          "std": 0.08882493130339382
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9190000000000002,
+          "min": 0.5,
+          "std": 0.15846799444417128
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9416875000000001,
+          "min": 0.75625,
+          "std": 0.09257933564331675
+        }
+      },
+      "K=5": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.9099999999999999,
+          "min": 0.675,
+          "std": 0.12095290514558919
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9182500000000001,
+          "min": 0.6,
+          "std": 0.13308362032947557
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.893,
+          "min": 0.5,
+          "std": 0.15893063697230014
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.8756666666666666,
+          "min": 0.5766666666666667,
+          "std": 0.17488542615295807
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.8959999999999999,
+          "min": 0.65,
+          "std": 0.1310870542405835
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9164999999999999,
+          "min": 0.5,
+          "std": 0.13761215521587433
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9195937500000001,
+          "min": 0.6725,
+          "std": 0.11711675935033244
+        }
+      },
+      "K=50": {
+        "dev": {
+          "max": 1.0,
+          "mean": 0.935125,
+          "min": 0.6475,
+          "std": 0.11172827411556174
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 0.9635,
+          "min": 0.745,
+          "std": 0.08920850797282087
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 0.93575,
+          "min": 0.58,
+          "std": 0.12277788031537623
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 0.9175000000000001,
+          "min": 0.5733333333333334,
+          "std": 0.15554798436044256
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 0.927375,
+          "min": 0.66,
+          "std": 0.11408236578985609
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 0.9262499999999999,
+          "min": 0.5,
+          "std": 0.13397638244344257
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 0.9449687499999999,
+          "min": 0.681875,
+          "std": 0.10418967454239408
+        }
+      }
+    },
+    "3_8_beam_width_N1600": {
+      "K=1": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "K=10": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "K=2": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "K=200": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "K=5": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      },
+      "K=50": {
+        "dev": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction_after_misleading": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "max": 1.0,
+          "mean": 1.0,
+          "min": 1.0,
+          "std": 0.0
+        }
+      }
+    }
+  },
+  "part4_stronger_baselines": {
+    "A_memorizer": {
+      "dev": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_contradiction": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      }
+    },
+    "B_cross_situational": {
+      "dev": {
+        "max": 0.61,
+        "mean": 0.578625,
+        "min": 0.5425,
+        "std": 0.019202436111899417
+      },
+      "test_contradiction": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "train": {
+        "max": 0.7425,
+        "mean": 0.72425,
+        "min": 0.699375,
+        "std": 0.012116824427651265
+      }
+    },
+    "C_no_revision_fixed": {
+      "dev": {
+        "max": 1.0,
+        "mean": 0.8065000000000001,
+        "min": 0.59,
+        "std": 0.1043318339671424
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 0.745,
+        "min": 0.5,
+        "std": 0.13349551539875393
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 0.745,
+        "min": 0.5,
+        "std": 0.13349551539875393
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 0.7043333333333333,
+        "min": 0.5,
+        "std": 0.14109471747108612
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 0.7646249999999999,
+        "min": 0.5625,
+        "std": 0.1163458857526941
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 0.7869999999999999,
+        "min": 0.57,
+        "std": 0.1131068428289679
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 0.8082812500000001,
+        "min": 0.599375,
+        "std": 0.11122946199393634
+      }
+    },
+    "C_no_revision_legacy_buggy": {
+      "dev": {
+        "max": 0.5275,
+        "mean": 0.50675,
+        "min": 0.4875,
+        "std": 0.010484951622507168
+      },
+      "test_contradiction": {
+        "max": 0.5,
+        "mean": 0.4995,
+        "min": 0.49,
+        "std": 0.0022360679774997916
+      },
+      "test_contradiction_after_misleading": {
+        "max": 0.5,
+        "mean": 0.4995,
+        "min": 0.49,
+        "std": 0.0022360679774997916
+      },
+      "test_longer": {
+        "max": 0.5,
+        "mean": 0.5,
+        "min": 0.5,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 0.505,
+        "mean": 0.499375,
+        "min": 0.485,
+        "std": 0.003879348154685674
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 0.52,
+        "mean": 0.5005,
+        "min": 0.485,
+        "std": 0.0066688592885535075
+      },
+      "train": {
+        "max": 0.526875,
+        "mean": 0.5053124999999999,
+        "min": 0.4925,
+        "std": 0.008996755628675553
+      }
+    },
+    "D_position_aware_cs": {
+      "dev": {
+        "max": 1.0,
+        "mean": 0.952375,
+        "min": 0.83,
+        "std": 0.0659568988052046
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 0.8674999999999999,
+        "min": 0.44,
+        "std": 0.21997308447793526
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 0.8674999999999999,
+        "min": 0.44,
+        "std": 0.21997308447793526
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 0.8083333333333333,
+        "min": 0.6,
+        "std": 0.16808693100377853
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 0.9177500000000002,
+        "min": 0.7125,
+        "std": 0.11240463794514419
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 0.9400000000000001,
+        "min": 0.785,
+        "std": 0.08270111053795183
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 0.9584374999999999,
+        "min": 0.84,
+        "std": 0.05852437779295591
+      }
+    },
+    "E_neural_from_scratch": {
+      "dev": {
+        "max": 0.6325,
+        "mean": 0.5385,
+        "min": 0.5,
+        "std": 0.04044489428449789
+      },
+      "test_contradiction": {
+        "max": 0.54,
+        "mean": 0.5042500000000001,
+        "min": 0.485,
+        "std": 0.012594380534692123
+      },
+      "test_contradiction_after_misleading": {
+        "max": 0.58,
+        "mean": 0.5035,
+        "min": 0.48,
+        "std": 0.019674990804518677
+      },
+      "test_longer": {
+        "max": 0.5766666666666667,
+        "mean": 0.5125,
+        "min": 0.49666666666666665,
+        "std": 0.02446802424647964
+      },
+      "test_novel_combination": {
+        "max": 0.5,
+        "mean": 0.48500000000000004,
+        "min": 0.435,
+        "std": 0.023661538856393754
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 0.545,
+        "mean": 0.49725,
+        "min": 0.44,
+        "std": 0.020096805192551588
+      },
+      "train": {
+        "max": 0.9975,
+        "mean": 0.63746875,
+        "min": 0.5,
+        "std": 0.16725795982061742
+      }
+    },
+    "F_given_lexicon_N1600": {
+      "dev": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      }
+    },
+    "F_given_syntax_N1600": {
+      "dev": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      }
+    },
+    "F_small_sample_comparison": {
+      "N=10": {
+        "given_lexicon": {
+          "dev": {
+            "max": 0.8525,
+            "mean": 0.702375,
+            "min": 0.6075,
+            "std": 0.05713830750215241
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 0.9029999999999999,
+            "min": 0.71,
+            "std": 0.08665418263662207
+          },
+          "test_contradiction_after_misleading": {
+            "max": 0.775,
+            "mean": 0.58725,
+            "min": 0.5,
+            "std": 0.10530000999650076
+          },
+          "test_longer": {
+            "max": 0.5933333333333334,
+            "mean": 0.5218333333333334,
+            "min": 0.5,
+            "std": 0.028128256796491266
+          },
+          "test_novel_combination": {
+            "max": 0.755,
+            "mean": 0.5987500000000001,
+            "min": 0.5,
+            "std": 0.06894648954843627
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 0.765,
+            "mean": 0.6475,
+            "min": 0.545,
+            "std": 0.060903288304621044
+          },
+          "train": {
+            "max": 0.869375,
+            "mean": 0.7050625,
+            "min": 0.62125,
+            "std": 0.06164010437292644
+          }
+        },
+        "given_syntax": {
+          "dev": {
+            "max": 0.7075,
+            "mean": 0.5791250000000001,
+            "min": 0.505,
+            "std": 0.04262963973822118
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 0.8544999999999998,
+            "min": 0.5,
+            "std": 0.1422460803270904
+          },
+          "test_contradiction_after_misleading": {
+            "max": 0.56,
+            "mean": 0.5045,
+            "min": 0.48,
+            "std": 0.017083386820626593
+          },
+          "test_longer": {
+            "max": 0.5466666666666666,
+            "mean": 0.5025000000000001,
+            "min": 0.5,
+            "std": 0.01042236686142605
+          },
+          "test_novel_combination": {
+            "max": 0.6425,
+            "mean": 0.5169999999999999,
+            "min": 0.495,
+            "std": 0.03130495168499706
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 0.595,
+            "mean": 0.53925,
+            "min": 0.49,
+            "std": 0.02948126077429703
+          },
+          "train": {
+            "max": 0.715,
+            "mean": 0.5750625000000001,
+            "min": 0.506875,
+            "std": 0.0483663632981043
+          }
+        },
+        "nexus_full": {
+          "dev": {
+            "max": 0.52,
+            "mean": 0.5032500000000001,
+            "min": 0.4825,
+            "std": 0.009904145862372883
+          },
+          "test_contradiction": {
+            "max": 0.61,
+            "mean": 0.5197499999999999,
+            "min": 0.5,
+            "std": 0.03242298567374695
+          },
+          "test_contradiction_after_misleading": {
+            "max": 0.5,
+            "mean": 0.5,
+            "min": 0.5,
+            "std": 0.0
+          },
+          "test_longer": {
+            "max": 0.5,
+            "mean": 0.5,
+            "min": 0.5,
+            "std": 0.0
+          },
+          "test_novel_combination": {
+            "max": 0.5,
+            "mean": 0.499875,
+            "min": 0.4975,
+            "std": 0.0005590169943749478
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 0.515,
+            "mean": 0.5,
+            "min": 0.475,
+            "std": 0.010760551736979417
+          },
+          "train": {
+            "max": 0.523125,
+            "mean": 0.5045624999999999,
+            "min": 0.494375,
+            "std": 0.007291791978873085
+          }
+        }
+      },
+      "N=100": {
+        "given_lexicon": {
+          "dev": {
+            "max": 1.0,
+            "mean": 0.9936250000000001,
+            "min": 0.96,
+            "std": 0.01348671373494748
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction_after_misleading": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "max": 1.0,
+            "mean": 0.9931666666666666,
+            "min": 0.95,
+            "std": 0.015274295190523576
+          },
+          "test_novel_combination": {
+            "max": 1.0,
+            "mean": 0.9911249999999999,
+            "min": 0.935,
+            "std": 0.019168144489175122
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 1.0,
+            "mean": 0.992,
+            "min": 0.945,
+            "std": 0.017121854301939455
+          },
+          "train": {
+            "max": 1.0,
+            "mean": 0.99809375,
+            "min": 0.98625,
+            "std": 0.004133240373707073
+          }
+        },
+        "given_syntax": {
+          "dev": {
+            "max": 1.0,
+            "mean": 0.991875,
+            "min": 0.9625,
+            "std": 0.012692595230456627
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction_after_misleading": {
+            "max": 1.0,
+            "mean": 0.999,
+            "min": 0.98,
+            "std": 0.004472135954999584
+          },
+          "test_longer": {
+            "max": 1.0,
+            "mean": 0.9866666666666667,
+            "min": 0.93,
+            "std": 0.02299249814092053
+          },
+          "test_novel_combination": {
+            "max": 1.0,
+            "mean": 0.9873749999999999,
+            "min": 0.9425,
+            "std": 0.020089847527649647
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 1.0,
+            "mean": 0.9894999999999999,
+            "min": 0.905,
+            "std": 0.026601345434909277
+          },
+          "train": {
+            "max": 1.0,
+            "mean": 0.9970625,
+            "min": 0.98625,
+            "std": 0.004498263553861659
+          }
+        },
+        "nexus_full": {
+          "dev": {
+            "max": 1.0,
+            "mean": 0.9172499999999999,
+            "min": 0.575,
+            "std": 0.12778708649031878
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 0.9824999999999999,
+            "min": 0.745,
+            "std": 0.05979130371550699
+          },
+          "test_contradiction_after_misleading": {
+            "max": 1.0,
+            "mean": 0.92925,
+            "min": 0.52,
+            "std": 0.12966835226433382
+          },
+          "test_longer": {
+            "max": 1.0,
+            "mean": 0.8965,
+            "min": 0.5133333333333333,
+            "std": 0.16194893065516328
+          },
+          "test_novel_combination": {
+            "max": 1.0,
+            "mean": 0.9043749999999999,
+            "min": 0.5675,
+            "std": 0.13380532549782517
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 1.0,
+            "mean": 0.9097500000000001,
+            "min": 0.5,
+            "std": 0.15109664909726175
+          },
+          "train": {
+            "max": 1.0,
+            "mean": 0.9279062499999998,
+            "min": 0.6,
+            "std": 0.11885353433261993
+          }
+        }
+      },
+      "N=20": {
+        "given_lexicon": {
+          "dev": {
+            "max": 0.925,
+            "mean": 0.809375,
+            "min": 0.6375,
+            "std": 0.07471822066939228
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 0.9254999999999999,
+            "min": 0.43,
+            "std": 0.13874342089665104
+          },
+          "test_contradiction_after_misleading": {
+            "max": 0.95,
+            "mean": 0.7045000000000001,
+            "min": 0.48,
+            "std": 0.17388668421523373
+          },
+          "test_longer": {
+            "max": 0.7966666666666666,
+            "mean": 0.5981666666666666,
+            "min": 0.5,
+            "std": 0.0819033448324111
+          },
+          "test_novel_combination": {
+            "max": 0.855,
+            "mean": 0.7288749999999999,
+            "min": 0.5725,
+            "std": 0.08481975859060448
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 0.88,
+            "mean": 0.75275,
+            "min": 0.56,
+            "std": 0.09056075308874148
+          },
+          "train": {
+            "max": 0.939375,
+            "mean": 0.820875,
+            "min": 0.646875,
+            "std": 0.0779901204100811
+          }
+        },
+        "given_syntax": {
+          "dev": {
+            "max": 0.955,
+            "mean": 0.7037500000000001,
+            "min": 0.5325,
+            "std": 0.0991028838074219
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 0.9027499999999998,
+            "min": 0.655,
+            "std": 0.12392139911207724
+          },
+          "test_contradiction_after_misleading": {
+            "max": 0.935,
+            "mean": 0.62775,
+            "min": 0.5,
+            "std": 0.1496968427751304
+          },
+          "test_longer": {
+            "max": 0.7933333333333333,
+            "mean": 0.5538333333333334,
+            "min": 0.5,
+            "std": 0.07226716999889454
+          },
+          "test_novel_combination": {
+            "max": 0.9025,
+            "mean": 0.62325,
+            "min": 0.5,
+            "std": 0.10727822901713391
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 0.895,
+            "mean": 0.6682499999999999,
+            "min": 0.57,
+            "std": 0.0973500871786164
+          },
+          "train": {
+            "max": 0.935,
+            "mean": 0.7030625,
+            "min": 0.55,
+            "std": 0.09324797602572799
+          }
+        },
+        "nexus_full": {
+          "dev": {
+            "max": 0.7025,
+            "mean": 0.540125,
+            "min": 0.495,
+            "std": 0.05418945202275361
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 0.5595,
+            "min": 0.485,
+            "std": 0.1332478892890991
+          },
+          "test_contradiction_after_misleading": {
+            "max": 0.55,
+            "mean": 0.503,
+            "min": 0.495,
+            "std": 0.011630269037934465
+          },
+          "test_longer": {
+            "max": 0.5166666666666667,
+            "mean": 0.5016666666666667,
+            "min": 0.5,
+            "std": 0.004392976851069807
+          },
+          "test_novel_combination": {
+            "max": 0.6725,
+            "mean": 0.51225,
+            "min": 0.495,
+            "std": 0.038293362074220745
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 0.71,
+            "mean": 0.5345000000000001,
+            "min": 0.48,
+            "std": 0.051577738976177845
+          },
+          "train": {
+            "max": 0.696875,
+            "mean": 0.53721875,
+            "min": 0.5,
+            "std": 0.05365715474132234
+          }
+        }
+      },
+      "N=50": {
+        "given_lexicon": {
+          "dev": {
+            "max": 1.0,
+            "mean": 0.9468749999999998,
+            "min": 0.8225,
+            "std": 0.04556570588317028
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 1.0,
+            "min": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction_after_misleading": {
+            "max": 1.0,
+            "mean": 0.95625,
+            "min": 0.5,
+            "std": 0.11166061125241596
+          },
+          "test_longer": {
+            "max": 1.0,
+            "mean": 0.8775000000000001,
+            "min": 0.62,
+            "std": 0.11932987841710446
+          },
+          "test_novel_combination": {
+            "max": 1.0,
+            "mean": 0.9276249999999997,
+            "min": 0.8225,
+            "std": 0.04905337452848253
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 1.0,
+            "mean": 0.93775,
+            "min": 0.82,
+            "std": 0.047613437952790286
+          },
+          "train": {
+            "max": 1.0,
+            "mean": 0.9618437499999999,
+            "min": 0.87,
+            "std": 0.03933214825703216
+          }
+        },
+        "given_syntax": {
+          "dev": {
+            "max": 1.0,
+            "mean": 0.9145,
+            "min": 0.7875,
+            "std": 0.056618529605923555
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 0.99975,
+            "min": 0.995,
+            "std": 0.0011180339887498956
+          },
+          "test_contradiction_after_misleading": {
+            "max": 1.0,
+            "mean": 0.8780000000000001,
+            "min": 0.5,
+            "std": 0.12486202911930222
+          },
+          "test_longer": {
+            "max": 1.0,
+            "mean": 0.8538333333333332,
+            "min": 0.5566666666666666,
+            "std": 0.12894658670248788
+          },
+          "test_novel_combination": {
+            "max": 1.0,
+            "mean": 0.875875,
+            "min": 0.6825,
+            "std": 0.07788011620433036
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 1.0,
+            "mean": 0.8885,
+            "min": 0.745,
+            "std": 0.07379024325749306
+          },
+          "train": {
+            "max": 1.0,
+            "mean": 0.9275,
+            "min": 0.794375,
+            "std": 0.05280729303200857
+          }
+        },
+        "nexus_full": {
+          "dev": {
+            "max": 1.0,
+            "mean": 0.78425,
+            "min": 0.565,
+            "std": 0.13901462437266693
+          },
+          "test_contradiction": {
+            "max": 1.0,
+            "mean": 0.766,
+            "min": 0.55,
+            "std": 0.17302722633340564
+          },
+          "test_contradiction_after_misleading": {
+            "max": 1.0,
+            "mean": 0.7217500000000001,
+            "min": 0.465,
+            "std": 0.19112048418127295
+          },
+          "test_longer": {
+            "max": 1.0,
+            "mean": 0.7126666666666667,
+            "min": 0.5,
+            "std": 0.17752555206906667
+          },
+          "test_novel_combination": {
+            "max": 1.0,
+            "mean": 0.7236250000000001,
+            "min": 0.505,
+            "std": 0.1568616449547012
+          },
+          "test_novel_word_in_known_frame": {
+            "max": 1.0,
+            "mean": 0.7772499999999999,
+            "min": 0.5,
+            "std": 0.14941530781859771
+          },
+          "train": {
+            "max": 1.0,
+            "mean": 0.7899375000000001,
+            "min": 0.56125,
+            "std": 0.14056320279597773
+          }
+        }
+      }
+    }
+  },
+  "part5_mdl_prior_audit": {
+    "N1600_linear_alpha_0_05": {
+      "dev": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      }
+    },
+    "N1600_log2_bit_cost_nats": {
+      "dev": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      }
+    },
+    "N1600_log2_bit_cost_raw_bits": {
+      "dev": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 1.0,
+        "min": 1.0,
+        "std": 0.0
+      }
+    },
+    "N50_linear_alpha_0_05": {
+      "dev": {
+        "max": 1.0,
+        "mean": 0.78425,
+        "min": 0.565,
+        "std": 0.13901462437266693
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 0.766,
+        "min": 0.55,
+        "std": 0.17302722633340564
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 0.7217500000000001,
+        "min": 0.465,
+        "std": 0.19112048418127295
+      },
+      "test_longer": {
+        "max": 1.0,
+        "mean": 0.7126666666666667,
+        "min": 0.5,
+        "std": 0.17752555206906667
+      },
+      "test_novel_combination": {
+        "max": 1.0,
+        "mean": 0.7236250000000001,
+        "min": 0.505,
+        "std": 0.1568616449547012
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 0.7772499999999999,
+        "min": 0.5,
+        "std": 0.14941530781859771
+      },
+      "train": {
+        "max": 1.0,
+        "mean": 0.7899375000000001,
+        "min": 0.56125,
+        "std": 0.14056320279597773
+      }
+    },
+    "N50_log2_bit_cost_nats": {
+      "dev": {
+        "max": 0.99,
+        "mean": 0.782625,
+        "min": 0.565,
+        "std": 0.13797042732335604
+      },
+      "test_contradiction": {
+        "max": 1.0,
+        "mean": 0.764,
+        "min": 0.55,
+        "std": 0.17045295693039703
+      },
+      "test_contradiction_after_misleading": {
+        "max": 1.0,
+        "mean": 0.7217500000000001,
+        "min": 0.465,
+        "std": 0.19112048418127295
+      },
+      "test_longer": {
+        "max": 0.9866666666666667,
+        "mean": 0.712,
+        "min": 0.5,
+        "std": 0.17689789568300698
+      },
+      "test_novel_combination": {
+        "max": 0.985,
+        "mean": 0.7222500000000001,
+        "min": 0.505,
+        "std": 0.15587803092904332
+      },
+      "test_novel_word_in_known_frame": {
+        "max": 1.0,
+        "mean": 0.77525,
+        "min": 0.5,
+        "std": 0.14879759300543313
+      },
+      "train": {
+        "max": 0.9975,
+        "mean": 0.7893749999999999,
+        "min": 0.56125,
+        "std": 0.14017391101395213
+      }
+    }
+  },
+  "phase": "1.5_adversarial_validation",
+  "world_mode": "randomized"
+}

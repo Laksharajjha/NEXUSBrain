@@ -1,7 +1,7 @@
 # NEXUS-0 Project Status
 
-**Last Updated**: 2026-10-24
-**Current Stage**: PHASE 1.5 (Adversarial Validation & Failure Point Discovery — EXPLORATORY)
+**Last Updated**: 2026-10-25
+**Current Stage**: PHASE 1.5 COMPLETE (Adversarial Validation & Failure-Point Audit — `EXPLORATORY`, Stopped for Review)
 **Current Branch**: `feature/phase-0-toy-world-eval`
 **PREREGISTRATION.md SHA-256**: `ef09666eb2bb96ca481ce05dc3dc5ca50fbe6d2143441ed38b062968313f695b`
 
@@ -13,33 +13,23 @@
 - **STAGE B (`gate-B`)**: Categorial grammar (`nexus/learner/categorial.py`), MDL beam learner (`nexus/learner/nexus_learner.py`), explainability & faithfulness (`nexus/learner/explain.py`), Baselines B & C, 20-seed permutation invariance (`nexus/tests/test_stage_b_learner.py`).
 - **STAGE C (`gate-C`)**: One-shot 20-seed pre-registered evaluation (`PHASE1_REPORT.md`, `RERUNS.md`).
 - **STAGE D (`LIMITATIONS.md`)**: Exploratory ablations D1–D8 and SQLite persistence D9 (`nexus/storage/`).
+- **PHASE 1.5 (`PHASE1_5_REPORT.md` — `EXPLORATORY`)**:
+  - [x] **Part 1 (Leakage & Protocol Audit)**: `SpyLearnerWrapper` (`0` violations across `32,680` `observe()` and `30,000` `predict()` calls), static AST field-access audit (`0` generator metadata hits), shuffled training order (`1.000 ± 0.000`), and plain statement of near-miss distributional reliance.
+  - [x] **Part 2 (Negative Controls — 20 seeds)**:
+    - `2b` (Shuffled Scenes): `0.499 ± 0.012` on `test_novel_combination` (**PASS**).
+    - `2c` (Cross-Seed Lexicon): `0.500 ± 0.004` on `test_novel_combination` (**PASS**).
+    - `2a` (Shuffled Truth Labels): **`0.657 ± 0.109` on `test_novel_combination`, `0.771 ± 0.081` on `dev`** (**LEAK DETECTED & DIAGNOSED**: near-miss negative scenes preserve unlabeled `(scene, tokens)` co-occurrence, and `_propose_word_candidates` applies asymmetric positive-only weighting).
+  - [x] **Part 3 (Difficulty Ladder — 20 seeds, no tuning)**: Full `< 0.90` and `< 0.70` breaking points documented across sample size $N$, random negatives, positive-only training, label noise $\eta$, lexicon scaling (`6..48` kinds), homonymy/polysemy, synonymy, beyond-depth sentences, and beam width $K$.
+  - [x] **Part 4 (Stronger Baselines — 20 seeds)**: Diagnosed & fixed Baseline C (`NoRevisionLearner`, `0.505 -> 0.808` train), implemented Baseline D (`PositionAwareCrossSituationalLearner`, `0.918` on `test_novel_combination`), Baseline E (`FromScratchNeuralBaseline`, `0.485` on `test_novel_combination`), and Baseline F (`given_syntax` vs `given_lexicon`).
+  - [x] **Part 5 (MDL Bit-Cost Prior & Belief Revision Audit)**: Compared $\alpha = 0.05$ vs. parameter-free $\log_2$ bit-cost prior (`compute_bit_cost_prior`), documented why `correct()` is full episodic replay rather than incremental belief revision, and updated `RERUNS.md` (`6,380` Phase 1.5 test-split evaluations).
 
 ---
 
-## Active Stage: PHASE 1.5 (Adversarial Validation — `EXPLORATORY`)
-- [ ] **Part 1 (Leakage & Protocol Audit)**:
-  - Spy/wrapper test asserting zero held-out items appear in `observe()` or experience log before scoring, and `predict()` never mutates state.
-  - Exhaustive AST + runtime list of every field read from `Observation`, `Correction`, `Scene`, `SceneObject`, `SceneRelation`.
-  - Plain statement of how contrastive negatives in training interact with `_propose_word_candidates`.
-- [ ] **Part 2 (Negative Controls — 20 seeds each)**:
-  - 2a: Shuffled training truth labels ($\approx 0.50$).
-  - 2b: Shuffled training scenes ($\approx 0.50$).
-  - 2c: Cross-seed lexicon mismatch (train on seed $s$, test on seed $(s+1)\bmod 20$, $\approx 0.50$).
-- [ ] **Part 3 (Difficulty Ladder — 20 seeds each, no tuning)**:
-  - 3.1: Training size $N \in \{10, 20, 50, 100, 200, 400\}$ (both curriculum-prefix and stratified).
-  - 3.2: Remove paired-contrast examples from training (random negatives only).
-  - 3.3: Positive-only training (no false examples).
-  - 3.4: Uncorrected label noise $\eta \in \{0\%, 2\%, 10\%, 20\%, 30\%\}$.
-  - 3.5: Lexicon scaling: $6, 12, 24, 48$ kinds/words with proportionally scaled attributes.
-  - 3.6: Ambiguous words (homonymy/polysemy: 1 form, 2 meanings) and synonyms (2 forms, 1 meaning).
-  - 3.7: Longer sentences and nested modification beyond training depth (2-adj, 3-adj same-family, 2-clause chains).
-  - 3.8: Beam width $K \in \{1, 2, 5, 10, 50, 200\}$ vs. Baseline C.
-- [ ] **Part 4 (Stronger Baselines — 20 seeds each)**:
-  - Diagnose and fix Baseline C (`NoRevisionLearner`) `0.505` train accuracy bug (committing to `"N"` fallback on `False` observations).
-  - Baseline D: Position-aware cross-situational learner (`nexus/baselines/position_aware_cs.py`).
-  - Baseline E: From-scratch NumPy neural model (`nexus/baselines/neural_ref.py`).
-  - Baseline F: `NEXUS` with `given_syntax` vs. `given_lexicon`.
-- [ ] **Part 5 (Documentation & `PHASE1_5_REPORT.md`)**:
-  - Document $\alpha = 0.05$ vs. exact $\log_2$ bit-cost MDL prior (run and report both).
-  - Explain `correct()` replay vs. true belief revision.
-  - Deliver `PHASE1_5_REPORT.md` and update `RERUNS.md`.
+## Exact Commands to Verify or Resume
+```bash
+# Run full test suite (65 tests)
+.venv/bin/pytest -v
+
+# Re-run Phase 1.5 adversarial validation suite (20 seeds)
+.venv/bin/python -m nexus.experiments.phase1_5_adversarial
+```
