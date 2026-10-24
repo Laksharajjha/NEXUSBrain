@@ -1,7 +1,7 @@
 # NEXUS-0 Project Status
 
 **Last Updated**: 2026-10-24
-**Current Stage**: STAGE B (Phase 1 Learner — Grammar + Meaning Induction)
+**Current Stage**: STAGE B (Complete — tagging `gate-B`) -> Ready for STAGE C (Pre-registered Evaluation)
 **Current Branch**: `feature/phase-0-toy-world-eval`
 **PREREGISTRATION.md SHA-256**: `ef09666eb2bb96ca481ce05dc3dc5ca50fbe6d2143441ed38b062968313f695b`
 
@@ -19,22 +19,28 @@
   - [x] **A6**: Identifiability report across 20 seeds verifying $\ge 183$ role-swap `chases` contrasts, $\ge 253$ NP modifier-attachment contrasts, and $\ge 294$ examples per construction (`flagged_under_5 == []`).
   - [x] **A7**: Enforced even `n_dev_per_construction`, verified `n_train_stacked_nps == 0`, updated `README.md`, locked `PREREGISTRATION.md` SHA-256 in CI (`test_a7_preregistration_hash_and_small_fixes`), tagged `prereg-v1`.
   - [x] **A8**: Implemented `ExhaustiveIdealObserver` on reduced world ($6! = 720$ bijections), achieving `1.000` ceiling across all splits.
-  - [x] **GATE A**: All 50 tests pass, `AUDIT_0_6.md` written, ready for tag `gate-A`.
+  - [x] **GATE A**: All 50 Stage A tests pass, `AUDIT_0_6.md` written, tagged `gate-A`.
+- **STAGE B (Phase 1 Learner — `gate-B`)**:
+  - [x] **B1**: Categorial grammar hypothesis space (`nexus/learner/categorial.py`: `N, NP, S`, slash depth $\le 2$, forward `>` and backward `<` application only), lexical semantic hypothesis space, and MDL + likelihood scorer ($\varepsilon=0.02$).
+  - [x] **B2**: Online beam search ($K=200$, `nexus/learner/nexus_learner.py`) with true-vs-false contrastive proposal generation, Bayesian model averaging over beam, and JSONL experience log for `correct()` replay.
+  - [x] **B3**: `explain(sentence, scene)` and `what_changed(example_id)` (`nexus/learner/explain.py`) with provenance + explanation faithfulness intervention tests (`intervene_on_scene`, `intervene_on_lexicon`).
+  - [x] **B4**: Baseline B (`nexus/baselines/cross_situational.py` — IBM-1 / co-occurrence bag-of-meanings) and Baseline C (`nexus/baselines/no_revision.py` — Greedy Top-1 $K=1$ No-Revision Learner).
+  - [x] **B5**: Lexicon-permutation invariance test over 20 seeds, source scan test (no invented words or oracle imports in `nexus/learner/`), scoring/pruning/explain/faithfulness unit tests (`nexus/tests/test_stage_b_learner.py`).
+  - [x] **GATE B**: All 56 tests pass, ready for tag `gate-B`.
 
 ---
 
-## Active Stage: STAGE B (Phase 1 Learner)
-- [ ] **B1**: Categorial grammar hypothesis space (`N, NP, S`, slash depth $\le 2$, forward/backward application only), lexical semantic hypothesis space, and MDL + likelihood scorer ($\varepsilon=0.02$).
-- [ ] **B2**: Online beam search ($K=200$) with true-vs-false contrastive proposal generation, Bayesian model averaging over beam, and JSONL experience log for `correct()` replay.
-- [ ] **B3**: `explain(sentence, scene)` and `what_changed(example_id)` with provenance + explanation faithfulness intervention test.
-- [ ] **B4**: Baseline B (Cross-Situational Only: IBM Model 1 / co-occurrence bag-of-meanings) and Baseline C (Greedy Top-1 No-Revision Learner).
-- [ ] **B5**: Lexicon-permutation invariance test over 20 seeds, source scan test (no invented words or oracle imports in `nexus/learner/`), scoring/pruning/explain/faithfulness unit tests.
-- [ ] **GATE B**: All Stage B tests pass, tuned on `dev` only, tag `gate-B`.
+## Next Stage: STAGE C (Pre-registered Evaluation)
+- [ ] **C1**: Re-read `STATUS.md` and `PREREGISTRATION.md`, tag `pre-run`.
+- [ ] **C2**: Run Baseline A (`Memorizer`), Baseline B (`CrossSituationalLearner`), Baseline C (`NoRevisionLearner`), `NEXUSLearner`, `SentenceOnly`, `SceneOnly` on 20 seeds (`seeds 0..19`, `world_mode=randomized`) in one shot.
+- [ ] **C3**: Paired bootstrap 95% CIs (10,000 resamples) vs `max(A, B)` on `test_novel_combination` and `test_novel_word_in_known_frame`.
+- [ ] **C4**: Print top-hypothesis lexicon for 3 seeds alongside true lexicon; categorize worst held-out errors per split using `explain()`.
+- [ ] **C5**: Write `PHASE1_REPORT.md` and `RERUNS.md`, tag `gate-C`.
 
 ---
 
 ## Open Issues
-- None in Stage A (all 6 review findings resolved and verified).
+- None.
 
 ---
 
@@ -43,6 +49,6 @@
 # Run full test suite
 .venv/bin/pytest -v
 
-# Re-run Stage A audit
-.venv/bin/python -m nexus.experiments.stage_a_audit
+# Run Stage C pre-registered evaluation
+.venv/bin/python -m nexus.experiments.phase1_eval
 ```
