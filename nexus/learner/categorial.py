@@ -45,8 +45,8 @@ def category_depth(category: str) -> int:
 
 
 def predicate_atom_count(predicate: str) -> int:
-    """Number of logical atoms contributed by ``predicate`` (0 for Q, 1 otherwise)."""
-    return 0 if predicate == "Q" else 1
+    """Number of logical atoms contributed by ``predicate`` (0 for Q or NULL, 1 otherwise)."""
+    return 0 if predicate in ("Q", "NULL") else 1
 
 
 @dataclass(frozen=True)
@@ -57,23 +57,35 @@ class LexicalEntry:
     category: str
     predicate: str
     supporting_examples: tuple[str, ...] = ()
+    secondary_category: str | None = None
+    secondary_predicate: str | None = None
 
     @property
     def depth(self) -> int:
-        return category_depth(self.category)
+        d = category_depth(self.category)
+        if self.secondary_category is not None:
+            d += category_depth(self.secondary_category)
+        return d
 
     @property
     def atom_count(self) -> int:
-        return predicate_atom_count(self.predicate)
+        c = predicate_atom_count(self.predicate)
+        if self.secondary_predicate is not None:
+            c += predicate_atom_count(self.secondary_predicate)
+        return c
+
+    @property
+    def entry_count(self) -> int:
+        return 2 if self.secondary_predicate is not None else 1
 
     @property
     def family(self) -> str:
-        if self.predicate == "Q":
-            return "Q"
+        if self.predicate in ("Q", "NULL"):
+            return self.predicate
         return self.predicate.split(":", 1)[0]
 
     def to_json(self) -> dict[str, Any]:
-        return {
+        out: dict[str, Any] = {
             "word": self.word,
             "category": self.category,
             "predicate": self.predicate,
@@ -81,6 +93,10 @@ class LexicalEntry:
             "atom_count": self.atom_count,
             "supporting_examples": list(self.supporting_examples),
         }
+        if self.secondary_category is not None and self.secondary_predicate is not None:
+            out["secondary_category"] = self.secondary_category
+            out["secondary_predicate"] = self.secondary_predicate
+        return out
 
 
 @dataclass(frozen=True)
@@ -122,7 +138,18 @@ def _apply_forward(left: ParseNode, right: ParseNode, total_len: int) -> ParseNo
     # 1. Pre-nominal modifier: N/N + N -> N
     if left.cat == "N/N" and right.cat == "N" and right.head_kind is not None:
         assert left.lexical_entry is not None
-        mod_pred = left.lexical_entry.predicate
+        mod_pred = left.rel_pred or left.lexical_entry.predicate
+        if mod_pred == "NULL":
+            return ParseNode(
+                cat="N",
+                span=span,
+                rule=">",
+                act=right.act,
+                head_kind=right.head_kind,
+                adjectives=right.adjectives,
+                left=left,
+                right=right,
+            )
         mod_fam = mod_pred.split(":", 1)[0]
         if any(a.split(":", 1)[0] == mod_fam for a in right.adjectives):
             return None
@@ -179,31 +206,58 @@ def _apply_forward(left: ParseNode, right: ParseNode, total_len: int) -> ParseNo
             right=right,
         )
 
-    # 5. Initial question marker: S/S + S -> S(ask) (at root span)
-    if left.cat == "S/S" and span == (0, total_len) and right.act == "assert":
-        if right.cat == "S" and right.subj_np is not None and right.obj_np is not None:
-            return ParseNode(
-                cat="S",
-                span=span,
-                rule=">",
-                act="ask",
-                subj_np=right.subj_np,
-                obj_np=right.obj_np,
-                rel_pred=right.rel_pred,
-                left=left,
-                right=right,
-            )
-        if right.cat == "N" and right.head_kind is not None:
-            return ParseNode(
-                cat="S",
-                span=span,
-                rule=">",
-                act="ask",
-                head_kind=right.head_kind,
-                adjectives=right.adjectives,
-                left=left,
-                right=right,
-            )
+    # 5. Initial question marker or null modifier: S/S + S -> S
+    if left.cat == "S/S":
+        assert left.lexical_entry is not None
+        l_pred = left.rel_pred or left.lexical_entry.predicate
+        if l_pred == "NULL":
+            if right.cat == "S" and right.subj_np is not None and right.obj_np is not None:
+                return ParseNode(
+                    cat="S",
+                    span=span,
+                    rule=">",
+                    act=right.act,
+                    subj_np=right.subj_np,
+                    obj_np=right.obj_np,
+                    rel_pred=right.rel_pred,
+                    left=left,
+                    right=right,
+                )
+            if right.cat == "N" and right.head_kind is not None:
+                return ParseNode(
+                    cat="N",
+                    span=span,
+                    rule=">",
+                    act=right.act,
+                    head_kind=right.head_kind,
+                    adjectives=right.adjectives,
+                    left=left,
+                    right=right,
+                )
+        elif span == (0, total_len) and right.act == "assert":
+            if right.cat == "S" and right.subj_np is not None and right.obj_np is not None:
+                return ParseNode(
+                    cat="S",
+                    span=span,
+                    rule=">",
+                    act="ask",
+                    subj_np=right.subj_np,
+                    obj_np=right.obj_np,
+                    rel_pred=right.rel_pred,
+                    left=left,
+                    right=right,
+                )
+            if right.cat == "N" and right.head_kind is not None:
+                return ParseNode(
+                    cat="S",
+                    span=span,
+                    rule=">",
+                    act="ask",
+                    head_kind=right.head_kind,
+                    adjectives=right.adjectives,
+                    left=left,
+                    right=right,
+                )
 
     return None
 
@@ -214,7 +268,18 @@ def _apply_backward(left: ParseNode, right: ParseNode, total_len: int) -> ParseN
     # 1. Post-nominal modifier: N + N\N -> N
     if left.cat == "N" and left.head_kind is not None and right.cat == "N\\N":
         assert right.lexical_entry is not None
-        mod_pred = right.lexical_entry.predicate
+        mod_pred = right.rel_pred or right.lexical_entry.predicate
+        if mod_pred == "NULL":
+            return ParseNode(
+                cat="N",
+                span=span,
+                rule="<",
+                act=left.act,
+                head_kind=left.head_kind,
+                adjectives=left.adjectives,
+                left=left,
+                right=right,
+            )
         mod_fam = mod_pred.split(":", 1)[0]
         if any(a.split(":", 1)[0] == mod_fam for a in left.adjectives):
             return None
@@ -258,31 +323,58 @@ def _apply_backward(left: ParseNode, right: ParseNode, total_len: int) -> ParseN
             right=right,
         )
 
-    # 4. Final question marker: S + S\S -> S(ask) (at root span)
-    if right.cat == "S\\S" and span == (0, total_len) and left.act == "assert":
-        if left.cat == "S" and left.subj_np is not None and left.obj_np is not None:
-            return ParseNode(
-                cat="S",
-                span=span,
-                rule="<",
-                act="ask",
-                subj_np=left.subj_np,
-                obj_np=left.obj_np,
-                rel_pred=left.rel_pred,
-                left=left,
-                right=right,
-            )
-        if left.cat == "N" and left.head_kind is not None:
-            return ParseNode(
-                cat="S",
-                span=span,
-                rule="<",
-                act="ask",
-                head_kind=left.head_kind,
-                adjectives=left.adjectives,
-                left=left,
-                right=right,
-            )
+    # 4. Final question marker or null modifier: S + S\S -> S
+    if right.cat == "S\\S":
+        assert right.lexical_entry is not None
+        r_pred = right.rel_pred or right.lexical_entry.predicate
+        if r_pred == "NULL":
+            if left.cat == "S" and left.subj_np is not None and left.obj_np is not None:
+                return ParseNode(
+                    cat="S",
+                    span=span,
+                    rule="<",
+                    act=left.act,
+                    subj_np=left.subj_np,
+                    obj_np=left.obj_np,
+                    rel_pred=left.rel_pred,
+                    left=left,
+                    right=right,
+                )
+            if left.cat == "N" and left.head_kind is not None:
+                return ParseNode(
+                    cat="N",
+                    span=span,
+                    rule="<",
+                    act=left.act,
+                    head_kind=left.head_kind,
+                    adjectives=left.adjectives,
+                    left=left,
+                    right=right,
+                )
+        elif span == (0, total_len) and left.act == "assert":
+            if left.cat == "S" and left.subj_np is not None and left.obj_np is not None:
+                return ParseNode(
+                    cat="S",
+                    span=span,
+                    rule="<",
+                    act="ask",
+                    subj_np=left.subj_np,
+                    obj_np=left.obj_np,
+                    rel_pred=left.rel_pred,
+                    left=left,
+                    right=right,
+                )
+            if left.cat == "N" and left.head_kind is not None:
+                return ParseNode(
+                    cat="S",
+                    span=span,
+                    rule="<",
+                    act="ask",
+                    head_kind=left.head_kind,
+                    adjectives=left.adjectives,
+                    left=left,
+                    right=right,
+                )
 
     return None
 
@@ -330,46 +422,47 @@ def node_to_lf(node: ParseNode) -> tuple[LogicalForm, bool, bool] | None:
     return None
 
 
-def parse_tokens(
+def parse_all_tokens(
     tokens: Sequence[str],
     entries: Mapping[str, LexicalEntry],
-) -> tuple[ParseNode, LogicalForm, bool] | None:
-    """Parse ``tokens`` using CKY chart over Forward (>) and Backward (<) Application.
-
-    Returns ``(root_node, lf, is_rel_symmetric)`` if a valid spanning derivation exists,
-    or ``None`` if the sentence cannot be derived.
-    """
+) -> list[tuple[ParseNode, LogicalForm, bool]]:
+    """Return all valid spanning derivations ``(root_node, lf, is_rel_symmetric)`` for ``tokens``."""
     n = len(tokens)
     if n == 0 or any(t not in entries for t in tokens):
-        return None
+        return []
 
     chart: list[list[list[ParseNode]]] = [[[] for _ in range(n + 1)] for _ in range(n)]
     for i, tok in enumerate(tokens):
         entry = entries[tok]
-        if entry.category == "N":
-            node = ParseNode(
-                cat="N",
-                span=(i, i + 1),
-                rule="LEX",
-                head_kind=entry.predicate,
-                lexical_entry=entry,
-            )
-        elif entry.category in ("(S\\NP)\\NP", "(S\\NP)/NP", "(S/NP)/NP"):
-            node = ParseNode(
-                cat=entry.category,
-                span=(i, i + 1),
-                rule="LEX",
-                rel_pred=entry.predicate,
-                lexical_entry=entry,
-            )
-        else:
-            node = ParseNode(
-                cat=entry.category,
-                span=(i, i + 1),
-                rule="LEX",
-                lexical_entry=entry,
-            )
-        chart[i][i + 1].append(node)
+        senses: list[tuple[str, str]] = [(entry.category, entry.predicate)]
+        if entry.secondary_category is not None and entry.secondary_predicate is not None:
+            senses.append((entry.secondary_category, entry.secondary_predicate))
+        for cat, pred in senses:
+            if cat == "N":
+                node = ParseNode(
+                    cat="N",
+                    span=(i, i + 1),
+                    rule="LEX",
+                    head_kind=pred,
+                    lexical_entry=entry,
+                )
+            elif cat in ("(S\\NP)\\NP", "(S\\NP)/NP", "(S/NP)/NP"):
+                node = ParseNode(
+                    cat=cat,
+                    span=(i, i + 1),
+                    rule="LEX",
+                    rel_pred=pred,
+                    lexical_entry=entry,
+                )
+            else:
+                node = ParseNode(
+                    cat=cat,
+                    span=(i, i + 1),
+                    rule="LEX",
+                    rel_pred=pred,
+                    lexical_entry=entry,
+                )
+            chart[i][i + 1].append(node)
 
     for length in range(2, n + 1):
         for i in range(n - length + 1):
@@ -397,13 +490,27 @@ def parse_tokens(
                                     seen_sigs.add(sig)
                                     cell.append(comb)
 
+    out: list[tuple[ParseNode, LogicalForm, bool]] = []
     for root in chart[0][n]:
         if root.cat in ("S", "N"):
             conv = node_to_lf(root)
             if conv is not None:
                 lf, is_sym, _ = conv
-                return root, lf, is_sym
-    return None
+                out.append((root, lf, is_sym))
+    return out
+
+
+def parse_tokens(
+    tokens: Sequence[str],
+    entries: Mapping[str, LexicalEntry],
+) -> tuple[ParseNode, LogicalForm, bool] | None:
+    """Parse ``tokens`` using CKY chart over Forward (>) and Backward (<) Application.
+
+    Returns ``(root_node, lf, is_rel_symmetric)`` if a valid spanning derivation exists,
+    or ``None`` if the sentence cannot be derived.
+    """
+    parses = parse_all_tokens(tokens, entries)
+    return parses[0] if parses else None
 
 
 def evaluate_parsed_lf(lf: LogicalForm, scene: Scene, is_rel_symmetric: bool) -> bool:
