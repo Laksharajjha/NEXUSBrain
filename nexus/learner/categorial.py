@@ -50,6 +50,28 @@ def predicate_atom_count(predicate: str) -> int:
 
 
 @dataclass(frozen=True)
+class Sense:
+    """A single semantic sense within an extended lexical entry."""
+
+    sense_id: str
+    category: str
+    predicate: str
+    provenance: tuple[str, ...] = ()
+    created_by_op: str = "initial"  # "initial", "split", "merge"
+    superseded: bool = False
+
+    def to_json(self) -> dict[str, Any]:
+        return {
+            "sense_id": self.sense_id,
+            "category": self.category,
+            "predicate": self.predicate,
+            "provenance": list(self.provenance),
+            "created_by_op": self.created_by_op,
+            "superseded": self.superseded,
+        }
+
+
+@dataclass(frozen=True)
 class LexicalEntry:
     """A single word's hypothesized syntactic category, semantic predicate, and provenance."""
 
@@ -59,9 +81,15 @@ class LexicalEntry:
     supporting_examples: tuple[str, ...] = ()
     secondary_category: str | None = None
     secondary_predicate: str | None = None
+    senses: tuple[Sense, ...] = ()
+    exception_keys: tuple[tuple[tuple[str, ...], str], ...] = ()
+    exception_ids: tuple[str, ...] = ()
+    shared_concept_id: str | None = None
 
     @property
     def depth(self) -> int:
+        if self.senses:
+            return sum(category_depth(s.category) for s in self.senses if not s.superseded)
         d = category_depth(self.category)
         if self.secondary_category is not None:
             d += category_depth(self.secondary_category)
@@ -69,6 +97,8 @@ class LexicalEntry:
 
     @property
     def atom_count(self) -> int:
+        if self.senses:
+            return sum(predicate_atom_count(s.predicate) for s in self.senses if not s.superseded)
         c = predicate_atom_count(self.predicate)
         if self.secondary_predicate is not None:
             c += predicate_atom_count(self.secondary_predicate)
@@ -76,6 +106,8 @@ class LexicalEntry:
 
     @property
     def entry_count(self) -> int:
+        if self.senses:
+            return max(1, sum(1 for s in self.senses if not s.superseded))
         return 2 if self.secondary_predicate is not None else 1
 
     @property
@@ -96,6 +128,12 @@ class LexicalEntry:
         if self.secondary_category is not None and self.secondary_predicate is not None:
             out["secondary_category"] = self.secondary_category
             out["secondary_predicate"] = self.secondary_predicate
+        if self.senses:
+            out["senses"] = [s.to_json() for s in self.senses]
+        if self.exception_ids:
+            out["exception_ids"] = list(self.exception_ids)
+        if self.shared_concept_id is not None:
+            out["shared_concept_id"] = self.shared_concept_id
         return out
 
 
@@ -434,9 +472,15 @@ def parse_all_tokens(
     chart: list[list[list[ParseNode]]] = [[[] for _ in range(n + 1)] for _ in range(n)]
     for i, tok in enumerate(tokens):
         entry = entries[tok]
-        senses: list[tuple[str, str]] = [(entry.category, entry.predicate)]
-        if entry.secondary_category is not None and entry.secondary_predicate is not None:
-            senses.append((entry.secondary_category, entry.secondary_predicate))
+        senses: list[tuple[str, str]] = []
+        if entry.senses:
+            for s in entry.senses:
+                if not s.superseded:
+                    senses.append((s.category, s.predicate))
+        else:
+            senses.append((entry.category, entry.predicate))
+            if entry.secondary_category is not None and entry.secondary_predicate is not None:
+                senses.append((entry.secondary_category, entry.secondary_predicate))
         for cat, pred in senses:
             if cat == "N":
                 node = ParseNode(
