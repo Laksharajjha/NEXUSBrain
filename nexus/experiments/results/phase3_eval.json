@@ -1,0 +1,1100 @@
+{
+  "metadata": {
+    "worlds": [
+      "w1_split",
+      "w2_exception",
+      "w3_merge",
+      "w4_ambiguous",
+      "w5_exceptions_cannot_match"
+    ],
+    "seeds": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026,
+      2027,
+      2028,
+      2029,
+      2030,
+      2031,
+      2032,
+      2033,
+      2034,
+      2035,
+      2036,
+      2037,
+      2038,
+      2039,
+      2040,
+      2041,
+      2042,
+      2043,
+      2044,
+      2045,
+      2046,
+      2047,
+      2048,
+      2049
+    ],
+    "n_seeds": 50,
+    "n_bootstrap": 1000,
+    "prereg_tag": "prereg-p3",
+    "pre_run_tag": "pre-run-p3"
+  },
+  "per_world": {
+    "w1_split": {
+      "metrics": {
+        "nexus_restructure": {
+          "acc_mean": 0.8603999999999999,
+          "acc_std": 0.16579457168435882,
+          "model_size_mean": 15.58,
+          "model_size_std": 0.6352952069707437,
+          "confidence_mean": 0.9165219047619049,
+          "brier_mean": 0.097848589569161
+        },
+        "nexus_no_restructure": {
+          "acc_mean": 0.7134,
+          "acc_std": 0.10984734862526269,
+          "model_size_mean": 15.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.2866
+        },
+        "nexus_exceptions_only": {
+          "acc_mean": 0.8375999999999999,
+          "acc_std": 0.1868321171533417,
+          "model_size_mean": 15.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.8881219047619048,
+          "brier_mean": 0.10644858956916099
+        },
+        "nexus_split_always": {
+          "acc_mean": 0.8603999999999999,
+          "acc_std": 0.16579457168435882,
+          "model_size_mean": 16.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.9165219047619049,
+          "brier_mean": 0.097848589569161
+        },
+        "baseline_d": {
+          "acc_mean": 0.6294000000000001,
+          "acc_std": 0.12134924804052145,
+          "model_size_mean": 15.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.6479599999999999,
+          "brier_mean": 0.200122
+        },
+        "oracle": {
+          "acc_mean": 1.0,
+          "acc_std": 0.0,
+          "model_size_mean": 0.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "acc_mean": 0.8375999999999999,
+          "acc_std": 0.1868321171533417,
+          "model_size_mean": 14.08,
+          "model_size_std": 0.844748483277715,
+          "confidence_mean": 0.8881219047619048,
+          "brier_mean": 0.10644858956916099
+        },
+        "nexus_minus_merge": {
+          "acc_mean": 0.8603999999999999,
+          "acc_std": 0.16579457168435882,
+          "model_size_mean": 16.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.9165219047619049,
+          "brier_mean": 0.097848589569161
+        },
+        "nexus_minus_exception": {
+          "acc_mean": 0.8375999999999999,
+          "acc_std": 0.1868321171533417,
+          "model_size_mean": 14.08,
+          "model_size_std": 0.844748483277715,
+          "confidence_mean": 0.8881219047619048,
+          "brier_mean": 0.10644858956916099
+        }
+      },
+      "operators": {
+        "nexus_restructure": {
+          "split_mean": 1.0,
+          "merge_mean": 0.92,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_no_restructure": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_exceptions_only": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_split_always": {
+          "split_mean": 1.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "split_mean": 0.0,
+          "merge_mean": 0.92,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_merge": {
+          "split_mean": 1.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_exception": {
+          "split_mean": 0.0,
+          "merge_mean": 0.92,
+          "retain_exception_mean": 0.0
+        }
+      },
+      "pairwise_differences": {
+        "restructure_minus_nexus_no_restructure": {
+          "diff_mean": 0.147,
+          "ci_low": 0.12578999999999999,
+          "ci_high": 0.16579999999999995
+        },
+        "restructure_minus_nexus_exceptions_only": {
+          "diff_mean": 0.022799999999999994,
+          "ci_low": 0.009999999999999998,
+          "ci_high": 0.036405
+        },
+        "restructure_minus_nexus_split_always": {
+          "diff_mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "restructure_minus_baseline_d": {
+          "diff_mean": 0.231,
+          "ci_low": 0.17454499999999998,
+          "ci_high": 0.287225
+        },
+        "restructure_minus_nexus_minus_split": {
+          "diff_mean": 0.022799999999999994,
+          "ci_low": 0.009999999999999998,
+          "ci_high": 0.036405
+        },
+        "restructure_minus_nexus_minus_merge": {
+          "diff_mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "restructure_minus_nexus_minus_exception": {
+          "diff_mean": 0.022799999999999994,
+          "ci_low": 0.009999999999999998,
+          "ci_high": 0.036405
+        }
+      },
+      "retention_dev_acc": {
+        "mean": 0.857012400997695,
+        "std": 0.18249123768403305
+      }
+    },
+    "w2_exception": {
+      "metrics": {
+        "nexus_restructure": {
+          "acc_mean": 0.9682000000000001,
+          "acc_std": 0.06473607958472617,
+          "model_size_mean": 16.3,
+          "model_size_std": 0.458257569495584,
+          "confidence_mean": 0.98012,
+          "brier_mean": 0.020827
+        },
+        "nexus_no_restructure": {
+          "acc_mean": 0.9046,
+          "acc_std": 0.11874695785576993,
+          "model_size_mean": 16.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.09540000000000001
+        },
+        "nexus_exceptions_only": {
+          "acc_mean": 0.9229999999999999,
+          "acc_std": 0.10824509226750191,
+          "model_size_mean": 16.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.93372,
+          "brier_mean": 0.04282699999999999
+        },
+        "nexus_split_always": {
+          "acc_mean": 0.9592,
+          "acc_std": 0.06973779463103202,
+          "model_size_mean": 17.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.9733200000000001,
+          "brier_mean": 0.026427
+        },
+        "baseline_d": {
+          "acc_mean": 0.8310000000000001,
+          "acc_std": 0.19840614909825752,
+          "model_size_mean": 16.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.8249000000000001,
+          "brier_mean": 0.09830499999999999
+        },
+        "oracle": {
+          "acc_mean": 1.0,
+          "acc_std": 0.0,
+          "model_size_mean": 0.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "acc_mean": 0.9229999999999999,
+          "acc_std": 0.10824509226750191,
+          "model_size_mean": 15.64,
+          "model_size_std": 0.6248199740725323,
+          "confidence_mean": 0.93372,
+          "brier_mean": 0.04282699999999999
+        },
+        "nexus_minus_merge": {
+          "acc_mean": 0.9682000000000001,
+          "acc_std": 0.06473607958472617,
+          "model_size_mean": 16.42,
+          "model_size_std": 0.4935585071701226,
+          "confidence_mean": 0.98012,
+          "brier_mean": 0.020827
+        },
+        "nexus_minus_exception": {
+          "acc_mean": 0.9229999999999999,
+          "acc_std": 0.10824509226750191,
+          "model_size_mean": 15.64,
+          "model_size_std": 0.6248199740725323,
+          "confidence_mean": 0.93372,
+          "brier_mean": 0.04282699999999999
+        }
+      },
+      "operators": {
+        "nexus_restructure": {
+          "split_mean": 0.42,
+          "merge_mean": 0.36,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_no_restructure": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_exceptions_only": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_split_always": {
+          "split_mean": 1.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "split_mean": 0.0,
+          "merge_mean": 0.36,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_merge": {
+          "split_mean": 0.42,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_exception": {
+          "split_mean": 0.0,
+          "merge_mean": 0.36,
+          "retain_exception_mean": 0.0
+        }
+      },
+      "pairwise_differences": {
+        "restructure_minus_nexus_no_restructure": {
+          "diff_mean": 0.0636,
+          "ci_low": 0.042400000000000014,
+          "ci_high": 0.086405
+        },
+        "restructure_minus_nexus_exceptions_only": {
+          "diff_mean": 0.045200000000000004,
+          "ci_low": 0.025589999999999998,
+          "ci_high": 0.06501
+        },
+        "restructure_minus_nexus_split_always": {
+          "diff_mean": 0.009000000000000001,
+          "ci_low": 0.0017950000000000019,
+          "ci_high": 0.02
+        },
+        "restructure_minus_baseline_d": {
+          "diff_mean": 0.13719999999999996,
+          "ci_low": 0.08658999999999999,
+          "ci_high": 0.19382
+        },
+        "restructure_minus_nexus_minus_split": {
+          "diff_mean": 0.045200000000000004,
+          "ci_low": 0.025589999999999998,
+          "ci_high": 0.06501
+        },
+        "restructure_minus_nexus_minus_merge": {
+          "diff_mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "restructure_minus_nexus_minus_exception": {
+          "diff_mean": 0.045200000000000004,
+          "ci_low": 0.025589999999999998,
+          "ci_high": 0.06501
+        }
+      },
+      "w2_size_diff_vs_split_always": {
+        "diff_mean": -0.7,
+        "ci_low": -0.82,
+        "ci_high": -0.56
+      }
+    },
+    "w3_merge": {
+      "metrics": {
+        "nexus_restructure": {
+          "acc_mean": 0.926,
+          "acc_std": 0.09410632284814872,
+          "model_size_mean": 16.74,
+          "model_size_std": 0.7696752561957543,
+          "confidence_mean": 0.9752798305084747,
+          "brier_mean": 0.061698790721057176
+        },
+        "nexus_no_restructure": {
+          "acc_mean": 0.8424,
+          "acc_std": 0.13891810537147417,
+          "model_size_mean": 17.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.1576
+        },
+        "nexus_exceptions_only": {
+          "acc_mean": 0.8789999999999999,
+          "acc_std": 0.10839280418920806,
+          "model_size_mean": 17.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.93294,
+          "brier_mean": 0.08691299999999996
+        },
+        "nexus_split_always": {
+          "acc_mean": 0.9238,
+          "acc_std": 0.095223736536643,
+          "model_size_mean": 18.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.9797399999999999,
+          "brier_mean": 0.06551299999999997
+        },
+        "baseline_d": {
+          "acc_mean": 0.8180000000000001,
+          "acc_std": 0.17379298029552287,
+          "model_size_mean": 17.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.84092,
+          "brier_mean": 0.11721400000000001
+        },
+        "oracle": {
+          "acc_mean": 1.0,
+          "acc_std": 0.0,
+          "model_size_mean": 0.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "acc_mean": 0.8776,
+          "acc_std": 0.11048185371363027,
+          "model_size_mean": 15.6,
+          "model_size_std": 0.7745966692414834,
+          "confidence_mean": 0.9258798305084747,
+          "brier_mean": 0.08539879072105716
+        },
+        "nexus_minus_merge": {
+          "acc_mean": 0.9248000000000001,
+          "acc_std": 0.0959424827696261,
+          "model_size_mean": 17.68,
+          "model_size_std": 0.466476151587624,
+          "confidence_mean": 0.9797399999999999,
+          "brier_mean": 0.06451299999999997
+        },
+        "nexus_minus_exception": {
+          "acc_mean": 0.8776,
+          "acc_std": 0.11048185371363027,
+          "model_size_mean": 15.6,
+          "model_size_std": 0.7745966692414834,
+          "confidence_mean": 0.9258798305084747,
+          "brier_mean": 0.08539879072105716
+        }
+      },
+      "operators": {
+        "nexus_restructure": {
+          "split_mean": 0.68,
+          "merge_mean": 1.42,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_no_restructure": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_exceptions_only": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_split_always": {
+          "split_mean": 1.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "split_mean": 0.0,
+          "merge_mean": 1.42,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_merge": {
+          "split_mean": 0.68,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_exception": {
+          "split_mean": 0.0,
+          "merge_mean": 1.42,
+          "retain_exception_mean": 0.0
+        }
+      },
+      "pairwise_differences": {
+        "restructure_minus_nexus_no_restructure": {
+          "diff_mean": 0.08360000000000001,
+          "ci_low": 0.065,
+          "ci_high": 0.10321
+        },
+        "restructure_minus_nexus_exceptions_only": {
+          "diff_mean": 0.047,
+          "ci_low": 0.029600000000000005,
+          "ci_high": 0.065405
+        },
+        "restructure_minus_nexus_split_always": {
+          "diff_mean": 0.002200000000000002,
+          "ci_low": 0.00040000000000000034,
+          "ci_high": 0.004605
+        },
+        "restructure_minus_baseline_d": {
+          "diff_mean": 0.10800000000000001,
+          "ci_low": 0.048975,
+          "ci_high": 0.16563
+        },
+        "restructure_minus_nexus_minus_split": {
+          "diff_mean": 0.0484,
+          "ci_low": 0.0308,
+          "ci_high": 0.06701
+        },
+        "restructure_minus_nexus_minus_merge": {
+          "diff_mean": 0.001200000000000001,
+          "ci_low": 0.0,
+          "ci_high": 0.003400000000000003
+        },
+        "restructure_minus_nexus_minus_exception": {
+          "diff_mean": 0.0484,
+          "ci_low": 0.0308,
+          "ci_high": 0.06701
+        }
+      }
+    },
+    "w4_ambiguous": {
+      "metrics": {
+        "nexus_restructure": {
+          "acc_mean": 0.7328,
+          "acc_std": 0.09627128336113526,
+          "model_size_mean": 8.06,
+          "model_size_std": 0.36932370625238775,
+          "confidence_mean": 0.9785305841924399,
+          "brier_mean": 0.256465986466858
+        },
+        "nexus_no_restructure": {
+          "acc_mean": 0.6881999999999999,
+          "acc_std": 0.10597528013645446,
+          "model_size_mean": 7.94,
+          "model_size_std": 0.23748684174075835,
+          "confidence_mean": 0.9975999999999999,
+          "brier_mean": 0.31079999999999997
+        },
+        "nexus_exceptions_only": {
+          "acc_mean": 0.7110000000000001,
+          "acc_std": 0.10668176976409793,
+          "model_size_mean": 7.94,
+          "model_size_std": 0.23748684174075835,
+          "confidence_mean": 0.9483831434255743,
+          "brier_mean": 0.26310874665262407
+        },
+        "nexus_split_always": {
+          "acc_mean": 0.885,
+          "acc_std": 0.1839483623194292,
+          "model_size_mean": 8.94,
+          "model_size_std": 0.23748684174075835,
+          "confidence_mean": 0.9785305841924399,
+          "brier_mean": 0.10426598646685797
+        },
+        "baseline_d": {
+          "acc_mean": 0.5262,
+          "acc_std": 0.05211103529963688,
+          "model_size_mean": 7.94,
+          "model_size_std": 0.23748684174075835,
+          "confidence_mean": 0.6612800000000001,
+          "brier_mean": 0.298996
+        },
+        "oracle": {
+          "acc_mean": 1.0,
+          "acc_std": 0.0,
+          "model_size_mean": 0.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "acc_mean": 0.7110000000000001,
+          "acc_std": 0.10668176976409793,
+          "model_size_mean": 7.66,
+          "model_size_std": 0.62,
+          "confidence_mean": 0.9483831434255743,
+          "brier_mean": 0.26310874665262407
+        },
+        "nexus_minus_merge": {
+          "acc_mean": 0.7328,
+          "acc_std": 0.09627128336113526,
+          "model_size_mean": 8.18,
+          "model_size_std": 0.43312815655415426,
+          "confidence_mean": 0.9785305841924399,
+          "brier_mean": 0.256465986466858
+        },
+        "nexus_minus_exception": {
+          "acc_mean": 0.7110000000000001,
+          "acc_std": 0.10668176976409793,
+          "model_size_mean": 7.66,
+          "model_size_std": 0.62,
+          "confidence_mean": 0.9483831434255743,
+          "brier_mean": 0.26310874665262407
+        }
+      },
+      "operators": {
+        "nexus_restructure": {
+          "split_mean": 0.24,
+          "merge_mean": 0.28,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_no_restructure": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_exceptions_only": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_split_always": {
+          "split_mean": 1.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "split_mean": 0.0,
+          "merge_mean": 0.28,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_merge": {
+          "split_mean": 0.24,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_exception": {
+          "split_mean": 0.0,
+          "merge_mean": 0.28,
+          "retain_exception_mean": 0.0
+        }
+      },
+      "pairwise_differences": {
+        "restructure_minus_nexus_no_restructure": {
+          "diff_mean": 0.0446,
+          "ci_low": 0.016600000000000004,
+          "ci_high": 0.075405
+        },
+        "restructure_minus_nexus_exceptions_only": {
+          "diff_mean": 0.021799999999999996,
+          "ci_low": 0.0021999999999999997,
+          "ci_high": 0.044399999999999995
+        },
+        "restructure_minus_nexus_split_always": {
+          "diff_mean": -0.1522,
+          "ci_low": -0.18740500000000002,
+          "ci_high": -0.11339
+        },
+        "restructure_minus_baseline_d": {
+          "diff_mean": 0.20659999999999998,
+          "ci_low": 0.16999499999999995,
+          "ci_high": 0.23623999999999992
+        },
+        "restructure_minus_nexus_minus_split": {
+          "diff_mean": 0.021799999999999996,
+          "ci_low": 0.0021999999999999997,
+          "ci_high": 0.044399999999999995
+        },
+        "restructure_minus_nexus_minus_merge": {
+          "diff_mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "restructure_minus_nexus_minus_exception": {
+          "diff_mean": 0.021799999999999996,
+          "ci_low": 0.0021999999999999997,
+          "ci_high": 0.044399999999999995
+        }
+      }
+    },
+    "w5_exceptions_cannot_match": {
+      "metrics": {
+        "nexus_restructure": {
+          "acc_mean": 0.9620000000000001,
+          "acc_std": 0.08158431221748455,
+          "model_size_mean": 15.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.9792000000000001,
+          "brier_mean": 0.027399999999999997
+        },
+        "nexus_no_restructure": {
+          "acc_mean": 0.7772000000000001,
+          "acc_std": 0.06758816464441092,
+          "model_size_mean": 14.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.2228
+        },
+        "nexus_exceptions_only": {
+          "acc_mean": 0.9478,
+          "acc_std": 0.11555587393118533,
+          "model_size_mean": 14.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.9646000000000001,
+          "brier_mean": 0.0343
+        },
+        "nexus_split_always": {
+          "acc_mean": 0.9620000000000001,
+          "acc_std": 0.08158431221748455,
+          "model_size_mean": 15.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.9792000000000001,
+          "brier_mean": 0.027399999999999997
+        },
+        "baseline_d": {
+          "acc_mean": 0.6882,
+          "acc_std": 0.1239466014056053,
+          "model_size_mean": 14.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.7048400000000001,
+          "brier_mean": 0.17279799999999998
+        },
+        "oracle": {
+          "acc_mean": 1.0,
+          "acc_std": 0.0,
+          "model_size_mean": 0.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 1.0,
+          "brier_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "acc_mean": 0.9478,
+          "acc_std": 0.11555587393118533,
+          "model_size_mean": 13.52,
+          "model_size_std": 0.49959983987187184,
+          "confidence_mean": 0.9646000000000001,
+          "brier_mean": 0.0343
+        },
+        "nexus_minus_merge": {
+          "acc_mean": 0.9620000000000001,
+          "acc_std": 0.08158431221748455,
+          "model_size_mean": 15.0,
+          "model_size_std": 0.0,
+          "confidence_mean": 0.9792000000000001,
+          "brier_mean": 0.027399999999999997
+        },
+        "nexus_minus_exception": {
+          "acc_mean": 0.9478,
+          "acc_std": 0.11555587393118533,
+          "model_size_mean": 13.52,
+          "model_size_std": 0.49959983987187184,
+          "confidence_mean": 0.9646000000000001,
+          "brier_mean": 0.0343
+        }
+      },
+      "operators": {
+        "nexus_restructure": {
+          "split_mean": 1.0,
+          "merge_mean": 0.48,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_no_restructure": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_exceptions_only": {
+          "split_mean": 0.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_split_always": {
+          "split_mean": 1.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_split": {
+          "split_mean": 0.0,
+          "merge_mean": 0.48,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_merge": {
+          "split_mean": 1.0,
+          "merge_mean": 0.0,
+          "retain_exception_mean": 0.0
+        },
+        "nexus_minus_exception": {
+          "split_mean": 0.0,
+          "merge_mean": 0.48,
+          "retain_exception_mean": 0.0
+        }
+      },
+      "pairwise_differences": {
+        "restructure_minus_nexus_no_restructure": {
+          "diff_mean": 0.18479999999999996,
+          "ci_low": 0.17240000000000003,
+          "ci_high": 0.197405
+        },
+        "restructure_minus_nexus_exceptions_only": {
+          "diff_mean": 0.014199999999999999,
+          "ci_low": 0.004399999999999999,
+          "ci_high": 0.028399999999999998
+        },
+        "restructure_minus_nexus_split_always": {
+          "diff_mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "restructure_minus_baseline_d": {
+          "diff_mean": 0.27380000000000004,
+          "ci_low": 0.2412,
+          "ci_high": 0.305415
+        },
+        "restructure_minus_nexus_minus_split": {
+          "diff_mean": 0.014199999999999999,
+          "ci_low": 0.004399999999999999,
+          "ci_high": 0.028399999999999998
+        },
+        "restructure_minus_nexus_minus_merge": {
+          "diff_mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "restructure_minus_nexus_minus_exception": {
+          "diff_mean": 0.014199999999999999,
+          "ci_low": 0.004399999999999999,
+          "ci_high": 0.028399999999999998
+        }
+      }
+    }
+  },
+  "worst_errors": [
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00001-f",
+      "tokens": [
+        "zib",
+        "glorp",
+        "fep",
+        "sorn",
+        "zorp"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Falsified: Closest assignment (x0->obj_0) failed on: kind:cube(obj_0) failed (obj_0.kind=cone) (word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib); word 'fep' split at t=399 (split fep into senses: kind:cone and kind:cup))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00005-f",
+      "tokens": [
+        "zib",
+        "glorp",
+        "wug",
+        "mip",
+        "zorp"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Falsified: Closest assignment (x0->obj_0) failed on: kind:cube(obj_0) failed (obj_0.kind=cone) (word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00011-f",
+      "tokens": [
+        "zib",
+        "sorn",
+        "dax",
+        "nud",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Grounding verified (word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00013-f",
+      "tokens": [
+        "zib",
+        "tal",
+        "dax",
+        "mip",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Falsified: Closest assignment (x0->obj_0) failed on: kind:cube(obj_0) failed (obj_0.kind=ball) (word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00017-f",
+      "tokens": [
+        "fep",
+        "nud",
+        "zib",
+        "nud",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Grounding verified (word 'fep' split at t=399 (split fep into senses: kind:cone and kind:cup); word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00019-f",
+      "tokens": [
+        "wug",
+        "tal",
+        "zib",
+        "tal",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Grounding verified (word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00025-f",
+      "tokens": [
+        "zib",
+        "sorn",
+        "dax",
+        "vek",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Grounding verified (word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00031-f",
+      "tokens": [
+        "fep",
+        "pim",
+        "zib",
+        "pim",
+        "zorp"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Falsified: Closest assignment (x0->obj_0) failed on: kind:cube(obj_0) failed (obj_0.kind=cone) (word 'fep' split at t=399 (split fep into senses: kind:cone and kind:cup); word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00035-f",
+      "tokens": [
+        "blick",
+        "vek",
+        "dax",
+        "tal",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Grounding verified (word 'blick' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00037-f",
+      "tokens": [
+        "zib",
+        "nud",
+        "dax",
+        "nud",
+        "zorp"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Falsified: Closest assignment (x0->obj_0) failed on: kind:cube(obj_0) failed (obj_0.kind=star) (word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00039-f",
+      "tokens": [
+        "dax",
+        "mip",
+        "blick",
+        "nud",
+        "zorp"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Grounding verified (word 'blick' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00041-f",
+      "tokens": [
+        "wug",
+        "nud",
+        "blick",
+        "nud",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Grounding verified (word 'blick' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00043-f",
+      "tokens": [
+        "zib",
+        "pim",
+        "dax",
+        "tal",
+        "zorp"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Falsified: Closest assignment (x0->obj_0) failed on: kind:cube(obj_0) failed (obj_0.kind=star) (word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00045-f",
+      "tokens": [
+        "blick",
+        "glorp",
+        "fep",
+        "vek",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Grounding verified (word 'blick' merge at t=399 (merged blick and zib into shared concept concept_blick_zib); word 'fep' split at t=399 (split fep into senses: kind:cone and kind:cup))",
+      "rule_history": []
+    },
+    {
+      "world_id": "w1_split",
+      "seed": 2001,
+      "example_id": "w1_test-w1_test-00047-f",
+      "tokens": [
+        "fep",
+        "pim",
+        "zib",
+        "tal",
+        "lum"
+      ],
+      "ground_truth": false,
+      "pred_truth": true,
+      "pred_p": 0.5,
+      "confidence": 0.5,
+      "failure_reason": "Falsified: Closest assignment (x0->obj_0) failed on: kind:cube(obj_0) failed (obj_0.kind=ball) (word 'fep' split at t=399 (split fep into senses: kind:cone and kind:cup); word 'zib' merge at t=399 (merged blick and zib into shared concept concept_blick_zib))",
+      "rule_history": []
+    }
+  ]
+}
