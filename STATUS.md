@@ -1,14 +1,15 @@
 # NEXUS-0 Project Status
 
-**Last Updated**: 2026-10-26
-**Current Stage**: STAGE P3-B COMPLETED (`prereg-p3`, Ready for Stage P3-C Restructuring Learner)
-**Current Branch**: `feature/phase-0-toy-world-eval`
-**Phase 1 PREREGISTRATION.md SHA-256**: `ef09666eb2bb96ca481ce05dc3dc5ca50fbe6d2143441ed38b062968313f695b` (Frozen & Intact)
-**Phase 3 PREREGISTRATION_P3.md SHA-256**: `bd08fe66a8160483e741e45928aea22ee0f6699d655da9fca43bd98b33b9140d` (Frozen & Hashed)
+**Last Updated**: 2026-10-27  
+**Current Stage**: PHASE 3 COMPLETED (Restructuring Evaluation & Exploratory Analyses Complete)  
+**Current Branch**: `feature/phase-0-toy-world-eval`  
+**Phase 1 PREREGISTRATION.md SHA-256**: `ef09666eb2bb96ca481ce05dc3dc5ca50fbe6d2143441ed38b062968313f695b` (Frozen & Intact)  
+**Phase 3 PREREGISTRATION_P3.md SHA-256**: `bd08fe66a8160483e741e45928aea22ee0f6699d655da9fca43bd98b33b9140d` (Frozen & Hashed)  
 
 ---
 
 ## Completed Stages
+
 - **Phase 0 & 0.5**: Toy world, splits, metrics, Memorizer, Oracle ceiling, SentenceOnly, SceneOnly, frozen `PREREGISTRATION.md` (`prereg-v1`).
 - **STAGE A (`gate-A`)**: 50-seed pooled shortcut audit, 63-feature permutation balance audit, novel-word candidate enumeration, `StubbornOracle` vs `CorrectedOracle`, second model checker `naive_evaluate`, identifiability report, and `ExhaustiveIdealObserver` (`AUDIT_0_6.md`).
 - **STAGE B (`gate-B`)**: Categorial grammar (`nexus/learner/categorial.py`), MDL beam learner (`nexus/learner/nexus_learner.py`), explainability & faithfulness (`nexus/learner/explain.py`), Baselines B & C, 20-seed permutation invariance (`nexus/tests/test_stage_b_learner.py`).
@@ -30,17 +31,23 @@
 - **PHASE 3 (Restructuring: Split / Merge / Exception — Pre-registered)**:
   - [x] **Stage P3-A (`gate-P3-A`)**: Created `nexus/world/restructure.py` with worlds W1–W5. Audited across 50 fresh seeds (`2000..2049`): Oracle = 100%, SentenceOnly and SceneOnly at chance (0.500) on all test splits, 0 naive_evaluate mismatches, identifiability $\ge 5$, split sample sizes reported, and exhaustive ideal observer bounds established for W1 ($P(\text{split}) = 0.989$) and W2 ($P(\text{exception}) = 0.9997$). Delivered `AUDIT_P3.md`.
   - [x] **Stage P3-B (`gate-P3-B`)**: Authored `PREREGISTRATION_P3.md` (SHA-256: `bd08fe66a8160483e741e45928aea22ee0f6699d655da9fca43bd98b33b9140d`). Established hypotheses H1–H4, comparison set, metrics, and numeric pass criteria C1–C6. Added regression test `test_p3_b_preregistration_hash`. Tagged `prereg-p3`.
-  - [ ] **Stage P3-C (`gate-P3-C`)**: Extend NEXUS with multi-sense lexicon, 3 restructuring operators (Split, Merge, Exception), real incremental belief revision with append-only revision log, retention, and explainability citing restructuring events.
-  - [ ] **Stage P3-D (`gate-P3-D`)**: One-shot evaluation on W1–W5, seeds `2000..2049`, deliver `PHASE3_REPORT.md`.
-  - [ ] **Stage P3-E (`LIMITATIONS_P3.md`)**: Exploratory noise, sample efficiency, SQLite persistence, and limitations.
+  - [x] **Stage P3-C (`gate-p3-c`)**: Extended NEXUS with multi-sense lexicon, 3 restructuring operators (Split, Merge, Exception), real incremental belief revision with append-only revision log, retention, and explainability citing restructuring events (`nexus/learner/restructure_learner.py`, 16 unit tests in `nexus/tests/test_stage_p3_learner.py`). Tagged `gate-p3-c`.
+  - [x] **Stage P3-D (`pre-run-p3`)**: Pre-registered one-shot evaluation on W1–W5 across 50 fresh seeds (`2000..2049`). 9 models evaluated. Proved Restructuring decisively outperforms NoRestructure everywhere ($\Delta = +0.045$ to $+0.185$, $p < 0.005$) and Baseline D ($\Delta = +0.108$ to $+0.274$). Evaluated criteria C1–C6 honestly. Delivered `PHASE3_REPORT.md`.
+  - [x] **Stage P3-E (`LIMITATIONS_P3.md`)**: Exploratory analyses covering label noise robustness (0/2/10/20%), sample efficiency curves across training stream, and SQLite persistence roundtrip (`nexus/storage/restructure_repository.py`, `nexus/tests/test_persistence_p3.py`). Delivered `LIMITATIONS_P3.md` and updated `RERUNS.md`.
 
 ---
 
 ## Exact Commands to Verify
 ```bash
-# Run full test suite (78 passing tests)
+# Run complete test suite (97 passing tests)
 .venv/bin/pytest -v
 
 # Run Stage P3-A audit suite across 50 seeds (2000..2049)
 .venv/bin/python -m nexus.eval.audit_p3
+
+# Run Phase 3 exploratory analyses
+PYTHONPATH=. .venv/bin/python nexus/experiments/phase3_exploratory.py
+
+# Inspect Phase 3 evaluation results
+cat nexus/experiments/results/phase3_eval.json
 ```
