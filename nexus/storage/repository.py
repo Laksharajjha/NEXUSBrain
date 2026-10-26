@@ -132,6 +132,12 @@ class SQLiteLearnerRepository:
                     ],
                 )
 
+            # Ensure change records exist for all corrections in experience log
+            for line in learner.experience_log_jsonl:
+                ev = json.loads(line)
+                if ev.get("event") == "correct" and "target_example_id" in ev:
+                    learner.what_changed(ev["target_example_id"])
+
             conn.executemany(
                 """
                 INSERT INTO change_records (

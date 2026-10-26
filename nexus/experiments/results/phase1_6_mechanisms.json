@@ -1,0 +1,2902 @@
+{
+  "elapsed_seconds": 3142.96,
+  "evaluation_counter": {
+    "dev_evaluations": 4600,
+    "fresh_test_split_evaluations": 10200,
+    "note": "Counts only this invocation; tasks loaded from checkpoint add 0.",
+    "test_runs_by_task": {
+      "task1_clean_both": 200,
+      "task1_clean_cooc": 200,
+      "task1_clean_truth": 200,
+      "task1_ctrl2a_shuffled_labels_both": 200,
+      "task1_ctrl2a_shuffled_labels_cooc": 200,
+      "task1_ctrl2a_shuffled_labels_truth": 200,
+      "task1_ctrl2b_shuffled_scenes_both": 200,
+      "task1_ctrl2b_shuffled_scenes_cooc": 200,
+      "task1_ctrl2b_shuffled_scenes_truth": 200,
+      "task1_ctrl2c_cross_seed_both": 200,
+      "task1_ctrl2c_cross_seed_cooc": 200,
+      "task1_ctrl2c_cross_seed_truth": 200,
+      "task2_N100_baseline_c": 200,
+      "task2_N100_baseline_d": 200,
+      "task2_N100_baseline_f_lexicon": 200,
+      "task2_N100_baseline_f_syntax": 200,
+      "task2_N100_nexus_both": 200,
+      "task2_N100_nexus_cooc": 200,
+      "task2_N100_nexus_truth": 200,
+      "task2_N1600_baseline_c": 200,
+      "task2_N1600_baseline_d": 200,
+      "task2_N1600_baseline_f_lexicon": 200,
+      "task2_N1600_baseline_f_syntax": 200,
+      "task2_N200_baseline_c": 200,
+      "task2_N200_baseline_d": 200,
+      "task2_N200_baseline_f_lexicon": 200,
+      "task2_N200_baseline_f_syntax": 200,
+      "task2_N200_nexus_both": 200,
+      "task2_N200_nexus_cooc": 200,
+      "task2_N200_nexus_truth": 200,
+      "task2_N20_baseline_c": 200,
+      "task2_N20_baseline_d": 200,
+      "task2_N20_baseline_f_lexicon": 200,
+      "task2_N20_baseline_f_syntax": 200,
+      "task2_N20_nexus_both": 200,
+      "task2_N20_nexus_cooc": 200,
+      "task2_N20_nexus_truth": 200,
+      "task2_N400_baseline_c": 200,
+      "task2_N400_baseline_d": 200,
+      "task2_N400_baseline_f_lexicon": 200,
+      "task2_N400_baseline_f_syntax": 200,
+      "task2_N400_nexus_both": 200,
+      "task2_N400_nexus_cooc": 200,
+      "task2_N400_nexus_truth": 200,
+      "task2_N50_baseline_c": 200,
+      "task2_N50_baseline_d": 200,
+      "task2_N50_baseline_f_lexicon": 200,
+      "task2_N50_baseline_f_syntax": 200,
+      "task2_N50_nexus_both": 200,
+      "task2_N50_nexus_cooc": 200,
+      "task2_N50_nexus_truth": 200
+    }
+  },
+  "label": "EXPLORATORY",
+  "n_seeds": 50,
+  "phase": "1.6_exploratory_mechanisms",
+  "seed_range": [
+    1000,
+    1049
+  ],
+  "task1_evidence_channels": {
+    "clean": {
+      "both": {
+        "dev": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        }
+      },
+      "cooc": {
+        "dev": {
+          "ci_high": 0.96805,
+          "ci_low": 0.9633999999999999,
+          "mean": 0.96575,
+          "std": 0.008333758492555745
+        },
+        "test_contradiction": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "ci_high": 0.9600666666666666,
+          "ci_low": 0.9537333333333333,
+          "mean": 0.9566666666666666,
+          "std": 0.01174174095803615
+        },
+        "test_novel_combination": {
+          "ci_high": 0.9468,
+          "ci_low": 0.9405487499999998,
+          "mean": 0.9436999999999999,
+          "std": 0.011171666055203205
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.9528000000000002,
+          "ci_low": 0.9396975,
+          "mean": 0.9461000000000002,
+          "std": 0.024852421554908005
+        },
+        "train": {
+          "ci_high": 0.9901003125000001,
+          "ci_low": 0.9884124999999999,
+          "mean": 0.9892499999999999,
+          "std": 0.003113499245386198
+        }
+      },
+      "truth": {
+        "dev": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_contradiction": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "train": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "control_2a_shuffled_labels": {
+      "both": {
+        "dev": {
+          "ci_high": 0.69455125,
+          "ci_low": 0.66989875,
+          "mean": 0.6822499999999999,
+          "std": 0.04591543357974883
+        },
+        "test_contradiction": {
+          "ci_high": 0.659805,
+          "ci_low": 0.617295,
+          "mean": 0.6387000000000002,
+          "std": 0.0768434002583521
+        },
+        "test_longer": {
+          "ci_high": 0.5918,
+          "ci_low": 0.5567333333333333,
+          "mean": 0.5738666666666666,
+          "std": 0.06350088827560905
+        },
+        "test_novel_combination": {
+          "ci_high": 0.642105,
+          "ci_low": 0.60194875,
+          "mean": 0.6218,
+          "std": 0.07201374585339061
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.8026025000000001,
+          "ci_low": 0.7551924999999999,
+          "mean": 0.7793000000000001,
+          "std": 0.0853743855865781
+        },
+        "train": {
+          "ci_high": 0.701139375,
+          "ci_low": 0.6705874999999999,
+          "mean": 0.6855875,
+          "std": 0.05358116131826825
+        }
+      },
+      "cooc": {
+        "dev": {
+          "ci_high": 0.96805,
+          "ci_low": 0.9633999999999999,
+          "mean": 0.96575,
+          "std": 0.008333758492555745
+        },
+        "test_contradiction": {
+          "ci_high": 1.0,
+          "ci_low": 1.0,
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "test_longer": {
+          "ci_high": 0.9600666666666666,
+          "ci_low": 0.9537333333333333,
+          "mean": 0.9566666666666666,
+          "std": 0.01174174095803615
+        },
+        "test_novel_combination": {
+          "ci_high": 0.9468,
+          "ci_low": 0.9405487499999998,
+          "mean": 0.9436999999999999,
+          "std": 0.011171666055203205
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.9528000000000002,
+          "ci_low": 0.9396975,
+          "mean": 0.9461000000000002,
+          "std": 0.024852421554908005
+        },
+        "train": {
+          "ci_high": 0.9901003125000001,
+          "ci_low": 0.9884124999999999,
+          "mean": 0.9892499999999999,
+          "std": 0.003113499245386198
+        }
+      },
+      "truth": {
+        "dev": {
+          "ci_high": 0.5031,
+          "ci_low": 0.49165,
+          "mean": 0.4972,
+          "std": 0.021456172700152647
+        },
+        "test_contradiction": {
+          "ci_high": 0.5,
+          "ci_low": 0.49909749999999997,
+          "mean": 0.4996,
+          "std": 0.0017023393268304277
+        },
+        "test_longer": {
+          "ci_high": 0.5,
+          "ci_low": 0.49979999999999997,
+          "mean": 0.49993333333333334,
+          "std": 0.00047140452079103473
+        },
+        "test_novel_combination": {
+          "ci_high": 0.5025999999999999,
+          "ci_low": 0.49835,
+          "mean": 0.5004000000000001,
+          "std": 0.007830474221310751
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.5021025000000001,
+          "ci_low": 0.48710000000000003,
+          "mean": 0.49489999999999995,
+          "std": 0.028184704203173906
+        },
+        "train": {
+          "ci_high": 0.5027003125,
+          "ci_low": 0.49348718750000004,
+          "mean": 0.498025,
+          "std": 0.017404696762304
+        }
+      }
+    },
+    "control_2b_shuffled_scenes": {
+      "both": {
+        "dev": {
+          "ci_high": 0.5051512499999999,
+          "ci_low": 0.4949487499999999,
+          "mean": 0.5002,
+          "std": 0.018446281634043455
+        },
+        "test_contradiction": {
+          "ci_high": 0.5015,
+          "ci_low": 0.498,
+          "mean": 0.4997,
+          "std": 0.006260501381760129
+        },
+        "test_longer": {
+          "ci_high": 0.5005333333333334,
+          "ci_low": 0.5000666666666667,
+          "mean": 0.5002666666666667,
+          "std": 0.0009134917187262231
+        },
+        "test_novel_combination": {
+          "ci_high": 0.5043,
+          "ci_low": 0.4984499999999999,
+          "mean": 0.50125,
+          "std": 0.01066954946163547
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.5082025,
+          "ci_low": 0.48950000000000005,
+          "mean": 0.49870000000000003,
+          "std": 0.034223306296697155
+        },
+        "train": {
+          "ci_high": 0.5064009374999999,
+          "ci_low": 0.4969121875,
+          "mean": 0.501625,
+          "std": 0.017781984692149432
+        }
+      },
+      "cooc": {
+        "dev": {
+          "ci_high": 0.50875625,
+          "ci_low": 0.49249875,
+          "mean": 0.5005000000000002,
+          "std": 0.02982089392164015
+        },
+        "test_contradiction": {
+          "ci_high": 0.5021,
+          "ci_low": 0.4918,
+          "mean": 0.49770000000000003,
+          "std": 0.019011543217482482
+        },
+        "test_longer": {
+          "ci_high": 0.5002,
+          "ci_low": 0.4996666666666666,
+          "mean": 0.49993333333333334,
+          "std": 0.0010626625525914947
+        },
+        "test_novel_combination": {
+          "ci_high": 0.4983012500000001,
+          "ci_low": 0.49254875000000004,
+          "mean": 0.4955,
+          "std": 0.01031394934156689
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.5283,
+          "ci_low": 0.5060975,
+          "mean": 0.5169,
+          "std": 0.0401005114731491
+        },
+        "train": {
+          "ci_high": 0.5070874999999999,
+          "ci_low": 0.49468625,
+          "mean": 0.5007124999999999,
+          "std": 0.02201938863286868
+        }
+      },
+      "truth": {
+        "dev": {
+          "ci_high": 0.50355,
+          "ci_low": 0.4902500000000001,
+          "mean": 0.49685000000000007,
+          "std": 0.02429521872840877
+        },
+        "test_contradiction": {
+          "ci_high": 0.4999,
+          "ci_low": 0.4988,
+          "mean": 0.49939999999999996,
+          "std": 0.001927248223318865
+        },
+        "test_longer": {
+          "ci_high": 0.5,
+          "ci_low": 0.5,
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "ci_high": 0.50535125,
+          "ci_low": 0.49959874999999987,
+          "mean": 0.5023999999999998,
+          "std": 0.010773171514915927
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.5025,
+          "ci_low": 0.49,
+          "mean": 0.4963,
+          "std": 0.022333511015640035
+        },
+        "train": {
+          "ci_high": 0.5032128125,
+          "ci_low": 0.4925121875,
+          "mean": 0.4978375,
+          "std": 0.019633605775947166
+        }
+      }
+    },
+    "control_2c_cross_seed_lexicon": {
+      "both": {
+        "dev": {
+          "ci_high": 0.4984,
+          "ci_low": 0.48969999999999997,
+          "mean": 0.49379999999999996,
+          "std": 0.015379883495219671
+        },
+        "test_contradiction": {
+          "ci_high": 0.5,
+          "ci_low": 0.4987,
+          "mean": 0.49950000000000006,
+          "std": 0.002525381361380529
+        },
+        "test_longer": {
+          "ci_high": 0.5,
+          "ci_low": 0.5,
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "ci_high": 0.5005999999999999,
+          "ci_low": 0.49805000000000005,
+          "mean": 0.49939999999999996,
+          "std": 0.004644505202002531
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.5012,
+          "ci_low": 0.4953,
+          "mean": 0.49829999999999997,
+          "std": 0.010671820608595377
+        },
+        "train": {
+          "ci_high": 0.5009253125,
+          "ci_low": 0.49406250000000007,
+          "mean": 0.4973375,
+          "std": 0.012751181667930675
+        }
+      },
+      "cooc": {
+        "dev": {
+          "ci_high": 0.4985,
+          "ci_low": 0.48979999999999996,
+          "mean": 0.49389999999999995,
+          "std": 0.015461934826257304
+        },
+        "test_contradiction": {
+          "ci_high": 0.5,
+          "ci_low": 0.4981999999999999,
+          "mean": 0.49920000000000003,
+          "std": 0.0032513733362117296
+        },
+        "test_longer": {
+          "ci_high": 0.5,
+          "ci_low": 0.5,
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "ci_high": 0.5007,
+          "ci_low": 0.4981487499999999,
+          "mean": 0.49950000000000006,
+          "std": 0.004711037842240329
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.5113049999999999,
+          "ci_low": 0.4975,
+          "mean": 0.5034,
+          "std": 0.024732033264326554
+        },
+        "train": {
+          "ci_high": 0.500950625,
+          "ci_low": 0.4941,
+          "mean": 0.4973625,
+          "std": 0.012756482195738916
+        }
+      },
+      "truth": {
+        "dev": {
+          "ci_high": 0.4984,
+          "ci_low": 0.48969999999999997,
+          "mean": 0.49379999999999996,
+          "std": 0.015379883495219671
+        },
+        "test_contradiction": {
+          "ci_high": 0.5,
+          "ci_low": 0.4987,
+          "mean": 0.49950000000000006,
+          "std": 0.002525381361380529
+        },
+        "test_longer": {
+          "ci_high": 0.5,
+          "ci_low": 0.5,
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "test_novel_combination": {
+          "ci_high": 0.5005999999999999,
+          "ci_low": 0.49805000000000005,
+          "mean": 0.49939999999999996,
+          "std": 0.004644505202002531
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.5013,
+          "ci_low": 0.4954,
+          "mean": 0.4984,
+          "std": 0.010711428190374577
+        },
+        "train": {
+          "ci_high": 0.5009253125,
+          "ci_low": 0.49406250000000007,
+          "mean": 0.4973375,
+          "std": 0.012751181667930675
+        }
+      }
+    },
+    "examples_to_criterion_dev90": {
+      "both": {
+        "ci_high": 1600.0,
+        "ci_low": 1600.0,
+        "mean": 1600.0,
+        "std": 0.0
+      },
+      "cooc": {
+        "ci_high": 1600.0,
+        "ci_low": 1600.0,
+        "mean": 1600.0,
+        "std": 0.0
+      },
+      "truth": {
+        "ci_high": 1600.0,
+        "ci_low": 1600.0,
+        "mean": 1600.0,
+        "std": 0.0
+      }
+    },
+    "paired_comparisons": {
+      "both_minus_cooc_contradiction": {
+        "ci_high": 0.0,
+        "ci_low": 0.0,
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "both_minus_cooc_novel_comb": {
+        "ci_high": 0.059400000000000015,
+        "ci_low": 0.05340000000000001,
+        "mean": 0.05630000000000001,
+        "std": 0.011171666055203205
+      },
+      "both_minus_cooc_novel_word": {
+        "ci_high": 0.0612025,
+        "ci_low": 0.047097500000000014,
+        "mean": 0.053900000000000024,
+        "std": 0.024852421554908005
+      },
+      "both_minus_truth_novel_comb": {
+        "ci_high": 0.0,
+        "ci_low": 0.0,
+        "mean": 0.0,
+        "std": 0.0
+      }
+    }
+  },
+  "task2_matched_n": {
+    "grammar_configuration_breakdown": {
+      "N_100": {
+        "by_clause_order": {
+          "SOV": {
+            "ci_high": 0.7285,
+            "ci_low": 0.691875,
+            "mean": 0.7110000000000001,
+            "n_seeds": 20,
+            "std": 0.043410525039563
+          },
+          "SVO": {
+            "ci_high": 0.7506931818181818,
+            "ci_low": 0.7236306818181817,
+            "mean": 0.7386363636363638,
+            "n_seeds": 11,
+            "std": 0.023673921209942085
+          },
+          "VSO": {
+            "ci_high": 0.7338190789473684,
+            "ci_low": 0.7028947368421052,
+            "mean": 0.7181578947368422,
+            "n_seeds": 19,
+            "std": 0.035275129983057985
+          }
+        },
+        "by_np_order": {
+          "split_adj_noun_adj": {
+            "ci_high": 0.7232142857142857,
+            "ci_low": 0.6808928571428572,
+            "mean": 0.7032142857142858,
+            "n_seeds": 14,
+            "std": 0.04087302772739494
+          },
+          "uniform_postnominal": {
+            "ci_high": 0.7332352941176471,
+            "ci_low": 0.6980845588235295,
+            "mean": 0.7161764705882353,
+            "n_seeds": 17,
+            "std": 0.03830508336715513
+          },
+          "uniform_prenominal": {
+            "ci_high": 0.7481578947368421,
+            "ci_low": 0.7228947368421054,
+            "mean": 0.7352631578947368,
+            "n_seeds": 19,
+            "std": 0.029343449212659137
+          }
+        },
+        "by_particle_pos": {
+          "final": {
+            "ci_high": 0.7317999999999999,
+            "ci_low": 0.7033,
+            "mean": 0.7179000000000001,
+            "n_seeds": 25,
+            "std": 0.03790530965445342
+          },
+          "initial": {
+            "ci_high": 0.7362049999999999,
+            "ci_low": 0.7076974999999998,
+            "mean": 0.7217,
+            "n_seeds": 25,
+            "std": 0.03799479130968699
+          }
+        }
+      },
+      "N_200": {
+        "by_clause_order": {
+          "SOV": {
+            "ci_high": 0.7513781250000001,
+            "ci_low": 0.732375,
+            "mean": 0.7423750000000001,
+            "n_seeds": 20,
+            "std": 0.022616293032376365
+          },
+          "SVO": {
+            "ci_high": 0.7611363636363635,
+            "ci_low": 0.7477272727272729,
+            "mean": 0.7543181818181818,
+            "n_seeds": 11,
+            "std": 0.012098083995560463
+          },
+          "VSO": {
+            "ci_high": 0.7617105263157894,
+            "ci_low": 0.7451315789473684,
+            "mean": 0.7530263157894737,
+            "n_seeds": 19,
+            "std": 0.018903610534182876
+          }
+        },
+        "by_np_order": {
+          "split_adj_noun_adj": {
+            "ci_high": 0.7528571428571429,
+            "ci_low": 0.7398214285714285,
+            "mean": 0.7467857142857144,
+            "n_seeds": 14,
+            "std": 0.012913490688355402
+          },
+          "uniform_postnominal": {
+            "ci_high": 0.7561764705882352,
+            "ci_low": 0.7326470588235294,
+            "mean": 0.7445588235294118,
+            "n_seeds": 17,
+            "std": 0.02546804514542511
+          },
+          "uniform_prenominal": {
+            "ci_high": 0.7626348684210527,
+            "ci_low": 0.7472368421052632,
+            "mean": 0.7547368421052632,
+            "n_seeds": 19,
+            "std": 0.01753755369125591
+          }
+        },
+        "by_particle_pos": {
+          "final": {
+            "ci_high": 0.7562000000000001,
+            "ci_low": 0.7413,
+            "mean": 0.7486999999999999,
+            "n_seeds": 25,
+            "std": 0.019988538382449746
+          },
+          "initial": {
+            "ci_high": 0.7568025,
+            "ci_low": 0.7408,
+            "mean": 0.7494000000000001,
+            "n_seeds": 25,
+            "std": 0.019912307751739865
+          }
+        }
+      },
+      "N_50": {
+        "by_clause_order": {
+          "SOV": {
+            "ci_high": 0.668253125,
+            "ci_low": 0.6235,
+            "mean": 0.646,
+            "n_seeds": 20,
+            "std": 0.05297963859128486
+          },
+          "SVO": {
+            "ci_high": 0.6634090909090908,
+            "ci_low": 0.5738465909090907,
+            "mean": 0.6222727272727272,
+            "n_seeds": 11,
+            "std": 0.08178061006019817
+          },
+          "VSO": {
+            "ci_high": 0.6301381578947369,
+            "ci_low": 0.5801282894736842,
+            "mean": 0.6046052631578949,
+            "n_seeds": 19,
+            "std": 0.05957175387420722
+          }
+        },
+        "by_np_order": {
+          "split_adj_noun_adj": {
+            "ci_high": 0.6233973214285714,
+            "ci_low": 0.565357142857143,
+            "mean": 0.5932142857142857,
+            "n_seeds": 14,
+            "std": 0.058354261028821006
+          },
+          "uniform_postnominal": {
+            "ci_high": 0.6664705882352941,
+            "ci_low": 0.6126470588235293,
+            "mean": 0.6405882352941177,
+            "n_seeds": 17,
+            "std": 0.06049618668098989
+          },
+          "uniform_prenominal": {
+            "ci_high": 0.6626315789473685,
+            "ci_low": 0.6032894736842106,
+            "mean": 0.6346052631578947,
+            "n_seeds": 19,
+            "std": 0.06584526873819165
+          }
+        },
+        "by_particle_pos": {
+          "final": {
+            "ci_high": 0.6564049999999999,
+            "ci_low": 0.6020975,
+            "mean": 0.631,
+            "n_seeds": 25,
+            "std": 0.070304397681321
+          },
+          "initial": {
+            "ci_high": 0.6405025,
+            "ci_low": 0.5971949999999999,
+            "mean": 0.6191,
+            "n_seeds": 25,
+            "std": 0.05791462826149078
+          }
+        }
+      }
+    },
+    "paired_nexus_both_minus_baseline_d": {
+      "N_100": {
+        "dev": {
+          "ci_high": -0.07734999999999999,
+          "ci_low": -0.14614999999999997,
+          "mean": -0.11179999999999998,
+          "std": 0.12292879970095846
+        },
+        "test_contradiction": {
+          "ci_high": 0.00400749999999995,
+          "ci_low": -0.1055075,
+          "mean": -0.0508,
+          "std": 0.20162695398043526
+        },
+        "test_longer": {
+          "ci_high": 0.017734999999999987,
+          "ci_low": -0.05980166666666665,
+          "mean": -0.02086666666666666,
+          "std": 0.13975003600127722
+        },
+        "test_novel_combination": {
+          "ci_high": -0.021400000000000002,
+          "ci_low": -0.106805,
+          "mean": -0.0645,
+          "std": 0.15883905986493216
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.03920249999999999,
+          "ci_low": -0.06630250000000001,
+          "mean": -0.014000000000000002,
+          "std": 0.19582895493730423
+        }
+      },
+      "N_1600": {
+        "dev": {
+          "ci_high": 0.06414999999999998,
+          "ci_low": 0.03194875,
+          "mean": 0.04755,
+          "std": 0.06072161720440561
+        },
+        "test_contradiction": {
+          "ci_high": 0.20800749999999993,
+          "ci_low": 0.09299749999999998,
+          "mean": 0.1473,
+          "std": 0.20869421532520754
+        },
+        "test_longer": {
+          "ci_high": 0.26726999999999995,
+          "ci_low": 0.18226499999999998,
+          "mean": 0.22613333333333333,
+          "std": 0.15548965886387892
+        },
+        "test_novel_combination": {
+          "ci_high": 0.11875124999999999,
+          "ci_low": 0.058798750000000004,
+          "mean": 0.0879,
+          "std": 0.11275578631244952
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.09310499999999997,
+          "ci_low": 0.0469,
+          "mean": 0.069,
+          "std": 0.08675557971822272
+        }
+      },
+      "N_20": {
+        "dev": {
+          "ci_high": 0.012450000000000001,
+          "ci_low": -0.004501249999999997,
+          "mean": 0.0039000000000000033,
+          "std": 0.031848493380570546
+        },
+        "test_contradiction": {
+          "ci_high": 0.06690499999999998,
+          "ci_low": 0.005782499999999995,
+          "mean": 0.037399999999999996,
+          "std": 0.11637044999763928
+        },
+        "test_longer": {
+          "ci_high": 0.002600000000000001,
+          "ci_low": 6.666666666667042e-05,
+          "mean": 0.0012000000000000023,
+          "std": 0.00475046244317711
+        },
+        "test_novel_combination": {
+          "ci_high": 0.007549999999999997,
+          "ci_low": -0.0039000000000000024,
+          "mean": 0.0017000000000000014,
+          "std": 0.021173722644170185
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": -0.0028000000000000112,
+          "ci_low": -0.022500000000000006,
+          "mean": -0.012400000000000007,
+          "std": 0.036536813975909334
+        }
+      },
+      "N_200": {
+        "dev": {
+          "ci_high": -0.14739750000000001,
+          "ci_low": -0.19505,
+          "mean": -0.17119999999999996,
+          "std": 0.08668680430617065
+        },
+        "test_contradiction": {
+          "ci_high": -0.0331,
+          "ci_low": -0.150205,
+          "mean": -0.0935,
+          "std": 0.20576450279930428
+        },
+        "test_longer": {
+          "ci_high": -0.02459999999999999,
+          "ci_low": -0.11220333333333332,
+          "mean": -0.06680000000000001,
+          "std": 0.16403633246127805
+        },
+        "test_novel_combination": {
+          "ci_high": -0.09144625,
+          "ci_low": -0.16675375,
+          "mean": -0.13035,
+          "std": 0.13506140893561516
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.02139999999999999,
+          "ci_low": -0.0707025,
+          "mean": -0.0246,
+          "std": 0.17558311015421893
+        }
+      },
+      "N_400": {
+        "dev": {
+          "ci_high": -0.1816,
+          "ci_low": -0.2165025,
+          "mean": -0.20004999999999998,
+          "std": 0.06351821609200155
+        },
+        "test_contradiction": {
+          "ci_high": -0.04039500000000004,
+          "ci_low": -0.15331499999999998,
+          "mean": -0.09910000000000001,
+          "std": 0.2089348350709437
+        },
+        "test_longer": {
+          "ci_high": -0.038788333333333376,
+          "ci_low": -0.12466833333333335,
+          "mean": -0.08306666666666666,
+          "std": 0.1552217928921778
+        },
+        "test_novel_combination": {
+          "ci_high": -0.12389750000000002,
+          "ci_low": -0.18940374999999998,
+          "mean": -0.15814999999999999,
+          "std": 0.1197838295277227
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": -0.005500000000000002,
+          "ci_low": -0.092,
+          "mean": -0.05,
+          "std": 0.15926168941175312
+        }
+      },
+      "N_50": {
+        "dev": {
+          "ci_high": 0.02920499999999996,
+          "ci_low": -0.021051250000000014,
+          "mean": 0.0036999999999999854,
+          "std": 0.090034347187445
+        },
+        "test_contradiction": {
+          "ci_high": 0.03870749999999995,
+          "ci_low": -0.05320000000000001,
+          "mean": -0.008700000000000008,
+          "std": 0.16763605500838868
+        },
+        "test_longer": {
+          "ci_high": 0.04013499999999999,
+          "ci_low": 0.0042000000000000015,
+          "mean": 0.022133333333333328,
+          "std": 0.06592361414921312
+        },
+        "test_novel_combination": {
+          "ci_high": 0.06255624999999997,
+          "ci_low": 0.011800000000000012,
+          "mean": 0.03635000000000001,
+          "std": 0.09182143551703036
+        },
+        "test_novel_word_in_known_frame": {
+          "ci_high": 0.04410749999999995,
+          "ci_low": -0.03411750000000001,
+          "mean": 0.003899999999999997,
+          "std": 0.14883661086807196
+        }
+      }
+    },
+    "summary_by_n": {
+      "N_100": {
+        "baseline_c_no_revision": {
+          "dev": {
+            "ci_high": 0.8056512499999999,
+            "ci_low": 0.7519999999999999,
+            "mean": 0.7787000000000001,
+            "std": 0.0971602400413768
+          },
+          "test_contradiction": {
+            "ci_high": 0.7775049999999999,
+            "ci_low": 0.7156924999999998,
+            "mean": 0.747,
+            "std": 0.11075344929442263
+          },
+          "test_longer": {
+            "ci_high": 0.7357333333333334,
+            "ci_low": 0.6709966666666666,
+            "mean": 0.7018666666666666,
+            "std": 0.11884584805918559
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7863500000000001,
+            "ci_low": 0.7325999999999999,
+            "mean": 0.7583000000000001,
+            "std": 0.09591721558144795
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.7654200000000001,
+            "ci_low": 0.69379,
+            "mean": 0.7293999999999999,
+            "std": 0.13199273325699815
+          },
+          "train": {
+            "ci_high": 0.8167025,
+            "ci_low": 0.7636571874999999,
+            "mean": 0.7889375,
+            "std": 0.10011713882232845
+          }
+        },
+        "baseline_d_pos_cs": {
+          "dev": {
+            "ci_high": 0.87335,
+            "ci_low": 0.8064,
+            "mean": 0.84055,
+            "std": 0.12121334918402413
+          },
+          "test_contradiction": {
+            "ci_high": 0.8513999999999998,
+            "ci_low": 0.7412874999999999,
+            "mean": 0.799,
+            "std": 0.20285965793209484
+          },
+          "test_longer": {
+            "ci_high": 0.7008049999999999,
+            "ci_low": 0.631065,
+            "mean": 0.6640666666666667,
+            "std": 0.12915088119474322
+          },
+          "test_novel_combination": {
+            "ci_high": 0.82675,
+            "ci_low": 0.7426462500000001,
+            "mean": 0.7842999999999999,
+            "std": 0.15183153930106422
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8713999999999998,
+            "ci_low": 0.8058975,
+            "mean": 0.8382999999999999,
+            "std": 0.11793118886080328
+          },
+          "train": {
+            "ci_high": 0.8842896874999999,
+            "ci_low": 0.8205481249999999,
+            "mean": 0.8529750000000001,
+            "std": 0.11677728781308286
+          }
+        },
+        "baseline_f_given_lexicon": {
+          "dev": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_combination": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "train": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          }
+        },
+        "baseline_f_given_syntax": {
+          "dev": {
+            "ci_high": 0.7440000000000001,
+            "ci_low": 0.7351975,
+            "mean": 0.74005,
+            "std": 0.015887760017300957
+          },
+          "test_contradiction": {
+            "ci_high": 0.7577025000000003,
+            "ci_low": 0.7456974999999999,
+            "mean": 0.7519,
+            "std": 0.022720349594895908
+          },
+          "test_longer": {
+            "ci_high": 0.6827350000000001,
+            "ci_low": 0.6673333333333333,
+            "mean": 0.6751999999999999,
+            "std": 0.027422618401604183
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7427012499999999,
+            "ci_low": 0.72549875,
+            "mean": 0.7343499999999998,
+            "std": 0.03118333706010441
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8706025,
+            "ci_low": 0.7896974999999999,
+            "mean": 0.8314999999999999,
+            "std": 0.14423354785392548
+          },
+          "train": {
+            "ci_high": 0.7472125,
+            "ci_low": 0.7399496874999999,
+            "mean": 0.7436500000000001,
+            "std": 0.012737764236909949
+          }
+        },
+        "nexus_both": {
+          "dev": {
+            "ci_high": 0.7353999999999999,
+            "ci_low": 0.72155,
+            "mean": 0.72875,
+            "std": 0.025052241335225222
+          },
+          "test_contradiction": {
+            "ci_high": 0.755,
+            "ci_low": 0.7410975,
+            "mean": 0.7482000000000001,
+            "std": 0.02637562263507263
+          },
+          "test_longer": {
+            "ci_high": 0.6567999999999999,
+            "ci_low": 0.6293316666666666,
+            "mean": 0.6431999999999999,
+            "std": 0.05024637711017993
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7296999999999998,
+            "ci_low": 0.7092,
+            "mean": 0.7198,
+            "std": 0.037609839138182964
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8652,
+            "ci_low": 0.781295,
+            "mean": 0.8242999999999999,
+            "std": 0.15074647591237417
+          },
+          "train": {
+            "ci_high": 0.737638125,
+            "ci_low": 0.7239478125,
+            "mean": 0.7310375000000002,
+            "std": 0.02590566493578782
+          }
+        },
+        "nexus_cooc": {
+          "dev": {
+            "ci_high": 0.7284512500000001,
+            "ci_low": 0.7010474999999999,
+            "mean": 0.71505,
+            "std": 0.050377376887257797
+          },
+          "test_contradiction": {
+            "ci_high": 0.7260025,
+            "ci_low": 0.6770900000000001,
+            "mean": 0.7026,
+            "std": 0.08757061290694476
+          },
+          "test_longer": {
+            "ci_high": 0.6386033333333334,
+            "ci_low": 0.5974666666666667,
+            "mean": 0.6184,
+            "std": 0.07378721629104773
+          },
+          "test_novel_combination": {
+            "ci_high": 0.69760375,
+            "ci_low": 0.6535987499999999,
+            "mean": 0.67605,
+            "std": 0.07987089390934315
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8052125000000001,
+            "ci_low": 0.7228899999999999,
+            "mean": 0.7657,
+            "std": 0.1501190344020235
+          },
+          "train": {
+            "ci_high": 0.7290624999999998,
+            "ci_low": 0.6974446875,
+            "mean": 0.7137875,
+            "std": 0.05991482714219905
+          }
+        },
+        "nexus_truth": {
+          "dev": {
+            "ci_high": 0.6826512500000002,
+            "ci_low": 0.65015,
+            "mean": 0.6659999999999999,
+            "std": 0.058977252619383795
+          },
+          "test_contradiction": {
+            "ci_high": 0.6629025,
+            "ci_low": 0.6076975,
+            "mean": 0.6352,
+            "std": 0.09843655368835713
+          },
+          "test_longer": {
+            "ci_high": 0.5844683333333334,
+            "ci_low": 0.548465,
+            "mean": 0.5656666666666667,
+            "std": 0.06515723177520442
+          },
+          "test_novel_combination": {
+            "ci_high": 0.6549549999999998,
+            "ci_low": 0.6157975,
+            "mean": 0.635,
+            "std": 0.07288864865012121
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.7572999999999999,
+            "ci_low": 0.6794975,
+            "mean": 0.7199000000000001,
+            "std": 0.1395272265143098
+          },
+          "train": {
+            "ci_high": 0.6829518750000002,
+            "ci_low": 0.6533603124999999,
+            "mean": 0.6681,
+            "std": 0.05605037707641371
+          }
+        }
+      },
+      "N_1600": {
+        "baseline_c_no_revision": {
+          "dev": {
+            "ci_high": 0.8161537499999999,
+            "ci_low": 0.7505000000000002,
+            "mean": 0.7824500000000001,
+            "std": 0.1178425207379643
+          },
+          "test_contradiction": {
+            "ci_high": 0.7819050000000001,
+            "ci_low": 0.7143949999999999,
+            "mean": 0.7488000000000001,
+            "std": 0.12893820700044575
+          },
+          "test_longer": {
+            "ci_high": 0.7493333333333332,
+            "ci_low": 0.6707983333333333,
+            "mean": 0.7086,
+            "std": 0.14549328089152602
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7909525000000001,
+            "ci_low": 0.7244987500000001,
+            "mean": 0.757,
+            "std": 0.12096550360009456
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8243,
+            "ci_low": 0.7650975,
+            "mean": 0.7939999999999999,
+            "std": 0.10780272988857274
+          },
+          "train": {
+            "ci_high": 0.8247521875000001,
+            "ci_low": 0.7596459375000001,
+            "mean": 0.791475,
+            "std": 0.1196515028859109
+          }
+        },
+        "baseline_d_pos_cs": {
+          "dev": {
+            "ci_high": 0.9692525,
+            "ci_low": 0.9353975,
+            "mean": 0.95245,
+            "std": 0.06072161720440561
+          },
+          "test_contradiction": {
+            "ci_high": 0.90671,
+            "ci_low": 0.7913949999999998,
+            "mean": 0.8527,
+            "std": 0.20869421532520754
+          },
+          "test_longer": {
+            "ci_high": 0.8161333333333333,
+            "ci_low": 0.7312000000000002,
+            "mean": 0.7738666666666667,
+            "std": 0.15548965886387892
+          },
+          "test_novel_combination": {
+            "ci_high": 0.9414012499999999,
+            "ci_low": 0.8812975,
+            "mean": 0.9121000000000001,
+            "std": 0.11275578631244951
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9549,
+            "ci_low": 0.9075975,
+            "mean": 0.9309999999999999,
+            "std": 0.08675557971822272
+          },
+          "train": {
+            "ci_high": 0.9700893749999999,
+            "ci_low": 0.9396862500000002,
+            "mean": 0.9547749999999999,
+            "std": 0.056388825287878974
+          }
+        },
+        "baseline_f_given_lexicon": {
+          "dev": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_combination": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "train": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          }
+        },
+        "baseline_f_given_syntax": {
+          "dev": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_combination": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "train": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          }
+        },
+        "nexus_both": {
+          "dev": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_combination": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "train": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          }
+        },
+        "nexus_cooc": {
+          "dev": {
+            "ci_high": 0.96805,
+            "ci_low": 0.9633999999999999,
+            "mean": 0.96575,
+            "std": 0.008333758492555745
+          },
+          "test_contradiction": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "ci_high": 0.9600666666666666,
+            "ci_low": 0.9537333333333333,
+            "mean": 0.9566666666666666,
+            "std": 0.01174174095803615
+          },
+          "test_novel_combination": {
+            "ci_high": 0.9468,
+            "ci_low": 0.9405487499999998,
+            "mean": 0.9436999999999999,
+            "std": 0.011171666055203205
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9528000000000002,
+            "ci_low": 0.9396975,
+            "mean": 0.9461000000000002,
+            "std": 0.024852421554908005
+          },
+          "train": {
+            "ci_high": 0.9901003125000001,
+            "ci_low": 0.9884124999999999,
+            "mean": 0.9892499999999999,
+            "std": 0.003113499245386198
+          }
+        },
+        "nexus_truth": {
+          "dev": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_combination": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "train": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          }
+        }
+      },
+      "N_20": {
+        "baseline_c_no_revision": {
+          "dev": {
+            "ci_high": 0.57245,
+            "ci_low": 0.5511475,
+            "mean": 0.56075,
+            "std": 0.040089981699335565
+          },
+          "test_contradiction": {
+            "ci_high": 0.4377074999999999,
+            "ci_low": 0.3815974999999999,
+            "mean": 0.4104,
+            "std": 0.10522008033698914
+          },
+          "test_longer": {
+            "ci_high": 0.5085333333333333,
+            "ci_low": 0.5004000000000001,
+            "mean": 0.5032000000000001,
+            "std": 0.017430913191622443
+          },
+          "test_novel_combination": {
+            "ci_high": 0.5254,
+            "ci_low": 0.5108,
+            "mean": 0.5174,
+            "std": 0.026811701679281295
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.5519,
+            "ci_low": 0.5191,
+            "mean": 0.5337,
+            "std": 0.059921802784792706
+          },
+          "train": {
+            "ci_high": 0.577739375,
+            "ci_low": 0.5511371875,
+            "mean": 0.562725,
+            "std": 0.04798635940322532
+          }
+        },
+        "baseline_d_pos_cs": {
+          "dev": {
+            "ci_high": 0.5397,
+            "ci_low": 0.5250474999999999,
+            "mean": 0.5324500000000001,
+            "std": 0.026604098579438656
+          },
+          "test_contradiction": {
+            "ci_high": 0.5919999999999999,
+            "ci_low": 0.5402949999999999,
+            "mean": 0.5643,
+            "std": 0.09674820042623163
+          },
+          "test_longer": {
+            "ci_high": 0.5003333333333334,
+            "ci_low": 0.4996649999999999,
+            "mean": 0.5,
+            "std": 0.0013468700594029452
+          },
+          "test_novel_combination": {
+            "ci_high": 0.5119500000000001,
+            "ci_low": 0.5042,
+            "mean": 0.50805,
+            "std": 0.014270438261078931
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.5339025000000001,
+            "ci_low": 0.5184,
+            "mean": 0.5257999999999999,
+            "std": 0.026713903740584688
+          },
+          "train": {
+            "ci_high": 0.541950625,
+            "ci_low": 0.5267865625,
+            "mean": 0.534,
+            "std": 0.026967537646857834
+          }
+        },
+        "baseline_f_given_lexicon": {
+          "dev": {
+            "ci_high": 0.81735375,
+            "ci_low": 0.7770487500000001,
+            "mean": 0.7972,
+            "std": 0.07247913140895053
+          },
+          "test_contradiction": {
+            "ci_high": 0.9750999999999999,
+            "ci_low": 0.9484975000000001,
+            "mean": 0.9619,
+            "std": 0.04804217959676854
+          },
+          "test_longer": {
+            "ci_high": 0.6125399999999999,
+            "ci_low": 0.5611983333333334,
+            "mean": 0.5858,
+            "std": 0.09611692142923645
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7456512499999998,
+            "ci_low": 0.6933975,
+            "mean": 0.7204,
+            "std": 0.0951091746470382
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.7774025,
+            "ci_low": 0.7301949999999998,
+            "mean": 0.7542,
+            "std": 0.08566284170502163
+          },
+          "train": {
+            "ci_high": 0.8156381249999997,
+            "ci_low": 0.7760584375,
+            "mean": 0.7953124999999999,
+            "std": 0.07218972244568968
+          }
+        },
+        "baseline_f_given_syntax": {
+          "dev": {
+            "ci_high": 0.57980125,
+            "ci_low": 0.5528462500000001,
+            "mean": 0.56595,
+            "std": 0.050177974068635466
+          },
+          "test_contradiction": {
+            "ci_high": 0.7317025,
+            "ci_low": 0.6988999999999999,
+            "mean": 0.7164,
+            "std": 0.06058423045307944
+          },
+          "test_longer": {
+            "ci_high": 0.5183333333333333,
+            "ci_low": 0.5050649999999999,
+            "mean": 0.5112666666666666,
+            "std": 0.024705889022274677
+          },
+          "test_novel_combination": {
+            "ci_high": 0.5497612499999999,
+            "ci_low": 0.5239499999999999,
+            "mean": 0.5363500000000001,
+            "std": 0.047116361602019374
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.567005,
+            "ci_low": 0.5344975,
+            "mean": 0.5499,
+            "std": 0.05932004169704178
+          },
+          "train": {
+            "ci_high": 0.5824625,
+            "ci_low": 0.5523859375,
+            "mean": 0.567,
+            "std": 0.05488043590295143
+          }
+        },
+        "nexus_both": {
+          "dev": {
+            "ci_high": 0.54435,
+            "ci_low": 0.5290987500000001,
+            "mean": 0.5363500000000001,
+            "std": 0.02792669887767049
+          },
+          "test_contradiction": {
+            "ci_high": 0.6246,
+            "ci_low": 0.5796,
+            "mean": 0.6017,
+            "std": 0.08053146171857686
+          },
+          "test_longer": {
+            "ci_high": 0.5026666666666667,
+            "ci_low": 0.5001333333333333,
+            "mean": 0.5012000000000001,
+            "std": 0.0045555279021338635
+          },
+          "test_novel_combination": {
+            "ci_high": 0.51485,
+            "ci_low": 0.50514875,
+            "mean": 0.50975,
+            "std": 0.018029525104955042
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.5203025,
+            "ci_low": 0.5072000000000001,
+            "mean": 0.5134,
+            "std": 0.02416862530181623
+          },
+          "train": {
+            "ci_high": 0.5464625000000001,
+            "ci_low": 0.5311625,
+            "mean": 0.5385875000000001,
+            "std": 0.02788997893052087
+          }
+        },
+        "nexus_cooc": {
+          "dev": {
+            "ci_high": 0.5656012499999999,
+            "ci_low": 0.54969875,
+            "mean": 0.55755,
+            "std": 0.02843938236649585
+          },
+          "test_contradiction": {
+            "ci_high": 0.5639025000000001,
+            "ci_low": 0.5296974999999999,
+            "mean": 0.5454000000000001,
+            "std": 0.061898864187924334
+          },
+          "test_longer": {
+            "ci_high": 0.5006666666666666,
+            "ci_low": 0.49993333333333334,
+            "mean": 0.5002666666666666,
+            "std": 0.0013196577581477166
+          },
+          "test_novel_combination": {
+            "ci_high": 0.5144525,
+            "ci_low": 0.5054500000000001,
+            "mean": 0.5098999999999999,
+            "std": 0.01637382181460171
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.5174,
+            "ci_low": 0.5043,
+            "mean": 0.5106,
+            "std": 0.024756776025639398
+          },
+          "train": {
+            "ci_high": 0.5662134375,
+            "ci_low": 0.5502125,
+            "mean": 0.5580124999999999,
+            "std": 0.029267658305783227
+          }
+        },
+        "nexus_truth": {
+          "dev": {
+            "ci_high": 0.5270999999999999,
+            "ci_low": 0.51534875,
+            "mean": 0.52095,
+            "std": 0.022026711520518986
+          },
+          "test_contradiction": {
+            "ci_high": 0.5337025000000001,
+            "ci_low": 0.51,
+            "mean": 0.5207,
+            "std": 0.04321292795978007
+          },
+          "test_longer": {
+            "ci_high": 0.501,
+            "ci_low": 0.49993333333333334,
+            "mean": 0.5004,
+            "std": 0.0019794866372215814
+          },
+          "test_novel_combination": {
+            "ci_high": 0.50595,
+            "ci_low": 0.50105,
+            "mean": 0.5034,
+            "std": 0.0089750220282829
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.5146999999999999,
+            "ci_low": 0.5044,
+            "mean": 0.509,
+            "std": 0.019325356083526694
+          },
+          "train": {
+            "ci_high": 0.528238125,
+            "ci_low": 0.515924375,
+            "mean": 0.5216250000000001,
+            "std": 0.02233927857713715
+          }
+        }
+      },
+      "N_200": {
+        "baseline_c_no_revision": {
+          "dev": {
+            "ci_high": 0.8215012499999998,
+            "ci_low": 0.7664487500000001,
+            "mean": 0.7935,
+            "std": 0.10115909877666035
+          },
+          "test_contradiction": {
+            "ci_high": 0.8047099999999999,
+            "ci_low": 0.7402949999999999,
+            "mean": 0.7724,
+            "std": 0.11369149089549672
+          },
+          "test_longer": {
+            "ci_high": 0.753735,
+            "ci_low": 0.6831299999999998,
+            "mean": 0.7170666666666666,
+            "std": 0.1284702247194103
+          },
+          "test_novel_combination": {
+            "ci_high": 0.8042562500000001,
+            "ci_low": 0.7451987499999999,
+            "mean": 0.7739,
+            "std": 0.1092543839310957
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.7904099999999998,
+            "ci_low": 0.7224975,
+            "mean": 0.7564000000000002,
+            "std": 0.1239899600938787
+          },
+          "train": {
+            "ci_high": 0.8282265625000002,
+            "ci_low": 0.7708025000000002,
+            "mean": 0.7983375000000001,
+            "std": 0.10408130422429675
+          }
+        },
+        "baseline_d_pos_cs": {
+          "dev": {
+            "ci_high": 0.9443024999999999,
+            "ci_low": 0.8967462500000002,
+            "mean": 0.92065,
+            "std": 0.08641795979719843
+          },
+          "test_contradiction": {
+            "ci_high": 0.898905,
+            "ci_low": 0.7827950000000001,
+            "mean": 0.8455000000000001,
+            "std": 0.20748063592951096
+          },
+          "test_longer": {
+            "ci_high": 0.7969999999999999,
+            "ci_low": 0.7079249999999999,
+            "mean": 0.7521333333333332,
+            "std": 0.16337811408896025
+          },
+          "test_novel_combination": {
+            "ci_high": 0.9142575,
+            "ci_low": 0.8405437499999999,
+            "mean": 0.8794,
+            "std": 0.13032392923255592
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9307025000000001,
+            "ci_low": 0.8729,
+            "mean": 0.9026000000000002,
+            "std": 0.10352580275822397
+          },
+          "train": {
+            "ci_high": 0.9481896875,
+            "ci_low": 0.903111875,
+            "mean": 0.9265000000000001,
+            "std": 0.08032062662370414
+          }
+        },
+        "baseline_f_given_lexicon": {
+          "dev": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_combination": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "train": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          }
+        },
+        "baseline_f_given_syntax": {
+          "dev": {
+            "ci_high": 0.75,
+            "ci_low": 0.7489,
+            "mean": 0.7496,
+            "std": 0.002492846909516444
+          },
+          "test_contradiction": {
+            "ci_high": 0.7578025000000003,
+            "ci_low": 0.7457975,
+            "mean": 0.7519999999999999,
+            "std": 0.02267786838055365
+          },
+          "test_longer": {
+            "ci_high": 0.6914,
+            "ci_low": 0.6821316666666666,
+            "mean": 0.6866666666666665,
+            "std": 0.016996731711975948
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7552,
+            "ci_low": 0.7456999999999999,
+            "mean": 0.7503,
+            "std": 0.017420665654237628
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9110025,
+            "ci_low": 0.8442974999999999,
+            "mean": 0.8780000000000001,
+            "std": 0.12443750992988818
+          },
+          "train": {
+            "ci_high": 0.750688125,
+            "ci_low": 0.7451625000000002,
+            "mean": 0.7479375,
+            "std": 0.010038390911487598
+          }
+        },
+        "nexus_both": {
+          "dev": {
+            "ci_high": 0.75,
+            "ci_low": 0.7485987500000001,
+            "mean": 0.7494500000000001,
+            "std": 0.0026864170812987754
+          },
+          "test_contradiction": {
+            "ci_high": 0.7578025000000003,
+            "ci_low": 0.7457975,
+            "mean": 0.7519999999999999,
+            "std": 0.02267786838055365
+          },
+          "test_longer": {
+            "ci_high": 0.6908,
+            "ci_low": 0.6795333333333333,
+            "mean": 0.6853333333333333,
+            "std": 0.021006423809631216
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7543499999999999,
+            "ci_low": 0.7434999999999999,
+            "mean": 0.74905,
+            "std": 0.019748998941305183
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9110025,
+            "ci_low": 0.8442974999999999,
+            "mean": 0.8780000000000001,
+            "std": 0.12443750992988818
+          },
+          "train": {
+            "ci_high": 0.7504000000000001,
+            "ci_low": 0.7445871874999999,
+            "mean": 0.7474875,
+            "std": 0.010391330582534185
+          }
+        },
+        "nexus_cooc": {
+          "dev": {
+            "ci_high": 0.73065,
+            "ci_low": 0.7056487499999999,
+            "mean": 0.7182999999999999,
+            "std": 0.04639405310236761
+          },
+          "test_contradiction": {
+            "ci_high": 0.7415,
+            "ci_low": 0.6982975,
+            "mean": 0.7206999999999999,
+            "std": 0.07953314031372875
+          },
+          "test_longer": {
+            "ci_high": 0.647135,
+            "ci_low": 0.6111333333333333,
+            "mean": 0.6294000000000001,
+            "std": 0.06867614359013396
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7038512499999998,
+            "ci_low": 0.6641487500000001,
+            "mean": 0.6847000000000001,
+            "std": 0.07167749483140522
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8299025,
+            "ci_low": 0.7609949999999999,
+            "mean": 0.7944999999999999,
+            "std": 0.12758850469619998
+          },
+          "train": {
+            "ci_high": 0.731763125,
+            "ci_low": 0.6976746875,
+            "mean": 0.7157875,
+            "std": 0.061043854729654
+          }
+        },
+        "nexus_truth": {
+          "dev": {
+            "ci_high": 0.7043025,
+            "ci_low": 0.6788987500000002,
+            "mean": 0.6916499999999999,
+            "std": 0.0473900715081864
+          },
+          "test_contradiction": {
+            "ci_high": 0.6842,
+            "ci_low": 0.6360000000000001,
+            "mean": 0.6605,
+            "std": 0.09054962558662268
+          },
+          "test_longer": {
+            "ci_high": 0.6168016666666666,
+            "ci_low": 0.578595,
+            "mean": 0.5977333333333333,
+            "std": 0.07026816144223252
+          },
+          "test_novel_combination": {
+            "ci_high": 0.6872499999999998,
+            "ci_low": 0.6448,
+            "mean": 0.6661,
+            "std": 0.07463031336842547
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.7978025000000002,
+            "ci_low": 0.7371949999999998,
+            "mean": 0.7663000000000001,
+            "std": 0.10987381445112761
+          },
+          "train": {
+            "ci_high": 0.7066390624999999,
+            "ci_low": 0.6810721875,
+            "mean": 0.69395,
+            "std": 0.04785088578499006
+          }
+        }
+      },
+      "N_400": {
+        "baseline_c_no_revision": {
+          "dev": {
+            "ci_high": 0.81750125,
+            "ci_low": 0.76484125,
+            "mean": 0.78935,
+            "std": 0.09732756861365077
+          },
+          "test_contradiction": {
+            "ci_high": 0.7963100000000001,
+            "ci_low": 0.735795,
+            "mean": 0.7664,
+            "std": 0.112063393138137
+          },
+          "test_longer": {
+            "ci_high": 0.7476666666666665,
+            "ci_low": 0.6800666666666666,
+            "mean": 0.7121999999999999,
+            "std": 0.12788814911791965
+          },
+          "test_novel_combination": {
+            "ci_high": 0.80105875,
+            "ci_low": 0.7435837500000001,
+            "mean": 0.7711000000000001,
+            "std": 0.10811011015796508
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8102025000000002,
+            "ci_low": 0.7542975,
+            "mean": 0.7807999999999999,
+            "std": 0.10183700462113014
+          },
+          "train": {
+            "ci_high": 0.8203003125,
+            "ci_low": 0.7684915625000001,
+            "mean": 0.79295,
+            "std": 0.0979266111609576
+          }
+        },
+        "baseline_d_pos_cs": {
+          "dev": {
+            "ci_high": 0.96750125,
+            "ci_low": 0.9319475,
+            "mean": 0.95005,
+            "std": 0.06351821609200155
+          },
+          "test_contradiction": {
+            "ci_high": 0.9060074999999999,
+            "ci_low": 0.7891924999999999,
+            "mean": 0.8511,
+            "std": 0.2111733256578296
+          },
+          "test_longer": {
+            "ci_high": 0.811605,
+            "ci_low": 0.7269933333333332,
+            "mean": 0.7697333333333334,
+            "std": 0.15457474397172039
+          },
+          "test_novel_combination": {
+            "ci_high": 0.93955,
+            "ci_low": 0.8776462500000001,
+            "mean": 0.90935,
+            "std": 0.11526678238958948
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9529025,
+            "ci_low": 0.9038900000000001,
+            "mean": 0.9279999999999999,
+            "std": 0.0903338479288503
+          },
+          "train": {
+            "ci_high": 0.969763125,
+            "ci_low": 0.9390496875000002,
+            "mean": 0.95435,
+            "std": 0.0566545767915406
+          }
+        },
+        "baseline_f_given_lexicon": {
+          "dev": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_longer": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_combination": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "train": {
+            "ci_high": 1.0,
+            "ci_low": 1.0,
+            "mean": 1.0,
+            "std": 0.0
+          }
+        },
+        "baseline_f_given_syntax": {
+          "dev": {
+            "ci_high": 0.75,
+            "ci_low": 0.75,
+            "mean": 0.75,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 0.7578025000000003,
+            "ci_low": 0.7457975,
+            "mean": 0.7519999999999999,
+            "std": 0.02267786838055365
+          },
+          "test_longer": {
+            "ci_high": 0.6914,
+            "ci_low": 0.6821316666666666,
+            "mean": 0.6866666666666665,
+            "std": 0.016996731711975948
+          },
+          "test_novel_combination": {
+            "ci_high": 0.75620125,
+            "ci_low": 0.7465999999999999,
+            "mean": 0.7512000000000001,
+            "std": 0.0176432909142743
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9110025,
+            "ci_low": 0.8442974999999999,
+            "mean": 0.8780000000000001,
+            "std": 0.12443750992988818
+          },
+          "train": {
+            "ci_high": 0.7510378125,
+            "ci_low": 0.7456496875000002,
+            "mean": 0.74835,
+            "std": 0.009758532373345528
+          }
+        },
+        "nexus_both": {
+          "dev": {
+            "ci_high": 0.75,
+            "ci_low": 0.75,
+            "mean": 0.75,
+            "std": 0.0
+          },
+          "test_contradiction": {
+            "ci_high": 0.7578025000000003,
+            "ci_low": 0.7457975,
+            "mean": 0.7519999999999999,
+            "std": 0.02267786838055365
+          },
+          "test_longer": {
+            "ci_high": 0.6914,
+            "ci_low": 0.6821316666666666,
+            "mean": 0.6866666666666665,
+            "std": 0.016996731711975948
+          },
+          "test_novel_combination": {
+            "ci_high": 0.75620125,
+            "ci_low": 0.7465999999999999,
+            "mean": 0.7512000000000001,
+            "std": 0.0176432909142743
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9110025,
+            "ci_low": 0.8442974999999999,
+            "mean": 0.8780000000000001,
+            "std": 0.12443750992988818
+          },
+          "train": {
+            "ci_high": 0.7510378125,
+            "ci_low": 0.7456496875000002,
+            "mean": 0.74835,
+            "std": 0.009758532373345528
+          }
+        },
+        "nexus_cooc": {
+          "dev": {
+            "ci_high": 0.73945125,
+            "ci_low": 0.7195487500000001,
+            "mean": 0.7298500000000001,
+            "std": 0.037845045236854884
+          },
+          "test_contradiction": {
+            "ci_high": 0.7510999999999999,
+            "ci_low": 0.7111975,
+            "mean": 0.7325999999999999,
+            "std": 0.07259223548742127
+          },
+          "test_longer": {
+            "ci_high": 0.6632016666666666,
+            "ci_low": 0.6330666666666667,
+            "mean": 0.6489333333333334,
+            "std": 0.05630915634632944
+          },
+          "test_novel_combination": {
+            "ci_high": 0.7253012500000001,
+            "ci_low": 0.69414875,
+            "mean": 0.71005,
+            "std": 0.057900094286342456
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8495049999999998,
+            "ci_low": 0.7882975,
+            "mean": 0.8188000000000001,
+            "std": 0.11665210793515171
+          },
+          "train": {
+            "ci_high": 0.74738875,
+            "ci_low": 0.72094875,
+            "mean": 0.734675,
+            "std": 0.04579186358304456
+          }
+        },
+        "nexus_truth": {
+          "dev": {
+            "ci_high": 0.70810375,
+            "ci_low": 0.68504625,
+            "mean": 0.6969,
+            "std": 0.04294205873224134
+          },
+          "test_contradiction": {
+            "ci_high": 0.6876025000000001,
+            "ci_low": 0.6404974999999999,
+            "mean": 0.6642,
+            "std": 0.08897007063832059
+          },
+          "test_longer": {
+            "ci_high": 0.6187999999999999,
+            "ci_low": 0.5823983333333334,
+            "mean": 0.6002666666666666,
+            "std": 0.06663890578462657
+          },
+          "test_novel_combination": {
+            "ci_high": 0.6872,
+            "ci_low": 0.6488487500000001,
+            "mean": 0.66775,
+            "std": 0.07091107178742129
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.8057025000000001,
+            "ci_low": 0.7401000000000001,
+            "mean": 0.7731,
+            "std": 0.12262806716711658
+          },
+          "train": {
+            "ci_high": 0.7086878124999999,
+            "ci_low": 0.6828250000000001,
+            "mean": 0.6960999999999999,
+            "std": 0.044602403099439594
+          }
+        }
+      },
+      "N_50": {
+        "baseline_c_no_revision": {
+          "dev": {
+            "ci_high": 0.7299999999999999,
+            "ci_low": 0.6772474999999999,
+            "mean": 0.70265,
+            "std": 0.09886009749919843
+          },
+          "test_contradiction": {
+            "ci_high": 0.598505,
+            "ci_low": 0.47668750000000004,
+            "mean": 0.5352999999999999,
+            "std": 0.21954361288633215
+          },
+          "test_longer": {
+            "ci_high": 0.6336016666666666,
+            "ci_low": 0.5679966666666666,
+            "mean": 0.5986,
+            "std": 0.12023802923147646
+          },
+          "test_novel_combination": {
+            "ci_high": 0.69495125,
+            "ci_low": 0.6353462500000001,
+            "mean": 0.6647500000000001,
+            "std": 0.11010807538644077
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.6821075,
+            "ci_low": 0.611,
+            "mean": 0.6465000000000001,
+            "std": 0.12932813037434063
+          },
+          "train": {
+            "ci_high": 0.7386428125000001,
+            "ci_low": 0.6799728125,
+            "mean": 0.708275,
+            "std": 0.10171759625431138
+          }
+        },
+        "baseline_d_pos_cs": {
+          "dev": {
+            "ci_high": 0.67845,
+            "ci_low": 0.6267987500000001,
+            "mean": 0.6519999999999999,
+            "std": 0.09601631451509281
+          },
+          "test_contradiction": {
+            "ci_high": 0.7628075,
+            "ci_low": 0.6687949999999999,
+            "mean": 0.7175999999999999,
+            "std": 0.17153342031719152
+          },
+          "test_longer": {
+            "ci_high": 0.5490016666666667,
+            "ci_low": 0.5214,
+            "mean": 0.5341333333333335,
+            "std": 0.049900399663943724
+          },
+          "test_novel_combination": {
+            "ci_high": 0.611405,
+            "ci_low": 0.56754375,
+            "mean": 0.5887,
+            "std": 0.08304203508968655
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.6803049999999998,
+            "ci_low": 0.6237999999999999,
+            "mean": 0.6510000000000001,
+            "std": 0.09925230681532426
+          },
+          "train": {
+            "ci_high": 0.6910518750000001,
+            "ci_low": 0.6347615625,
+            "mean": 0.66165,
+            "std": 0.09847504021790683
+          }
+        },
+        "baseline_f_given_lexicon": {
+          "dev": {
+            "ci_high": 0.9564524999999999,
+            "ci_low": 0.92154375,
+            "mean": 0.9394,
+            "std": 0.06240004251699231
+          },
+          "test_contradiction": {
+            "ci_high": 0.9978999999999999,
+            "ci_low": 0.9863974999999998,
+            "mean": 0.9927000000000001,
+            "std": 0.02114599397579811
+          },
+          "test_longer": {
+            "ci_high": 0.87574,
+            "ci_low": 0.791785,
+            "mean": 0.8336,
+            "std": 0.15458207867543716
+          },
+          "test_novel_combination": {
+            "ci_high": 0.9388512499999999,
+            "ci_low": 0.894645,
+            "mean": 0.9175500000000001,
+            "std": 0.08472869366756604
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.9640025000000001,
+            "ci_low": 0.9269000000000002,
+            "mean": 0.9458000000000001,
+            "std": 0.06531212344877292
+          },
+          "train": {
+            "ci_high": 0.9553503124999999,
+            "ci_low": 0.92171,
+            "mean": 0.938825,
+            "std": 0.06170988327551391
+          }
+        },
+        "baseline_f_given_syntax": {
+          "dev": {
+            "ci_high": 0.7005512499999998,
+            "ci_low": 0.6691462499999999,
+            "mean": 0.6855,
+            "std": 0.05886251709167174
+          },
+          "test_contradiction": {
+            "ci_high": 0.7435025000000001,
+            "ci_low": 0.7256,
+            "mean": 0.7348,
+            "std": 0.03252879415194471
+          },
+          "test_longer": {
+            "ci_high": 0.623735,
+            "ci_low": 0.5907983333333333,
+            "mean": 0.6074,
+            "std": 0.06069622513823859
+          },
+          "test_novel_combination": {
+            "ci_high": 0.6811999999999999,
+            "ci_low": 0.64454625,
+            "mean": 0.6628000000000001,
+            "std": 0.06768896452426604
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.7741025000000001,
+            "ci_low": 0.7004875,
+            "mean": 0.7375,
+            "std": 0.13348641297517733
+          },
+          "train": {
+            "ci_high": 0.7097265624999999,
+            "ci_low": 0.6771484374999998,
+            "mean": 0.6947375,
+            "std": 0.058717980038885356
+          }
+        },
+        "nexus_both": {
+          "dev": {
+            "ci_high": 0.6708,
+            "ci_low": 0.6397987500000001,
+            "mean": 0.6557000000000001,
+            "std": 0.057841796906629335
+          },
+          "test_contradiction": {
+            "ci_high": 0.7234,
+            "ci_low": 0.6929000000000001,
+            "mean": 0.7089,
+            "std": 0.05650799112713607
+          },
+          "test_longer": {
+            "ci_high": 0.5691999999999999,
+            "ci_low": 0.5441316666666667,
+            "mean": 0.5562666666666667,
+            "std": 0.04664061469122711
+          },
+          "test_novel_combination": {
+            "ci_high": 0.6423612499999999,
+            "ci_low": 0.6080475000000001,
+            "mean": 0.62505,
+            "std": 0.06403022644001179
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.6952049999999999,
+            "ci_low": 0.6146975,
+            "mean": 0.6548999999999999,
+            "std": 0.1454005375730455
+          },
+          "train": {
+            "ci_high": 0.6799171874999999,
+            "ci_low": 0.64592375,
+            "mean": 0.6631374999999999,
+            "std": 0.05985333504125919
+          }
+        },
+        "nexus_cooc": {
+          "dev": {
+            "ci_high": 0.6776525,
+            "ci_low": 0.64724875,
+            "mean": 0.6615000000000001,
+            "std": 0.05541586746904662
+          },
+          "test_contradiction": {
+            "ci_high": 0.6845024999999999,
+            "ci_low": 0.6253974999999999,
+            "mean": 0.6548,
+            "std": 0.10899803405828669
+          },
+          "test_longer": {
+            "ci_high": 0.56334,
+            "ci_low": 0.529,
+            "mean": 0.5460666666666667,
+            "std": 0.06404607893350982
+          },
+          "test_novel_combination": {
+            "ci_high": 0.61445125,
+            "ci_low": 0.57094875,
+            "mean": 0.5916,
+            "std": 0.07747244408069708
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.6324000000000001,
+            "ci_low": 0.5786975,
+            "mean": 0.605,
+            "std": 0.09620344089904648
+          },
+          "train": {
+            "ci_high": 0.6712503125,
+            "ci_low": 0.633299375,
+            "mean": 0.6518999999999999,
+            "std": 0.06857560906155528
+          }
+        },
+        "nexus_truth": {
+          "dev": {
+            "ci_high": 0.5946087500000001,
+            "ci_low": 0.5622974999999999,
+            "mean": 0.5786,
+            "std": 0.05741044490050107
+          },
+          "test_contradiction": {
+            "ci_high": 0.634,
+            "ci_low": 0.581095,
+            "mean": 0.6073000000000001,
+            "std": 0.09399419217837508
+          },
+          "test_longer": {
+            "ci_high": 0.5185350000000001,
+            "ci_low": 0.5061333333333333,
+            "mean": 0.5118666666666667,
+            "std": 0.022336937469362363
+          },
+          "test_novel_combination": {
+            "ci_high": 0.5628012499999999,
+            "ci_low": 0.5330975,
+            "mean": 0.5472,
+            "std": 0.05379628998663879
+          },
+          "test_novel_word_in_known_frame": {
+            "ci_high": 0.6069025,
+            "ci_low": 0.5474925,
+            "mean": 0.5761999999999999,
+            "std": 0.10831058892587274
+          },
+          "train": {
+            "ci_high": 0.60003,
+            "ci_low": 0.5665990625,
+            "mean": 0.58245,
+            "std": 0.058561606319276094
+          }
+        }
+      }
+    }
+  },
+  "task3_beam_and_commitment": {
+    "baseline_c_commit_after_n_sensitivity_dev": {
+      "commit_after_12": {
+        "dev": {
+          "ci_high": 0.81550125,
+          "ci_low": 0.7500999999999999,
+          "mean": 0.7824500000000001,
+          "std": 0.1178425207379643
+        },
+        "train": {
+          "ci_high": 0.8261503124999999,
+          "ci_low": 0.759435625,
+          "mean": 0.791475,
+          "std": 0.1196515028859109
+        }
+      },
+      "commit_after_24": {
+        "dev": {
+          "ci_high": 0.90845375,
+          "ci_low": 0.8476,
+          "mean": 0.8771,
+          "std": 0.11310028058934139
+        },
+        "train": {
+          "ci_high": 0.9090140624999999,
+          "ci_low": 0.8483087500000001,
+          "mean": 0.8777124999999999,
+          "std": 0.11246148788086324
+        }
+      },
+      "commit_after_4": {
+        "dev": {
+          "ci_high": 0.57855625,
+          "ci_low": 0.54534875,
+          "mean": 0.5620999999999999,
+          "std": 0.05999438749260005
+        },
+        "train": {
+          "ci_high": 0.5809309375000001,
+          "ci_low": 0.5508990625000001,
+          "mean": 0.5663999999999999,
+          "std": 0.05468493944442853
+        }
+      },
+      "commit_after_48": {
+        "dev": {
+          "ci_high": 0.98665125,
+          "ci_low": 0.94399875,
+          "mean": 0.9660000000000001,
+          "std": 0.07912789956643561
+        },
+        "train": {
+          "ci_high": 0.9870387500000001,
+          "ci_low": 0.9442593750000001,
+          "mean": 0.9661,
+          "std": 0.07862716772911282
+        }
+      },
+      "commit_after_8": {
+        "dev": {
+          "ci_high": 0.74665125,
+          "ci_low": 0.67919875,
+          "mean": 0.7122999999999999,
+          "std": 0.11843240559018275
+        },
+        "train": {
+          "ci_high": 0.75641375,
+          "ci_low": 0.6882449999999999,
+          "mean": 0.7214500000000001,
+          "std": 0.12105143903670515
+        }
+      }
+    },
+    "garden_path_overall_dev": {
+      "K_1": {
+        "ci_high": 0.6421012500000001,
+        "ci_low": 0.6364987500000001,
+        "mean": 0.6393,
+        "std": 0.010583005244258365
+      },
+      "K_200": {
+        "ci_high": 0.653,
+        "ci_low": 0.6476500000000001,
+        "mean": 0.6504499999999999,
+        "std": 0.009618885547903855
+      },
+      "K_5": {
+        "ci_high": 0.6523012499999999,
+        "ci_low": 0.6477987499999999,
+        "mean": 0.65015,
+        "std": 0.008457728020296365
+      },
+      "K_50": {
+        "ci_high": 0.65310125,
+        "ci_low": 0.64829875,
+        "mean": 0.65075,
+        "std": 0.009122885553174866
+      }
+    },
+    "garden_path_target_K200_minus_K1": {
+      "ci_high": 0.1080375190626142,
+      "ci_low": 0.07527263704577947,
+      "mean": 0.09153403082116278,
+      "std": 0.05895506470491923
+    },
+    "garden_path_target_K5_minus_K1": {
+      "ci_high": 0.094690322677302,
+      "ci_low": 0.063786312686925,
+      "mean": 0.07888814924424671,
+      "std": 0.05624280944325244
+    },
+    "garden_path_target_word_dev": {
+      "K_1": {
+        "ci_high": 0.5099240298905627,
+        "ci_low": 0.4916322620898481,
+        "mean": 0.5007476914946221,
+        "std": 0.03447481539134096
+      },
+      "K_200": {
+        "ci_high": 0.6062446799747152,
+        "ci_low": 0.5793658244124181,
+        "mean": 0.5922817223157848,
+        "std": 0.04926580389026796
+      },
+      "K_5": {
+        "ci_high": 0.5913404326284485,
+        "ci_low": 0.5677029944822534,
+        "mean": 0.5796358407388688,
+        "std": 0.042275030515538145
+      },
+      "K_50": {
+        "ci_high": 0.604021069297621,
+        "ci_low": 0.5781048166688448,
+        "mean": 0.5908531508872134,
+        "std": 0.047724068997258486
+      }
+    },
+    "standard_order_K200_minus_K1": {
+      "ci_high": 0.008550000000000009,
+      "ci_low": -0.004099999999999984,
+      "mean": 0.001550000000000009,
+      "std": 0.022513544675984515
+    },
+    "standard_order_N100_dev": {
+      "K_1": {
+        "ci_high": 0.73225,
+        "ci_low": 0.7162487500000001,
+        "mean": 0.72435,
+        "std": 0.02855718394908785
+      },
+      "K_200": {
+        "ci_high": 0.7330500000000001,
+        "ci_low": 0.7186987499999999,
+        "mean": 0.7259000000000002,
+        "std": 0.026595802952606593
+      },
+      "K_5": {
+        "ci_high": 0.73600125,
+        "ci_low": 0.7216,
+        "mean": 0.7289500000000001,
+        "std": 0.02606452941983705
+      },
+      "K_50": {
+        "ci_high": 0.7349999999999999,
+        "ci_low": 0.7212999999999999,
+        "mean": 0.7282000000000001,
+        "std": 0.02531958989899049
+      }
+    }
+  },
+  "task4_mdl_variable_length": {
+    "world_4a_filler_null_words": {
+      "flat": {
+        "dev_accuracy": {
+          "ci_high": 0.69065375,
+          "ci_low": 0.6517474999999999,
+          "mean": 0.6720999999999999,
+          "std": 0.07074198591662924
+        },
+        "model_size": {
+          "ci_high": 14.16,
+          "ci_low": 13.76,
+          "mean": 13.96,
+          "std": 0.754848275064166
+        }
+      },
+      "linear": {
+        "dev_accuracy": {
+          "ci_high": 0.6942512500000001,
+          "ci_low": 0.65684625,
+          "mean": 0.6760499999999999,
+          "std": 0.06866268109759627
+        },
+        "model_size": {
+          "ci_high": 13.34,
+          "ci_low": 12.86,
+          "mean": 13.1,
+          "std": 0.8630747123996123
+        }
+      },
+      "log2_bits": {
+        "dev_accuracy": {
+          "ci_high": 0.73370125,
+          "ci_low": 0.70689875,
+          "mean": 0.72175,
+          "std": 0.04687219379355322
+        },
+        "model_size": {
+          "ci_high": 12.54,
+          "ci_low": 12.26,
+          "mean": 12.4,
+          "std": 0.4948716593053935
+        }
+      }
+    },
+    "world_4a_log2_minus_flat_dev": {
+      "ci_high": 0.0674,
+      "ci_low": 0.03249875,
+      "mean": 0.04965,
+      "std": 0.06043635968048185
+    },
+    "world_4b_homonym_multi_sense": {
+      "flat": {
+        "dev_accuracy": {
+          "ci_high": 0.6561,
+          "ci_low": 0.6494987500000001,
+          "mean": 0.6527000000000001,
+          "std": 0.012503468906422635
+        },
+        "model_size": {
+          "ci_high": 17.42,
+          "ci_low": 17.0195,
+          "mean": 17.2,
+          "std": 0.7559289460184544
+        }
+      },
+      "linear": {
+        "dev_accuracy": {
+          "ci_high": 0.6568512500000001,
+          "ci_low": 0.6499487500000001,
+          "mean": 0.6534,
+          "std": 0.013110207893866844
+        },
+        "model_size": {
+          "ci_high": 17.24,
+          "ci_low": 16.78,
+          "mean": 17.0,
+          "std": 0.8081220356417685
+        }
+      },
+      "log2_bits": {
+        "dev_accuracy": {
+          "ci_high": 0.6515512499999999,
+          "ci_low": 0.64435,
+          "mean": 0.6480000000000001,
+          "std": 0.014087916373797171
+        },
+        "model_size": {
+          "ci_high": 13.32,
+          "ci_low": 12.64,
+          "mean": 12.96,
+          "std": 1.2115094312636678
+        }
+      }
+    },
+    "world_4b_log2_minus_flat_dev": {
+      "ci_high": -0.001000000000000003,
+      "ci_low": -0.008400000000000001,
+      "mean": -0.004700000000000006,
+      "std": 0.014406985267216597
+    },
+    "world_4c_log2_minus_flat_dev": {
+      "ci_high": 0.0,
+      "ci_low": 0.0,
+      "mean": 0.0,
+      "std": 0.0
+    },
+    "world_4c_synonyms": {
+      "flat": {
+        "dev_accuracy": {
+          "ci_high": 0.65735,
+          "ci_low": 0.6528000000000002,
+          "mean": 0.6551,
+          "std": 0.008405537533346089
+        },
+        "model_size": {
+          "ci_high": 18.0,
+          "ci_low": 18.0,
+          "mean": 18.0,
+          "std": 0.0
+        }
+      },
+      "linear": {
+        "dev_accuracy": {
+          "ci_high": 0.65735,
+          "ci_low": 0.6528000000000002,
+          "mean": 0.6551,
+          "std": 0.008405537533346089
+        },
+        "model_size": {
+          "ci_high": 18.0,
+          "ci_low": 18.0,
+          "mean": 18.0,
+          "std": 0.0
+        }
+      },
+      "log2_bits": {
+        "dev_accuracy": {
+          "ci_high": 0.65735,
+          "ci_low": 0.6528000000000002,
+          "mean": 0.6551,
+          "std": 0.008405537533346089
+        },
+        "model_size": {
+          "ci_high": 18.0,
+          "ci_low": 18.0,
+          "mean": 18.0,
+          "std": 0.0
+        }
+      }
+    }
+  }
+}

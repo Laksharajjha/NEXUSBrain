@@ -829,9 +829,9 @@ class NEXUSLearner:
                                 partner_kind = best_noun_pred[other][0].split(":", 1)[1]
                         elif len(core) >= 3 and w in core:
                             idx = core.index(w)
-                            if cat == "N/N" and idx + 1 < len(core) and core[idx + 1] in likely_nouns:
+                            if cat == "N/N" and idx + 1 < len(core) and core[idx + 1] in likely_nouns and core[idx + 1] in best_noun_pred:
                                 partner_kind = best_noun_pred[core[idx + 1]][0].split(":", 1)[1]
-                            elif cat == "N\\N" and idx - 1 >= 0 and core[idx - 1] in likely_nouns:
+                            elif cat == "N\\N" and idx - 1 >= 0 and core[idx - 1] in likely_nouns and core[idx - 1] in best_noun_pred:
                                 partner_kind = best_noun_pred[core[idx - 1]][0].split(":", 1)[1]
 
                         if partner_kind is not None:
@@ -1628,6 +1628,9 @@ class NEXUSLearner:
                 obs_indices_by_word[t].append(idx)
 
         def obs_ll(truth_eval: bool | None, label: bool) -> float:
+            if self.evidence_channel == "legacy":
+                hit = truth_eval is not None and truth_eval == label
+                return log_hit if hit else log_miss
             if truth_eval is None:
                 return log_unparsed
             return log_hit if (truth_eval == label) else log_miss

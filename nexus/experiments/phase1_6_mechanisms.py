@@ -370,9 +370,28 @@ def run_task1_evidence_channels(
 # ----------------------------------------------------------------------
 
 
+def grammar_clause_order(grammar: Any) -> str:
+    """Derive SOV/SVO/VSO from the ``trans_assert`` construction template."""
+    tpl = tuple(grammar.constructions["trans_assert"].template)
+    mapping = {
+        ("NP_subj", "NP_obj", "VERB"): "SOV",
+        ("NP_subj", "VERB", "NP_obj"): "SVO",
+        ("VERB", "NP_subj", "NP_obj"): "VSO",
+    }
+    return mapping.get(tpl, "OTHER")
+
+
+def grammar_question_pos(grammar: Any) -> str:
+    """Derive question particle position from the ``np_ask`` construction template."""
+    tpl = tuple(grammar.constructions["np_ask"].template)
+    return "initial" if tpl and tpl[0] == "Q" else "final"
+
+
 def _build_given_lexicon_and_syntax(ds: Dataset, config: WorldConfig) -> tuple[dict[str, str], dict[str, str]]:
     assert ds.grammar is not None
     g = ds.grammar
+    clause_order = grammar_clause_order(g)
+    question_pos = grammar_question_pos(g)
     lex = g.lexicon
     sym_rels = config.ontology.symmetric_relations
 
@@ -385,14 +404,14 @@ def _build_given_lexicon_and_syntax(ds: Dataset, config: WorldConfig) -> tuple[d
     color_cat = "N/N" if color_pos < noun_pos else "N\\N"
     size_cat = "N/N" if size_pos < noun_pos else "N\\N"
 
-    if g.clause_order == "SOV":
+    if clause_order == "SOV":
         verb_cat = "(S\\NP)\\NP"
-    elif g.clause_order == "SVO":
+    elif clause_order == "SVO":
         verb_cat = "(S\\NP)/NP"
     else:
         verb_cat = "(S/NP)/NP"
 
-    q_cat = "S/S" if g.question_pos == "initial" else "S\\S"
+    q_cat = "S/S" if question_pos == "initial" else "S\\S"
 
     for k in config.ontology.kinds:
         w = lex[f"kind:{k}"]
@@ -575,8 +594,8 @@ def run_task2_matched_n_comparison(
                 np_groups["uniform_postnominal"].append(acc_val)
             else:
                 np_groups["split_adj_noun_adj"].append(acc_val)
-            clause_groups[g.clause_order].append(acc_val)
-            q_groups[g.question_pos].append(acc_val)
+            clause_groups.setdefault(grammar_clause_order(g), []).append(acc_val)
+            q_groups[grammar_question_pos(g)].append(acc_val)
 
         breakdown[f"N_{n}"] = {
             "by_np_order": {
@@ -952,40 +971,91 @@ def run_task4_mdl_variable_length(
     }
 
 
-def run_all_phase1_6() -> dict[str, Any]:
+def run_all_phase1_6(
+    seed_start: int = 1000,
+    seed_end: int = 1050,
+    out_name: str = "phase1_6_mechanisms.json",
+) -> dict[str, Any]:
+    """Run Tasks 1..4. Each task's result is checkpointed to disk so a crash in a later
+    task never forces the fresh test splits to be re-evaluated for earlier tasks."""
+    global SEED_START, SEED_END
+    SEED_START, SEED_END = int(seed_start), int(seed_end)
     t0 = time.time()
     base_config = load_world_config()
     counter = Phase16EvalCounter()
+    out_dir = Path(__file__).resolve().parent / "results"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    ckpt_path = out_dir / f"{Path(out_name).stem}.checkpoint.json"
+    ckpt: dict[str, Any] = (
+        json.loads(ckpt_path.read_text(encoding="utf-8")) if ckpt_path.exists() else {}
+    )
+    if ckpt.get("seed_range") != [SEED_START, SEED_END - 1]:
+        ckpt = {"seed_range": [SEED_START, SEED_END - 1]}
 
-    print(f"[Phase 1.6] Building fresh datasets for 50 seeds ({SEED_START}..{SEED_END - 1})...", flush=True)
+    def save_ckpt() -> None:
+        ckpt["evaluation_counter_partial"] = {
+            "fresh_test_split_evaluations": counter.fresh_test_split_evaluations,
+            "dev_evaluations": counter.dev_evaluations,
+            "test_runs_by_task": counter.test_runs_by_task,
+        }
+        ckpt_path.write_text(json.dumps(ckpt, indent=2, sort_keys=True), encoding="utf-8")
+
+    n_seeds = SEED_END - SEED_START
+    print(f"[Phase 1.6] Building datasets for {n_seeds} seeds ({SEED_START}..{SEED_END - 1})...", flush=True)
     datasets: list[Dataset] = [
         build_dataset(base_config, derive_seed(s, "world"), world_mode="randomized")
         for s in range(SEED_START, SEED_END)
     ]
 
-    print("[Phase 1.6] Running Task 1: Separate the evidence channels...", flush=True)
-    t1_res = run_task1_evidence_channels(datasets, counter)
-    raw_clean_runs = t1_res.pop("raw_clean_runs")
+    if "task1" in ckpt:
+        print("[Phase 1.6] Task 1 loaded from checkpoint (not re-evaluated).", flush=True)
+        t1_res = ckpt["task1"]
+        raw_clean_runs = ckpt["task1_raw_clean_runs"]
+    else:
+        print("[Phase 1.6] Running Task 1: Separate the evidence channels...", flush=True)
+        t1_res = run_task1_evidence_channels(datasets, counter)
+        raw_clean_runs = t1_res.pop("raw_clean_runs")
+        ckpt["task1"] = t1_res
+        ckpt["task1_raw_clean_runs"] = raw_clean_runs
+        save_ckpt()
 
-    print("[Phase 1.6] Running Task 2: Matched-N comparison & grammar breakdown...", flush=True)
-    t2_res = run_task2_matched_n_comparison(datasets, base_config, counter, raw_clean_runs)
+    if "task2" in ckpt:
+        print("[Phase 1.6] Task 2 loaded from checkpoint (not re-evaluated).", flush=True)
+        t2_res = ckpt["task2"]
+    else:
+        print("[Phase 1.6] Running Task 2: Matched-N comparison & grammar breakdown...", flush=True)
+        t2_res = run_task2_matched_n_comparison(datasets, base_config, counter, raw_clean_runs)
+        ckpt["task2"] = t2_res
+        save_ckpt()
 
-    print("[Phase 1.6] Running Task 3: Beam width & commitment threshold sensitivity...", flush=True)
-    t3_res = run_task3_beam_and_commitment(datasets, counter)
+    if "task3" in ckpt:
+        t3_res = ckpt["task3"]
+    else:
+        print("[Phase 1.6] Running Task 3: Beam width & commitment threshold sensitivity...", flush=True)
+        t3_res = run_task3_beam_and_commitment(datasets, counter)
+        ckpt["task3"] = t3_res
+        save_ckpt()
 
-    print("[Phase 1.6] Running Task 4: Variable-length MDL prior comparison...", flush=True)
-    t4_res = run_task4_mdl_variable_length(datasets, base_config, counter)
+    if "task4" in ckpt:
+        t4_res = ckpt["task4"]
+    else:
+        print("[Phase 1.6] Running Task 4: Variable-length MDL prior comparison...", flush=True)
+        t4_res = run_task4_mdl_variable_length(datasets, base_config, counter)
+        ckpt["task4"] = t4_res
+        save_ckpt()
 
     elapsed = time.time() - t0
     results = {
         "phase": "1.6_exploratory_mechanisms",
+        "label": "EXPLORATORY",
         "seed_range": [SEED_START, SEED_END - 1],
-        "n_seeds": SEED_END - SEED_START,
+        "n_seeds": n_seeds,
         "elapsed_seconds": round(elapsed, 2),
         "evaluation_counter": {
             "fresh_test_split_evaluations": counter.fresh_test_split_evaluations,
             "dev_evaluations": counter.dev_evaluations,
             "test_runs_by_task": counter.test_runs_by_task,
+            "note": "Counts only this invocation; tasks loaded from checkpoint add 0.",
         },
         "task1_evidence_channels": t1_res,
         "task2_matched_n": t2_res,
@@ -993,18 +1063,22 @@ def run_all_phase1_6() -> dict[str, Any]:
         "task4_mdl_variable_length": t4_res,
     }
 
-    out_path = (
-        Path(__file__).resolve().parent / "results" / "phase1_6_mechanisms.json"
-    )
-    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / out_name
     out_path.write_text(json.dumps(results, indent=2, sort_keys=True), encoding="utf-8")
     print(
         f"[Phase 1.6] Complete in {elapsed:.1f}s. "
-        f"Fresh test split evaluations: {counter.fresh_test_split_evaluations}. "
-        f"Saved to {out_path}"
+        f"Test split evaluations this invocation: {counter.fresh_test_split_evaluations}. "
+        f"Saved to {out_path}",
+        flush=True,
     )
     return results
 
 
 if __name__ == "__main__":
-    run_all_phase1_6()
+    import sys
+
+    if len(sys.argv) >= 3:
+        # Smoke-test mode on burned seeds, e.g. ``python -m ... 0 2``
+        run_all_phase1_6(int(sys.argv[1]), int(sys.argv[2]), "phase1_6_smoke_burned.json")
+    else:
+        run_all_phase1_6()

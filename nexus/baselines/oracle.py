@@ -284,3 +284,83 @@ class CorrectedOracle(StubbornOracle):
                 best_pred = cand
         self.word_to_pred[self.target_word] = best_pred
 
+
+class RestructureOracle(Oracle):
+    """Oracle ceiling baseline for Phase 3 Restructuring worlds (W1-W5).
+
+    Knows ground-truth senses, synonyms, and exception sets, achieving ~100%
+    accuracy across train, dev, and test splits for all restructure worlds.
+    """
+
+    name: str = "restructure_oracle"
+
+    def __init__(
+        self,
+        grammar: GrammarConfig,
+        ontology: Ontology,
+        world_id: str,
+        meta: dict[str, Any] | None = None,
+        seed: int = 0,
+    ) -> None:
+        super().__init__(grammar, ontology, seed=seed)
+        self.world_id = world_id
+        self.meta = meta or {}
+        self.exception_keys: set[tuple[tuple[str, ...], str]] = set(
+            self.meta.get("exception_keys", ())
+        )
+        self._adapt_for_world()
+
+    def _adapt_for_world(self) -> None:
+        if self.world_id == "w3_merge":
+            # Map synonym word to target kind
+            w_syn = self.meta.get("word_syn")
+            k_target = self.meta.get("target_kind")
+            if w_syn and k_target:
+                self.word_to_pred[w_syn] = f"kind:{k_target}"
+
+    def predict(self, scene: Scene, tokens: tuple[str, ...]) -> Prediction:
+        # Check exception list for W2
+        key = (tokens, scene.canonical_key())
+        if self.world_id == "w2_exception" and key in self.exception_keys:
+            lf = self.parse(tokens)
+            base_truth = evaluate(lf, scene, self.symmetric)
+            truth = not base_truth  # Inverted exception label
+            return Prediction(p_true=1.0 if truth else 0.0, lf=lf)
+
+        if self.world_id in ("w1_split", "w5_exceptions_cannot_match"):
+            # Polysemous word form with multiple senses
+            w_shared = self.meta.get("shared_word")
+            target_kinds = self.meta.get("target_kinds")
+            if w_shared and target_kinds and w_shared in tokens:
+                k_a, k_b = target_kinds
+                self.word_to_pred[w_shared] = f"kind:{k_a}"
+                lf_a = self.parse(tokens)
+                t_a = evaluate(lf_a, scene, self.symmetric)
+                self.word_to_pred[w_shared] = f"kind:{k_b}"
+                lf_b = self.parse(tokens)
+                t_b = evaluate(lf_b, scene, self.symmetric)
+                truth = t_a or t_b
+                chosen_lf = lf_a if t_a else lf_b
+                return Prediction(p_true=1.0 if truth else 0.0, lf=chosen_lf)
+
+        if self.world_id == "w4_ambiguous":
+            w_amb = self.meta.get("ambiguous_word")
+            target_kinds = self.meta.get("target_kinds")
+            if w_amb and target_kinds and w_amb in tokens:
+                k_a, k_b = target_kinds
+                self.word_to_pred[w_amb] = f"kind:{k_a}"
+                lf_a = self.parse(tokens)
+                t_a = evaluate(lf_a, scene, self.symmetric)
+                self.word_to_pred[w_amb] = f"kind:{k_b}"
+                lf_b = self.parse(tokens)
+                t_b = evaluate(lf_b, scene, self.symmetric)
+                truth = t_a or t_b
+                chosen_lf = lf_a if t_a else lf_b
+                return Prediction(p_true=1.0 if truth else 0.0, lf=chosen_lf)
+
+        # Base parsing
+        lf = self.parse(tokens)
+        truth = evaluate(lf, scene, self.symmetric)
+        return Prediction(p_true=1.0 if truth else 0.0, lf=lf)
+
+
