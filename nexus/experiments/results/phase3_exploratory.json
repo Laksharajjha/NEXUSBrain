@@ -1,0 +1,247 @@
+{
+  "metadata": {
+    "description": "Stage P3-E Exploratory Analyses",
+    "fresh_seeds_noise": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009
+    ],
+    "fresh_seeds_sample_eff": [
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019
+    ]
+  },
+  "label_noise": {
+    "w1_split": {
+      "0.0": {
+        "noise_rate": 0.0,
+        "split_rate": 1.0,
+        "exception_rate": 0.0,
+        "acc_mean": 0.869,
+        "acc_std": 0.17512566916360378
+      },
+      "0.02": {
+        "noise_rate": 0.02,
+        "split_rate": 1.0,
+        "exception_rate": 0.0,
+        "acc_mean": 0.869,
+        "acc_std": 0.17512566916360378
+      },
+      "0.1": {
+        "noise_rate": 0.1,
+        "split_rate": 1.0,
+        "exception_rate": 0.0,
+        "acc_mean": 0.861,
+        "acc_std": 0.15082771628583388
+      },
+      "0.2": {
+        "noise_rate": 0.2,
+        "split_rate": 1.0,
+        "exception_rate": 0.0,
+        "acc_mean": 0.778,
+        "acc_std": 0.16092234151913154
+      }
+    },
+    "w2_exception": {
+      "0.0": {
+        "noise_rate": 0.0,
+        "split_rate": 0.4,
+        "exception_rate": 0.0,
+        "acc_mean": 0.966,
+        "acc_std": 0.06814690014960331
+      },
+      "0.02": {
+        "noise_rate": 0.02,
+        "split_rate": 0.4,
+        "exception_rate": 0.0,
+        "acc_mean": 0.984,
+        "acc_std": 0.04800000000000001
+      },
+      "0.1": {
+        "noise_rate": 0.1,
+        "split_rate": 0.6,
+        "exception_rate": 0.0,
+        "acc_mean": 0.9969999999999999,
+        "acc_std": 0.006403124237432854
+      },
+      "0.2": {
+        "noise_rate": 0.2,
+        "split_rate": 0.6,
+        "exception_rate": 0.0,
+        "acc_mean": 0.967,
+        "acc_std": 0.06356886030125128
+      }
+    }
+  },
+  "sample_efficiency": {
+    "split": {
+      "10": {
+        "n_samples": 10,
+        "trigger_rate": 0.55,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "20": {
+        "n_samples": 20,
+        "trigger_rate": 0.55,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "30": {
+        "n_samples": 30,
+        "trigger_rate": 0.45,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "40": {
+        "n_samples": 40,
+        "trigger_rate": 0.6,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "50": {
+        "n_samples": 50,
+        "trigger_rate": 0.6,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "60": {
+        "n_samples": 60,
+        "trigger_rate": 0.65,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "70": {
+        "n_samples": 70,
+        "trigger_rate": 0.65,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "80": {
+        "n_samples": 80,
+        "trigger_rate": 0.7,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      }
+    },
+    "exception": {
+      "10": {
+        "n_samples": 10,
+        "trigger_rate": 0.0,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "20": {
+        "n_samples": 20,
+        "trigger_rate": 0.0,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "30": {
+        "n_samples": 30,
+        "trigger_rate": 0.0,
+        "acc_mean": 0.5035000000000001,
+        "acc_std": 0.00963068014212912
+      },
+      "40": {
+        "n_samples": 40,
+        "trigger_rate": 0.0,
+        "acc_mean": 0.5105000000000001,
+        "acc_std": 0.01909842925478428
+      },
+      "50": {
+        "n_samples": 50,
+        "trigger_rate": 0.0,
+        "acc_mean": 0.525,
+        "acc_std": 0.0405585995813465
+      },
+      "60": {
+        "n_samples": 60,
+        "trigger_rate": 0.0,
+        "acc_mean": 0.537,
+        "acc_std": 0.05559676249567055
+      },
+      "70": {
+        "n_samples": 70,
+        "trigger_rate": 0.0,
+        "acc_mean": 0.5770000000000001,
+        "acc_std": 0.11743508845315355
+      }
+    },
+    "merge": {
+      "10": {
+        "n_samples": 10,
+        "trigger_rate": 1.0,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "20": {
+        "n_samples": 20,
+        "trigger_rate": 1.0,
+        "acc_mean": 0.5,
+        "acc_std": 0.0
+      },
+      "30": {
+        "n_samples": 30,
+        "trigger_rate": 1.0,
+        "acc_mean": 0.5065,
+        "acc_std": 0.021971572542719826
+      },
+      "40": {
+        "n_samples": 40,
+        "trigger_rate": 1.0,
+        "acc_mean": 0.5414999999999999,
+        "acc_std": 0.08392109389182197
+      },
+      "50": {
+        "n_samples": 50,
+        "trigger_rate": 1.0,
+        "acc_mean": 0.557,
+        "acc_std": 0.08264986388373546
+      },
+      "60": {
+        "n_samples": 60,
+        "trigger_rate": 1.0,
+        "acc_mean": 0.5619999999999999,
+        "acc_std": 0.10332473082471591
+      },
+      "80": {
+        "n_samples": 80,
+        "trigger_rate": 0.95,
+        "acc_mean": 0.6045,
+        "acc_std": 0.1240755818039956
+      },
+      "100": {
+        "n_samples": 100,
+        "trigger_rate": 0.95,
+        "acc_mean": 0.639,
+        "acc_std": 0.11022250223978769
+      }
+    }
+  }
+}
