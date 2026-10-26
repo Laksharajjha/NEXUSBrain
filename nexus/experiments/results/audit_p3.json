@@ -1,0 +1,719 @@
+{
+  "n_seeds": 50,
+  "base_seed": 2000,
+  "seed_range": "2000..2049",
+  "worlds": {
+    "w1_split": {
+      "split_n": {
+        "train": 400,
+        "dev": 100,
+        "test_heldout": 100
+      },
+      "oracle": {
+        "train": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "dev": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "test_heldout": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        }
+      },
+      "shortcut_baselines": {
+        "sentence_only": {
+          "train": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_heldout": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        },
+        "scene_only": {
+          "train": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_heldout": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        }
+      },
+      "differential_naive_evaluate_mismatches": 0,
+      "identifiability": {
+        "min_count": 152,
+        "max_count": 230,
+        "counts": [
+          164,
+          208,
+          164,
+          170,
+          202,
+          184,
+          190,
+          186,
+          152,
+          180,
+          230,
+          196,
+          200,
+          194,
+          196,
+          204,
+          200,
+          192,
+          206,
+          186,
+          186,
+          188,
+          184,
+          160,
+          176,
+          202,
+          176,
+          196,
+          196,
+          204,
+          180,
+          176,
+          162,
+          182,
+          204,
+          180,
+          180,
+          172,
+          194,
+          208,
+          186,
+          188,
+          180,
+          194,
+          192,
+          184,
+          186,
+          172,
+          168,
+          196
+        ],
+        "decision": "split_blick_into_ball_and_cube"
+      }
+    },
+    "w2_exception": {
+      "split_n": {
+        "train": 300,
+        "dev": 100,
+        "test_heldout": 100
+      },
+      "oracle": {
+        "train": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "dev": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "test_heldout": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        }
+      },
+      "shortcut_baselines": {
+        "sentence_only": {
+          "train": {
+            "mean": 0.5066666666666668,
+            "std": 1.1214946133455537e-16,
+            "se": 1.586032892321652e-17,
+            "ci_low": 0.5066666666666668,
+            "ci_high": 0.5066666666666668,
+            "contains_05": false
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_heldout": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        },
+        "scene_only": {
+          "train": {
+            "mean": 0.5066666666666668,
+            "std": 1.1214946133455537e-16,
+            "se": 1.586032892321652e-17,
+            "ci_low": 0.5066666666666668,
+            "ci_high": 0.5066666666666668,
+            "contains_05": false
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_heldout": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        }
+      },
+      "differential_naive_evaluate_mismatches": 0,
+      "identifiability": {
+        "min_count": 298,
+        "max_count": 298,
+        "counts": [
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298,
+          298
+        ],
+        "decision": "retain_ball_plus_exceptions"
+      }
+    },
+    "w3_merge": {
+      "split_n": {
+        "train": 300,
+        "dev": 100,
+        "test_heldout": 100
+      },
+      "oracle": {
+        "train": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "dev": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "test_heldout": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        }
+      },
+      "shortcut_baselines": {
+        "sentence_only": {
+          "train": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_heldout": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        },
+        "scene_only": {
+          "train": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_heldout": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        }
+      },
+      "differential_naive_evaluate_mismatches": 0,
+      "identifiability": {
+        "min_count": 22,
+        "max_count": 52,
+        "counts": [
+          26,
+          42,
+          38,
+          30,
+          34,
+          42,
+          42,
+          34,
+          26,
+          26,
+          36,
+          30,
+          52,
+          26,
+          36,
+          46,
+          46,
+          40,
+          32,
+          34,
+          36,
+          32,
+          30,
+          28,
+          38,
+          38,
+          28,
+          30,
+          44,
+          40,
+          34,
+          42,
+          42,
+          34,
+          42,
+          36,
+          40,
+          40,
+          38,
+          22,
+          44,
+          34,
+          34,
+          30,
+          34,
+          36,
+          32,
+          30,
+          26,
+          34
+        ],
+        "decision": "merge_wug_and_tarn"
+      }
+    },
+    "w4_ambiguous": {
+      "split_n": {
+        "train": 80,
+        "dev": 40,
+        "test_ambiguous": 100
+      },
+      "oracle": {
+        "train": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "dev": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "test_ambiguous": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        }
+      },
+      "shortcut_baselines": {
+        "sentence_only": {
+          "train": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_ambiguous": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        },
+        "scene_only": {
+          "train": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_ambiguous": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        }
+      },
+      "differential_naive_evaluate_mismatches": 0,
+      "identifiability": {
+        "min_count": 100,
+        "max_count": 100,
+        "counts": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ],
+        "decision": "distinguish_ambiguous_hypotheses"
+      }
+    },
+    "w5_exceptions_cannot_match": {
+      "split_n": {
+        "train": 300,
+        "dev": 100,
+        "test_heldout": 100
+      },
+      "oracle": {
+        "train": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "dev": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        },
+        "test_heldout": {
+          "mean": 1.0,
+          "std": 0.0,
+          "min": 1.0
+        }
+      },
+      "shortcut_baselines": {
+        "sentence_only": {
+          "train": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_heldout": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        },
+        "scene_only": {
+          "train": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "dev": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          },
+          "test_heldout": {
+            "mean": 0.5,
+            "std": 0.0,
+            "se": 0.0,
+            "ci_low": 0.5,
+            "ci_high": 0.5,
+            "contains_05": true
+          }
+        }
+      },
+      "differential_naive_evaluate_mismatches": 0,
+      "identifiability": {
+        "min_count": 90,
+        "max_count": 150,
+        "counts": [
+          124,
+          100,
+          104,
+          90,
+          118,
+          116,
+          124,
+          110,
+          94,
+          148,
+          100,
+          126,
+          112,
+          138,
+          106,
+          100,
+          114,
+          108,
+          104,
+          92,
+          102,
+          144,
+          106,
+          128,
+          106,
+          120,
+          124,
+          110,
+          116,
+          132,
+          120,
+          108,
+          144,
+          110,
+          114,
+          120,
+          132,
+          108,
+          116,
+          128,
+          92,
+          102,
+          110,
+          114,
+          132,
+          150,
+          104,
+          128,
+          96,
+          102
+        ],
+        "decision": "split_zib_into_cube_and_star"
+      }
+    }
+  },
+  "ideal_observer": {
+    "w1_split": {
+      "world_id": "w1_split",
+      "seed": 2000,
+      "n_train": 400,
+      "n_test": 100,
+      "n_exceptions_required": 40,
+      "log_post_exception": -320.40020013343343,
+      "log_post_split": -24.400200133433415,
+      "log_post_multiple": -28.900200133433415,
+      "prob_exception": 2.7799397404856002e-129,
+      "prob_split": 0.9890130573694068,
+      "prob_multiple": 0.01098694263059318,
+      "winning_structure": "split",
+      "ideal_observer_test_accuracy_ceiling": 1.0
+    },
+    "w2_exception": {
+      "world_id": "w2_exception",
+      "seed": 2000,
+      "n_train": 300,
+      "n_test": 100,
+      "n_exceptions_required": 2,
+      "log_post_exception": -16.30015010007506,
+      "log_post_split": -24.30015010007506,
+      "log_post_multiple": -28.80015010007506,
+      "prob_exception": 0.9996609257292834,
+      "prob_split": 0.00033534888115660316,
+      "prob_multiple": 3.7253895598721346e-06,
+      "winning_structure": "exception",
+      "ideal_observer_test_accuracy_ceiling": 1.0
+    }
+  }
+}

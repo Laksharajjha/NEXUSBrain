@@ -1,9 +1,10 @@
 # NEXUS-0 Project Status
 
-**Last Updated**: 2026-10-25
-**Current Stage**: PHASE 1.6 COMPLETED (`gate-1.6`, `EXPLORATORY`)
+**Last Updated**: 2026-10-26
+**Current Stage**: STAGE P3-B COMPLETED (`prereg-p3`, Ready for Stage P3-C Restructuring Learner)
 **Current Branch**: `feature/phase-0-toy-world-eval`
-**PREREGISTRATION.md SHA-256**: `ef09666eb2bb96ca481ce05dc3dc5ca50fbe6d2143441ed38b062968313f695b`
+**Phase 1 PREREGISTRATION.md SHA-256**: `ef09666eb2bb96ca481ce05dc3dc5ca50fbe6d2143441ed38b062968313f695b` (Frozen & Intact)
+**Phase 3 PREREGISTRATION_P3.md SHA-256**: `bd08fe66a8160483e741e45928aea22ee0f6699d655da9fca43bd98b33b9140d` (Frozen & Hashed)
 
 ---
 
@@ -26,14 +27,20 @@
   - [x] **Task 3 (Does the Beam Matter?)**: Tested standard vs. garden-path stimulus order ($K \in \{1, 5, 50, 200\}$). Showed beam width is inert under i.i.d. random order, but earns its place decisively under garden paths ($K \ge 50$ achieves $0.592$ vs. $0.501$ for greedy $K=1$, $+0.0915$ $[+0.0753, +0.1080]$, $p < 10^{-15}$). Evaluated Baseline C `commit_after_n` sensitivity.
   - [x] **Task 4 (Does MDL Matter?)**: Tested variable-length worlds (filler/null words, homonyms/polysemy, synonyms) comparing `log2_bits` vs. `linear` vs. `flat` ($\alpha=0$). Proved `log2_bits` earns its place under filler words ($+0.0497$ $[+0.0325, +0.0674]$ dev gain with smaller model) and polysemy (compressing from $17.20$ to $12.96$ entries).
   - [x] **Task 5 (Report & Documentation)**: Delivered `PHASE1_6_REPORT.md` with comprehensive tables, bootstrap CIs, mechanism verdicts, and architectural recommendations for Phase 3. Updated `RERUNS.md` and test suite (71 passing tests).
+- **PHASE 3 (Restructuring: Split / Merge / Exception — Pre-registered)**:
+  - [x] **Stage P3-A (`gate-P3-A`)**: Created `nexus/world/restructure.py` with worlds W1–W5. Audited across 50 fresh seeds (`2000..2049`): Oracle = 100%, SentenceOnly and SceneOnly at chance (0.500) on all test splits, 0 naive_evaluate mismatches, identifiability $\ge 5$, split sample sizes reported, and exhaustive ideal observer bounds established for W1 ($P(\text{split}) = 0.989$) and W2 ($P(\text{exception}) = 0.9997$). Delivered `AUDIT_P3.md`.
+  - [x] **Stage P3-B (`gate-P3-B`)**: Authored `PREREGISTRATION_P3.md` (SHA-256: `bd08fe66a8160483e741e45928aea22ee0f6699d655da9fca43bd98b33b9140d`). Established hypotheses H1–H4, comparison set, metrics, and numeric pass criteria C1–C6. Added regression test `test_p3_b_preregistration_hash`. Tagged `prereg-p3`.
+  - [ ] **Stage P3-C (`gate-P3-C`)**: Extend NEXUS with multi-sense lexicon, 3 restructuring operators (Split, Merge, Exception), real incremental belief revision with append-only revision log, retention, and explainability citing restructuring events.
+  - [ ] **Stage P3-D (`gate-P3-D`)**: One-shot evaluation on W1–W5, seeds `2000..2049`, deliver `PHASE3_REPORT.md`.
+  - [ ] **Stage P3-E (`LIMITATIONS_P3.md`)**: Exploratory noise, sample efficiency, SQLite persistence, and limitations.
 
 ---
 
 ## Exact Commands to Verify
 ```bash
-# Run full test suite (71 passing tests)
+# Run full test suite (78 passing tests)
 .venv/bin/pytest -v
 
-# Run Phase 1.6 mechanisms evaluation suite (uses cached checkpoint if already computed)
-.venv/bin/python -m nexus.experiments.phase1_6_mechanisms
+# Run Stage P3-A audit suite across 50 seeds (2000..2049)
+.venv/bin/python -m nexus.eval.audit_p3
 ```
